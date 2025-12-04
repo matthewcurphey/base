@@ -1,0 +1,43 @@
+CREATE DATABASE PG ADMIN
+
+Open PG Admin
+
+Wait for password confirmation and type and hit enter - create_db-step1.png
+
+Expand Servers > PostgreSQL 15, then right click Databases and do Create > Database - create_db-step2.png
+
+Name database and put a comment in, and hit save - create_db-step3.png
+
+Should now see the database listed - create_db-step4.png
+
+
+LINK DATABSASE IN DBEAVER
+
+Open PG Admin (we are going to check our credentials)
+
+Right click the PostgreSQL server and click Properties - link_dbeaver-step1.png
+
+Navigate to the Connection tab to see credentials - link_dbeaver-step2.png
+
+Open DBeaver
+
+Click New Database Connection (top left) - link_dbeaver-step3.png
+
+Select PostgreSQL and hit next - link_dbeaver-step4.png
+
+Type in your credentials from previous step and click Finish - link_dbeaver-step5.png
+
+You may be prompted to download PostgreSQL driver files, click Download - link_dbeaver-step6.png
+
+Should now see the database listed - link_dbeaver-step7.png
+
+
+
+
+
+
+
+
+
+
+

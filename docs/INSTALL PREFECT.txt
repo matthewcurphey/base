@@ -1,0 +1,4 @@
+INSTALL PREFECT
+
+Use this for automation of the pipeline
+

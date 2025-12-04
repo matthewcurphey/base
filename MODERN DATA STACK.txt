@@ -1,0 +1,64 @@
+MODERN DATA STACK
+   
+                  ┌───────────────────────────────────────┐
+                     │               Airbyte                  │
+                     │     (Optional: SaaS/API Extraction)    │
+                     │   HubSpot | Salesforce | Stripe | etc. │
+                     └───────────────────────────────────────┘
+                                      ↓
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │                           PYTHON INGESTION (EL)                        │
+  │  Custom Extract from:                                                  │
+  │   • ERP (D365, Banner) via ODBC                                        │
+  │   • SQL sources                                                        │
+  │   • CSV/Excel/Flat files                                               │
+  │   • Legacy systems / internal APIs                                     │
+  │                                                                        │
+  │  Load to RAW layer in Postgres / Warehouse                             │
+  └────────────────────────────────────────────────────────────────────────┘
+                                      ↓
+                     ┌───────────────────────────────────────┐
+                     │                 DBT                    │
+                     │     (Transform: Staging + Marts)       │
+                     │   SQL Models | Tests | Docs | Lineage  │
+                     └───────────────────────────────────────┘
+                                      ↓
+   ┌──────────────────────────────────────────────────────────────────────────┐
+   │                         WAREHOUSE (Postgres / Fabric / Snowflake)       │
+   │                   Raw → Staging → Marts → Aggregates                    │
+   └──────────────────────────────────────────────────────────────────────────┘
+                                      ↓ - FOR HUMANS
+      ┌──────────────────────────────────────────────────────────────────┐
+      │                         POWER BI (BI Layer)                      │
+      │   Dashboards | Reports | Semantic Model                          │
+      │   Connects to:                                                   │
+      │     • Warehouse tables (Marts)                                   │
+      │     • Aggregated models (DAX + M queries optional)               │
+      └──────────────────────────────────────────────────────────────────┘
+
+                                      ↓ FOR MACHINES/APPS - DOESNT COME AFTER POWER BI, COMES INSTEAD OF - SERVES WEBSITES, SAAS, APPS, CUSTOM DASHBOARDS, AI, APPLICATIONS
+
+              ┌────────────────────────────────────────────┐
+              │                FASTAPI                      │
+              │  Serves Models, Metrics, or Custom APIs     │
+              │--------------------------------------------│
+              │  Use cases:                                │
+              │   • Turn your dbt models into APIs          │
+              │   • Serve AI/ML models                      │
+              │   • Internal microservices                  │
+              │   • Trigger jobs / webhooks                 │
+              └────────────────────────────────────────────┘
+
+                                      ↓ (Top Layer)
+
+                     ┌───────────────────────────────────────┐
+                     │              AIRFLOW                  │
+                     │      (Orchestrates EVERYTHING)        │
+                     │---------------------------------------│
+                     │ Schedules + dependencies + retries    │
+                     │ Runs:                                  │
+                     │   • Python pipelines                   │
+                     │   • Airbyte syncs                      │
+                     │   • dbt runs + tests                   │
+                     │   • FastAPI-triggered tasks            │
+                     └───────────────────────────────────────┘

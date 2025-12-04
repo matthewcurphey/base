@@ -1,0 +1,22 @@
+CREATE SCHEMA IN DBEAVER
+
+Open DBeaver
+
+Run following SQL to get schemas
+
+CREATE SCHEMA raw; - raw ingestion will go here
+CREATE SCHEMA staging; - after some dbt steps here
+CREATE SCHEMA marts; - ready to be served after dbt steps here
+
+create_schema_db-step1.png
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: banner
+    schema: raw
+    tables:
+      - name: banner_customers
+        description: "Raw Banner customer master table."
+
+
+
+

@@ -1,0 +1,29 @@
+INSTALL DBT
+
+run > pip install dbt-core dbt-postgres
+
+check > dbt --version
+
+output > 
+
+Core:
+  - installed: 1.10.15
+  - latest:    1.10.15 - Up to date!
+
+Plugins:
+  - postgres: 1.9.1 - Up to date!
+
+create dbt folder in project C:\base\dbt
+
+initiate > cd C:\base\dbt > dbt init analytics
+
+follow through the steps filling in info
+
+check > cd C:\base\dbt\analytics > dbt debug - the dbt project was setup as analytics inside dbt folder
+
+
+now we play with the models folder and schema to create different folders, and make sure our dbt_project is aligned with all models folders
+
+
+
+

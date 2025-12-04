@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: base_banner__customers
+    description: "Light cleanup and normalization of raw Banner customer master table."
+    columns:
+      - name: customer_account
+        description: "Natural key from Banner."
+
+  - name: stg_banner__customers
+    description: "Business-ready customer dimension fields built from base_banner__customers."
+    columns:
+      - name: customer_account
+        description: "Unique customer identifier."
+        tests:
+          - not_null
+      - name: data_area_id
+        description: "Company/entity identifier."
+        tests:
+          - not_null
+
+
+
+
+
