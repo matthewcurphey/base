@@ -9,40 +9,39 @@ staged as (
 
     select
         -- Natural keys
-        customer_account,
-        company,
+        customer_account:: text as customer_account,
+        company:: text as company,
 
         -- Contact info
-        email,
-        phone,
+        email::text as email,
+        phone::text as phone,
 
         -- Business attributes
-        customer_name,
-        credit_limit,
-        site_id,
-        name_alias,
-        customer_group_id,
-        credit_status_id,
-        sales_segment_id,
+        customer_name::text as customer_name,
+        credit_limit::numeric(18,2) as credit_limit,
+        site_id::text as site_id,
+        customer_group_id:: text as customer_group_id,
+        credit_status_id::text as credit_status_id,
+        sales_segment_id::text as sales_segment_id,
 
         -- Delivery address
-        delivery_address_description,
-        delivery_address_street,
-        delivery_address_city,
-        delivery_address_county,
-        delivery_address_state,
-        delivery_address_zipcode,
-        delivery_address_country,
+        delivery_address_description::text as delivery_address_description,
+        delivery_address_street::text as delivery_address_street,
+        delivery_address_city::text as delivery_address_city,
+        delivery_address_county::text as delivery_address_county,
+        delivery_address_state::text as delivery_address_state,
+        delivery_address_zipcode::text as delivery_address_zipcode,
+        delivery_address_country::text as delivery_address_country,
 
         -- Primary address
-        address_description,
-        full_primary_address,
-        address_street,
-        address_city,
-        address_county,
-        address_state,
-        address_zipcode,
-        address_country
+        address_description::text as address_description,
+        full_primary_address::text as full_primary_address,
+        address_street::text as address_street,
+        address_city::text as address_city,
+        address_county::text as address_county,
+        address_state::text as address_state,
+        address_zipcode::text as address_zipcode,
+        address_country::text as address_country
 
     from base
 )

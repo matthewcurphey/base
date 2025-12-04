@@ -1,25 +1,45 @@
 version: 2
 
+# BASE MODELS
 models:
   - name: base_banner__customers
-    description: "Light cleanup and normalization of raw Banner customer master table."
+    description: "Light cleanup of Banner Customers table."
     columns:
       - name: customer_account
-        description: "Natural key from Banner."
+        description: "Customer account number - key field."
+      - name: company
+        description: "Company - key field."
 
+  - name: base_banner__inventorytransactions
+    description: "Light cleanup of Inventory Transactions table."
+    columns:
+      - name: record_id
+        description: "Record_Id - key field."
+      - name: company
+        description: "Company - key field."
+
+
+# STAGING MODELS
   - name: stg_banner__customers
-    description: "Business-ready customer dimension fields built from base_banner__customers."
+    description: "Cleaned and typed Banner Customers."
     columns:
       - name: customer_account
-        description: "Unique customer identifier."
+        description: "Customer account number - key field."
         tests:
           - not_null
-      - name: data_area_id
-        description: "Company/entity identifier."
+      - name: company
+        description: "Company - key field."
         tests:
           - not_null
 
-
-
-
-
+  - name: stg_banner__inventorytransactions
+    description: "Cleaned and typed Inventory Transactions"
+    columns:
+      - name: record_id
+        description: "Record_Id - key field."
+        tests:
+          - not_null
+      - name: company
+        description: "Company - key field."
+        tests:
+          - not_null

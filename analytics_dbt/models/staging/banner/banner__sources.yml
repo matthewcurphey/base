@@ -6,6 +6,8 @@ sources:
     tables:
       - name: banner_customers
         description: "Raw Banner customer master table."
+      - name: banner_inventorytransactions
+        description: "Raw Banner inventory transactions table."
 
 
 
