@@ -5,9 +5,11 @@ sources:
     schema: raw
     tables:
       - name: banner_customers
-        description: "Raw Banner customer master table."
+        description: "Raw Banner Customers table."
       - name: banner_inventorytransactions
-        description: "Raw Banner inventory transactions table."
+        description: "Raw Banner Inventory Transactions table."
+      - name: banner_bom
+        description: "Raw Banner BOM table."
 
 
 

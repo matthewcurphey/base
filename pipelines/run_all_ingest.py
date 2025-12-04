@@ -9,6 +9,7 @@ from etl.jobs.banner_bom_ingest import ingest_banner_bom
 from etl.jobs.banner_routetransactions_ingest import ingest_banner_routetransactions
 from etl.jobs.banner_productionorders_ingest import ingest_banner_productionorders
 from etl.jobs.banner_salesorderlines_ingest import ingest_banner_salesorderlines
+from etl.jobs.banner_salesorderheaders_ingest import ingest_banner_salesorderheaders
 from etl.jobs.banner_invoicelines_ingest import ingest_banner_invoicelines
 from etl.jobs.banner_invoiceheaders_ingest import ingest_banner_invoiceheaders
 
@@ -41,6 +42,10 @@ def run_all_ingestions():
     ingest_banner_salesorderlines()
     print("Banner Sales Order Lines done.\n")
 
+    print("Ingesting Banner Sales Order Headers...")
+    ingest_banner_salesorderheaders()
+    print("Banner Sales Order Headers done.\n")
+
     print("Ingesting Banner Invoice Lines...")
     ingest_banner_invoicelines()
     print("Banner Invoice Lines done.\n")
@@ -48,9 +53,6 @@ def run_all_ingestions():
     print("Ingesting Banner Invoice Headers...")
     ingest_banner_invoiceheaders()
     print("Banner Invoice Headers done.\n")
-
-
-    
 
     print("All ingestion jobs completed successfully!")
 

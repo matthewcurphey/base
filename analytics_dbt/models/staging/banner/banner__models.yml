@@ -7,16 +7,17 @@ models:
     columns:
       - name: customer_account
         description: "Customer account number - key field."
-      - name: company
-        description: "Company - key field."
 
   - name: base_banner__inventorytransactions
     description: "Light cleanup of Inventory Transactions table."
     columns:
       - name: record_id
         description: "Record_Id - key field."
-      - name: company
-        description: "Company - key field."
+        
+  - name: base_banner__bom
+    description: "Light cleanup of BOM table."
+
+
 
 
 # STAGING MODELS
@@ -27,10 +28,7 @@ models:
         description: "Customer account number - key field."
         tests:
           - not_null
-      - name: company
-        description: "Company - key field."
-        tests:
-          - not_null
+          - unique
 
   - name: stg_banner__inventorytransactions
     description: "Cleaned and typed Inventory Transactions"
@@ -39,7 +37,7 @@ models:
         description: "Record_Id - key field."
         tests:
           - not_null
-      - name: company
-        description: "Company - key field."
-        tests:
-          - not_null
+          - unique
+
+  - name: stg_banner__bom
+    description: "Cleaned and typed BOM"
