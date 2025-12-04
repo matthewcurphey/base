@@ -10,6 +10,7 @@ from etl.jobs.banner_routetransactions_ingest import ingest_banner_routetransact
 from etl.jobs.banner_productionorders_ingest import ingest_banner_productionorders
 from etl.jobs.banner_salesorderlines_ingest import ingest_banner_salesorderlines
 from etl.jobs.banner_invoicelines_ingest import ingest_banner_invoicelines
+from etl.jobs.banner_invoiceheaders_ingest import ingest_banner_invoiceheaders
 
 
 def run_all_ingestions():
@@ -43,6 +44,10 @@ def run_all_ingestions():
     print("Ingesting Banner Invoice Lines...")
     ingest_banner_invoicelines()
     print("Banner Invoice Lines done.\n")
+
+    print("Ingesting Banner Invoice Headers...")
+    ingest_banner_invoiceheaders()
+    print("Banner Invoice Headers done.\n")
 
 
     

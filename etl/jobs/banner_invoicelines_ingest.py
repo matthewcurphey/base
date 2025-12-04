@@ -3,4 +3,4 @@ from etl.load.postgres_write import write_postgres_table
 
 def ingest_banner_invoicelines():
     df = extract_banner_invoicelines()
-    write_postgres_table(df, table="banner_invoicelines", schema="raw")
+    write_postgres_table(df, table="banner_invoicelines", schema="raw", if_exists="truncate")
