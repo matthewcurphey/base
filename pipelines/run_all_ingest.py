@@ -5,6 +5,11 @@ Executes all extract → raw load jobs in sequence.
 
 from etl.jobs.banner_customers_ingest import ingest_banner_customers
 from etl.jobs.banner_inventorytransactions_ingest import ingest_banner_inventorytransactions
+from etl.jobs.banner_bom_ingest import ingest_banner_bom
+from etl.jobs.banner_routetransactions_ingest import ingest_banner_routetransactions
+from etl.jobs.banner_productionorders_ingest import ingest_banner_productionorders
+from etl.jobs.banner_salesorderlines_ingest import ingest_banner_salesorderlines
+from etl.jobs.banner_invoicelines_ingest import ingest_banner_invoicelines
 
 
 def run_all_ingestions():
@@ -19,10 +24,28 @@ def run_all_ingestions():
     ingest_banner_inventorytransactions()
     print("Banner Inventory Transactions done.\n")
 
-    # Add more as you build them:
-    # print("→ Ingesting Banner Sales...")
-    # ingest_banner_sales()
-    # print("✓ Banner Sales done.\n")
+    print("Ingesting Banner BOMs...")
+    ingest_banner_bom()
+    print("Banner BOMs done.\n")
+
+    print("Ingesting Banner Route Transactions...")
+    ingest_banner_routetransactions()
+    print("Banner Route Transactions done.\n")
+
+    print("Ingesting Banner Production Orders...")
+    ingest_banner_productionorders()
+    print("Banner Production Orders done.\n")
+
+    print("Ingesting Banner Sales Order Lines...")
+    ingest_banner_salesorderlines()
+    print("Banner Sales Order Lines done.\n")
+
+    print("Ingesting Banner Invoice Lines...")
+    ingest_banner_invoicelines()
+    print("Banner Invoice Lines done.\n")
+
+
+    
 
     print("All ingestion jobs completed successfully!")
 
