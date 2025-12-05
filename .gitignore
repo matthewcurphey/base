@@ -1,0 +1,12 @@
+# Raw data
+data_raw/
+*.csv
+
+# DB files
+*.db
+*.sqlite
+
+# Logs / junk
+*.log
+*.tmp
+*.bak
