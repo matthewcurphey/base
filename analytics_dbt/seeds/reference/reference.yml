@@ -1,0 +1,8 @@
+version: 2
+
+seeds:
+  - name: ref_orginfo
+    description: "Static organization reference data."
+
+  - name: ref_calendar445
+    description: "Static calendar 445 reference data."

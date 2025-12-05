@@ -38,3 +38,33 @@ models:
     intermediate:
       +schema: intermediate
       +materialized: view
+    marts:
+      +schema: marts
+      +materialized: view
+
+
+# IMPORTANT FOR BRINGING IN THE SEEDS CSV's AND DEFINING THEIR FIELD TYPES
+seeds:
+  analytics_dbt:
+    +schema: reference
+    +quote_columns: false
+    reference:
+      ref_calendar445:
+        +column_types:
+          date: date
+          week_of_year: integer
+          week_of_month: integer
+          month: integer
+          year: integer
+          month_name: text
+      ref_orginfo:
+        +column_types:
+          org_number: text
+          org_name: text
+          org_code: text
+          org_country: text
+          org_vertical: text
+          org_company: text
+          org_region: text
+
+

@@ -10,7 +10,18 @@ sources:
         description: "Raw Banner Inventory Transactions table."
       - name: banner_bom
         description: "Raw Banner BOM table."
-
+      - name: banner_invoiceheaders
+        description: "Raw Banner Invoice Headers table."
+      - name: banner_invoicelines
+        description: "Raw Banner Invoice Lines table."
+      - name: banner_productionorders
+        description: "Raw Banner Production Orders table."
+      - name: banner_routetransactions
+        description: "Raw Banner Route Transactions table."
+      - name: banner_salesorderheaders
+        description: "Raw Banner Sales Order Headers table."
+      - name: banner_salesorderlines
+        description: "Raw Banner Sales Order Lines table."
 
 
 

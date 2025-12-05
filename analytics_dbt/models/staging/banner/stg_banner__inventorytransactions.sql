@@ -38,9 +38,9 @@ staged as (
         quantity::numeric(18,4)                       as quantity,
 
         -- Dates
-        physical_date::timestamp                      as physical_date,
-        financial_date::timestamp                     as financial_date,
-        financially_closed::timestamp                 as financially_closed,
+        physical_date::date                           as physical_date,
+        financial_date::date                          as financial_date,
+        financially_closed::date                      as financially_closed,
 
         -- Costs (monetary)
         financial_cost_amount::numeric(18,2)          as financial_cost_amount,

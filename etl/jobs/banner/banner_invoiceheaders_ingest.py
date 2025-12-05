@@ -1,4 +1,4 @@
-from etl.extract.banner_invoiceheaders_extract import extract_banner_invoiceheaders
+from etl.extract.banner.banner_invoiceheaders_extract import extract_banner_invoiceheaders
 from etl.load.postgres_write import write_postgres_table
 
 def ingest_banner_invoiceheaders():

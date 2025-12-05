@@ -1,0 +1,22 @@
+version: 2
+
+# BASE MODELS
+models:
+  - name: base_castle__sales
+    description: "Light cleanup of Castle Sales table."
+  - name: base_castle__dj
+    description: "Light cleanup of Castle DJ table."
+  - name: base_castle__inventory
+    description: "Light cleanup of Castle Inventory table."
+  - name: base_castle__ppsshprcv
+    description: "Light cleanup of Castle PPS SHP RCV table."
+
+# STAGING MODELS
+  - name: stg_castle__sales
+    description: "Cleaned and typed Castle Sales."
+  - name: stg_castle__dj
+    description: "Cleaned and typed Castle DJ."
+  - name: stg_castle__inventory
+    description: "Cleaned and typed Castle Inventory."
+  - name: stg_castle__ppsrcvshp
+    description: "Cleaned and typed Castle PPS RCV SHP."

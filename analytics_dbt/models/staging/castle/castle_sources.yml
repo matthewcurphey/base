@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: castle
+    schema: raw
+    tables:
+      - name: castle_sales
+        description: "Raw Castle Sales table."
+      - name: castle_dj
+        description: "Raw Castle DJ table."
+      - name: castle_inventory
+        description: "Raw Castle Inventory table."
+      - name: castle_ppsrcvshp
+        description: "Raw Castle PPS RCV SHP table."
+
+
+

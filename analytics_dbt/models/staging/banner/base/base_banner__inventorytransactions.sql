@@ -64,9 +64,9 @@ cleaned as (
         cast(quantity as numeric)      as quantity,
 
         -- Dates
-        cast(physical_date as timestamp) as physical_date,
-        cast(financial_date as timestamp) as financial_date,
-        cast(financially_closed as timestamp) as financially_closed,
+        cast(physical_date as date) as physical_date,
+        cast(financial_date as date) as financial_date,
+        cast(financially_closed as date) as financially_closed,
 
         -- Costs
         cast(financial_cost_amount as numeric) as financial_cost_amount,

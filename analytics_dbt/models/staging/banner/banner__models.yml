@@ -13,10 +13,30 @@ models:
     columns:
       - name: record_id
         description: "Record_Id - key field."
-        
+
   - name: base_banner__bom
     description: "Light cleanup of BOM table."
 
+  - name: base_banner__invoiceheaders
+    description: "Light cleanup of Invoice Headers table."
+    columns:
+      - name: invoice_id
+        description: "Invoice_Id - key field."
+  
+  - name: base_banner__invoicelines
+    description: "Light cleanup of Invoice Lines table."
+
+  - name: base_banner__productionorders
+    description: "Light cleanup of Production Orders table."
+
+  - name: base_banner__routetransactions
+    description: "Light cleanup of Route Transactions table."
+
+  - name: base_banner__salesorderheaders
+    description: "Light cleanup of Sales Order Headers table."
+
+  - name: base_banner__salesorderlines
+    description: "Light cleanup of Sales Order Lines table."
 
 
 
@@ -41,3 +61,27 @@ models:
 
   - name: stg_banner__bom
     description: "Cleaned and typed BOM"
+
+  - name: stg_banner__invoiceheaders
+    description: "Cleaned and typed Invoice Headers"
+    columns:
+      - name: invoice_id
+        description: "Invoice_Id - key field."
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_banner__invoicelines
+    description: "Light cleanup of Invoice Lines table."
+
+  - name: stg_banner__productionorders
+    description: "Light cleanup of Production Orders table."
+
+  - name: stg_banner__routetransactions
+    description: "Light cleanup of Route Transactions table."
+
+  - name: stg_banner__salesorderheaders
+    description: "Light cleanup of Sales Order Headers table."
+
+  - name: stg_banner__salesorderlines
+    description: "Light cleanup of Sales Order Lines table."

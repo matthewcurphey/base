@@ -1,4 +1,4 @@
-from etl.extract.banner_salesorderlines_extract import extract_banner_salesorderlines
+from etl.extract.banner.banner_salesorderlines_extract import extract_banner_salesorderlines
 from etl.load.postgres_write import write_postgres_table
 
 def ingest_banner_salesorderlines():
