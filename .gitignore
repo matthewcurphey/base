@@ -1,5 +1,5 @@
 # Raw data
-data_raw/
+etl/data_raw/
 *.csv
 
 # DB files
