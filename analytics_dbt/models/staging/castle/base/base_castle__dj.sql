@@ -75,7 +75,7 @@ cleaned as (
         trim(product_grade)                           as product_grade,
         trim(product_item_number)                     as product_item_number,
         trim(product_shape)                           as product_shape,
-        trim(product_primary_dimension)               as product_primary_dimension,
+        cast(product_primary_dimension as numeric(18,6))               as product_primary_dimension,
 
         trim(product_condition_1)                     as product_condition_1,
         trim(product_condition_2)                     as product_condition_2,

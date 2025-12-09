@@ -1,70 +1,85 @@
 {{ config(materialized='view') }}
 
-with base as (
-    select *
-    from {{ ref('base_castle__dj') }}
+WITH base AS (
+    SELECT *
+    FROM {{ ref('base_castle__dj') }}
 ),
 
-staged as (
+-- Clean up and split so_line_no
+staged AS (
 
-    select
-        date_completed::date                       as date_completed,
-        org::text                                  as org,
-        sales_order::text                           as sales_order,
-        so_line_no::text                            as so_line_no,
-        discrete_job_no::text                       as discrete_job_no,
+    SELECT
+        date_completed::date                       AS date_completed,
+        org::text                                  AS org,
+        sales_order::text                          AS sales_order,
 
-        comp_qty_per_assy::numeric(18,6)           as comp_qty_per_assy,
-        comp_qty_issued::numeric(18,6)             as comp_qty_issued,
-        comp_req_qty::numeric(18,6)                as comp_req_qty,
-        comp_uom::text                             as comp_uom,
+        -- Raw field preserved
+        so_line_no::text                           AS so_line_no,
 
-        component::text                            as component,
-        item::text                                 as item,
-        item_type::text                            as item_type,
-        product_form::text                         as product_form,
-        product_commodity::text                    as product_commodity,
-        product_grade::text                        as product_grade,
-        product_item_number::text                  as product_item_number,
-        product_shape::text                        as product_shape,
-        product_primary_dimension::text            as product_primary_dimension,
+        -- Normalize ".", "", null → NULL
+        CASE 
+            WHEN so_line_no IS NULL OR so_line_no IN ('', '.') THEN NULL
+            ELSE split_part(so_line_no, '.', 1)
+        END::text                                   AS so_line,
 
-        product_condition_1::text                  as product_condition_1,
-        product_condition_2::text                  as product_condition_2,
-        product_condition_3::text                  as product_condition_3,
+        CASE 
+            WHEN so_line_no IS NULL OR so_line_no IN ('', '.') THEN NULL
+            ELSE split_part(so_line_no, '.', 2)
+        END::text                                   AS so_shipment,
 
-        product_length::numeric(18,6)              as product_length,
-        product_special_feature_1::text            as product_special_feature_1,
-        product_special_feature_2::text            as product_special_feature_2,
-        product_special_feature_3::text            as product_special_feature_3,
-        product_surface::text                      as product_surface,
-        product_temper::text                       as product_temper,
-        product_width::numeric(18,6)               as product_width,
+        discrete_job_no::text                      AS discrete_job_no,
 
-        product_item_description::text             as product_item_description,
+        comp_qty_per_assy::numeric(18,6)           AS comp_qty_per_assy,
+        comp_qty_issued::numeric(18,6)             AS comp_qty_issued,
+        comp_req_qty::numeric(18,6)                AS comp_req_qty,
+        comp_uom::text                             AS comp_uom,
 
-        operation_code::text                       as operation_code,
-        resource_code::text                        as resource_code,
+        component::text                            AS component,
+        item::text                                 AS item,
+        item_type::text                            AS item_type,
+        product_form::text                         AS product_form,
+        product_commodity::text                    AS product_commodity,
+        product_grade::text                        AS product_grade,
+        product_item_number::text                  AS product_item_number,
+        product_shape::text                        AS product_shape,
+        product_primary_dimension::numeric(18,6)              AS product_primary_dimension,
 
-        hrs_earned::numeric(18,6)                  as hrs_earned,
-        dj_quantity_completed::numeric(18,6)        as dj_quantity_completed,
-        primary_uom_code::text                     as primary_uom_code,
+        product_condition_1::text                  AS product_condition_1,
+        product_condition_2::text                  AS product_condition_2,
+        product_condition_3::text                  AS product_condition_3,
 
-        quantity_com_weight::numeric(18,6)         as quantity_com_weight,
-        mtl_wip_value::numeric(18,4)               as mtl_wip_value,
-        dj_last_updated_by::text                   as dj_last_updated_by,
-        applied_resource_value::numeric(18,4)      as applied_resource_value,
-        comp_cost::numeric(18,4)                   as comp_cost,
-        hrs_remaining::numeric(18,6)               as hrs_remaining,
+        product_length::numeric(18,6)              AS product_length,
+        product_special_feature_1::text            AS product_special_feature_1,
+        product_special_feature_2::text            AS product_special_feature_2,
+        product_special_feature_3::text            AS product_special_feature_3,
+        product_surface::text                      AS product_surface,
+        product_temper::text                       AS product_temper,
+        product_width::numeric(18,6)               AS product_width,
 
-        job_status::text                           as job_status,
+        product_item_description::text             AS product_item_description,
 
-        start_quantity::numeric(18,6)              as start_quantity,
-        start_quantity_weight::numeric(18,6)       as start_quantity_weight,
+        operation_code::text                       AS operation_code,
+        resource_code::text                        AS resource_code,
 
-        dj_start_date::date                        as dj_start_date
+        hrs_earned::numeric(18,6)                  AS hrs_earned,
+        dj_quantity_completed::numeric(18,6)       AS dj_quantity_completed,
+        primary_uom_code::text                     AS primary_uom_code,
 
-    from base
+        quantity_com_weight::numeric(18,6)         AS quantity_com_weight,
+        mtl_wip_value::numeric(18,4)               AS mtl_wip_value,
+        dj_last_updated_by::text                   AS dj_last_updated_by,
+        applied_resource_value::numeric(18,4)      AS applied_resource_value,
+        comp_cost::numeric(18,4)                   AS comp_cost,
+        hrs_remaining::numeric(18,6)               AS hrs_remaining,
+
+        job_status::text                           AS job_status,
+
+        start_quantity::numeric(18,6)              AS start_quantity,
+        start_quantity_weight::numeric(18,6)       AS start_quantity_weight,
+
+        dj_start_date::date                        AS dj_start_date
+
+    FROM base
 )
 
-select * from staged
+SELECT * FROM staged

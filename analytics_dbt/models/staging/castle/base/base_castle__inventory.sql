@@ -52,7 +52,7 @@ cleaned as (
         trim(product_grade)                        as product_grade,
         trim(product_temper)                       as product_temper,
         trim(product_amc_container_spec)           as product_amc_container_spec,
-        trim(product_primary_dimension)            as product_primary_dimension,
+        cast(product_primary_dimension as numeric(18,6))            as product_primary_dimension,
 
         cast(product_length as numeric(18,6))      as product_length,
         cast(product_width as numeric(18,6))       as product_width,

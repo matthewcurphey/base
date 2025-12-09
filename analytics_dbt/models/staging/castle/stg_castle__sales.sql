@@ -60,7 +60,7 @@ staged as (
         product_customer::text                  as product_customer,
         product_shape::text                     as product_shape,
         product_stocking_uom::text              as product_stocking_uom,
-        product_primary_dimension::text         as product_primary_dimension,
+        product_primary_dimension::numeric(18,6)         as product_primary_dimension,
         product_temper::text                    as product_temper,
 
         product_length::numeric(18,6)           as product_length,

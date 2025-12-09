@@ -17,7 +17,7 @@ staged as (
         product_grade::text                       as product_grade,
         product_temper::text                      as product_temper,
         product_amc_container_spec::text          as product_amc_container_spec,
-        product_primary_dimension::text           as product_primary_dimension,
+        product_primary_dimension::numeric(18,6)           as product_primary_dimension,
 
         product_length::numeric(18,6)             as product_length,
         product_width::numeric(18,6)              as product_width,

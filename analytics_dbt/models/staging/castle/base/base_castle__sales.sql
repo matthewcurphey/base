@@ -138,7 +138,7 @@ cleaned as (
         trim(product_customer)                as product_customer,
         trim(product_shape)                   as product_shape,
         trim(product_stocking_uom)            as product_stocking_uom,
-        trim(product_primary_dimension)       as product_primary_dimension,
+        cast(product_primary_dimension as numeric(18,6))       as product_primary_dimension,
         trim(product_temper)                  as product_temper,
 
         cast(product_length as numeric(18,6)) as product_length,
