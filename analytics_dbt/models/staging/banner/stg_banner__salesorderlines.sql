@@ -28,7 +28,7 @@ staged as (
         -- Metadata
         sales_order_line_status::text          as sales_order_line_status,
         line_description::text                 as line_description,
-        product_size_id::text                  as product_size_id,
+        product_grade::text                  as product_grade,
         currency_code::text                    as currency_code,
 
         -- Logistics

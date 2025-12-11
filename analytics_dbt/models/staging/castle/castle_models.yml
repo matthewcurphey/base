@@ -8,7 +8,7 @@ models:
     description: "Light cleanup of Castle DJ table."
   - name: base_castle__inventory
     description: "Light cleanup of Castle Inventory table."
-  - name: base_castle__ppsshprcv
+  - name: base_castle__ppsrcvshp
     description: "Light cleanup of Castle PPS SHP RCV table."
 
 # STAGING MODELS

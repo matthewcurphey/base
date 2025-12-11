@@ -1,0 +1,175 @@
+================================================================================
+OPS KPI DASHBOARD — MASTER IMPLEMENTATION ROADMAP
+================================================================================
+
+HIGH-LEVEL DESIGN
+-----------------
+Toggle Periods:
+    - MTD (Month-to-Date)
+    - QTD (Quarter-to-Date)
+    - TTM (Trailing Twelve Months)
+    - PM (Previous Month Close - for EOM reviews)
+
+Dashboard Views:
+    1. Executive Operations View
+         - Productivity (politically safest)
+         - Yield Loss (safe except Banner detail)
+         - Overship (politically sensitive)
+    2. Regional Operations View
+    3. Branch Operations View
+    4. Line-Level Export (for analysts / operations managers)
+
+
+DATA ARCHITECTURE OVERVIEW
+--------------------------
+1. STG (per ERP)
+    - Banner and Castle cleaned, typed, renamed tables
+    - No business logic
+
+2. INT LAYER (3 layers)
+    a. ERP-specific INT
+       - int_*__banner
+       - int_*__castle
+       (normalize each ERP separately)
+
+    b. Harmonized INT - GET IN SAME FORMAT AND UNION TOGETHER
+       - int_*__harmonized
+       (Banner + Castle unioned → one domain model)
+
+    c. Unified INT - START MODELLING AND DOING CALCS
+       - int_* (final SQL-level contract tables)
+       - prepare for marts
+
+3. PRE-PYTHON INT TABLES
+    - int_yield__pre_python
+    - int_overship__pre_python
+    - int_productivity__pre_python
+
+4. PYTHON HEAVY LOGIC
+    - yield_engineering.py (Banner engineered yield logic)
+    - overship_matcher.py (1:1, 1:M, group matching)
+    - productivity_allocator.py (worked hrs → job-level output)
+
+    Output written back as:
+       - yield_python_output
+       - overship_python_output
+       - productivity_python_output
+
+5. INT FINAL
+    - int_yield__final
+    - int_overship__final
+    - int_productivity__final
+
+6. MARTS (Gold Layer)
+    - fct_sales
+    - fct_invoices
+    - fct_production_orders
+    - fct_inventory_movements
+
+7. KPI MARTS (Gold+ Layer)
+    - fct_yield
+    - fct_overship
+    - fct_productivity
+
+
+FOLDER STRUCTURE (dbt + Python)
+-------------------------------
+project_root/
+│
+├── dbt_project/
+│   ├── models/
+│   │   ├── base/
+│   │   ├── stg/banner/
+│   │   ├── stg/castle/
+│   │   ├── int/
+│   │   │   ├── sales/banner + castle + harmonized + final
+│   │   │   ├── invoices/banner + castle + harmonized + final
+│   │   │   ├── production_orders/banner + castle + harmonized + final
+│   │   │   ├── bom/banner + harmonized + final
+│   │   │   ├── route/banner + harmonized + final
+│   │   │   ├── yield/banner + castle + harmonized + pre_python + final
+│   │   │   ├── overship/pre_python + final
+│   │   │   └── productivity/pre_python + final
+│   │   └── marts/sales + operations + metrics
+│   │
+│   ├── seeds/
+│   ├── snapshots/
+│   └── tests/
+│
+├── python/
+│   ├── yield_engineering.py
+│   ├── overship_matcher.py
+│   ├── productivity_allocator.py
+│   └── shared_connection.py
+│
+├── orchestrate/
+│   └── run_pipeline.py
+│
+└── README.md
+
+
+PIPELINE EXECUTION FLOW
+-----------------------
+1. INGEST
+    - Load Banner + Castle raw data → warehouse (schema: raw)
+
+2. DBT (pre_python)
+    - Build STG tables
+    - Build INT ERP-specific tables
+    - Build INT harmonized tables
+    - Build INT unified contract tables
+    - Build INT pre_python staging tables
+    Command:
+        dbt run --select tag:pre_python
+
+3. PYTHON (heavy logic)
+    - yield_engineering.py → yield_python_output
+    - overship_matcher.py → overship_python_output
+    - productivity_allocator.py → productivity_python_output
+
+4. DBT (post_python)
+    - Wrap python output into final INT models
+    - Build all marts + KPI marts
+    Command:
+        dbt run --select tag:post_python
+
+5. BI / PRESENTATION
+    - Power BI dashboards (Exec, Regional, Branch)
+    - Line-level export tables
+    - Optional: PDF exports
+
+
+ORCHESTRATION (Simple example)
+------------------------------
+import subprocess, sys
+
+def run(desc, cmd):
+    print(f"\n--- {desc} ---")
+    try: subprocess.run(cmd, check=True)
+    except: sys.exit(1)
+
+run("Ingest", ["python", "ingest_raw_data.py"])
+run("dbt pre-python", ["dbt", "run", "--select", "tag:pre_python"])
+run("Python yield", ["python", "python/yield_engineering.py"])
+run("Python overship", ["python", "python/overship_matcher.py"])
+run("Python productivity", ["python", "python/productivity_allocator.py"])
+run("dbt post-python", ["dbt", "run", "--select", "tag:post_python"])
+
+print("\nPipeline completed successfully.")
+
+
+WHAT THIS ENABLES
+-----------------
+✓ Executive visibility across all ERPs (Banner + Castle)  
+✓ Politically safe entry point via Productivity  
+✓ Yield Loss and Overship ready when needed  
+✓ Line-level auditability for COO / EVP Ops / BCG  
+✓ Consistent metric layer (MTD/QTD/TTM toggle)  
+✓ Clean domain models, scalable, testable  
+✓ Hybrid SQL + Python pipeline for advanced logic  
+✓ One consolidated source of truth for operations performance  
+
+
+================================================================================
+END OF OPS KPI DASHBOARD MASTER ROADMAP
+================================================================================

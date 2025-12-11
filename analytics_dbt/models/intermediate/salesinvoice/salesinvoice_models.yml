@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: int_castle__salesinvoice
+    description: "Castle: Converts stg_castle__sales into a clean SalesInvoice table at SO/Line/Shipment grain."
+
+  - name: int_banner__salesinvoice
+    description: "Banner: Merges Sales lines and invoice lines"
+
+  - name: int__salesinvoice
+    description: "Harmonized multi-ERP SalesInvoice model. Standardizes column names and unions Castle and Banner SalesInvoice data."
+
+ 

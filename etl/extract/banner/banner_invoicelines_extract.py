@@ -3,11 +3,6 @@ from etl.utils.connect_lakehouse import get_lakehouse_connection
 
 
 def extract_banner_invoicelines():
-    """
-    Extract Banner invoice lines data from the Fabric Lakehouse SQL endpoint.
-    Returns a Pandas DataFrame exactly as the source provides it (no renaming).
-    """
-
     query = """
         SELECT
             dataAreaId,
@@ -22,14 +17,14 @@ def extract_banner_invoicelines():
             SalesPrice,
             ItemId,
             LineAmount
-        FROM dbo.CustInvoiceTransBiEntitiesV1;
-
+        FROM dbo.CustInvoiceTransBiEntitiesV2;
     """
 
     with get_lakehouse_connection() as conn:
         df = pd.read_sql(query, conn)
 
     return df
+
 
 
 

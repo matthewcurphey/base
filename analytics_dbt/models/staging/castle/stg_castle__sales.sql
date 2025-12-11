@@ -17,16 +17,23 @@ staged as (
         shipment_nbr::text                      as shipment_nbr,
         line_transaction_type::text             as line_transaction_type,
 
+        case 
+            when invoice_date = '1970-01-01' then null
+            else invoice_date
+        end::date                                 as invoice_date,
+
+        case
+            when actual_ship_date = '1900-01-01' then null
+            else actual_ship_date
+        end::date                                  as actual_ship_date,
         order_date::date                        as order_date,
-        invoice_date::date                      as invoice_date,
-        actual_ship_date::date                  as actual_ship_date,
         quote_date::date                        as quote_date,
         request_date::date                      as request_date,
         promise_date::date                      as promise_date,
 
-        ordered_qty::numeric(18,6)              as ordered_qty,
+        ordered_qty::numeric(18,4)              as ordered_qty,
         ordered_uom::text                       as ordered_uom,
-        ordered_pcs::numeric(18,6)              as ordered_pcs,
+        ordered_pcs::numeric(18,4)              as ordered_pcs,
 
         freight_cost::numeric(18,4)             as freight_cost,
         freight_revenue_usd::numeric(18,4)      as freight_revenue_usd,
@@ -45,7 +52,7 @@ staged as (
         invoiced_lbs::numeric(18,4)             as invoiced_lbs,
         invoiced_pcs::numeric(18,4)             as invoiced_pcs,
         invoiced_qty::numeric(18,4)             as invoiced_qty,
-        uom::text                               as uom,
+        invoiced_uom::text                               as invoiced_uom,
         ordered_lbs::numeric(18,4)              as ordered_lbs,
         matl_gp_usd::numeric(18,4)              as matl_gp_usd,
         tgp_pct::numeric(18,6)                   as tgp_pct,

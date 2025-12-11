@@ -42,7 +42,7 @@ with raw as (
         "Invoiced_Lbs"                    as invoiced_lbs,
         "Invoiced_Pcs"                    as invoiced_pcs,
         "Invoiced_Qty"                    as invoiced_qty,
-        "UOM"                             as uom,
+        "UOM"                             as invoiced_uom,
         "Ordered_Lbs"                     as ordered_lbs,
         "Matl_GP_(US$)"                   as matl_gp_usd,
         "TGP_pct"                         as tgp_pct,
@@ -93,7 +93,7 @@ cleaned as (
         cast(cut_length as numeric(18,6))     as cut_length,
 
         trim(ordered_uom)                     as ordered_uom,
-        trim(uom)                              as uom,
+        trim(invoiced_uom)                              as invoiced_uom,
 
         /* Dates */
         cast(order_date as date)              as order_date,

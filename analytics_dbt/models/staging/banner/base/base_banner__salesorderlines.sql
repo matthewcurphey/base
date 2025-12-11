@@ -15,7 +15,7 @@ with raw as (
         "RequestedReceiptDate"        as requested_receipt_date,
         "OrderedSalesQuantity"        as ordered_sales_quantity,
         "LineAmount"                  as line_amount,
-        "ProductSizeId"               as product_size_id,
+        "ProductSizeId"               as product_grade,
         "SalesPrice"                  as sales_price,
         "SalesOrderNumber"            as sales_order_number,
         "SalesOrderLineStatus"        as sales_order_line_status,
@@ -53,7 +53,7 @@ cleaned as (
         -- Metadata
         trim(sales_order_line_status)                as sales_order_line_status,
         trim(line_description)                       as line_description,
-        trim(product_size_id)                        as product_size_id,
+        trim(product_grade)                        as product_grade,
         trim(currency_code)                          as currency_code,
 
         -- Logistics
