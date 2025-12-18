@@ -3,7 +3,13 @@ version: 2
 models:
   - name: int_foundation_castle__mfg_prodorder
     description: "castle production orders at prod order grain"
+  - name: int_foundation_castle__mfg_operations
+    description: "castle production orders at prod order x op code grain"
+
+    
   - name: int_foundation_banner__mfg_prodorder
     description: "castle production orders at prod order grain"
   - name: int_foundation_banner__mfg_operations
     description: "banner routeoperations at prod order x operation grain"
+  - name: int_foundation_banner__mfg_expectedusage
+    description: "banner bom at prod order x item grain"
