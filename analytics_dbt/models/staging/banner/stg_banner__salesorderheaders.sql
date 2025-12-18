@@ -31,9 +31,18 @@ staged as (
         -- Dates
         order_creation_date::date           as order_creation_date,
         requested_receipt_date::date        as requested_receipt_date,
-        confirmed_receipt_date::date        as confirmed_receipt_date,
+
+        case 
+            when confirmed_receipt_date = '1900-01-01' then null
+            else confirmed_receipt_date
+        end::date as confirmed_receipt_date,
+
         requested_shipping_date::date       as requested_shipping_date,
-        confirmed_shipping_date::date       as confirmed_shipping_date,
+        
+        case 
+            when confirmed_shipping_date = '1900-01-01' then null
+            else confirmed_shipping_date
+        end::date as confirmed_shipping_date,
 
         -- Customer info
         email::text                         as email,

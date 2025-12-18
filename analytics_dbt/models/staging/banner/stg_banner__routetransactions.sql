@@ -11,13 +11,20 @@ staged as (
         -- Identifiers
         company::text                            as company,
         production_order_number::text            as production_order_number,
-        operation_number::text                   as operation_number,
+        operation_number::int                   as operation_number,
         operation_id::text                       as operation_id,
-        route_operation_sequence::text           as route_operation_sequence,
+        route_operation_sequence::int           as route_operation_sequence,
 
         -- Dates
-        scheduled_from_date::date                as scheduled_from_date,
-        scheduled_end_date::date                 as scheduled_end_date,
+        case 
+            when scheduled_from_date = '1900-01-01' then null
+            else scheduled_from_date
+        end::date as scheduled_from_date,
+        
+        case 
+            when scheduled_end_date = '1900-01-01' then null
+            else scheduled_end_date
+        end::date as scheduled_end_date,
 
         -- Quantities / Times
         process_quantity::numeric(18,6)          as process_quantity,

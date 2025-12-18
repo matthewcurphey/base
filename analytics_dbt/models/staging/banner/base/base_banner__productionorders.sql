@@ -11,7 +11,7 @@ with raw as (
         P."ProductionOrderStatus"                as production_order_status,
         P."StartedDate"                          as started_date,
         P."DeliveryDate"                         as delivery_date,
-        P."ProductSizeId"                        as product_size_id,
+        P."ProductSizeId"                        as grade,
         P."DemandSalesOrderNumber"               as demand_sales_order_number,
         P."SourceBOMVersionValidityDate"         as source_bom_version_validity_date,
         P."EstimatedQuantity"                    as estimated_quantity,
@@ -65,7 +65,7 @@ cleaned as (
         trim(sales_unit_symbol)                      as sales_unit_symbol,
 
         -- Metadata fields
-        trim(product_size_id)                        as product_size_id,
+        trim(grade)                        as grade,
         trim(production_site_id)                     as production_site_id,
         trim(source_bom_id)                          as source_bom_id
 

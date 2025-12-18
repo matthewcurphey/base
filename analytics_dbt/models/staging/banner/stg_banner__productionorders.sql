@@ -15,9 +15,21 @@ staged as (
         production_order_status::text              as production_order_status,
 
         -- Date fields
-        started_date::date                         as started_date,
-        delivery_date::date                        as delivery_date,
-        ended_date::date                           as ended_date,
+        case 
+            when started_date = '1900-01-01' then null
+            else started_date
+        end::date as started_date,  
+
+        case 
+            when delivery_date = '1900-01-01' then null
+            else delivery_date
+        end::date as delivery_date,
+
+        case 
+            when ended_date = '1970-01-01' then null
+            else ended_date
+        end::date as ended_date,
+
         source_bom_version_validity_date::date     as source_bom_version_validity_date,
 
         -- Demand / dependencies
@@ -35,7 +47,7 @@ staged as (
         sales_unit_symbol::text                    as sales_unit_symbol,
 
         -- Metadata
-        product_size_id::text                      as product_size_id,
+        grade::text                      as grade,
         production_site_id::text                   as production_site_id,
         source_bom_id::text                        as source_bom_id
 

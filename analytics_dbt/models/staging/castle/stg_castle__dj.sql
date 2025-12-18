@@ -59,6 +59,7 @@ staged AS (
         product_item_description::text             AS product_item_description,
 
         operation_code::text                       AS operation_code,
+        operation_sequence_number::int            AS operation_sequence_number,
         resource_code::text                        AS resource_code,
 
         hrs_earned::numeric(18,6)                  AS hrs_earned,

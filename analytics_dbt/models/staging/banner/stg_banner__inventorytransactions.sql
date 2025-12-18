@@ -38,9 +38,20 @@ staged as (
         quantity::numeric(18,4)                       as quantity,
 
         -- Dates
-        physical_date::date                           as physical_date,
-        financial_date::date                          as financial_date,
-        financially_closed::date                      as financially_closed,
+        case 
+            when physical_date = '1900-01-01' then null
+            else physical_date
+        end::date as physical_date,
+
+        case 
+            when financial_date = '1900-01-01' then null
+            else financial_date
+        end::date as financial_date,
+
+        case 
+            when financially_closed = '1900-01-01' then null
+            else financially_closed
+        end::date as financially_closed,
 
         -- Costs (monetary)
         financial_cost_amount::numeric(18,2)          as financial_cost_amount,

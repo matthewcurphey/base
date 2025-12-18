@@ -17,7 +17,11 @@ staged as (
 
         -- Date fields
         invoice_date::date                   as invoice_date,
-        delivery_date::date                  as delivery_date,
+
+        case 
+            when delivery_date = '1900-01-01' then null
+            else delivery_date
+        end::date as delivery_date,
 
         -- Quantities & pricing
         inventory_quantity::numeric(18,6)    as inventory_quantity,

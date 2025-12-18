@@ -33,6 +33,7 @@ with raw as (
         "Product_Temper"                      as product_temper,
         "Product__Width"                      as product_width,
         "Product_Item_Description"            as product_item_description,
+        "Operation_Seq_Num"                   as operation_sequence_number,
         "Operation_Code"                      as operation_code,
         "Resource_Code"                       as resource_code,
         "Hrs_Earned"                          as hrs_earned,
@@ -92,6 +93,7 @@ cleaned as (
         trim(product_item_description)                as product_item_description,
 
         trim(operation_code)                          as operation_code,
+        cast(operation_sequence_number as integer)    as operation_sequence_number,
         trim(resource_code)                           as resource_code,
 
         cast(hrs_earned as numeric(18,6))             as hrs_earned,

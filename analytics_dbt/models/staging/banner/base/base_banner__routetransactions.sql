@@ -27,9 +27,9 @@ cleaned as (
         -- Keys & identifiers
         lower(trim(company))                        as company,
         trim(production_order_number)               as production_order_number,
-        trim(operation_number)                      as operation_number,
+        cast(operation_number as integer)                      as operation_number,
         trim(operation_id)                          as operation_id,
-        trim(route_operation_sequence)              as route_operation_sequence,
+        cast(route_operation_sequence as integer)              as route_operation_sequence,
 
         -- Dates
         cast(scheduled_from_date as date)           as scheduled_from_date,
