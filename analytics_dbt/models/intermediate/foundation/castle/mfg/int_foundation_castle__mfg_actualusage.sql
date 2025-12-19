@@ -2,7 +2,7 @@
 
 with src as (
 
-    -- Raw Castle discrete job / component expected usage
+    -- Raw Castle discrete job / component usage
     select *
     from {{ ref('stg_castle__dj') }}
 
@@ -13,25 +13,24 @@ productionorder_rows as (
 
     select
         'castle'                    as company,
-        min(org)                    as org,
+        min(org)                         as org,
         discrete_job_no             as dj_nbr,
 
         max(dj_start_date)          as dj_start_date,
 
+
         max(component)              as comp_item,
         max(comp_uom)               as comp_uom,
 
-        -- expected usage fields
         max(comp_cost)              as localfx_comp_cost,
-        max(comp_qty_per_assy)      as comp_qty_per_assy,
-        max(comp_req_qty)           as comp_expected_qty
+        max(comp_qty_issued)        as comp_issued_qty
 
     from src
     group by discrete_job_no
 
 ),
 
--- 2️⃣ Derive currency from org (business rule)
+-- 2️⃣ Derive currency from site (business rule)
 currency_derived as (
 
     select
@@ -81,9 +80,7 @@ select
 
     comp_item,
     comp_uom,
-
-    comp_qty_per_assy,
-    comp_expected_qty,
+    comp_issued_qty,
 
     currency_code,
     localfx_comp_cost,
@@ -91,12 +88,11 @@ select
     coalesce(fx_rate_to_usd, 1.0)           as fx_rate_to_usd,
     fx_effective_date,
 
-    -- expected cost in USD
     localfx_comp_cost
-        * coalesce(fx_rate_to_usd, 1.0)      as comp_cost_usd,
-
+        * coalesce(fx_rate_to_usd, 1.0)     as comp_cost_usd,
+    
     localfx_comp_cost
         * coalesce(fx_rate_to_usd, 1.0)
-        * comp_expected_qty                as comp_expected_usd
+        * comp_issued_qty                   as comp_issued_usd
 
 from fx_joined

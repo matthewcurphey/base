@@ -85,13 +85,24 @@ def run_all_castle_ingestions():
     ingest_castle_inventory()
     print("Castle Inventory done.\n")
 
-
     print("All Castle ingestion jobs completed successfully!")
+
+from etl.jobs.fx.fxrates_ingest import ingest_fxrates
+
+def run_all_other_ingestions():
+    print("Starting Other ingestion pipelines...")
+
+    print("Imgesting FX Rates...")
+    ingest_fxrates()
+    print("FX Rates done.")
+
+
 
 
 def run_all_ingestions():
     run_all_banner_ingestions()
     run_all_castle_ingestions()
+    run_all_other_ingestions()
     
 
 if __name__ == "__main__":
