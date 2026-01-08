@@ -35,6 +35,12 @@ staged AS (
         comp_uom::text                             AS comp_uom,
 
         component::text                            AS component,
+        case
+            when component like '%.CO' then replace(component, '.CO', '')
+            when component like '%.BO' then replace(component, '.BO', '')
+            else component
+        end:: text as component_clean,
+
         item::text                                 AS item,
         item_type::text                            AS item_type,
         product_form::text                         AS product_form,

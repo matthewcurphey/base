@@ -19,6 +19,7 @@ productionorder_rows as (
         max(dj_start_date)          as dj_start_date,
 
         max(component)              as comp_item,
+        max(component_clean)        as comp_item_clean,
         max(comp_uom)               as comp_uom,
 
         -- expected usage fields
@@ -80,6 +81,7 @@ select
     org,
 
     comp_item,
+    comp_item_clean,
     comp_uom,
 
     comp_qty_per_assy,

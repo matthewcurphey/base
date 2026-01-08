@@ -20,6 +20,7 @@ productionorder_rows as (
 
 
         max(component)              as comp_item,
+        max(component_clean)        as comp_item_clean,
         max(comp_uom)               as comp_uom,
 
         max(comp_cost)              as localfx_comp_cost,
@@ -79,6 +80,7 @@ select
     org,
 
     comp_item,
+    comp_item_clean,
     comp_uom,
     comp_issued_qty,
 
