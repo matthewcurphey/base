@@ -66,5 +66,9 @@ seeds:
           org_vertical: text
           org_company: text
           org_region: text
-
+      ref_wpl:
+        +column_types:
+          item: text
+          wpl_uom: text
+          wpl: float
 
