@@ -1,14 +1,17 @@
 {{ config(materialized='view') }}
 
 with src as (
+
     select *
-    from {{ ref('stg_castle__dj') }}
+    from {{ ref('int_foundation_stgcastledj_fxwpl') }}
+
 ),
 
 /* =====================================================
    1) Roll up to discrete job level
 ===================================================== */
 productionorder_rows as (
+
     select
         'castle'                  as company,
         discrete_job_no           as dj_nbr,
@@ -46,82 +49,75 @@ productionorder_rows as (
 
         min(job_status)                 as job_status,
         min(dj_start_date)              as dj_start_date,
-        min(dj_last_updated_by)         as dj_last_updated_by
+        min(dj_last_updated_by)         as dj_last_updated_by,
+
+        /* =======================
+           Component + FX (upstream)
+        ======================= */
+        max(component)              as comp_item,
+        max(component_clean)        as comp_item_clean,
+        max(comp_uom)               as comp_uom,
+        max(comp_cost)              as localfx_comp_cost,
+
+        max(currency_code)          as currency_code,
+        max(fx_rate_to_usd)         as fx_rate_to_usd,
+        max(fx_effective_date)      as fx_effective_date
 
     from src
     group by discrete_job_no
-),
-
-/* =====================================================
-   2) Component rollup (job grain)
-===================================================== */
-component_rows as (
-    select
-        discrete_job_no           as dj_nbr,
-
-        max(component)            as comp_item,
-        max(component_clean)      as comp_item_clean,
-        max(comp_uom)             as comp_uom,
-        max(comp_cost)            as localfx_comp_cost,
-
-        case
-            when min(org) in ('MXM', 'MTY', 'MCH', 'MXQ') then 'MXN'
-            when min(org) in ('ENT', 'ENA')              then 'EUR'
-            else 'USD'
-        end                        as currency_code,
-
-        min(dj_start_date)        as dj_start_date
-
-    from src
-    group by discrete_job_no
-),
-
-/* =====================================================
-   3) FX lookup (EXACT parity with existing logic)
-===================================================== */
-fx_joined as (
-
-    select
-        c.*,
-
-        fx.fx_rate        as fx_rate_to_usd,
-        fx.fx_date        as fx_effective_date
-
-    from component_rows c
-
-    left join lateral (
-        select
-            fx_date,
-            fx_rate
-        from raw.fxrates
-        where from_currency = c.currency_code
-          and to_currency   = 'USD'
-          and fx_date <= c.dj_start_date
-        order by fx_date desc
-        limit 1
-    ) fx
-      on c.currency_code <> 'USD'
 )
 
 /* =====================================================
-   4) Final projection
+   2) Final projection (pure math only)
 ===================================================== */
 select
-    p.*,
+    company,
+    dj_nbr,
+    complete_date,
+    dj_start_date,
+    org,
 
-    f.comp_item,
-    f.comp_item_clean,
-    f.comp_uom,
+    so_nbr,
+    so_line,
+    so_shipment,
 
-    f.currency_code,
-    f.localfx_comp_cost,
+    product_form,
+    product_commodity,
+    product_grade,
+    product_item_number,
+    product_shape,
+    product_primary_dimension,
+    product_condition_1,
+    product_condition_2,
+    product_condition_3,
+    product_length,
+    product_special_feature_1,
+    product_special_feature_2,
+    product_special_feature_3,
+    product_surface,
+    product_temper,
+    product_width,
+    product_item_description,
 
-    coalesce(f.fx_rate_to_usd, 1.0)           as fx_rate_to_usd,
-    f.fx_effective_date,
+    complete_qty,
+    start_qty,
+    job_uom,
+    start_qty_weight,
+    complete_qty_weight,
 
-    f.localfx_comp_cost
-        * coalesce(f.fx_rate_to_usd, 1.0)         as comp_cost_usd
+    job_status,
+    dj_last_updated_by,
 
-from productionorder_rows p
-left join fx_joined f
-  on p.dj_nbr = f.dj_nbr
+    comp_item,
+    comp_item_clean,
+    comp_uom,
+
+    currency_code,
+    localfx_comp_cost,
+    fx_rate_to_usd,
+    fx_effective_date,
+
+    localfx_comp_cost
+        * fx_rate_to_usd            as comp_cost_usd
+
+from productionorder_rows
