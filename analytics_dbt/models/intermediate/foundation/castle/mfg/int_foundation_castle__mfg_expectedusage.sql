@@ -33,7 +33,9 @@ productionorder_rows as (
         -- FX fields (already resolved upstream)
         max(currency_code)          as currency_code,
         max(fx_rate_to_usd)         as fx_rate_to_usd,
-        max(fx_effective_date)      as fx_effective_date
+        max(fx_effective_date)      as fx_effective_date,
+        max(wpl)                    as wpl,
+        max(wpl_uom)                as wpl_uom
 
     from src
     group by discrete_job_no
@@ -55,18 +57,24 @@ select
     comp_qty_per_assy,
     comp_expected_qty,
 
-    currency_code,
-    localfx_comp_cost,
+    wpl,
+    wpl_uom,
+    case
+        when comp_uom = 'LBS' then
+            coalesce(comp_expected_qty, 0)
 
-    fx_rate_to_usd,
-    fx_effective_date,
+        when comp_uom = 'MT' then
+            coalesce(comp_expected_qty, 0)
+            * coalesce(wpl, 0)
+            * 2.2046
 
-    -- expected cost in USD
-    localfx_comp_cost
-        * fx_rate_to_usd            as comp_cost_usd,
+        when comp_uom = 'KGS' then
+            coalesce(comp_expected_qty, 0)
+            * 2.2046
 
-    localfx_comp_cost
-        * fx_rate_to_usd
-        * comp_expected_qty         as comp_expected_usd
+        else
+            coalesce(comp_expected_qty, 0)
+            * coalesce(wpl, 0)
+    end as comp_expected_lbs
 
 from productionorder_rows

@@ -28,11 +28,14 @@ productionorder_rows as (
         -- quantities & costs (local FX)
         max(comp_cost)              as localfx_comp_cost,
         max(comp_qty_issued)        as comp_issued_qty,
+        max(mtl_wip_value)          as mtl_wip_value,
 
         -- FX fields (already resolved upstream)
         max(currency_code)          as currency_code,
         max(fx_rate_to_usd)         as fx_rate_to_usd,
-        max(fx_effective_date)      as fx_effective_date
+        max(fx_effective_date)      as fx_effective_date,
+        max(wpl)                    as wpl,
+        max(wpl_uom)                as wpl_uom
 
     from src
     group by discrete_job_no
@@ -52,18 +55,27 @@ select
     comp_uom,
     comp_issued_qty,
 
-    currency_code,
-    localfx_comp_cost,
+    mtl_wip_value
+        * fx_rate_to_usd            as comp_issued_usd,
+    wpl,
+    wpl_uom,
+    case
+        when comp_uom = 'LBS' then
+            coalesce(comp_issued_qty, 0)
 
-    fx_rate_to_usd,
-    fx_effective_date,
+        when comp_uom = 'MT' then
+            coalesce(comp_issued_qty, 0)
+            * coalesce(wpl, 0)
+            * 2.2046
 
-    -- USD cost derivations
-    localfx_comp_cost
-        * fx_rate_to_usd            as comp_cost_usd,
+        when comp_uom = 'KGS' then
+            coalesce(comp_issued_qty, 0)
+            * 2.2046
 
-    localfx_comp_cost
-        * fx_rate_to_usd
-        * comp_issued_qty           as comp_issued_usd
+        else
+            coalesce(comp_issued_qty, 0)
+            * coalesce(wpl, 0)
+    end as comp_issued_lbs
+
 
 from productionorder_rows

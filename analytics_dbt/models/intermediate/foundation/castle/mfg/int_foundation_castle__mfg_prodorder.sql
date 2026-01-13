@@ -61,7 +61,10 @@ productionorder_rows as (
 
         max(currency_code)          as currency_code,
         max(fx_rate_to_usd)         as fx_rate_to_usd,
-        max(fx_effective_date)      as fx_effective_date
+        max(fx_effective_date)      as fx_effective_date,
+        max(wpl)                    as wpl,
+        max(wpl_uom)                as wpl_uom
+        
 
     from src
     group by discrete_job_no
@@ -103,7 +106,6 @@ select
     start_qty,
     job_uom,
     start_qty_weight,
-    complete_qty_weight,
 
     job_status,
     dj_last_updated_by,
@@ -118,6 +120,10 @@ select
     fx_effective_date,
 
     localfx_comp_cost
-        * fx_rate_to_usd            as comp_cost_usd
+        * fx_rate_to_usd            as comp_cost_usd,
+    wpl,
+    wpl_uom,
+    complete_qty_weight             as comp_complete_lbs
+
 
 from productionorder_rows
