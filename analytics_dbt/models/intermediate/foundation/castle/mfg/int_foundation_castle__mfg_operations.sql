@@ -12,6 +12,7 @@ productionorder_rows as (
 
     select
         'castle'                    as company,
+        max(org)                    as org,
         discrete_job_no             as dj_nbr,
         operation_sequence_number   as operation_sequence,
         operation_code              as operation_code,

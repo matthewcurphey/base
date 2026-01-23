@@ -12,7 +12,7 @@ models:
 
   - name: int_foundation_banner__mfg_prodorder
     description: "castle production orders at prod order grain"
-  - name: int_foundation_banner__mfg_operations
+  - name: int_foundation_banner__mfg_routesteps
     description: "banner routeoperations at prod order x operation grain"
   - name: int_foundation_banner__mfg_expectedusageitem
     description: "banner bom at prod order x item grain"

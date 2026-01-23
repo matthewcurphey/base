@@ -16,12 +16,12 @@ bom_rows as (
         /* =======================
            ENGINEERING INPUTS
            ======================= */
-        max(bom_line_quantity)            as bom_line_quantity,
-        max(bom_line_quantity_denominator) as bom_line_quantity_denominator,
+        sum(bom_line_quantity)            as bom_line_quantity,
+        sum(bom_line_quantity_denominator) as bom_line_quantity_denominator,
 
         /* canonical engineered ratio */
-        max(bom_line_quantity_denominator)
-            / nullif(max(bom_line_quantity), 0)
+        sum(bom_line_quantity_denominator)
+            / nullif(sum(bom_line_quantity), 0)
             as expected_yield,
 
         /* =======================
