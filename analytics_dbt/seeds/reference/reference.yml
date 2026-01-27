@@ -9,3 +9,9 @@ seeds:
 
   - name: ref_wpl
     description: "Weight per length for Castle items."
+
+  - name: ref_opname
+    description: "Maps op_code to op_name for Castle and Banner"
+
+  - name: ref_yieldrank
+    description: "Dictates which op_name yield loss is assigned to"

@@ -7,8 +7,7 @@ models:
     description: "picked qty to expected order yield"
   - name: int_banner__yield_03_pickyieldorder
     description: "consolidation in what was picked v what we expect, giving an expected yield"
-
-
+    
   - name: int_castle__yield_01_prodexpectedactual
     description: "brings together production, expected usage, actual usage at dj grain"
 

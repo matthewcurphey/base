@@ -71,4 +71,12 @@ seeds:
           item: text
           wpl_uom: text
           wpl: float
-
+      ref_opname:
+        +column_types:
+          op_code: text
+          op_name: text
+      ref_yieldrank:
+        +column_types:
+          op_name: text
+          yield_rank_ban: integer
+          yield_rank_cas: integer
