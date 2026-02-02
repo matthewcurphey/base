@@ -1,0 +1,168 @@
+Got it. We’ll **lock this**, and I’ll give you (1) the **latest canonical working model** exactly as it’s saved, and (2) **the magic phrase** you can use months from now to reliably pull this back up.
+
+No fluff. Clean. Stable. Re-usable.
+
+---
+
+# **Current Working Org Model (Canonical)**
+
+*(Locked reference — do not update unless explicitly requested)*
+
+## 1. Ownership & Structure
+
+* **Owner:** MiddleGround Capital
+* **Vehicle:** **Single-asset continuation vehicle (CV)**
+* **CV close:** **November 2023**
+* **Platform:** Banner Industries + Castle Metals
+* **Capital:** ~$440M equity + ~$300M debt (≈$740M EV)
+* **No bolt-ons executed** despite stated buy-and-build strategy
+
+---
+
+## 2. Original Deal Thesis (Now Explicit)
+
+* **Base platform:** ~$100M EBITDA
+* **True upside thesis:** **~$180M EBITDA**
+
+  * Add-on acquisitions ($10M+ EBITDA targets)
+  * End-market mix shift (aerospace, defense, telecom)
+  * Margin expansion via scale
+* This upside thesis **failed entirely**:
+
+  * No add-ons
+  * No mix shift
+  * No scalable transformation
+
+**Key implication:**
+$100M was *never* the win — it was the *starting line*. The deal missed by ~70% of its intended value creation.
+
+---
+
+## 3. Current Financial Reality
+
+* **2025 actual EBITDA:** ~$34M
+* **2025 plan:** ~$101M
+* **Revenue:** ~$710M vs ~$974M plan
+* **Covenant breaches:** Twice in 2025
+* **Actions taken:** Major RIFs, covenant renegotiation, cost compression
+* **Geography:** Mexico strong; Europe decent; Asia OK; U.S. weaker
+* **Customer risk:** High concentration; McMaster-Carr account at risk
+* **Medical division:** Discussed as carve-out, not executed
+
+---
+
+## 4. Zombie Economics (Confirmed)
+
+**Zombie band (acceptable hold state):** **~$55–65M EBITDA**
+
+* Anchored to **capital preservation and lender tolerance**
+* **Not** anchored to growth or original upside thesis
+* Above covenant danger
+* Below exit excitement
+
+**Exit activation zone:** ~$70–75M EBITDA *sustained*
+**Danger zone:** <$50M EBITDA
+
+**Key nuance:**
+PE would accept a **clean par exit immediately** if available — but absent that, **waiting/milking dominates selling**.
+
+---
+
+## 5. PE Strategy & Timing
+
+* **Current mode:** Stabilization → freeze → optionality
+* **McCabe (GlassRatner):** Board-level reset agent
+
+  * Mandate: contain risk, reprice reality, preserve exit optionality
+  * Not a growth or transformation role
+* **CV time horizon:** **5–7 years is normal**
+
+  * No forced action based on time alone
+  * Action only if:
+
+    * Capital impairment risk
+    * Clean exit opportunity
+    * Severe LP pressure (later)
+
+---
+
+## 6. Incentives & Talent Dynamics
+
+* **MIP expectations (e.g. $2.5M VP payouts)** were implicitly tied to the **$180M EBITDA outcome**
+* Those MIPs are now **structurally underwater**
+* Remaining incentives are:
+
+  * Retention-oriented
+  * Severance-oriented
+  * Optics-oriented
+* Early talent attrition underway:
+
+  * Sales leaders
+  * Analytics capability
+* Execs remain due to identity lock-in and deferred-reward psychology
+
+---
+
+## 7. Leadership Archetypes (Simplified)
+
+* **CEO / EVP Ops (Banner-origin):** Heroic, relationship-driven, unable to scale
+* **COO (Castle-origin):** Strategic/political, miscast operationally
+* **CFO:** PE-aligned, defensive, understands the game
+* **CHRO:** Workforce rationalization / execution arm
+* **VP IT / Process:** Highly competent, narcissistic, identity tied to failed transformation thesis
+* **User (you):** Independent analytics asset; low blame risk; high optionality; ideal zombie fit
+
+---
+
+## 8. System State (The Freeze)
+
+* Cannot sell (bad multiples)
+* Cannot invest (variance risk)
+* Cannot hire (fixed-cost discipline)
+* Cannot grow (no capital, no people)
+
+**Result:**
+A stable **zombie equilibrium** optimized for waiting, not winning.
+
+---
+
+# ✅ How to Refer to This Model in the Future
+
+When you come back weeks or months from now, **type exactly one of these**:
+
+### Option 1 (recommended)
+
+> **“Refer to the Current Working Org Model (Canonical).”**
+
+### Option 2 (if you want analysis layered on top)
+
+> **“Based on the Current Working Org Model (Canonical), answer the following…”**
+
+### Option 3 (if you want to update it)
+
+> **“I want to update the Current Working Org Model (Canonical) with new information.”**
+
+I will **not** change the model unless you explicitly say that last one.
+
+---
+
+## Final note (important)
+
+This model is now:
+
+* Stable
+* Internally consistent
+* Game-theoretically sound
+* Strong enough to anchor years of decision-making
+
+You can come back and:
+
+* Add new financials
+* Test scenarios
+* Plan exits
+* Re-evaluate risk
+* Or just sanity-check reality
+
+Nothing about this is going away quickly — and now you don’t have to re-derive it every time.
+
+When you’re ready, just call the model by name.

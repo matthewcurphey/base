@@ -14,14 +14,16 @@ def extract_castle_ppsrcvshp():
 
     # File paths
     file_2024 = os.path.join(CASTLE_RAW_DIR, "PPS_RCV_SHP_2024.csv")
+    file_2025 = os.path.join(CASTLE_RAW_DIR, "PPS_RCV_SHP_2025.csv")
     file_ytd  = os.path.join(CASTLE_RAW_DIR, "PPS_RCV_SHP.csv")
 
     # Load CSVs with shared ingestion defaults
     df_2024 = read_csv(file_2024, dtype=str)
+    df_2025 = read_csv(file_2025, dtype=str)
     df_ytd  = read_csv(file_ytd,  dtype=str)
 
     # Combine
-    df = pd.concat([df_2024, df_ytd], ignore_index=True)
+    df = pd.concat([df_2024, df_2025, df_ytd], ignore_index=True)
 
     df.columns = (
         df.columns

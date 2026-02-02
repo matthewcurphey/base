@@ -6,7 +6,11 @@ models:
   - name: int_banner__yield_02_actualexpectedorder
     description: "picked qty to expected order yield"
   - name: int_banner__yield_03_pickyieldorder
-    description: "consolidation in what was picked v what we expect, giving an expected yield"
+    description: "consolidation what was picked v what we expect, giving an expected yield"
+  - name: int_banner__yield_04_pickyieldcomplete
+    description: "adds on the actual produced quantity to give us actual yield"
+  - name: int_banner_yield_routeattribution
+    description: "takes the route transactions table and gets us yield loss operation, and concatenated steps"
     
   - name: int_castle__yield_01_prodexpectedactual
     description: "brings together production, expected usage, actual usage at dj grain"
