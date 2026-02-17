@@ -23,7 +23,7 @@ calendar as (
 
 
 select
-    c.org_company as company,
+    g.org_company as company,
     g.org_country as country,
     g.org_vertical as vertical,
     g.org_region as region,
@@ -39,8 +39,8 @@ select
     y.prod_status as prod_status,
 
     y.complete_date as complete_date,
-    c.complete_year as complete_year,
-    c.complete_month as complete_month,
+    c.year as complete_year,
+    c.month as complete_month,
     
     o.operation_ids as op_ids,
     o.operation_names as op_names,
@@ -77,7 +77,7 @@ left join operations o
     and y.production_order_number = o.production_order_number
 
 left join org g
-    and y.org_code = g.org_code
+    on y.org_code = g.org_code
 
 left join calendar c
     on y.complete_date = c.date
