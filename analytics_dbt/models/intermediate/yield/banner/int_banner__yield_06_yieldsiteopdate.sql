@@ -31,7 +31,7 @@ select
     y.org_code as org_code,
     g.org_name as org_name,
 
-    y.production_order_number as production_order_number,
+    y.production_order_number as prod_number,
 
     y.item as item,
     y.grade as grade,
