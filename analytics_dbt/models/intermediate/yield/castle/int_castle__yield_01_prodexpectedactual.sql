@@ -79,27 +79,27 @@ ac as (
 
 select
     -- ✅ FINAL schema definition lives here
-        pe.company,
-        pe.org,
-        pe.dj_nbr,
-        pe.job_status,
-        pe.complete_date,
-        pe.so_nbr,
-        pe.so_line,
-        pe.so_shipment,
-        pe.product_form,
-        pe.product_commodity,
-        pe.product_grade,
-        pe.product_temper,
-        pe.product_item_number,
-        pe.start_qty,
-        pe.complete_qty,
-        pe.job_uom,
-        pe.comp_item_clean,
-        pe.comp_complete_lbs,
-        pe.comp_expected_lbs,
-        ac.comp_issued_usd,
-        ac.comp_issued_lbs
+        pe.company as company,
+        pe.org as org,
+        pe.dj_nbr as dj_nbr,
+        pe.job_status as job_status,
+        pe.complete_date as complete_date,
+        pe.so_nbr as so_nbr,
+        pe.so_line as so_line,
+        pe.so_shipment as so_shipment,
+        pe.product_form as product_form,
+        pe.product_commodity as product_commodity,
+        pe.product_grade as product_grade,
+        pe.product_temper as product_temper,
+        pe.product_item_number as product_item_number,
+        pe.start_qty as start_qty,
+        pe.complete_qty as complete_qty,
+        pe.job_uom as job_uom,
+        pe.comp_item_clean as comp_item_clean,
+        pe.comp_complete_lbs as comp_complete_lbs,
+        pe.comp_expected_lbs as comp_expected_lbs,
+        ac.comp_issued_usd as comp_issued_usd,
+        ac.comp_issued_lbs as comp_issued_lbs
 
 from pr_ex pe
 left join ac

@@ -9,10 +9,20 @@ models:
     description: "consolidation what was picked v what we expect, giving an expected yield"
   - name: int_banner__yield_04_pickyieldcomplete
     description: "adds on the actual produced quantity to give us actual yield"
+  - name: int_banner__yield_05_prodyield
+    description: "add production order meta to yield"
+  - name: int_banner__yield_06_yieldsiteopdate
+    description: "adds op code, site details, date details before final"
+  - name: int_banner_yield_final
+    description: "banner final yield output"
   - name: int_banner_yield_routeattribution
-    description: "takes the route transactions table and gets us yield loss operation, and concatenated steps"
+    description: "takes Banner route transactions table and gets us yield loss operation, and concatenated steps"
     
   - name: int_castle__yield_01_prodexpectedactual
     description: "brings together production, expected usage, actual usage at dj grain"
+  - name: int_castle__yield_02_expectedactualyield
+    description: "calculates the usd values and actual/expected yield"
 
+  - name: int_castle_yield_routeattribution
+    description: "takes Castle operations table and gets us yield loss operation, and concatenated steps"
 

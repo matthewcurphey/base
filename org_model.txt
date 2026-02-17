@@ -1,12 +1,13 @@
-Got it. We’ll **lock this**, and I’ll give you (1) the **latest canonical working model** exactly as it’s saved, and (2) **the magic phrase** you can use months from now to reliably pull this back up.
-
-No fluff. Clean. Stable. Re-usable.
+Understood.
+Below is the fully updated and locked version.
 
 ---
 
 # **Current Working Org Model (Canonical)**
 
 *(Locked reference — do not update unless explicitly requested)*
+
+---
 
 ## 1. Ownership & Structure
 
@@ -22,11 +23,13 @@ No fluff. Clean. Stable. Re-usable.
 ## 2. Original Deal Thesis (Now Explicit)
 
 * **Base platform:** ~$100M EBITDA
+
 * **True upside thesis:** **~$180M EBITDA**
 
   * Add-on acquisitions ($10M+ EBITDA targets)
   * End-market mix shift (aerospace, defense, telecom)
   * Margin expansion via scale
+
 * This upside thesis **failed entirely**:
 
   * No add-ons
@@ -34,7 +37,7 @@ No fluff. Clean. Stable. Re-usable.
   * No scalable transformation
 
 **Key implication:**
-$100M was *never* the win — it was the *starting line*. The deal missed by ~70% of its intended value creation.
+$100M was *never* the win — it was the *starting line*. The deal missed by ~70% of intended value creation.
 
 ---
 
@@ -51,31 +54,76 @@ $100M was *never* the win — it was the *starting line*. The deal missed by ~70
 
 ---
 
+## 3A. 2026 Stated Operating Target (Town Hall Anchor)
+
+**Public 2026 Target (CEO stated):**
+
+* **Revenue:** ~$800M
+* **EBITDA:** ~$80M
+* Described as: *“Very achievable.”*
+
+### Structural Comparison to 2025 Actuals
+
+* Revenue: ~$710M → $800M (+$90M, ~13% growth)
+* EBITDA: ~$34M → $80M (+$46M, >2.3x expansion)
+
+### Implied Margin Target
+
+$80M on $800M revenue = **10% EBITDA margin**
+2025 actual ≈ **4.8% margin**
+
+Target therefore implies:
+
+* Material margin recovery
+* Pricing discipline
+* Cost compression holding
+* Mix improvement
+* Yield and operational efficiency gains
+
+### Canonical Interpretation
+
+If achieved and sustained:
+
+* Moves company above zombie band
+* Restores lender confidence
+* Enables stabilized (non-distressed) exit optionality
+* Does not restore original $180M thesis
+
+If materially missed:
+
+* Reinforces zombie equilibrium
+* Extends hold period
+* Increases executive pressure and instability
+
+---
+
 ## 4. Zombie Economics (Confirmed)
 
 **Zombie band (acceptable hold state):** **~$55–65M EBITDA**
 
-* Anchored to **capital preservation and lender tolerance**
-* **Not** anchored to growth or original upside thesis
+* Anchored to capital preservation and lender tolerance
+* Not anchored to growth or original upside thesis
 * Above covenant danger
 * Below exit excitement
 
-**Exit activation zone:** ~$70–75M EBITDA *sustained*
+**Exit activation zone:** ~$70–75M EBITDA sustained
 **Danger zone:** <$50M EBITDA
 
-**Key nuance:**
-PE would accept a **clean par exit immediately** if available — but absent that, **waiting/milking dominates selling**.
+**Nuance:**
+PE would accept a clean par exit immediately if available — but absent that, waiting/milking dominates selling.
 
 ---
 
 ## 5. PE Strategy & Timing
 
 * **Current mode:** Stabilization → freeze → optionality
+
 * **McCabe (GlassRatner):** Board-level reset agent
 
   * Mandate: contain risk, reprice reality, preserve exit optionality
   * Not a growth or transformation role
-* **CV time horizon:** **5–7 years is normal**
+
+* **CV time horizon:** 5–7 years is normal
 
   * No forced action based on time alone
   * Action only if:
@@ -88,29 +136,48 @@ PE would accept a **clean par exit immediately** if available — but absent tha
 
 ## 6. Incentives & Talent Dynamics
 
-* **MIP expectations (e.g. $2.5M VP payouts)** were implicitly tied to the **$180M EBITDA outcome**
-* Those MIPs are now **structurally underwater**
+* MIP expectations (e.g. ~$2.5M VP payouts) were implicitly tied to the $180M EBITDA outcome
+
+* Those MIPs are now structurally underwater
+
 * Remaining incentives are:
 
   * Retention-oriented
   * Severance-oriented
   * Optics-oriented
+
 * Early talent attrition underway:
 
   * Sales leaders
   * Analytics capability
+
 * Execs remain due to identity lock-in and deferred-reward psychology
 
 ---
 
 ## 7. Leadership Archetypes (Simplified)
 
-* **CEO / EVP Ops (Banner-origin):** Heroic, relationship-driven, unable to scale
+* **CEO (Banner-origin):** Heroic, relationship-driven, decisive under pressure, relies on proven operators
+
+* **EVP Ops (Banner-origin):** Relationship-driven, near retirement, low appetite for structural disruption
+
 * **COO (Castle-origin):** Strategic/political, miscast operationally
-* **CFO:** PE-aligned, defensive, understands the game
+
+* **CFO:** PE-aligned, defensive, understands capital structure reality
+
 * **CHRO:** Workforce rationalization / execution arm
-* **VP IT / Process:** Highly competent, narcissistic, identity tied to failed transformation thesis
-* **User (you):** Independent analytics asset; low blame risk; high optionality; ideal zombie fit
+
+* **VP IT / Process:** Technically capable, ego-attached to transformation thesis, politically weakened after bypass
+
+* **User (you):**
+
+  > **Independent Analytics Translation Asset**
+  > Formal title: Operations & Business Improvement Manager
+  > Actual function: Cross-system operational analytics translator (yield, scrap, incentives, ERP consolidation)
+  > CEO-tested (BCG execution)
+  > Low visibility, low ego, high utility
+  > Outside formal execution chains
+  > Low blame surface, high replacement difficulty
 
 ---
 
@@ -122,47 +189,48 @@ PE would accept a **clean par exit immediately** if available — but absent tha
 * Cannot grow (no capital, no people)
 
 **Result:**
-A stable **zombie equilibrium** optimized for waiting, not winning.
+Stable zombie equilibrium optimized for waiting, not winning.
 
 ---
 
-# ✅ How to Refer to This Model in the Future
+## 9. Power Map & Removal Mechanics (User Position)
 
-When you come back weeks or months from now, **type exactly one of these**:
+**Formal Reporting Line:** VP IT / Process
+**Operational Influence:** Cross-functional (Ops, Finance, Yield, Incentives)
+**Historical Signal:** CEO bypassed chain of command to use directly
 
-### Option 1 (recommended)
+### Who Can Fire?
 
-> **“Refer to the Current Working Org Model (Canonical).”**
+| Actor   | Formal Authority | Practical Likelihood           | Risk to Them                           |
+| ------- | ---------------- | ------------------------------ | -------------------------------------- |
+| VP IT   | Yes              | Low                            | Exposes weakness; loses execution node |
+| EVP Ops | Influence        | Very Low                       | Creates operational blind spot         |
+| CHRO    | Procedural       | Very Low                       | Requires CEO alignment                 |
+| CEO     | Absolute         | Low (absent performance issue) | None                                   |
 
-### Option 2 (if you want analysis layered on top)
+### Removal Trigger Conditions
 
-> **“Based on the Current Working Org Model (Canonical), answer the following…”**
+At risk only if:
 
-### Option 3 (if you want to update it)
+1. Severe cost wave targeting salary band
+2. CEO disengages from operational analytics entirely
+3. Credible replacement with both business + technical depth appears
+4. User becomes politically visible or threatening
 
-> **“I want to update the Current Working Org Model (Canonical) with new information.”**
+### Current Position Classification
 
-I will **not** change the model unless you explicitly say that last one.
+* Not expensive relative to value
+* Not politically threatening
+* Operationally useful
+* Hard to replace quietly
+
+**Game-theoretic classification:**
+Asymmetric firing-risk asset — structurally safe in freeze state unless macro shock.
 
 ---
 
-## Final note (important)
+Model now internally consistent, updated with 2026 anchor, and stable.
 
-This model is now:
+When ready to reference:
 
-* Stable
-* Internally consistent
-* Game-theoretically sound
-* Strong enough to anchor years of decision-making
-
-You can come back and:
-
-* Add new financials
-* Test scenarios
-* Plan exits
-* Re-evaluate risk
-* Or just sanity-check reality
-
-Nothing about this is going away quickly — and now you don’t have to re-derive it every time.
-
-When you’re ready, just call the model by name.
+> “Refer to the Current Working Org Model (Canonical).”

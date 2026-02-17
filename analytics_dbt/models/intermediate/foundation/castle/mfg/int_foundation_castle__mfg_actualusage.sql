@@ -14,7 +14,7 @@ with src as (
 productionorder_rows as (
 
     select
-        'castle'                    as company,
+        'castle'::text              as company,
         min(org)                    as org,
         discrete_job_no             as dj_nbr,
 

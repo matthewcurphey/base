@@ -14,6 +14,7 @@ select
     pyo.company as company,
     pyo.production_order_number as production_order_number,
     pyo.picked_items as picked_items,
+
     pyo.picked_lbs as picked_lbs,
     pyo.picked_usd as picked_usd,
     
@@ -23,8 +24,16 @@ select
     pq.complete_lbs / nullif(pyo.expected_yield, 0) as engineered_lbs,
     pq.complete_lbs / nullif(pyo.expected_yield, 0) * (pyo.picked_usd / nullif(pyo.picked_lbs, 0)) as engineered_usd,
 
-    pyo.expected_yield as expected_yield,
-    pq.complete_lbs / nullif(pyo.picked_lbs, 0) as actual_yield
+    pyo.picked_lbs - pq.complete_lbs as yieldloss_lbs,
+    pyo.picked_usd - (pq.complete_lbs * (pyo.picked_usd / nullif(pyo.picked_lbs, 0))) as yieldloss_usd,
+
+    pyo.picked_lbs - (pq.complete_lbs / nullif(pyo.expected_yield, 0)) as yieldvar_lbs,  
+    pyo.picked_usd - (pq.complete_lbs / nullif(pyo.expected_yield, 0) * (pyo.picked_usd / nullif(pyo.picked_lbs, 0))) as yieldvar_usd,  
+
+    pyo.expected_yield as engineered_yield,
+    pq.complete_lbs / nullif(pyo.picked_lbs, 0) as actual_yield,
+
+    (pq.complete_lbs / nullif(pyo.picked_lbs, 0))/nullif(pyo.expected_yield,0) as yield_performance 
 
 from pick_yield_order pyo
 left join produced_qty pq
