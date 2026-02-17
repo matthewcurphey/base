@@ -54,3 +54,5 @@ select
     y.yield_performance as yield_performance
 
 from yield y
+where y.complete_date >= '2024-01-01'
+  and y.prod_status in ('Completed')
