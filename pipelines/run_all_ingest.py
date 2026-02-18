@@ -88,6 +88,7 @@ def run_all_castle_ingestions():
     print("All Castle ingestion jobs completed successfully!")
 
 from etl.jobs.fx.fxrates_ingest import ingest_fxrates
+from etl.jobs.vorne.vorne_ingest import ingest_vorne
 
 def run_all_other_ingestions():
     print("Starting Other ingestion pipelines...")
@@ -96,12 +97,16 @@ def run_all_other_ingestions():
     ingest_fxrates()
     print("FX Rates done.")
 
+    print("Imgesting Vorne Data...")
+    ingest_vorne()
+    print("Vorne Data done.")
+
 
 
 
 def run_all_ingestions():
-    run_all_banner_ingestions()
-    run_all_castle_ingestions()
+    #run_all_banner_ingestions()
+    #run_all_castle_ingestions()
     run_all_other_ingestions()
     
 
