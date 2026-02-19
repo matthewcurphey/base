@@ -1,0 +1,11 @@
+version: 2
+
+# BASE MODELS
+models:
+  - name: base_vorne
+    description: "Light cleanup of Vorne production data table."
+
+
+# STAGING MODELS
+  - name: stg_vorne
+    description: "Cleaned and typed Vorne production data - mainly removing dupes so we have proper duration."

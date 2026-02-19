@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: vorne
+    schema: raw
+    tables:
+      - name: vorne
+        description: "Raw Vorne production data"
+
+
