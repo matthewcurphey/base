@@ -81,7 +81,7 @@ def write_postgres_table(df, table, schema, if_exists="replace", dtype=None):
         schema=schema,
         if_exists=if_exists,  # now replace, append
         index=False,
-        dtype=dtype  # optional explicit type mapping
+        dtype=dtype # optional explicit type mapping
     )
 
     engine.dispose()
