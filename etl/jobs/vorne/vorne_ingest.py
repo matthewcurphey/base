@@ -5,4 +5,4 @@ from datetime import date
 def ingest_vorne():
     df = extract_vorne()
     
-    write_postgres_table(df, table="vorne", schema="raw", if_exists="truncate")
+    write_postgres_table(df, table="vorne", schema="raw", if_exists="replace")
