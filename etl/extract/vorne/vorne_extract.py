@@ -76,9 +76,6 @@ def fetch_vorne_table(ip, table_name="production_metric"):
     df.insert(0, "asset_name", asset_name)
     df.insert(0, "ip_address", ip)
 
-    df = df.astype("string").where(df.notna(), None)
-
-
 
 
     return df
