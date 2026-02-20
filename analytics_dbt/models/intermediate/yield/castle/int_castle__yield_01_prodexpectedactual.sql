@@ -20,7 +20,7 @@ with pr as (
         start_qty,
         complete_qty,
         job_uom,
-        comp_item_clean,
+        comp_item,
         comp_complete_lbs
 
     from {{ ref('int_foundation_castle__mfg_prodorder') }}
@@ -56,7 +56,7 @@ pr_ex as (
         pr.start_qty,
         pr.complete_qty,
         pr.job_uom,
-        pr.comp_item_clean,
+        pr.comp_item,
         pr.comp_complete_lbs,
         ex.comp_expected_lbs
 
@@ -95,7 +95,7 @@ select
         pe.start_qty as start_qty,
         pe.complete_qty as complete_qty,
         pe.job_uom as job_uom,
-        pe.comp_item_clean as comp_item_clean,
+        pe.comp_item as comp_item,
         pe.comp_complete_lbs as comp_complete_lbs,
         pe.comp_expected_lbs as comp_expected_lbs,
         ac.comp_issued_usd as comp_issued_usd,

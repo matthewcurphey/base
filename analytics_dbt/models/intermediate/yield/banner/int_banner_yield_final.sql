@@ -17,13 +17,17 @@ select
     y.prod_number as prod_number,
 
     y.item as item,
+    null::text as form,
+    null::text as commodity,
     y.grade as grade,
+    null::text as temper,
     
     y.prod_status as prod_status,
 
     y.complete_date as complete_date,
     y.complete_year as complete_year,
     y.complete_month as complete_month,
+    y.complete_week as complete_week,
 
     y.op_ids as op_ids,
     y.op_names as op_names,

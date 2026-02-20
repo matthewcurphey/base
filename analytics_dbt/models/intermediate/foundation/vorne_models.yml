@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: int_foundation_vorne
+    description: "takes vorne data and cleans up the overlapping duration/end dates"

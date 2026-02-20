@@ -2,41 +2,61 @@
 
 with yield as (
     select *
-    from {{ ref('int_castle__yield_02_expectedactualyield') }}
-),
-
-operations as (
-    select *
-    from {{ ref('int_castle_yield_routeattribution') }}
+    from {{ ref('int_castle__yield_04_yieldsiteopdate') }}
 )
 
 select
     y.company as company,
-    pyo.production_order_number as production_order_number,
-    pyo.picked_items as picked_items,
-    pyo.picked_lbs as picked_lbs,
-    pyo.picked_usd as picked_usd,
+    y.country as country,
+    y.vertical as vertical,
+    y.region as region,
     
-    pq.complete_lbs as complete_lbs,
-    pq.complete_lbs * (pyo.picked_usd / nullif(pyo.picked_lbs, 0)) as complete_usd,
+    y.org_code as org_code,
+    y.org_name as org_name,
 
-    pq.complete_lbs / nullif(pyo.expected_yield, 0) as engineered_lbs,
-    pq.complete_lbs / nullif(pyo.expected_yield, 0) * (pyo.picked_usd / nullif(pyo.picked_lbs, 0)) as engineered_usd,
+    y.prod_number as prod_number,
 
-    pyo.expected_yield as engineered_yield,
-    pq.complete_lbs / nullif(pyo.picked_lbs, 0) as actual_yield
+    y.item as item,
+    y.form as form,
+    y.commodity as commodity,
+    y.grade as grade,
+    y.temper as temper,
+    
+    y.prod_status as prod_status,
+
+    y.complete_date as complete_date,
+    y.complete_year as complete_year,
+    y.complete_month as complete_month,
+    y.complete_week as complete_week,
+
+    y.op_ids as op_ids,
+    y.op_names as op_names,
+
+    y.yield_op_id as yield_op_id,
+    y.yield_op_name as yield_op_name,
+
+    y.picked_items as picked_items,
+
+    y.picked_lbs as picked_lbs,
+    y.picked_usd as picked_usd,
+    
+    y.complete_lbs as complete_lbs,
+    y.complete_usd as complete_usd,
+
+    y.engineered_lbs as engineered_lbs,
+    y.engineered_usd as engineered_usd,
+
+    y.yieldloss_lbs as yieldloss_lbs,
+    y.yieldloss_usd as yieldloss_usd,
+
+    y.yieldvar_lbs as yieldvar_lbs,
+    y.yieldvar_usd as yieldvar_usd,
+
+    y.engineered_yield as engineered_yield,
+    y.actual_yield as actual_yield,
+
+    y.yield_performance as yield_performance
 
 from yield y
-left join operations o
-    on y.dj_nbr = o.dj_nbr
-
-NEXT STEPS
-
-need to sort banner production order metadata - dates, warehouse, item etc and left join it
-probably need to also bring in location data there as well
-
-uniform the columns in both using these types of statements:
-null::numeric as expected_weight
-'Banner'::text as company
-
-create the union query in the mart
+where y.complete_date >= '2024-01-01'
+  and y.prod_status in ('Complete', 'Closed')
