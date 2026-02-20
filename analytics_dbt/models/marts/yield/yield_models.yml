@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: mart_yield
+    description: "union all castle and banner yield"
+
