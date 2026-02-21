@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 with prod_expected_actual as (
 
@@ -26,10 +26,6 @@ select
     pea.product_grade as grade,
     pea.product_temper as temper,
     pea.product_item_number as item,
-
-    pea.start_qty as start_qty,
-    pea.complete_qty as complete_qty,
-    pea.job_uom as job_uom,
 
     pea.comp_item as picked_items,
 

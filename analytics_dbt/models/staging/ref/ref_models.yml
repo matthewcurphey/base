@@ -1,0 +1,6 @@
+version: 2
+
+# BASE MODELS
+models:
+  - name: stg_ref_wpl
+    description: "Dedupe ref_wpl"

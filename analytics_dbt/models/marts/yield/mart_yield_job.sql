@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='view') }}
 
 select *
 from {{ ref('int_castle_yield_final') }}

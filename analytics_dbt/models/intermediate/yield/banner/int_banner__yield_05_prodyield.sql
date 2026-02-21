@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 with yield as (
     select *
@@ -18,10 +18,6 @@ select
 
     p.item_number as item,
     p.grade as grade,
-
-    p.ordered_sales_quantity as start_qty,
-    y.complete_lbs/nullif(p.estimated_quantity/nullif(p.ordered_sales_quantity, 0), 0) as complete_qty,
-    p.sales_uom as job_uom,
     
     p.production_order_status as prod_status,
     p.ended_date as complete_date,

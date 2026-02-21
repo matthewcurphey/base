@@ -38,6 +38,7 @@ staged AS (
         case
             when component like '%.CO' then replace(component, '.CO', '')
             when component like '%.BO' then replace(component, '.BO', '')
+            when component like '%.XP' then replace(component, '.XP', '')
             else component
         end:: text as component_clean,
 

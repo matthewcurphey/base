@@ -1,6 +1,7 @@
 version: 2
 
 models:
-  - name: mart_yield
-    description: "union all castle and banner yield"
-
+  - name: mart_yield_job
+    description: "union all castle and banner yield at job levels - feeds other yield marts"
+  - name: mart_yield_siteopdate
+    description: "aggregate the yield job mart into site x op x date grain"

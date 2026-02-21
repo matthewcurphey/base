@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 with pr as (
 
@@ -17,9 +17,6 @@ with pr as (
         product_grade,
         product_temper,
         product_item_number,
-        start_qty,
-        complete_qty,
-        job_uom,
         comp_item,
         comp_complete_lbs
 
@@ -53,9 +50,6 @@ pr_ex as (
         pr.product_grade,
         pr.product_temper,
         pr.product_item_number,
-        pr.start_qty,
-        pr.complete_qty,
-        pr.job_uom,
         pr.comp_item,
         pr.comp_complete_lbs,
         ex.comp_expected_lbs
@@ -92,9 +86,6 @@ select
         pe.product_grade as product_grade,
         pe.product_temper as product_temper,
         pe.product_item_number as product_item_number,
-        pe.start_qty as start_qty,
-        pe.complete_qty as complete_qty,
-        pe.job_uom as job_uom,
         pe.comp_item as comp_item,
         pe.comp_complete_lbs as comp_complete_lbs,
         pe.comp_expected_lbs as comp_expected_lbs,

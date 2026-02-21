@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 with yield as (
     select *
@@ -43,12 +43,7 @@ select
     y.commodity as commodity,
     y.grade as grade,
     y.temper as temper,
-
-    y.start_qty as start_qty,
-    y.complete_qty as complete_qty,
-    y.job_uom as job_uom,
     
-
     y.complete_date as complete_date,
     c.year as complete_year,
     c.month as complete_month,

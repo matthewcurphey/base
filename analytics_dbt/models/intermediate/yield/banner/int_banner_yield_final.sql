@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 with yield as (
     select *
@@ -21,10 +21,6 @@ select
     null::text as commodity,
     y.grade as grade,
     null::text as temper,
-
-    y.start_qty as start_qty,
-    y.complete_qty as complete_qty,
-    y.job_uom as job_uom,
     
     y.prod_status as prod_status,
 
@@ -64,3 +60,5 @@ select
 from yield y
 where y.complete_date >= '2024-01-01'
   and y.prod_status in ('Completed')
+  and y.picked_lbs > 0
+  and y.engineered_lbs is not null
