@@ -41,6 +41,9 @@ models:
     marts:
       +schema: marts
       +materialized: view
+    dim:
+      +schema: dim
+      +materialized: view
 
 
 # IMPORTANT FOR BRINGING IN THE SEEDS CSV's AND DEFINING THEIR FIELD TYPES

@@ -1,0 +1,11 @@
+Background
+
+#DFF0D8 - green
+#F2DEDE - red
+
+Bars
+
+#E6E6E6 - grey
+#109E49 - green
+#D64550 - red
+#F8A026 - orange

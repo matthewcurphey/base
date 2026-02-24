@@ -63,7 +63,7 @@ wpl_joined as (
         w.wpl
 
     from fx_joined f
-    left join {{ ref('stg_ref_wpl') }} w
+    left join {{ ref('dim_wpl') }} w
       on f.component_clean = w.item
 )
 

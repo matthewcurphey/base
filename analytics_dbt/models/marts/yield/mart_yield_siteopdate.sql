@@ -11,7 +11,12 @@ select
     country as country,
     region as region,
     org_name as org_name,
+
     complete_date as complete_date,
+    complete_year as complete_year,
+    complete_month as complete_month,
+    complete_week as complete_week,
+
     yield_op_name as yield_op,
     sum(picked_lbs) as picked_lbs,
     sum(picked_usd) as picked_usd,
@@ -32,5 +37,8 @@ group by
     region,
     org_name,
     complete_date,
+    complete_year,
+    complete_month,
+    complete_week,
     yield_op_name  
     

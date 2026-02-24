@@ -1,0 +1,8 @@
+version: 2
+
+# BASE MODELS
+models:
+  - name: dim_calendar
+    description: "Prepare calendar seed file"
+  - name: dim_wpl
+    description: "Prepare WPL seed file"

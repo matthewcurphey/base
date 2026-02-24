@@ -10,3 +10,6 @@ etl/data_raw/
 *.log
 *.tmp
 *.bak
+
+# Power BI
+*.pbix
