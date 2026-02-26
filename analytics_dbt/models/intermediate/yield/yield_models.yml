@@ -11,7 +11,7 @@ models:
     description: "adds on the actual produced quantity to give us actual yield"
   - name: int_banner__yield_05_prodyield
     description: "add production order meta to yield"
-  - name: int_banner__yield_06_yieldsiteopdate
+  - name: int_banner__yield_06_yieldsiteop
     description: "adds op code, site details, date details before final"
   - name: int_banner_yield_final
     description: "banner final yield output"
@@ -25,7 +25,7 @@ models:
     description: "rename some columns in line with banner, calculates usd values."
   - name: int_castle__yield_03_prodyield
     description: "calculate yield metrics."
-  - name: int_castle__yield_04_yieldsiteopdate
+  - name: int_castle__yield_04_yieldsiteop
     description: "adds op code, site details, date details before final"
   - name: int_castle_yield_final
     description: "castle final yield output"

@@ -2,7 +2,7 @@
 
 with yield as (
     select *
-    from {{ ref('int_banner__yield_06_yieldsiteopdate') }}
+    from {{ ref('int_banner__yield_06_yieldsiteop') }}
 )
 
 select
@@ -25,9 +25,6 @@ select
     y.prod_status as prod_status,
 
     y.complete_date as complete_date,
-    y.complete_year as complete_year,
-    y.complete_month as complete_month,
-    y.complete_week as complete_week,
 
     y.op_ids as op_ids,
     y.op_names as op_names,
