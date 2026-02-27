@@ -24,10 +24,10 @@ enriched as (
         d.fiscal_month,
         d.fiscal_week,
         d.fiscal_year_month_key,
-        d.fiscal_year_month_label,
+        d.fiscal_year_month_key as fiscal_year_month_label,
         d.fiscal_month_start_date,
         d.fiscal_year_week_key,
-        d.fiscal_year_week_label,
+        d.fiscal_year_week_key as fiscal_year_week_label,
         d.fiscal_week_start_date
     from base b
     left join {{ ref('dim_calendar') }} d

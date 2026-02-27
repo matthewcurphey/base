@@ -59,3 +59,4 @@ where y.complete_date >= '2024-01-01'
   and y.prod_status in ('Complete', 'Closed')
   and y.complete_lbs <> -99999
   and y.picked_lbs > 0
+  and y.yield_op_name <> 'Goodrich Rohr'
