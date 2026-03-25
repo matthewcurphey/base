@@ -112,7 +112,7 @@ def run_all_ingestions():
     run_all_banner_ingestions()
     run_all_castle_ingestions()
 
-    #run_all_vorne_ingestions()
+    run_all_vorne_ingestions()
 
     run_all_other_ingestions()
     

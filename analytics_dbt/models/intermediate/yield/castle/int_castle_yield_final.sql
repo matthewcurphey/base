@@ -56,6 +56,7 @@ select
 
 from yield y
 where y.complete_date >= '2024-01-01'
+  and y.complete_date <= current_date  
   and y.prod_status in ('Complete', 'Closed')
   and y.complete_lbs <> -99999
   and y.picked_lbs > 0
