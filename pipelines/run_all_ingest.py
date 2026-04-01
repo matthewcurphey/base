@@ -106,15 +106,26 @@ def run_all_other_ingestions():
     print("FX Rates done.")
 
 
+from etl.jobs.hr.hr_worked_hours_ingest import ingest_hr_worked_hours
+def run_all_hr_ingestions():
+    print("Starting HR ingestion pipeline...")
+
+    print("Ingesting Worked Hours...")
+    ingest_hr_worked_hours()
+    print("Worked Hours done.\n")
+
+    print("All HR ingestion jobs completed successfully!")
 
 
 def run_all_ingestions():
-    run_all_banner_ingestions()
-    run_all_castle_ingestions()
+    #run_all_banner_ingestions()
+    #run_all_castle_ingestions()
 
-    run_all_vorne_ingestions()
+    #run_all_vorne_ingestions()
 
-    run_all_other_ingestions()
+    #run_all_other_ingestions()
+
+    run_all_hr_ingestions()
     
 
 if __name__ == "__main__":

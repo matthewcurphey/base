@@ -13,4 +13,5 @@ DATA_RAW_DIR = os.path.join(ETL_DIR, "data_raw")
 # Domain-specific raw data folders
 CASTLE_RAW_DIR = os.path.join(DATA_RAW_DIR, "castle")
 BANNER_RAW_DIR = os.path.join(DATA_RAW_DIR, "banner")
+HR_RAW_DIR = os.path.join(DATA_RAW_DIR, "hr")
 

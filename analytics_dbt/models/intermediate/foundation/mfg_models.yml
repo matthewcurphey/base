@@ -6,9 +6,11 @@ models:
   - name: int_foundation_castle__mfg_operations
     description: "castle production orders at prod order x op code grain"
   - name: int_foundation_castle__mfg_expectedusage
-    description: "castle production orders as prod order grain"
+    description: "castle production orders at prod order grain"
   - name: int_foundation_castle__mfg_actualusage
-    description: "castle production orders as prod order grain"
+    description: "castle production orders at prod order grain"
+  - name: int_foundation_castle__mfg_earnedhrs
+    description: "castle earned hours at prod order x op code grain"
 
   - name: int_foundation_banner__mfg_prodorder
     description: "castle production orders at prod order grain"

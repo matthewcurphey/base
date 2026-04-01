@@ -41,9 +41,6 @@ models:
     marts:
       +schema: marts
       +materialized: view
-    dim:
-      +schema: dim
-      +materialized: view
 
 
 # IMPORTANT FOR BRINGING IN THE SEEDS CSV's AND DEFINING THEIR FIELD TYPES
@@ -83,3 +80,16 @@ seeds:
           op_name: text
           yield_rank_ban: integer
           yield_rank_cas: integer
+      ref_castle_earnedhrsadjust:
+        +column_types:
+          dj_number: text
+          op_code: text
+          manual_hrs: float
+      ref_castle_includeprocesses:
+        +column_types:
+          org: text
+          prcoess: text
+          process_name: text
+          include: boolean
+
+
