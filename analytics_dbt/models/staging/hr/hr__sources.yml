@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: hr
+    schema: raw
+    tables:
+      - name: hr_workedhours
+        description: "Raw HR worked hours detail — one row per employee per org/month. Loaded from regional HR systems (US/CA, FR, MX, SG, CN)."

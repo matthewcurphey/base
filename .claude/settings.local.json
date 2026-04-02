@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(xargs grep:*)"
+      "Bash(xargs grep:*)",
+      "Bash(python -c \"import json; data=json.load\\(open\\('c:/base/analytics_dbt/target/manifest.json'\\)\\); nodes={k:v for k,v in data.get\\('nodes', {}\\).items\\(\\) if 'prcoess' in str\\(v.get\\('config', {}\\).get\\('column_types', {}\\)\\)}; [print\\(k, v['config']['column_types']\\) for k,v in nodes.items\\(\\)]\")",
+      "Bash(python -c ':*)"
     ]
   }
 }

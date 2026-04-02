@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: base_hr__worked_hrs
+    description: "Light cleanup of raw HR worked hours table."
+
+  - name: stg_hr__worked_hrs
+    description: "Cleaned and typed HR worked hours at employee / org / year / month grain."

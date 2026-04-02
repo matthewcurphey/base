@@ -88,22 +88,30 @@ seeds:
       ref_castle_includeprocesses:
         +column_types:
           org: text
-          prcoess: text
+          process: text
           process_name: text
           include: boolean
       ref_piptargets:
         +column_types:
           org: text
-          band%: float
+          band_pct: float
           uom: text
           year: integer
-          goal%: float
-          payout: float
+          goal_pct: float
+          payout_usd: float
       ref_piptargettimings:
         +column_types:
           year: integer
           month: integer
           target_year_used: integer
+      banner_productivity_results:
+        +column_types:
+          country: text
+          org: text
+          year: integer
+          month: integer
+          output: float
+          worked_total_hrs: float
 
 
 
