@@ -16,8 +16,14 @@ seeds:
   - name: ref_yieldrank
     description: "Dictates which op_name yield loss is assigned to"
 
-  - name: ref_castle_earnedhrs_adjust
+  - name: ref_castle_earnedhrsadjust
     description: "Manual earned hours adjustments for Castle DJ numbers"
 
   - name: ref_castle_includeprocesses
     description: "List which Oracle processes calculate earned hours correctly for Castle"
+
+  - name: ref_piptargets
+    description: "Targets and Payout amounts for Productivity Incentive Plan (PIP)"
+
+  - name: ref_piptargettimings
+    description: "Maps year/month to the relevant year PIP target (since we are often late and dont roll out the years targets until Feb)"

@@ -61,6 +61,14 @@ manual_adjustments as (
     select *
     from {{ ref('ref_castle_earnedhrsadjust') }}
 
+),
+
+-- 4️⃣ Include processes reference
+include_processes as (
+
+    select *
+    from {{ ref('ref_castle_includeprocesses') }}
+
 )
 
 select
@@ -72,10 +80,26 @@ select
     f.raw_earned_hrs,
     f.calc_earned_hrs,
 
-    coalesce(m.manual_hrs, f.calc_earned_hrs) as earned_hrs
+    coalesce(m.manual_hrs, f.calc_earned_hrs)   as earned_hrs,
+
+    (m.manual_hrs is not null)                  as manual_adjust_flag,
+
+    (
+        f.operation_code = 'EXT'
+        or (f.operation_code = 'WJC' and f.org = 'ENT')
+        or (f.operation_code = 'HWK' and f.org = 'MXM')
+        or (f.operation_code = 'SHT' and f.org = 'MXM')
+        or (f.operation_code = 'CHF' and f.org = 'CHA')
+    )                                           as calc_adjust_flag,
+
+    ip.include                                  as include_flag
 
 from formula_adjusted f
 
 left join manual_adjustments m
     on  f.dj_nbr    = m.dj_number
     and f.operation_code = m.op_code
+
+left join include_processes ip
+    on  f.org            = ip.org
+    and f.operation_code = ip.process

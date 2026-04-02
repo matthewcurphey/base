@@ -91,5 +91,19 @@ seeds:
           prcoess: text
           process_name: text
           include: boolean
+      ref_piptargets:
+        +column_types:
+          org: text
+          band%: float
+          uom: text
+          year: integer
+          goal%: float
+          payout: float
+      ref_piptargettimings:
+        +column_types:
+          year: integer
+          month: integer
+          target_year_used: integer
+
 
 
