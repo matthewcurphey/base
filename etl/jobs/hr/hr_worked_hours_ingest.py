@@ -56,4 +56,4 @@ def ingest_hr_worked_hours():
     combined = pd.concat(all_dfs, ignore_index=True)
     combined = combined[combined["total_hrs"] != 0].reset_index(drop=True)
 
-    write_postgres_table(combined, table="hr_workedhours", schema="raw", if_exists="replace")
+    write_postgres_table(combined, table="hr_workedhours", schema="raw", if_exists="truncate")

@@ -118,15 +118,18 @@ def run_all_hr_ingestions():
 
 
 def run_all_ingestions():
-    run_all_banner_ingestions()
+    #run_all_banner_ingestions()
     run_all_castle_ingestions()
 
-    run_all_vorne_ingestions()
+    #run_all_vorne_ingestions()
 
-    run_all_other_ingestions()
+    #run_all_other_ingestions()
 
-    run_all_hr_ingestions()
+    #run_all_hr_ingestions()
     
 
 if __name__ == "__main__":
     run_all_ingestions()
+
+
+## dbt run --exclude path:models/intermediate/yield path:models/marts/yield
