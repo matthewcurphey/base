@@ -39,6 +39,21 @@ pps as (
     select *
     from {{ ref('stg_castle__ppsrcvshp') }}
 
+),
+
+prodorder as (
+
+    select
+        dj_nbr,
+        product_form,
+        product_commodity,
+        product_grade,
+        product_item_number,
+        comp_complete_lbs,
+        job_status
+
+    from {{ ref('int_foundation_castle__mfg_prodorder') }}
+
 )
 
 -- DJ earned hours
@@ -51,7 +66,13 @@ select
     e.operation_code,
     e.dj_quantity_completed,
     e.earned_hrs,
-    e.include_flag
+    e.include_flag,
+    p.product_form,
+    p.product_commodity,
+    p.product_grade,
+    p.product_item_number,
+    p.comp_complete_lbs,
+    p.job_status
 
 from earned_hrs e
 
@@ -61,6 +82,9 @@ inner join dj_dates d
 inner join cal445 c
     on d.date_completed = c.cal_date
 
+left join prodorder p
+    on e.dj_nbr = p.dj_nbr
+
 union all
 
 -- PPS Receive/Ship earned hours (always included)
@@ -69,11 +93,17 @@ select
     c.year,
     c.month,
     p.date_value                    as date_completed,
-    p.identifier                            as dj_nbr,
+    p.identifier                    as dj_nbr,
     p.operation_code,
     null                            as dj_quantity_completed,
     p.hrs_earned                    as earned_hrs,
-    true                            as include_flag
+    true                            as include_flag,
+    null                            as product_form,
+    null                            as product_commodity,
+    null                            as product_grade,
+    null                            as product_item_number,
+    null                            as comp_complete_lbs,
+    null                            as job_status
 
 from pps p
 

@@ -1,0 +1,151 @@
+im poor at networking. how do i do this? how do i start speaking to people about whether they have this problem in their manufacturing firms? where to find these people? how to apopracoh them? what to say to them? a lot of my contacts just work at my company, not many people come and go tbh
+This is the most common blocker for technical people and it's solvable. The good news: you don't need to be a networker. You need to have useful conversations with a small number of the right people.
+
+Reframe it first
+
+Networking as a concept is repellent because it implies schmoozing, collecting contacts, working a room. Forget that. What you're actually doing is having conversations with people who have a problem, to understand it better. You're not selling anything. You're learning. That's a completely different energy and most people will talk to you.
+
+Where the people actually are
+
+LinkedIn is the answer for B2B. Specifically:
+
+CFOs, COOs, Operations Directors, Finance Directors at mid-market manufacturing companies (50-500 employees)
+"Head of Operations" at PE-backed businesses
+Operating partners at PE firms (their job is literally fixing portcos — they're always looking for people who can do what you do)
+Search: Operations Director manufacturing or CFO [city] manufacturing or operating partner private equity. Filter to 2nd connections first — warm is easier.
+
+What to actually say
+
+Cold outreach works if it's short, specific, and not salesy. This is the template:
+
+"Hi [name] — I'm an ops guy who's spent the last few years building data infrastructure to connect multiple ERPs at a manufacturing business. I'm exploring whether this is a wider problem worth solving. Not selling anything — genuinely trying to understand if other businesses hit the same walls we do. Would you be up for a 20-min call?"
+
+That's it. No pitch deck. No "I'd love to connect and discuss synergies." Just a specific, honest ask from one ops person to another.
+
+Response rate on this done right: maybe 10-20%. You need to send 20 messages to get 3-4 conversations. That's fine.
+
+The easier on-ramp: warm contacts you don't realise you have
+
+Before cold outreach, mine what you already have:
+
+Former colleagues who've moved to other companies — even one or two from your career
+People your current colleagues know that you could get introduced to
+Anyone you've ever dealt with professionally outside your firm: suppliers, customers, advisors, auditors
+A warm intro converts at 60-70% vs 10-20% cold. Even a weak tie ("my colleague used to work with you") transforms the conversation.
+
+Message former colleagues first: "Hey — I'm exploring doing some consulting work around data/ops infrastructure. You've moved around a bit — do you know anyone at manufacturing businesses who might be dealing with ERP integration headaches? Happy to have a chat with them, no pressure."
+
+People love making introductions. It makes them feel useful.
+
+The baby + remote angle actually helps
+
+You have a legitimate reason to be having these conversations right now without it looking like you're actively job hunting or pitching. "I'm on the side exploring whether this is a wider problem" is completely honest and low pressure. Nobody's guard goes up.
+
+Concrete starting point
+
+This week:
+
+Go through your LinkedIn connections and write down every person who works in manufacturing, operations, finance, or PE — at any company that isn't yours. You probably have more than you think.
+Pick 3. Send the message above adapted to what you know about them.
+See what happens.
+You don't need a network. You need 5 honest conversations. Start there.
+
+
+
+and what service do i actually offer them?
+i just set them up an on the fly database that purely builds a few marts and drives a report or power bi dashboard?
+it doesnt intefere with existing strcuture, it just sits on top and provides a fast reporting layer solving a specific problem. i am not building a data warehouse or transforming their data or doing high level bewst practice. this is just fast data outputs right?
+Yes, exactly. And that's the pitch, not a limitation.
+
+What you're actually selling
+
+"I connect your systems and give you one clean number you can trust."
+
+That's it. You're not selling a data warehouse. You're not selling best practice architecture. You're selling the answer to "why does my ERP say 847 units and my spreadsheet says 912 and nobody knows which is right."
+
+The thing you built at work — multi-ERP → Postgres → dbt → clean output — is genuinely what they need. Not Snowflake, not a data team, not a 6-month transformation project. A lightweight reporting layer that sits on top of what they already have and tells them what's going on.
+
+Why the "fast and lightweight" angle is a feature
+
+Mid-market operations directors don't want a data warehouse. They've probably had a bad experience with a consultant who promised transformation and delivered a 6-month project that never quite worked. You're the opposite of that:
+
+No ripping out existing systems
+No long implementation
+Connects to what they have
+Gives them one dashboard or report they actually use
+Done in weeks not months
+That's a much easier sell than "let's modernise your data infrastructure."
+
+The specific problem statement
+
+Frame it around the pain, not the solution:
+
+"You've got two or three systems that don't talk to each other. Someone's maintaining a master spreadsheet that's always slightly wrong. You don't fully trust the numbers when you're in a board meeting. I fix that — I pull it all into one place and give you a single clean output. I don't touch your existing systems."
+
+Every mid-market ops or finance person will nod at that description.
+
+What the engagement actually looks like
+
+Week 1-2: understand their systems, what data exists, what question they actually need answered
+Week 3-6: build the connectors, the light transformation layer, the output (dashboard or Excel or both)
+Ongoing: £2-3k/month retainer to maintain it, refresh it, add to it
+The retainer is important. That's what makes it a business rather than a project. And it's genuinely justified — systems change, data changes, they'll want new reports.
+
+You're not underselling yourself by keeping it simple
+
+The temptation is to feel like "just a reporting layer" isn't sophisticated enough to charge real money for. It absolutely is. The sophistication is invisible to them — what they see is that the number is finally right. That's what they're paying for.
+
+
+ok this makes sense. thing is, people at my firm, including the CEO know i am world class at this. problem is they alrday onw me haha. maybe i need to wait for them to exit/sell the business then i hvae high quality elads
+That's a legitimate strategy and probably the cleanest path given your situation.
+
+PE firms typically exit in 3-7 years. If you're mid-cycle, that could be 1-3 years away. When they sell:
+
+The CEO knows what you built and what it was worth
+The incoming buyer (strategic acquirer or next PE owner) will want someone to maintain or extend it
+Your CEO becomes a reference, a case study, and potentially your first client introduction
+That's not waiting passively — that's letting a high-quality lead mature naturally while you're being paid a salary and building skills on the side.
+
+The move in the meantime
+
+Don't sit completely idle on the business front. Use the time to:
+
+Get the personal projects to a point where you can actually ship something
+Have 2-3 low-pressure exploratory conversations (LinkedIn cold outreach) just to practice the pitch and understand what other companies actually struggle with
+Build one more engagement's worth of knowledge — cloud deployment, dbt Cloud, maybe a simple dashboard layer
+So when the exit happens and the CEO says "you should go talk to X" — you've already had the conversation a few times and you don't fumble it.
+
+The exit conversation to have before it happens
+
+When the exit starts moving, have an honest conversation with your CEO: "I've been thinking about going independent after this. Would you be willing to introduce me to a couple of people you know?"
+
+CEOs love this. It costs them nothing, it's a favour to someone they rate, and it makes them look good. One warm intro from a credible CEO in the PE world is worth 50 cold LinkedIn messages.
+
+You're not waiting — you're positioning.
+
+PE is the way in isnt it, then you dont have to convince the people in the business PE might want visibility into something, and just ask you to get it done
+Exactly. That's the unlock.
+
+The normal sale is: find a company, find the right person, convince them they have a problem, convince them you can solve it, navigate procurement, wait 3 months. Hard.
+
+The PE route is: one operating partner or value creation director decides this is a priority across their portfolio, and you get handed 5 companies. No convincing required — the mandate comes from above.
+
+Why PE firms want this specifically
+
+They buy a business, they need visibility fast. They're asking: what are the margins actually doing, where are the operational inefficiencies, is the EBITDA story real. The portco's existing reporting is usually a mess of spreadsheets and gut feel. They need clean numbers quickly to make decisions and build the investment case.
+
+That's your exact service. And they need it within weeks of acquisition, not months.
+
+The person to get to
+
+Not the CFO at the portco. The operating partner or value creation lead at the PE firm itself. That's the person who sits across multiple portcos and has both the budget authority and the problem visibility. One relationship there = pipeline.
+
+Search LinkedIn: operating partner private equity manufacturing or value creation director private equity. These people exist, they're accessible, and they're always looking for operators who can actually execute.
+
+Your story is perfect for this conversation
+
+"I'm an ops guy inside a PE-backed manufacturing business. I built the data infrastructure from scratch — connected the ERPs, automated reporting, replaced the spreadsheets. I'm looking to do that for other portcos."
+
+That's credible in a way a generic consultant never is. You've lived it from the inside.
+
+That's the first conversation worth having.

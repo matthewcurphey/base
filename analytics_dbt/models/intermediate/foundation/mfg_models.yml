@@ -1,6 +1,9 @@
 version: 2
 
 models:
+  - name: int_foundation_stgcastledj_fxwpl
+    description: "castle DJ staging enriched with row-level FX rate and weight-per-length (WPL); materialized as table to cache the lateral FX join over 1.3M rows"
+
   - name: int_foundation_castle__mfg_prodorder
     description: "castle production orders at prod order grain"
   - name: int_foundation_castle__mfg_operations

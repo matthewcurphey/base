@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: int_castle__productivity_01_earnedhrs
+    description: "castle earned hours rolled up to org / year / month grain, including PPS receive/ship"
+
+  - name: int_castle__productivity_01_earnedhrs_detail
+    description: "castle earned hours at DJ / operation grain with 445 calendar dates and product attributes from prodorder"
+
+  - name: int_castle__productivity_02_results
+    description: "castle productivity results at org / year / month grain — productivity_pct, qualifying band, and payout_usd"
+
+  - name: int_castle__productivity_03_employee_payouts
+    description: "castle employee-level worked hours with per-employee month_bonus calculated from org payout_usd"

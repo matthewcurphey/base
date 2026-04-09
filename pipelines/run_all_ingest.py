@@ -13,12 +13,8 @@ from etl.jobs.banner.banner_salesorderheaders_ingest import ingest_banner_saleso
 from etl.jobs.banner.banner_invoicelines_ingest import ingest_banner_invoicelines
 from etl.jobs.banner.banner_invoiceheaders_ingest import ingest_banner_invoiceheaders
 
-
-
-
 def run_all_banner_ingestions():
     print("Starting Banner ingestion pipeline...")
-
 
     print("Ingesting Banner Customers...")
     ingest_banner_customers()
@@ -56,9 +52,7 @@ def run_all_banner_ingestions():
     ingest_banner_invoiceheaders()
     print("Banner Invoice Headers done.\n")
 
-
     print("All Banner ingestion jobs completed successfully!")
-
 
 from etl.jobs.castle.castle_sales_ingest import ingest_castle_sales
 from etl.jobs.castle.castle_dj_ingest import ingest_castle_dj
@@ -67,7 +61,6 @@ from etl.jobs.castle.castle_inventory_ingest import ingest_castle_inventory
 
 def run_all_castle_ingestions():
     print("Starting Castle ingestion pipeline...")
-
 
     print("Ingesting Castle Sales...")
     ingest_castle_sales()
@@ -87,7 +80,6 @@ def run_all_castle_ingestions():
 
     print("All Castle ingestion jobs completed successfully!")
 
-
 from etl.jobs.vorne.vorne_ingest import ingest_vorne
 def run_all_vorne_ingestions():
     print("Starting Vorne ingestion pipelines...")
@@ -96,7 +88,6 @@ def run_all_vorne_ingestions():
     ingest_vorne()
     print("Vorne Data done.")
 
-
 from etl.jobs.fx.fxrates_ingest import ingest_fxrates
 def run_all_other_ingestions():
     print("Starting Other ingestion pipelines...")
@@ -104,7 +95,6 @@ def run_all_other_ingestions():
     print("Imgesting FX Rates...")
     ingest_fxrates()
     print("FX Rates done.")
-
 
 from etl.jobs.hr.hr_worked_hours_ingest import ingest_hr_worked_hours
 def run_all_hr_ingestions():
@@ -116,20 +106,14 @@ def run_all_hr_ingestions():
 
     print("All HR ingestion jobs completed successfully!")
 
-
 def run_all_ingestions():
-    #run_all_banner_ingestions()
+    run_all_banner_ingestions()
     run_all_castle_ingestions()
-
-    #run_all_vorne_ingestions()
-
-    #run_all_other_ingestions()
-
-    #run_all_hr_ingestions()
+    run_all_vorne_ingestions()
+    run_all_other_ingestions()
+    run_all_hr_ingestions()
     
-
 if __name__ == "__main__":
     run_all_ingestions()
-
 
 ## dbt run --exclude path:models/intermediate/yield path:models/marts/yield
