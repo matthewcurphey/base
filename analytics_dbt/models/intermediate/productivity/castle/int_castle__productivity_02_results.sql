@@ -35,6 +35,15 @@ pip_targets as (
 
 ),
 
+-- Target: goal_pct for band_pct = 1 (the official 100% target)
+entry_thresholds as (
+
+    select org, year, goal_pct as target_pct
+    from {{ ref('ref_piptargets') }}
+    where band_pct = 1
+
+),
+
 -- 1️⃣ Merge worked + earned hours and calculate productivity%
 combined as (
 
@@ -81,13 +90,13 @@ banded as (
         w.org,
         w.year,
         w.month,
+        w.target_year_used,
         w.worked_reg_hrs,
         w.worked_ot_hrs,
         w.worked_total_hrs,
         w.earned_hrs,
         w.productivity_pct,
         t.band_pct,
-        t.goal_pct,
         t.payout_usd,
         t.uom,
 
@@ -105,19 +114,24 @@ banded as (
 )
 
 select
-    country,
-    org,
-    year,
-    month,
-    worked_reg_hrs,
-    worked_ot_hrs,
-    worked_total_hrs,
-    earned_hrs,
-    productivity_pct,
-    band_pct,
-    goal_pct,
-    payout_usd,
-    uom
+    b.country,
+    b.org,
+    b.year,
+    b.month,
+    b.worked_reg_hrs,
+    b.worked_ot_hrs,
+    b.worked_total_hrs,
+    b.earned_hrs,
+    et.target_pct,
+    b.productivity_pct,
+    b.band_pct,
+    b.payout_usd,
+    b.uom
 
-from banded
-where band_rank = 1
+from banded b
+left join entry_thresholds et
+    on  b.org              = et.org
+    and b.target_year_used = et.year
+
+where b.band_rank = 1
+  and b.org in ('ASC','ATL','CLE','DAL','ENA','ENT','HAI','JVL','LOS','MCH','MTY','MXM','MXQ','SGP','STO','TOR','WIE')

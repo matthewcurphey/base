@@ -48,3 +48,5 @@ left join results r
     on  w.org   = r.org
     and w.year  = r.year
     and w.month = r.month
+
+where w.org in ('ASC','ATL','CLE','DAL','ENA','ENT','HAI','JVL','LOS','MCH','MTY','MXM','MXQ','SGP','STO','TOR','WIE')
