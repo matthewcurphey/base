@@ -86,8 +86,8 @@ def productivity_output(output_year: int, output_month: int, orgs: tuple = DEFAU
                 elif col.endswith("_hrs"):
                     ws.set_column(i, i, 12, fmt_number)
 
-        apply_col_formats(month_results_df.drop(columns=["uom"], errors="ignore"), "branch_results")
-        apply_col_formats(month_employee_df.drop(columns=["uom"], errors="ignore"), "employee_payouts")
+        apply_col_formats(month_results_df.sort_values(["country", "org"]).drop(columns=["uom"], errors="ignore"), "branch_results")
+        apply_col_formats(month_employee_df.sort_values(["country", "org"]).drop(columns=["uom"], errors="ignore"), "employee_payouts")
 
     print(f"Master file written: {master_path}")
 
