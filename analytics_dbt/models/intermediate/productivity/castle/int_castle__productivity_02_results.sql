@@ -35,6 +35,13 @@ pip_targets as (
 
 ),
 
+pip_overrides as (
+
+    select *
+    from {{ ref('ref_pip_overrides') }}
+
+),
+
 -- Target: goal_pct for band_pct = 1 (the official 100% target)
 entry_thresholds as (
 
@@ -125,13 +132,17 @@ select
     et.target_pct,
     b.productivity_pct,
     b.band_pct,
-    b.payout_usd,
+    coalesce(o.payout_usd, b.payout_usd) as payout_usd,
     b.uom
 
 from banded b
 left join entry_thresholds et
     on  b.org              = et.org
     and b.target_year_used = et.year
+left join pip_overrides o
+    on  b.org   = o.org
+    and b.year  = o.year
+    and b.month = o.month
 
 where b.band_rank = 1
   and b.org in ('ASC','ATL','CLE','DAL','ENA','ENT','HAI','JVL','LOS','MCH','MTY','MXM','MXQ','SGP','STO','TOR','WIE')

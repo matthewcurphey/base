@@ -70,8 +70,24 @@ def productivity_output(output_year: int, output_month: int, orgs: tuple = DEFAU
     master_path = os.path.join(save_dir, f"productivity_incentive_{output_year}_{output_month:02d}.xlsx")
 
     with pd.ExcelWriter(master_path, engine="xlsxwriter") as writer:
-        month_results_df.to_excel(writer, sheet_name="branch_results", index=False)
-        month_employee_df.to_excel(writer, sheet_name="employee_payouts", index=False)
+        workbook = writer.book
+        fmt_pct      = workbook.add_format({"num_format": "0.00%"})
+        fmt_currency = workbook.add_format({"num_format": "$#,##0.00"})
+        fmt_number   = workbook.add_format({"num_format": "#,##0"})
+
+        def apply_col_formats(df, sheet_name):
+            df.to_excel(writer, sheet_name=sheet_name, index=False)
+            ws = writer.sheets[sheet_name]
+            for i, col in enumerate(df.columns):
+                if col.endswith("_pct"):
+                    ws.set_column(i, i, 14, fmt_pct)
+                elif col.endswith("_usd") or col.endswith("_bonus"):
+                    ws.set_column(i, i, 14, fmt_currency)
+                elif col.endswith("_hrs"):
+                    ws.set_column(i, i, 12, fmt_number)
+
+        apply_col_formats(month_results_df.drop(columns=["uom"], errors="ignore"), "branch_results")
+        apply_col_formats(month_employee_df.drop(columns=["uom"], errors="ignore"), "employee_payouts")
 
     print(f"Master file written: {master_path}")
 
@@ -82,8 +98,10 @@ def productivity_output(output_year: int, output_month: int, orgs: tuple = DEFAU
 
         file_path = os.path.join(save_dir, f"productivity_incentive_{output_year}_{output_month:02d}_{org}.xlsx")
 
-        # Results tab
-        org_results = month_results_df[month_results_df["org"] == org][[
+        # Results tab — all months that share the same target_year_used
+        target_year_months = timings_df[timings_df["target_year_used"] == target_year][["year", "month"]]
+        org_results = results_df.merge(target_year_months, on=["year", "month"])
+        org_results = org_results[org_results["org"] == org][[
             "org", "year", "month",
             "earned_hrs", "worked_reg_hrs", "worked_ot_hrs", "worked_total_hrs",
             "productivity_pct", "band_pct", "payout_usd"

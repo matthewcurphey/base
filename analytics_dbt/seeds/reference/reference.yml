@@ -28,5 +28,8 @@ seeds:
   - name: ref_piptargettimings
     description: "Maps year/month to the relevant year PIP target (since we are often late and dont roll out the years targets until Feb)"
 
+  - name: ref_pip_overrides
+    description: "Manual payout_usd overrides for specific org/year/month combinations. Wins over the band-derived payout in int_castle__productivity_02_results."
+
   - name: banner_productivity_results
     description: "Taking Rocky's Banner productivity results for now, until we can build out the pipeline."
