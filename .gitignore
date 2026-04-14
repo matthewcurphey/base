@@ -13,3 +13,6 @@ etl/data_raw/
 
 # Power BI
 *.pbix
+
+# Productivity report outputs
+reports/productivity/results/

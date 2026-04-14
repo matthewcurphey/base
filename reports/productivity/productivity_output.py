@@ -4,7 +4,11 @@ from etl.utils.connect_postgres import get_postgres_connection
 from reports.productivity.branch_config import BRANCHES
 
 
-def productivity_output(output_year: int, output_month: int):
+DEFAULT_ORGS = ('ASC','ATL','CLE','DAL','ENA','ENT','HAI','JVL','LOS','MCH','MTY','MXM','MXQ','SGP','STO','TOR','WIE')
+#DEFAULT_ORGS = ('ASC','ATL','CLE','DAL','ENA','ENT','HAI','JVL','LOS','MCH','MTY','MXM','MXQ','SGP','STO','TOR','WIE')
+
+
+def productivity_output(output_year: int, output_month: int, orgs: tuple = DEFAULT_ORGS):
 
     engine = get_postgres_connection()
 
@@ -74,7 +78,7 @@ def productivity_output(output_year: int, output_month: int):
     # ------------------------------------------------------------------
     # 5. Per-branch files
     # ------------------------------------------------------------------
-    for org in BRANCHES:
+    for org in [o for o in BRANCHES if o in orgs]:
 
         file_path = os.path.join(save_dir, f"productivity_incentive_{output_year}_{output_month:02d}_{org}.xlsx")
 

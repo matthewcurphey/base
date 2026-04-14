@@ -2,6 +2,9 @@ import os
 import win32com.client as win32
 from reports.productivity.branch_config import BRANCHES
 
+DEFAULT_ORGS = ('ASC','ATL','CLE','DAL','ENA','ENT','HAI','JVL','LOS','MCH','MTY','MXM','MXQ','SGP','STO','TOR','WIE')
+#DEFAULT_ORGS = ('ASC','ATL','CLE','DAL','ENA','ENT','HAI','JVL','LOS','MCH','MTY','MXM','MXQ','SGP','STO','TOR','WIE')
+
 
 def productivity_email(
     output_year: int,
@@ -9,6 +12,7 @@ def productivity_email(
     subject_month: str,
     email_body: str,
     send_or_show: str = "show",
+    orgs: tuple = DEFAULT_ORGS,
 ):
     """
     Send (or preview) per-branch productivity incentive emails via Outlook.
@@ -28,7 +32,7 @@ def productivity_email(
         )
     )
 
-    for org, cfg in BRANCHES.items():
+    for org, cfg in {o: c for o, c in BRANCHES.items() if o in orgs}.items():
 
         if not cfg["active"]:
             print(f"  {org} skipped (inactive)")
