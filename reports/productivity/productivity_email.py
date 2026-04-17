@@ -2,7 +2,7 @@ import os
 import win32com.client as win32
 from reports.productivity.branch_config import BRANCHES
 
-DEFAULT_ORGS = ('ASC','ATL','CLE','DAL','ENA','ENT','HAI','JVL','LOS','MCH','MTY','MXM','MXQ','SGP','STO','TOR','WIE')
+DEFAULT_ORGS = ('ASC','ENA','ENT', 'MCH','MTY','MXM','MXQ','SGP')
 #DEFAULT_ORGS = ('ASC','ATL','CLE','DAL','ENA','ENT','HAI','JVL','LOS','MCH','MTY','MXM','MXQ','SGP','STO','TOR','WIE')
 
 
@@ -10,7 +10,7 @@ def productivity_email(
     output_year: int,
     output_month: int,
     subject_month: str,
-    email_body: str,
+    email_body: str = None,
     send_or_show: str = "show",
     orgs: tuple = DEFAULT_ORGS,
 ):
@@ -21,9 +21,19 @@ def productivity_email(
         output_year:   e.g. 2026
         output_month:  e.g. 3
         subject_month: display string for subject line, e.g. "Mar26"
-        email_body:    HTML string for the body (below the greeting)
+        email_body:    HTML string for the body (below the greeting); defaults to standard template
         send_or_show:  "send" to send, anything else to Display for review
     """
+
+    if email_body is None:
+        email_body = f"""<div style="font-family: Calibri;">
+        <p>Attached are your Productivity Incentive Results for {subject_month}.</p>
+        <ul>
+        <li>For US/CAN branches: employees should receive their payments this week. Please communicate the results with your branch.</li>
+        <li>International branches, please arrange for the USD amount given in the 'worked' tab, column L, to be paid ASAP.</li>
+        </ul>
+        <p>For any payment related queries, please contact mreilly@amcastle.com directly.</p>
+        <p>Thanks</p></div>"""
 
     file_dir = os.path.abspath(
         os.path.join(

@@ -19,18 +19,6 @@ def run_custom():
     print("\nCustom completed.")
 
 
-EMAIL_BODY = """<div style="font-family: Calibri;">
-    <p>Attached are your Productivity Incentive Results.</p>
-    <ul>
-    <li>For US/CAN branches: employees should receive their payments this week. Please communicate the results with your branch.</li>
-    <li>International branches, please arrange for the USD amount given in the 'worked' tab, column L, to be paid ASAP.</li>
-    </ul>
-    <p>Please note that whilst all hours worked for the month are included in the files regardless of employment status, any employees no longer with the business will not receive a payout.</p>
-    <p>For any payment related queries, please contact mreilly@amcastle.com directly.</p>
-    <p>Thanks</p>
-</div>"""
-
-
 def run_productivity_output(year: int, month: int):
     from reports.productivity.productivity_output import productivity_output
     print(f"Generating Excel files for {year}-{month:02d}...")
@@ -40,7 +28,7 @@ def run_productivity_output(year: int, month: int):
 def run_productivity_email(year: int, month: int, subject_month: str, send_or_show: str = "show"):
     from reports.productivity.productivity_email import productivity_email
     print(f"Sending emails ({send_or_show})...")
-    productivity_email(year, month, subject_month, EMAIL_BODY, send_or_show)
+    productivity_email(year, month, subject_month, send_or_show=send_or_show)
 
 
 if __name__ == "__main__":
