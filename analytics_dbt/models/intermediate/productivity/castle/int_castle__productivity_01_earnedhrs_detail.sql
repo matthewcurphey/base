@@ -102,7 +102,7 @@ select
     null                            as product_commodity,
     null                            as product_grade,
     null                            as product_item_number,
-    null                            as comp_complete_lbs,
+    p.lbs                           as comp_complete_lbs,
     null                            as job_status
 
 from pps p
