@@ -17,8 +17,6 @@ productionorder_rows as (
         operation_sequence_number   as operation_sequence,
         operation_code              as operation_code
 
-        -- sum(hrs_earned)             as raw_earned_hrs,
-        -- sum(applied_resource_value) as resource_cost
 
     from src
     group by

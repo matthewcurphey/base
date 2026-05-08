@@ -1,14 +1,10 @@
 version: 2
 
 models:
-  - name: int_foundation_castle__sales_solineitem
-    description: "Castle stg_sales, extract so details - get to so/line/ship/item grain"
-  - name: int_foundation_castle__invoice_solineitem
-    description: "Castle stg_sales, extract invoice details - get to so/line/ship/item grain"
-  - name: int_foundation_banner__sales_solineitem
-    description: "Banner stg_sales - get to company/so/line/item grain"
-  - name: int_foundation_banner__invoice_solineitem
-    description: "Banner stg_invoice - get to company/so/line/item grain"
+  - name: int_foundation_castle__sales_salesorder
+    description: "Castle stg_sales- get to so/line/ship/item grain"
+  - name: int_foundation_banner__sales_salesorder
+    description: "Banner stg_saleslines - get to so/line/ship/item grain"
 
 
  

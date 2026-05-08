@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: int_foundation_hr__worked_hrs_summary
+    description: "Aggregates stg_hr__worked_hrs dat at org / year / month grain"
+
+
+
+ 

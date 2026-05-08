@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: int_foundation_banner__invoice_invoices
+    description: "Banner stg_invoicelines- get to so/line/ship/item grain"
+
+
+
+ 

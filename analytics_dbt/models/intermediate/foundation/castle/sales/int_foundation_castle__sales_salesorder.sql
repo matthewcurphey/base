@@ -38,10 +38,25 @@ sales_rows as (
         min(ordered_uom)            as ordered_uom,
 
         /* =======================
+           WEIGHT
+           ======================= */
+        max(weight_lbs)             as weight_lbs,
+        max(gross_weight_lbs)       as gross_weight_lbs,
+
+        /* =======================
+           CUT SIZE
+           ======================= */
+        max(cut_uom)                     as cut_uom,
+        max(cut_shape)                   as cut_shape,
+        max(cut_width)                   as cut_width,
+        max(cut_length)                  as cut_length,
+
+        /* =======================
            ORDER DATES
            ======================= */
         min(order_date)             as order_date,
         min(promise_date)           as promise_date,
+        min(actual_ship_date)       as actual_ship_date,
         min(request_date)           as request_date,
         min(quote_date)             as quote_date,
 

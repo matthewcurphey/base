@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 -- Aggregates HR worked hours from employee grain to org / year / month grain
 -- Mirrors the output_worked_hrs_summary logic from productivity.py

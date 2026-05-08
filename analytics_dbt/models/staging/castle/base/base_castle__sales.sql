@@ -115,8 +115,8 @@ cleaned as (
         cast(outside_processing_cost as numeric(18,4)) as outside_processing_cost,
         cast(resource_cost_usd as numeric(18,4))      as resource_cost_usd,
         cast(total_gross_profit_usd as numeric(18,4)) as total_gross_profit_usd,
-        cast(list_price_per_lbs_gross as numeric(18,6)) as list_price_per_lbs_gross,
-        cast(price_per_lbs_gross as numeric(18,6))      as price_per_lbs_gross,
+        cast(list_price_per_lbs_gross as numeric)       as list_price_per_lbs_gross,
+        cast(price_per_lbs_gross as numeric)            as price_per_lbs_gross,
         cast(total_sales_usd as numeric(18,4))          as total_sales_usd,
         cast(weight_lbs as numeric(18,4))               as weight_lbs,
         cast(gross_weight_lbs as numeric(18,4))         as gross_weight_lbs,
@@ -125,8 +125,8 @@ cleaned as (
         cast(invoiced_qty as numeric(18,4))             as invoiced_qty,
         cast(ordered_lbs as numeric(18,4))              as ordered_lbs,
         cast(matl_gp_usd as numeric(18,4))              as matl_gp_usd,
-        cast(tgp_pct as numeric(18,6))                   as tgp_pct,
-        cast(mgp_pct as numeric(18,6))                   as mgp_pct,
+        cast(tgp_pct as numeric)                         as tgp_pct,
+        cast(mgp_pct as numeric)                         as mgp_pct,
         cast(absorption_cost_usd as numeric(18,4))      as absorption_cost_usd,
 
         /* Product attributes */
