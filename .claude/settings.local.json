@@ -8,7 +8,8 @@
       "Bash(xargs -I {} bash -c 'echo \"=== {} ===\" && head -1 {}')",
       "Bash(Get-ChildItem -Path \"c:\\\\base\\\\analytics_dbt\\\\models\\\\staging\\\\banner\" -File -Filter \"*.sql\")",
       "Bash(Select-Object Name)",
-      "Bash(Sort-Object Name)"
+      "Bash(Sort-Object Name)",
+      "PowerShell(Get-ChildItem C:\\\\ -Directory | ForEach-Object { $size = \\(Get-ChildItem $_.FullName -Recurse -ErrorAction SilentlyContinue | Measure-Object Length -Sum\\).Sum; [PSCustomObject]@{Dir=$_.Name; GB=[math]::Round\\($size/1GB,1\\)} } | Sort-Object GB -Descending | Select-Object -First 10 | Format-Table -AutoSize)"
     ]
   }
 }

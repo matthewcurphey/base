@@ -25,30 +25,61 @@ currency_derived as (
 ),
 
 /* =====================================================
-   2) As-of FX lookup (row-level, effective dated)
+   2a) Distinct non-USD (currency, date) combos → effective FX date
+===================================================== */
+fx_date_lookup as (
+
+    select
+        c.currency_code,
+        c.dj_start_date,
+        max(fx.fx_date) as fx_effective_date
+    from (
+        select distinct currency_code, dj_start_date
+        from currency_derived
+        where currency_code <> 'USD'
+    ) c
+    join raw.fxrates fx
+        on  fx.from_currency = c.currency_code
+        and fx.to_currency   = 'USD'
+        and fx.fx_date      <= c.dj_start_date
+    group by c.currency_code, c.dj_start_date
+
+),
+
+/* =====================================================
+   2b) Attach the actual rate for each effective date
+===================================================== */
+fx_rates as (
+
+    select
+        dl.currency_code,
+        dl.dj_start_date,
+        dl.fx_effective_date,
+        fx.fx_rate
+    from fx_date_lookup dl
+    join raw.fxrates fx
+        on  fx.from_currency = dl.currency_code
+        and fx.to_currency   = 'USD'
+        and fx.fx_date       = dl.fx_effective_date
+
+),
+
+/* =====================================================
+   2c) Join enriched FX back to source rows
 ===================================================== */
 fx_joined as (
 
     select
         c.*,
 
-        fx.fx_rate        as fx_rate_raw,
-        fx.fx_date        as fx_effective_date
+        fr.fx_rate        as fx_rate_raw,
+        fr.fx_effective_date
 
     from currency_derived c
+    left join fx_rates fr
+        on  fr.currency_code  = c.currency_code
+        and fr.dj_start_date  = c.dj_start_date
 
-    left join lateral (
-        select
-            fx_date,
-            fx_rate
-        from raw.fxrates
-        where from_currency = c.currency_code
-          and to_currency   = 'USD'
-          and fx_date <= c.dj_start_date
-        order by fx_date desc
-        limit 1
-    ) fx
-      on c.currency_code <> 'USD'
 ),
 
 /* =====================================================
