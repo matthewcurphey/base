@@ -55,12 +55,12 @@ Excel files must already exist — run `productivity-output` first.
 | year | int | `2026` | Output year |
 | month | int | `3` | Output month (1–12) |
 | subject_month | str | `Mar26` | Label used in the email subject line |
-| show\|send | str | `show` | `show` to preview in Outlook, `send` to send (default: `show`) |
+| show\send | str | `show` | `show` to preview in Outlook, `send` to send (default: `show`) |
 
 **Examples:**
 ```
-python run.py productivity-email 2026 3 Mar26 show
-python run.py productivity-email 2026 3 Mar26 send
+python run.py productivity-email 2026 4 Apr26 show
+python run.py productivity-email 2026 4 Apr26 send
 ```
 
 ---
