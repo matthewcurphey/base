@@ -35,7 +35,7 @@ Generates Excel files for the given month and saves them to:
 
 **Example:**
 ```
-python run.py productivity-output 2026 3
+python run.py productivity-output 2026 5
 ```
 
 ---
