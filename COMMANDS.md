@@ -59,8 +59,8 @@ Excel files must already exist — run `productivity-output` first.
 
 **Examples:**
 ```
-python run.py productivity-email 2026 4 Apr26 show
-python run.py productivity-email 2026 4 Apr26 send
+python run.py productivity-email 2026 5 May26 show
+python run.py productivity-email 2026 5 May26 send
 ```
 
 ---
