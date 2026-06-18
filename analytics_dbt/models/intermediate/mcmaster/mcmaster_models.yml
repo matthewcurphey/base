@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: int_mcmaster__01_sales_production
+    description: "Castle McMaster-Carr - SO/line/shipment grain, sales joined to discrete job (1:1)"

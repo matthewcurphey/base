@@ -38,6 +38,14 @@ sales_rows as (
         min(ordered_uom)            as ordered_uom,
 
         /* =======================
+           INVOICED QUANTITIES
+           ======================= */
+        max(invoiced_lbs)           as invoiced_lbs,
+        max(invoiced_pcs)           as invoiced_pcs,
+        max(invoiced_qty)           as invoiced_qty,
+        min(invoiced_uom)           as invoiced_uom,
+
+        /* =======================
            WEIGHT
            ======================= */
         max(weight_lbs)             as weight_lbs,
@@ -56,9 +64,30 @@ sales_rows as (
            ======================= */
         min(order_date)             as order_date,
         min(promise_date)           as promise_date,
-        min(actual_ship_date)       as actual_ship_date,
         min(request_date)           as request_date,
         min(quote_date)             as quote_date,
+        min(actual_ship_date)       as actual_ship_date,
+        min(invoice_date)           as invoice_date,
+
+        /* =======================
+           FINANCIALS
+           ======================= */
+        max(total_sales_usd)                as total_sales_usd,
+        max(material_revenue)               as material_revenue,
+        max(proc_rev_usd)                   as proc_rev_usd,
+        max(freight_revenue_usd)            as freight_revenue_usd,
+        max(total_gross_profit_usd)         as total_gross_profit_usd,
+        max(matl_gp_usd)                    as matl_gp_usd,
+        max(tgp_pct)                        as tgp_pct,
+        max(mgp_pct)                        as mgp_pct,
+        max(material_cost_aac)              as material_cost_aac,
+        max(material_overhead_cost)         as material_overhead_cost,
+        max(outside_processing_cost)        as outside_processing_cost,
+        max(resource_cost_usd)              as resource_cost_usd,
+        max(absorption_cost_usd)            as absorption_cost_usd,
+        max(freight_cost)                   as freight_cost,
+        max(list_price_per_lbs_gross)       as list_price_per_lbs_gross,
+        max(price_per_lbs_gross)            as price_per_lbs_gross,
 
         /* =======================
            PRODUCT ATTRIBUTES
@@ -76,6 +105,7 @@ sales_rows as (
         min(product_stocking_uom)            as product_stocking_uom,
         min(product_commodity)               as product_commodity,
         min(product_source_type)             as product_source_type,
+        min(product_customer)                as product_customer,
 
         /* =======================
            CUSTOMER

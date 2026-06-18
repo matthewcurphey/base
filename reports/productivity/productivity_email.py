@@ -2,8 +2,8 @@ import os
 import win32com.client as win32
 from reports.productivity.branch_config import BRANCHES
 
-DEFAULT_ORGS = ('ASC','ENA','ENT', 'MCH','MTY','MXM','MXQ','SGP')
-#DEFAULT_ORGS = ('ATL','CLE','DAL','HAI','JVL','LOS','STO','TOR','WIE')
+#DEFAULT_ORGS = ('ASC','ENA','ENT', 'MCH','MTY','MXM','MXQ','SGP')
+DEFAULT_ORGS = ('ATL','CLE','DAL','HAI','JVL','LOS','STO','TOR','WIE')
 
 #DEFAULT_ORGS = ('ASC','ATL','CLE','DAL','ENA','ENT','HAI','JVL','LOS','MCH','MTY','MXM','MXQ','SGP','STO','TOR','WIE')
 
