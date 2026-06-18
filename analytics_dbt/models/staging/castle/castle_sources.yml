@@ -12,6 +12,12 @@ sources:
         description: "Raw Castle Inventory table."
       - name: castle_ppsrcvshp
         description: "Raw Castle PPS RCV SHP table."
+      - name: castle_po_open
+        description: "Raw Castle PO Open table."
+      - name: castle_po_receipts
+        description: "Raw Castle PO Receipts table."
+      - name: castle_transfers
+        description: "Raw Castle Transfers table."
 
 
 

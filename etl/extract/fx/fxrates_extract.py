@@ -10,11 +10,11 @@ def extract_fxrates(
     source_name: str = "frankfurter.ecb"
 ) -> pd.DataFrame:
 
-    url = f"https://api.frankfurter.app/{start_date.isoformat()}..{end_date.isoformat()}"
+    url = f"https://api.frankfurter.dev/v1/{start_date.isoformat()}..{end_date.isoformat()}"
 
     params = {
-        "from": "USD",
-        "to": ",".join(target_currencies),
+        "base": "USD",
+        "symbols": ",".join(target_currencies),
     }
 
     resp = requests.get(

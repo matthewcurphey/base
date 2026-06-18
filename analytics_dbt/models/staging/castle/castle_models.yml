@@ -10,6 +10,12 @@ models:
     description: "Light cleanup of Castle Inventory table."
   - name: base_castle__ppsrcvshp
     description: "Light cleanup of Castle PPS SHP RCV table."
+  - name: base_castle__po_open
+    description: "Light cleanup of Castle PO Open table."
+  - name: base_castle__po_receipts
+    description: "Light cleanup of Castle PO Receipts table."
+  - name: base_castle__transfers
+    description: "Light cleanup of Castle Transfers table."
 
 # STAGING MODELS
   - name: stg_castle__sales
@@ -20,3 +26,9 @@ models:
     description: "Cleaned and typed Castle Inventory."
   - name: stg_castle__ppsrcvshp
     description: "Cleaned and typed Castle PPS RCV SHP."
+  - name: stg_castle__po_open
+    description: "Cleaned and typed Castle PO Open."
+  - name: stg_castle__po_receipts
+    description: "Cleaned and typed Castle PO Receipts."
+  - name: stg_castle__transfers
+    description: "Cleaned and typed Castle Transfers."

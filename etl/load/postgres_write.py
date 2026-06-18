@@ -70,9 +70,13 @@ def write_postgres_table(df, table, schema, if_exists="replace", dtype=None):
 
     # --- Handle truncate manually (SQLAlchemy doesn't have truncate mode)
     if if_exists == "truncate":
-        with engine.begin() as conn:
-            conn.execute(sqlalchemy.text(f'TRUNCATE TABLE {full_table};'))
-        if_exists = "append"  # write fresh data after truncate
+        try:
+            with engine.begin() as conn:
+                conn.execute(sqlalchemy.text(f'TRUNCATE TABLE {full_table};'))
+            if_exists = "append"
+        except sqlalchemy.exc.ProgrammingError:
+            # Table doesn't exist yet — let to_sql create it
+            if_exists = "replace"
 
     # --- Use pandas built-in SQL writer (safe, dtype-stable)
     df.to_sql(

@@ -58,6 +58,9 @@ from etl.jobs.castle.castle_sales_ingest import ingest_castle_sales
 from etl.jobs.castle.castle_dj_ingest import ingest_castle_dj
 from etl.jobs.castle.castle_ppsrcvshp_ingest import ingest_castle_ppsrcvshp
 from etl.jobs.castle.castle_inventory_ingest import ingest_castle_inventory
+from etl.jobs.castle.castle_po_open_ingest import ingest_castle_po_open
+from etl.jobs.castle.castle_po_receipts_ingest import ingest_castle_po_receipts
+from etl.jobs.castle.castle_transfers_ingest import ingest_castle_transfers
 
 def run_all_castle_ingestions():
     print("Starting Castle ingestion pipeline...")
@@ -78,13 +81,25 @@ def run_all_castle_ingestions():
     ingest_castle_inventory()
     print("Castle Inventory done.\n")
 
+    print("Ingesting Castle PO Open...")
+    ingest_castle_po_open()
+    print("Castle PO Open done.\n")
+
+    print("Ingesting Castle PO Receipts...")
+    ingest_castle_po_receipts()
+    print("Castle PO Receipts done.\n")
+
+    print("Ingesting Castle Transfers...")
+    ingest_castle_transfers()
+    print("Castle Transfers done.\n")
+
     print("All Castle ingestion jobs completed successfully!")
 
 from etl.jobs.vorne.vorne_ingest import ingest_vorne
 def run_all_vorne_ingestions():
     print("Starting Vorne ingestion pipelines...")
 
-    print("Imgesting Vorne Data...")
+    print("Ingesting Vorne Data...")
     ingest_vorne()
     print("Vorne Data done.")
 
@@ -92,7 +107,7 @@ from etl.jobs.fx.fxrates_ingest import ingest_fxrates
 def run_all_other_ingestions():
     print("Starting Other ingestion pipelines...")
 
-    print("Imgesting FX Rates...")
+    print("Ingesting FX Rates...")
     ingest_fxrates()
     print("FX Rates done.")
 
@@ -107,13 +122,12 @@ def run_all_hr_ingestions():
     print("All HR ingestion jobs completed successfully!")
 
 def run_all_ingestions():
-    run_all_banner_ingestions()
+    #run_all_banner_ingestions()
     run_all_castle_ingestions()
     #run_all_vorne_ingestions()
     run_all_other_ingestions()
-    run_all_hr_ingestions()
+    #run_all_hr_ingestions()
     
 if __name__ == "__main__":
     run_all_ingestions()
 
-## dbt run --exclude path:models/intermediate/yield path:models/marts/yield
