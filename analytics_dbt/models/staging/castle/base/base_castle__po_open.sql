@@ -82,7 +82,7 @@ cleaned as (
         cast(po_received_lbs as numeric(18,4))          as po_received_lbs,
         trim(acceptance_type)                           as acceptance_type,
         trim(action)                                    as action,
-        cast(action_date as date)                       as action_date,
+        case when trim(action_date) = '0-00-00' then null else cast(action_date as date) end as action_date,
         cast(po_received_units as numeric(18,4))        as po_received_units,
         cast(po_date as date)                           as po_date
 

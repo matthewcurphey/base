@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: mart_mcmaster__open_backlog
+    description: "McMaster open backlog mart. Line-level detail with sale, production, item, and material availability columns. Feeds the open backlog dashboard and Excel reporting."

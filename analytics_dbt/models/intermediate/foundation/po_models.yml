@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: int_foundation_castle__po_open
+    description: "Castle open purchase orders. PO line grain. Key fields: item, vendor, due dates, open qty/lbs, status."
+
+  - name: int_foundation_castle__po_receipts
+    description: "Castle PO receipts. Receipt transaction grain. Key fields: item, vendor, receipt date, received qty/lbs."

@@ -9,7 +9,8 @@
       "Bash(Get-ChildItem -Path \"c:\\\\base\\\\analytics_dbt\\\\models\\\\staging\\\\banner\" -File -Filter \"*.sql\")",
       "Bash(Select-Object Name)",
       "Bash(Sort-Object Name)",
-      "PowerShell(Get-ChildItem C:\\\\ -Directory | ForEach-Object { $size = \\(Get-ChildItem $_.FullName -Recurse -ErrorAction SilentlyContinue | Measure-Object Length -Sum\\).Sum; [PSCustomObject]@{Dir=$_.Name; GB=[math]::Round\\($size/1GB,1\\)} } | Sort-Object GB -Descending | Select-Object -First 10 | Format-Table -AutoSize)"
+      "PowerShell(Get-ChildItem C:\\\\ -Directory | ForEach-Object { $size = \\(Get-ChildItem $_.FullName -Recurse -ErrorAction SilentlyContinue | Measure-Object Length -Sum\\).Sum; [PSCustomObject]@{Dir=$_.Name; GB=[math]::Round\\($size/1GB,1\\)} } | Sort-Object GB -Descending | Select-Object -First 10 | Format-Table -AutoSize)",
+      "PowerShell(& \"C:\\\\Program Files\\\\PostgreSQL\\\\15\\\\bin\\\\psql.exe\" -U postgres -d base -c \"SELECT short_org, donor_org, product_primary_item_nbr, inv_uom, lines_short, round\\(total_short_qty::numeric,1\\) as total_short_qty, round\\(donor_available_qty::numeric,1\\) as donor_available_qty, lines_coverable, donor_overcommitted FROM analytics.int_castle__mcmaster_03_cross_ship WHERE lines_coverable = 0 LIMIT 20;\")"
     ]
   }
 }

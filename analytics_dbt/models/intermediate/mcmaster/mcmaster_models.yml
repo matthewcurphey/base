@@ -1,5 +1,17 @@
 version: 2
 
 models:
-  - name: int_mcmaster__01_sales_production
-    description: "Castle McMaster-Carr - SO/line/shipment grain, sales joined to discrete job (1:1)"
+  - name: int_castle__mcmaster_01_sales_production
+    description: "Castle McMaster-Carr - SO/line/shipment grain, sales joined to discrete job (1:1). Full history — used for shipped reporting and historic backlog."
+
+  - name: int_castle__mcmaster_02_open_backlog
+    description: "Castle McMaster-Carr open backlog only (sales_type = Order). Adds per-org running inventory tally, floor, and shortage flag at the line level."
+
+  - name: int_castle__mcmaster_03_cross_ship
+    description: "Cross-ship opportunity matrix. Item × short_org × donor_org grain. Shows total shortfall vs donor floor with full/partial coverage flags. Home runs first."
+
+  - name: int_castle__mcmaster_04_other_inventory
+    description: "Transfer-in signal. Item × short_org × other_org grain. Full comp_inv_req netting for non-sphere orgs. Net available = on_hand minus that org's own committed demand. Same bin-packing and overcommitment logic as _03. Only surfaces when lines_short >= 5."
+
+  - name: int_castle__mcmaster_05_po_coverage
+    description: "PO coverage for short items. Item × org grain. Shows lines short, total short qty, open PO count, open qty, next due date, vendors, and full PO detail concat. no_po_on_order = TRUE is the critical signal."
