@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: int_foundation_oracle__sales_production
+    description: >
+      Oracle open orders (all customers) with DI product attributes joined on clean item number.
+      Renames columns to the mcmaster pipeline naming convention. Unfiltered — McMaster scope
+      applied in int_oracle__mcmaster_01_sales_production.
+
+  - name: int_foundation_oracle__inv_inventory
+    description: >
+      Oracle inventory with UOM joined from DI on org + base item number.
+      Suffix variants (.BO buyout, .CO customer-owned) resolve to the base item for the DI lookup
+      via item_clean, so all rows carry the correct unit_of_measure regardless of suffix.

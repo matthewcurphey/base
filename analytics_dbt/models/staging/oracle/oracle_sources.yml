@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: oracle
+    schema: raw
+    tables:
+      - name: castle_oracle_inventory
+        description: "Raw Castle inventory from live Oracle reports, one row per lot."
+
+      - name: castle_oracle_di
+        description: "Raw Oracle Distribution Item master, one row per item per org, all locations stacked."
+
+      - name: castle_oracle_open_orders
+        description: "Raw Oracle open orders report (AMC_Open_Orders_Report), one row per SO line."
+
+      - name: cx_orders
+        description: "CX team's open orders reference file (SharePoint), one row per SO line with reason/vendor/po/comments annotations."

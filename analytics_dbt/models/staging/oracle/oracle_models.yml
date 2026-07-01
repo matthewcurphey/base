@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: base_castle_oracle__inventory
+    description: "Light rename and trim of raw Castle Oracle inventory."
+
+  - name: stg_castle_oracle__inventory
+    description: "Cleaned and typed Castle Oracle inventory."
+
+  - name: base_castle_oracle__di
+    description: "Light trim of raw Oracle Distribution Item master data."
+
+  - name: stg_castle_oracle__di
+    description: "Cleaned and typed Oracle DI — item master with UOM, lead times, planning params, and core/ABC classifications across all orgs."
+
+  - name: base_castle_oracle__open_orders
+    description: "Light trim of raw Oracle open orders report."
+
+  - name: stg_castle_oracle__open_orders
+    description: "Cleaned and typed Oracle open orders — SO line grain with parsed so_nbr/so_line/so_shipment, typed dates, quantities, and financials."

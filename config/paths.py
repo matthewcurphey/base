@@ -14,4 +14,6 @@ DATA_RAW_DIR = os.path.join(ETL_DIR, "data_raw")
 CASTLE_RAW_DIR = os.path.join(DATA_RAW_DIR, "castle")
 BANNER_RAW_DIR = os.path.join(DATA_RAW_DIR, "banner")
 HR_RAW_DIR = os.path.join(DATA_RAW_DIR, "hr")
+SHAREPOINT_RAW_DIR = os.path.join(DATA_RAW_DIR, "sharepoint")
+ORACLE_RAW_DIR = os.path.join(DATA_RAW_DIR, "oracle")
 

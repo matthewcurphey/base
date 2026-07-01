@@ -1,0 +1,97 @@
+{{ config(materialized='view') }}
+
+with raw as (
+
+    select
+        branch_number,
+        branch_name,
+        shipping_org,
+        order_line,
+        customer_name,
+        customer_po_number,
+        cust_item_number,
+        item_number,
+        ordered_item_desc,
+        ordered_qty,
+        ordered_uom,
+        lbs_qty,
+        item_thickness,
+        cut_width,
+        cut_length,
+        item_grade,
+        item_temper,
+        ordered_date,
+        request_date,
+        promise_date,
+        scheduled_ship_date,
+        actual_ship_date,
+        order_status,
+        pick_status,
+        discrete_job,
+        discrete_job_status,
+        task_status,
+        credit_hold,
+        days_early_late,
+        on_time_pct,
+        cogs,
+        sales_usd,
+        gross_margin,
+        margin_pct,
+        promo_name,
+        required_qty,
+        quantity_issued,
+        transaction_date,
+        sales_representative,
+        quantity_on_hand
+    from {{ source('oracle', 'castle_oracle_open_orders') }}
+
+),
+
+cleaned as (
+
+    select
+        trim(branch_number)         as branch_number,
+        trim(branch_name)           as branch_name,
+        trim(shipping_org)          as shipping_org,
+        trim(order_line)            as order_line,
+        trim(customer_name)         as customer_name,
+        trim(customer_po_number)    as customer_po_number,
+        trim(cust_item_number)      as cust_item_number,
+        trim(item_number)           as item_number,
+        trim(ordered_item_desc)     as ordered_item_desc,
+        trim(ordered_qty)           as ordered_qty,
+        trim(ordered_uom)           as ordered_uom,
+        trim(lbs_qty)               as lbs_qty,
+        trim(item_thickness)        as item_thickness,
+        trim(cut_width)             as cut_width,
+        trim(cut_length)            as cut_length,
+        trim(item_grade)            as item_grade,
+        trim(item_temper)           as item_temper,
+        trim(ordered_date)          as ordered_date,
+        trim(request_date)          as request_date,
+        trim(promise_date)          as promise_date,
+        trim(scheduled_ship_date)   as scheduled_ship_date,
+        trim(actual_ship_date)      as actual_ship_date,
+        trim(order_status)          as order_status,
+        trim(pick_status)           as pick_status,
+        trim(discrete_job)          as discrete_job,
+        trim(discrete_job_status)   as discrete_job_status,
+        trim(task_status)           as task_status,
+        trim(credit_hold)           as credit_hold,
+        trim(days_early_late)       as days_early_late,
+        trim(on_time_pct)           as on_time_pct,
+        trim(cogs)                  as cogs,
+        trim(sales_usd)             as sales_usd,
+        trim(gross_margin)          as gross_margin,
+        trim(margin_pct)            as margin_pct,
+        trim(promo_name)            as promo_name,
+        trim(required_qty)          as required_qty,
+        trim(quantity_issued)       as quantity_issued,
+        trim(transaction_date)      as transaction_date,
+        trim(sales_representative)  as sales_representative,
+        trim(quantity_on_hand)      as quantity_on_hand
+    from raw
+
+)
+
+select * from cleaned

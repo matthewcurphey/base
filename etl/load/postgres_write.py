@@ -68,8 +68,14 @@ def write_postgres_table(df, table, schema, if_exists="replace", dtype=None):
     engine = get_postgres_connection()
     full_table = f'"{schema}"."{table}"'
 
+    # --- Handle replace manually so dependent dbt views are dropped with CASCADE
+    if if_exists == "replace":
+        with engine.begin() as conn:
+            conn.execute(sqlalchemy.text(f'DROP TABLE IF EXISTS {full_table} CASCADE;'))
+        if_exists = "append"  # table is gone; append creates it fresh
+
     # --- Handle truncate manually (SQLAlchemy doesn't have truncate mode)
-    if if_exists == "truncate":
+    elif if_exists == "truncate":
         try:
             with engine.begin() as conn:
                 conn.execute(sqlalchemy.text(f'TRUNCATE TABLE {full_table};'))

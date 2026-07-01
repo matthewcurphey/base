@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: int_foundation_castle__sales_production
+    description: "Castle sales orders left-joined to discrete jobs, enriched with expected usage, actual usage, and operation steps at the DJ level. DJs with no direct SO link are resolved via assembly item parsing (comp_item format so*line*ship*segment). dj_link_source flags whether the link was direct ('default') or derived ('assembly'). No customer or status filters — downstream models apply those."

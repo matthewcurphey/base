@@ -111,6 +111,44 @@ def run_all_other_ingestions():
     ingest_fxrates()
     print("FX Rates done.")
 
+from etl.jobs.oracle.oracle_inventory_ingest import ingest_castle_oracle_inventory
+from etl.jobs.oracle.oracle_open_orders_ingest import ingest_castle_oracle_open_orders
+
+def run_all_oracle_ingestions():
+    print("Starting Oracle ingestion pipeline...")
+
+    print("Ingesting Castle Oracle Inventory...")
+    ingest_castle_oracle_inventory()
+    print("Castle Oracle Inventory done.\n")
+
+    print("Ingesting Castle Oracle Open Orders...")
+    ingest_castle_oracle_open_orders()
+    print("Castle Oracle Open Orders done.\n")
+
+    print("All Oracle ingestion jobs completed successfully!")
+
+from etl.jobs.oracle.oracle_di_ingest import ingest_castle_oracle_di
+
+def run_all_oracle_di_ingestions():
+    # Infrequent — Oracle DI is item master data that rarely changes. Uncomment in run_all_ingestions() when a refresh is needed.
+    print("Starting Oracle DI ingestion pipeline...")
+
+    print("Ingesting Castle Oracle DI...")
+    ingest_castle_oracle_di()
+    print("Castle Oracle DI done.\n")
+
+    print("Oracle DI ingestion completed successfully!")
+
+from etl.jobs.sharepoint.sharepoint_cx_ingest import ingest_cx_orders
+def run_all_sharepoint_ingestions():
+    print("Starting SharePoint ingestion pipeline...")
+
+    print("Ingesting CX Orders...")
+    ingest_cx_orders()
+    print("CX Orders done.\n")
+
+    print("All SharePoint ingestion jobs completed successfully!")
+
 from etl.jobs.hr.hr_worked_hours_ingest import ingest_hr_worked_hours
 def run_all_hr_ingestions():
     print("Starting HR ingestion pipeline...")
@@ -122,11 +160,14 @@ def run_all_hr_ingestions():
     print("All HR ingestion jobs completed successfully!")
 
 def run_all_ingestions():
-    run_all_banner_ingestions()
+    #run_all_banner_ingestions()
     run_all_castle_ingestions()
     #run_all_vorne_ingestions()
-    run_all_other_ingestions()
+    #run_all_other_ingestions()
     #run_all_hr_ingestions()
+    run_all_sharepoint_ingestions()
+    run_all_oracle_ingestions()
+    #run_all_oracle_di_ingestions()
     
 if __name__ == "__main__":
     run_all_ingestions()

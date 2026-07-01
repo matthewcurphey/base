@@ -1,6 +1,15 @@
 version: 2
 
 models:
+  - name: int_oracle__mcmaster_01_sales_production
+    description: "Oracle McMaster-Carr open backlog. SO/line/shipment grain from Oracle open orders report. Joins Oracle inventory foundation for per-org on-hand in native UOM. Includes competing demand for shared items."
+
+  - name: int_oracle__mcmaster_02_open_backlog
+    description: "Oracle McMaster-Carr backlog with per-org running inventory tally, floor, and shortage flag. Partitioned by item_clean. Equivalent of castle 02 but sourced from Oracle pipeline."
+
+  - name: int_oracle__mcmaster_03_cross_ship
+    description: "Oracle cross-ship opportunity matrix. item_clean × short_org × donor_org grain. Shows total shortfall vs donor floor with full/partial coverage flags and overcommitment signal."
+
   - name: int_castle__mcmaster_01_sales_production
     description: "Castle McMaster-Carr - SO/line/shipment grain, sales joined to discrete job (1:1). Full history — used for shipped reporting and historic backlog."
 
@@ -15,3 +24,12 @@ models:
 
   - name: int_castle__mcmaster_05_po_coverage
     description: "PO coverage for short items. Item × org grain. Shows lines short, total short qty, open PO count, open qty, next due date, vendors, and full PO detail concat. no_po_on_order = TRUE is the critical signal."
+
+  - name: int_castle__mcmaster_06_multi_dj
+    description: "Exception report. Open McMaster orders where more than one DJ is attached to the same SO/line/shipment. One row per DJ, SO columns repeat. dj_count shows the total attached."
+
+  - name: int_castle__mcmaster_07_zombie_dj
+    description: "Exception report. McMaster orders where sales_type != Order but the DJ is still active (not Closed/Complete). No sales_status or line_transaction_type filter — intentionally wide. These DJs need closing."
+
+  - name: int_castle__mcmaster_08_multi_shipment
+    description: "Exception report. Open McMaster orders with so_shipment > 1. These lines are excluded from all backlog and coverage models (01 and downstream) and should be cancelled — shipment splits are not valid for McMaster and cause duplicate fulfilment."
