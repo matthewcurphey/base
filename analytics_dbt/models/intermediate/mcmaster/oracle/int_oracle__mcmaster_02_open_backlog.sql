@@ -105,8 +105,8 @@ statused as (
                  and job_status ~ '^(Complete|Closed)(,(Complete|Closed))*$'
                                                                                   then 'Job Complete'
             when comp_inv_req = 0                                                 then 'Job Started'
-            when is_short                                                         then 'No Material (Est.)'
-            when comp_inv_req > 0                                                 then 'Material Available (Est.)'
+            when is_short                                                         then 'No Material'
+            when comp_inv_req > 0                                                 then 'Material Available'
             else                                                                       'Unknown'
         end                                                                       as mcm_status
     from floored

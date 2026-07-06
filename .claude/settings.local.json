@@ -18,7 +18,26 @@
       "PowerShell(New-Item -ItemType File -Force \"C:\\\\base\\\\etl\\\\jobs\\\\oracle\\\\__init__.py\")",
       "Bash(dir -Recurse -Directory -Name)",
       "PowerShell(Move-Item \"c:\\\\base\\\\analytics_dbt\\\\models\\\\intermediate\\\\foundation\\\\oracle\\\\inv\\\\int_foundation_oracle__inv_inventory.sql\" \"c:\\\\base\\\\analytics_dbt\\\\models\\\\intermediate\\\\foundation\\\\oracle\\\\int_foundation_oracle__inv_inventory.sql\")",
-      "Bash(xargs grep -l \"sharepoint\\\\|cx\")"
+      "Bash(xargs grep -l \"sharepoint\\\\|cx\")",
+      "Bash(xargs -I{} sh -c 'echo \"=== {} ===\"; wc -l {}')",
+      "Bash(grep -n \"castle\\\\|banner\\\\|division\\\\|source_system\\\\|select$\\\\|select \\\\*\" /c/base/analytics_dbt/models/intermediate/yield/castle/int_castle_yield_final.sql)",
+      "Bash(ls dbt_project.yml)",
+      "Bash(which dbt *)",
+      "Bash(python -c \"print\\('py ok'\\)\")",
+      "Bash(dbt compile *)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(python3 -c ' *)",
+      "Bash(python -c ' *)",
+      "Bash(grep -i \"\\\\.py$\")",
+      "Bash(grep -rn \"analytics_marts\\\\|generate_schema_name\" /c/base/analytics_dbt/macros /c/base/analytics_dbt/*.yml 2>/dev/null; echo \"---profiles---\"; find / -iname \"profiles.yml\" 2>/dev/null | grep -v node_modules; echo \"---paths---\"; cat /c/base/config/paths.py 2>/dev/null)",
+      "Read(//c//**)",
+      "Bash(dbt run *)",
+      "Bash(python run.py mcmaster-output)",
+      "Bash(ls -la /c/base/reports/mcmaster/ 2>/dev/null; echo \"---\"; ls -la \"/c/Users/mcurphey/A. M. Castle & Co/Analytics_ETL - Documents/mcmaster/\" 2>/dev/null)",
+      "Read(//c/Users/mcurphey/A. M. Castle & Co/Analytics_ETL - Documents/mcmaster//**)",
+      "PowerShell(Get-Process python -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Process EXCEL -ErrorAction SilentlyContinue)",
+      "Bash(time python run.py mcmaster-output)"
     ]
   }
 }
