@@ -15,3 +15,4 @@ select
     donor_overcommitted
 
 from {{ ref('int_oracle__mcmaster_exception_cross_ship') }}
+where lines_coverage_pct > 0

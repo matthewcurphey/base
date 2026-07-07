@@ -71,28 +71,16 @@ python run.py productivity-email 2026 5 May26 send
 python run.py mcmaster-output
 ```
 
-Pulls the open backlog mart from Postgres, pastes it into the `mcmaster_template.xlsx`
-template, and saves the result to:
+Pulls all 7 McMaster marts from Postgres and pastes them into `mcmaster_template.xlsx`:
+`open_backlog_detail`, `cross_ship`, `hot_components`, `to_cancel`, `dj_review` (straight
+mart-to-tab pastes), plus `summary` (90-day trend + 7-day activity table + backlog status
+chart/pivot, built from `mart_mcmaster__backlog_daily`/`mart_mcmaster__backlog_status`).
+Saves the result to:
 - `reports/mcmaster/mcmaster_report.xlsx` (local)
 - `C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\mcmaster\mcmaster_report.xlsx` (SharePoint)
 - `reports/mcmaster/archive/mcmaster_report_<date>.xlsx` (dated archive copy)
 
-No arguments — always reflects the current state of `analytics_marts.mart_mcmaster__open_backlog`.
-
----
-
-## McMaster — Dump Tabs for Design
-
-```
-python run.py mcmaster-dump-tabs
-```
-
-Dev tool, not part of the daily pipeline. Dumps every new McMaster mart (`cross_ship`,
-`hot_components`, `to_cancel`, `dj_review`, `backlog_daily`, `backlog_status`) into
-its own sheet in `reports/mcmaster/mcmaster_tabs_draft.xlsx` — bold header row, frozen
-pane, autofilter, autofit-ish column widths, nothing else. Separate file from
-`mcmaster_template.xlsx`, so it's safe to design tab formatting/layout against real
-data without touching the live template. Re-run anytime to refresh with current data.
+No arguments — always reflects the current state of the underlying marts.
 
 ---
 

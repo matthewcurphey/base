@@ -5,7 +5,7 @@ models:
     description: "McMaster open backlog mart. Line-level detail with sale, production, item, and material availability columns. Feeds the open backlog dashboard and Excel reporting."
 
   - name: mart_mcmaster__cross_ship
-    description: "Cross-ship opportunity mart. item x short_org x donor_org grain — trimmed from int_oracle__mcmaster_exception_cross_ship (dropped lines_coverable as redundant with lines_coverage_pct). qty_needed is what moving material would actually cost the donor to clear lines_coverage_pct of short_org's shortage; donor_overcommitted flags when multiple short orgs are competing for the same donor's surplus."
+    description: "Cross-ship opportunity mart. item x short_org x donor_org grain — trimmed from int_oracle__mcmaster_exception_cross_ship (dropped lines_coverable as redundant with lines_coverage_pct). qty_needed is what moving material would actually cost the donor to clear lines_coverage_pct of short_org's shortage; donor_overcommitted flags when multiple short orgs are competing for the same donor's surplus. Filtered to lines_coverage_pct > 0 — a donor with some stock but not enough to clear even one line isn't a real option."
 
   - name: mart_mcmaster__hot_components
     description: "Hot components mart. Item grain — total and per-sphere-org short line counts, open PO detail (JSON), and one avail_<org> column per non-sphere castle org (net surplus after that org's own demand), alphabetical. All 16 orgs kept, including avail_aaa (consignment inventory — genuinely useful, not a code to drop)."

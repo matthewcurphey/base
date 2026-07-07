@@ -11,6 +11,7 @@ from openpyxl.styles import Border, Font, NamedStyle, PatternFill, Side
 from openpyxl.styles.colors import Color
 
 from etl.utils.connect_postgres import get_postgres_connection
+from reports.mcmaster.mcmaster_summary import update_live_summary_sheet
 
 TEMPLATE_PATH = os.path.join("reports", "mcmaster", "mcmaster_template.xlsx")
 OUTPUT_PATH = os.path.join("reports", "mcmaster", "mcmaster_report.xlsx")
@@ -266,6 +267,8 @@ def mcmaster_output():
         sheet_name: pd.read_sql(f"SELECT * FROM analytics_marts.{mart}", engine)
         for sheet_name, (mart, _header_row) in SHEETS.items()
     }
+    backlog_daily_df = pd.read_sql("SELECT * FROM analytics_marts.mart_mcmaster__backlog_daily", engine)
+    backlog_status_df = pd.read_sql("SELECT * FROM analytics_marts.mart_mcmaster__backlog_status", engine)
     engine.dispose()
 
     for sheet_name, df in dataframes.items():
@@ -283,6 +286,9 @@ def mcmaster_output():
     print("Writing sheets:")
     for sheet_name, (_mart, header_row) in SHEETS.items():
         _write_sheet(wb, sheet_name, header_row, dataframes[sheet_name])
+
+    update_live_summary_sheet(wb, backlog_daily_df, backlog_status_df)
+    print("  summary: trend + status charts, 7-day table, status pivot")
 
     # ------------------------------------------------------------------
     # 3. Save locally, drop a copy in the SharePoint-synced library,
