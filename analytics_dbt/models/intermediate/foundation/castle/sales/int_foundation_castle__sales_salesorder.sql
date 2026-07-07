@@ -117,9 +117,12 @@ sales_rows as (
 
     from src
     where
-        lower(sales_status) = 'valid'
-        and lower(line_transaction_type) like 'sales%'
-        and total_sales_usd < 100000000
+        -- sales_status/line_transaction_type are NOT filtered here — they
+        -- used to be, but that silently hid cancelled orders from every
+        -- downstream consumer (including ones that need to see them, like
+        -- DJ exception reporting). Consumers that want valid-sales-only
+        -- (backlog_daily, hot_components) apply that filter themselves.
+        total_sales_usd < 100000000
 
     group by
         sales_order_nbr,

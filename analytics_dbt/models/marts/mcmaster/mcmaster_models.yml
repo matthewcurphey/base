@@ -3,3 +3,21 @@ version: 2
 models:
   - name: mart_mcmaster__open_backlog
     description: "McMaster open backlog mart. Line-level detail with sale, production, item, and material availability columns. Feeds the open backlog dashboard and Excel reporting."
+
+  - name: mart_mcmaster__cross_ship
+    description: "Cross-ship opportunity mart. item x short_org x donor_org grain — trimmed from int_oracle__mcmaster_exception_cross_ship (dropped lines_coverable as redundant with lines_coverage_pct). qty_needed is what moving material would actually cost the donor to clear lines_coverage_pct of short_org's shortage; donor_overcommitted flags when multiple short orgs are competing for the same donor's surplus."
+
+  - name: mart_mcmaster__hot_components
+    description: "Hot components mart. Item grain — total and per-sphere-org short line counts, open PO detail (JSON), and one avail_<org> column per non-sphere castle org (net surplus after that org's own demand), alphabetical. All 16 orgs kept, including avail_aaa (consignment inventory — genuinely useful, not a code to drop)."
+
+  - name: mart_mcmaster__to_cancel
+    description: "To-cancel exception mart (renamed from multi_shipment). McMaster order lines with so_shipment > 1 that need cancelling. Trimmed to identifiers (incl. item_clean), order/pick/credit status, order and invoice dates, customer name, and DJ status/comp_issued_qty (whether material's already been issued, which makes cancellation a reversal rather than a clean delete)."
+
+  - name: mart_mcmaster__dj_review
+    description: "DJ review exception mart (renamed from dj_status). Straight passthrough of int_castle__mcmaster_exception_dj_review — already pivoted to the exact shape needed (dj_1/2/3 + org + status, so_status label, reason_flagged text), nothing left to trim."
+
+  - name: mart_mcmaster__backlog_daily
+    description: "Backlog daily trend mart. Straight passthrough of int_castle__mcmaster_metric_backlog_daily — full history, no date trim, all columns including is_weekday/has_activity kept since this will drive charts and cleanup/filtering happens at the pandas stage."
+
+  - name: mart_mcmaster__backlog_status
+    description: "Backlog status summary mart. Straight passthrough of int_oracle__mcmaster_metric_backlog_status — status x org grain, line_count and total_usd both kept; pivot to matrix/margins happens at the pandas stage."

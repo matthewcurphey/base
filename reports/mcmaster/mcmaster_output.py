@@ -1,3 +1,4 @@
+import json
 import os
 import re
 import shutil
@@ -16,11 +17,44 @@ OUTPUT_PATH = os.path.join("reports", "mcmaster", "mcmaster_report.xlsx")
 ARCHIVE_DIR = os.path.join("reports", "mcmaster", "archive")
 SHAREPOINT_DIR = r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\mcmaster"
 
-SHEET_NAME = "open_backlog_detail"
-HEADER_ROW = 2
-FIRST_DATA_ROW = 3
+# sheet name -> (source mart, header row). First data row is always header_row + 1.
+SHEETS = {
+    "open_backlog_detail": ("mart_mcmaster__open_backlog", 2),
+    "cross_ship": ("mart_mcmaster__cross_ship", 2),
+    "hot_components": ("mart_mcmaster__hot_components", 2),
+    "to_cancel": ("mart_mcmaster__to_cancel", 1),
+    "dj_review": ("mart_mcmaster__dj_review", 2),
+}
+
+# sheet name -> (columns, ascending flags). Applied in pandas, not SQL — a
+# mart's own ORDER BY doesn't survive a later "SELECT * FROM mart" with no
+# ORDER BY of its own, and sorting here means it still holds even if the
+# dataframe gets trimmed/reshaped after loading.
+SORT_KEYS = {
+    "open_backlog_detail": (["prom_dt", "so_nbr", "line"], [True, True, True]),
+    "cross_ship": (["full_lines_cover", "donor_overcommitted", "lines_cover_pct"], [False, True, False]),
+    "hot_components": (["total_lines"], [False]),
+    "to_cancel": (["org", "so_nbr", "line", "shp"], [True, True, True, True]),
+    "dj_review": (["so_nbr", "line", "shp"], [True, True, True]),
+}
 
 _PURE_INT_RE = re.compile(r"-?\d+")
+
+
+def _stringify_json_columns(df):
+    """
+    jsonb columns (e.g. hot_components.po_details) come back from Postgres
+    as native Python list/dict objects — openpyxl can't write those into a
+    cell directly. Convert any column containing list/dict values to a JSON
+    string so it lands as one readable cell instead of erroring.
+    """
+    for col in df.columns:
+        s = df[col]
+        is_json_like = s.map(lambda v: isinstance(v, (list, dict)))
+        if not is_json_like.any():
+            continue
+        df.loc[is_json_like, col] = s[is_json_like].map(json.dumps)
+    return df
 
 
 def _coerce_numeric_text(df):
@@ -36,7 +70,13 @@ def _coerce_numeric_text(df):
     """
     for col in df.columns:
         s = df[col]
-        not_na = s[s.notna()].astype(str)
+        not_na = s[s.notna()]
+        not_na = not_na[not_na.map(lambda v: isinstance(v, str))]
+        if not_na.empty:
+            # Nothing to coerce — column is purely numeric/bool/etc already,
+            # or entirely null. Empty object Series breaks .str (pandas
+            # can't infer string dtype with no values to look at).
+            continue
         digit_like = not_na.str.fullmatch(_PURE_INT_RE)
         if not digit_like.any():
             continue
@@ -133,33 +173,17 @@ def _column_styles(ws, first_row, last_row, n_cols):
     return styles
 
 
-def mcmaster_output():
+def _write_sheet(wb, sheet_name, header_row, df):
+    """
+    Paste df into wb[sheet_name] starting at header_row + 1, preserving the
+    sheet's existing formatting (majority-derived per column, explicitly
+    reapplied — see _column_styles) regardless of how many rows df has this
+    run versus last run.
+    """
+    first_data_row = header_row + 1
+    ws = wb[sheet_name]
 
-    # ------------------------------------------------------------------
-    # 1. Load the mart from Postgres
-    # ------------------------------------------------------------------
-    engine = get_postgres_connection()
-    df = pd.read_sql("SELECT * FROM analytics_marts.mart_mcmaster__open_backlog", engine)
-    engine.dispose()
-
-    # Convert safely-numeric text columns to real ints before sorting, so
-    # the so_nbr/line tie-break below compares numerically, not as strings.
-    df = _coerce_numeric_text(df)
-
-    # Most overdue first. Mirrors the tie-break already used by the tally
-    # calc in SQL (promise date, then so_nbr/so_line) — display order only,
-    # doesn't touch the inventory math.
-    df = df.sort_values(["prom_dt", "so_nbr", "line"], na_position="last")
-
-    # ------------------------------------------------------------------
-    # 2. Open the formatted template and check it still lines up with
-    #    the mart — this is a hand-maintained mapping, so a silent
-    #    mismatch here means real values land under the wrong headers.
-    # ------------------------------------------------------------------
-    wb = openpyxl.load_workbook(TEMPLATE_PATH)
-    ws = wb[SHEET_NAME]
-
-    template_headers = [ws.cell(row=HEADER_ROW, column=c).value for c in range(1, ws.max_column + 1)]
+    template_headers = [ws.cell(row=header_row, column=c).value for c in range(1, ws.max_column + 1)]
     while template_headers and template_headers[-1] is None:
         # Excel can inflate the sheet's used range with stray formatting on
         # blank trailing columns (e.g. a column width tweak) — harmless, ignore.
@@ -168,7 +192,7 @@ def mcmaster_output():
 
     if template_headers != mart_headers:
         raise ValueError(
-            "Template headers do not match mart columns — fix before writing data.\n"
+            f"[{sheet_name}] Template headers do not match mart columns — fix before writing data.\n"
             f"Template: {template_headers}\n"
             f"Mart:     {mart_headers}"
         )
@@ -176,24 +200,22 @@ def mcmaster_output():
     n_cols = len(mart_headers)
     old_max_row = ws.max_row
 
-    # ------------------------------------------------------------------
-    # 3. Work out the "correct" per-column formatting from whatever data
-    #    is already there, then stamp it onto every cell we write —
-    #    explicitly, not inherited — so borders/fills/number formats are
-    #    consistent no matter how many rows go in this run. Conditional
-    #    formatting (AK, AV) is untouched: both rules already span the
-    #    full column (up to row 999999/1048576) so they apply regardless
-    #    of row count and don't need copying down.
-    # ------------------------------------------------------------------
-    column_styles = _column_styles(ws, FIRST_DATA_ROW, max(old_max_row, FIRST_DATA_ROW), n_cols)
+    # Work out the "correct" per-column formatting from whatever data is
+    # already there, then stamp it onto every cell we write — explicitly,
+    # not inherited — so borders/fills/number formats are consistent no
+    # matter how many rows go in this run. Any conditional formatting on
+    # the sheet is untouched — full-column CF ranges apply regardless of
+    # row count and don't need copying down.
+    column_styles = _column_styles(ws, first_data_row, max(old_max_row, first_data_row), n_cols)
 
     # Register one NamedStyle per column and apply it as a single
     # cell.style assignment. Setting font/border/fill separately makes
     # openpyxl dedupe each one individually against its internal style
     # table (three lookups per cell); a NamedStyle collapses that to one.
+    # Names are sheet-scoped since NamedStyle names must be workbook-unique.
     col_style_names = []
     for j, (font, border, fill, number_format) in enumerate(column_styles):
-        style = NamedStyle(name=f"mcm_col_{j}")
+        style = NamedStyle(name=f"mcm_{sheet_name}_col_{j}")
         style.font = font
         style.border = border
         style.fill = fill
@@ -201,13 +223,10 @@ def mcmaster_output():
         wb.add_named_style(style)
         col_style_names.append(style.name)
 
-    blank_style = NamedStyle(name="mcm_blank")
-    wb.add_named_style(blank_style)
-
-    new_last_row = FIRST_DATA_ROW + len(df) - 1
+    new_last_row = first_data_row + len(df) - 1
 
     for i, record in enumerate(df.itertuples(index=False)):
-        row = FIRST_DATA_ROW + i
+        row = first_data_row + i
         for j, value in enumerate(record):
             # ws.cell(..., value=None) leaves the existing value untouched
             # instead of clearing it (None means "no value passed", not
@@ -218,19 +237,55 @@ def mcmaster_output():
             cell.value = None if pd.isna(value) else value
             cell.style = col_style_names[j]
 
-    # Reset any leftover rows if this run has fewer rows than last time —
-    # otherwise stale formatted-but-empty rows linger below the real data.
+    # Clear any leftover rows if this run has fewer rows than last time —
+    # otherwise stale content lingers below the real data. Keep the same
+    # per-column style rather than wiping to a blank one: borders/fonts are
+    # just the sheet's structural grid, not data-driven, so stripping them
+    # made the grid visibly stop partway down the sheet. Conditional
+    # formatting is still safe either way — it fires on cell value, and
+    # the value here is cleared.
     if old_max_row > new_last_row:
         for row in ws.iter_rows(min_row=new_last_row + 1, max_row=old_max_row, max_col=n_cols):
-            for cell in row:
+            for j, cell in enumerate(row):
                 cell.value = None
-                cell.style = blank_style.name
+                cell.style = col_style_names[j]
 
-    last_col_letter = ws.cell(row=HEADER_ROW, column=n_cols).column_letter
-    ws.auto_filter.ref = f"A{HEADER_ROW}:{last_col_letter}{new_last_row}"
+    last_col_letter = ws.cell(row=header_row, column=n_cols).column_letter
+    ws.auto_filter.ref = f"A{header_row}:{last_col_letter}{new_last_row}"
+
+    print(f"  {sheet_name}: {len(df)} rows")
+
+
+def mcmaster_output():
 
     # ------------------------------------------------------------------
-    # 4. Save locally, drop a copy in the SharePoint-synced library,
+    # 1. Load every mart from Postgres
+    # ------------------------------------------------------------------
+    engine = get_postgres_connection()
+    dataframes = {
+        sheet_name: pd.read_sql(f"SELECT * FROM analytics_marts.{mart}", engine)
+        for sheet_name, (mart, _header_row) in SHEETS.items()
+    }
+    engine.dispose()
+
+    for sheet_name, df in dataframes.items():
+        df = _stringify_json_columns(df)
+        df = _coerce_numeric_text(df)
+        columns, ascending = SORT_KEYS[sheet_name]
+        df = df.sort_values(columns, ascending=ascending, na_position="last")
+        dataframes[sheet_name] = df
+
+    # ------------------------------------------------------------------
+    # 2. Paste each mart into its sheet in the template
+    # ------------------------------------------------------------------
+    wb = openpyxl.load_workbook(TEMPLATE_PATH)
+
+    print("Writing sheets:")
+    for sheet_name, (_mart, header_row) in SHEETS.items():
+        _write_sheet(wb, sheet_name, header_row, dataframes[sheet_name])
+
+    # ------------------------------------------------------------------
+    # 3. Save locally, drop a copy in the SharePoint-synced library,
     #    and keep a dated archive copy.
     # ------------------------------------------------------------------
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)

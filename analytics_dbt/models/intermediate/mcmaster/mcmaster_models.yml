@@ -5,31 +5,22 @@ models:
     description: "Oracle McMaster-Carr open backlog. SO/line/shipment grain from Oracle open orders report. Joins Oracle inventory foundation for per-org on-hand in native UOM. Includes competing demand for shared items."
 
   - name: int_oracle__mcmaster_02_open_backlog
-    description: "Oracle McMaster-Carr backlog with per-org running inventory tally, floor, and shortage flag. Partitioned by item_clean. Equivalent of castle 02 but sourced from Oracle pipeline."
+    description: "Oracle McMaster-Carr backlog with per-org running inventory tally, floor, and shortage flag. Partitioned by item_clean. Equivalent of castle 02 but sourced from Oracle pipeline. Excludes McMaster shipment splits (so_shipment > 1) — see exception_to_cancel."
 
-  - name: int_oracle__mcmaster_03_cross_ship
+  - name: int_oracle__mcmaster_exception_cross_ship
     description: "Oracle cross-ship opportunity matrix. item_clean × short_org × donor_org grain. Shows total shortfall vs donor floor with full/partial coverage flags and overcommitment signal."
 
-  - name: int_castle__mcmaster_01_sales_production
-    description: "Castle McMaster-Carr - SO/line/shipment grain, sales joined to discrete job (1:1). Full history — used for shipped reporting and historic backlog."
+  - name: int_oracle__mcmaster_exception_hot_components
+    description: "Hot components — item grain. Total and per-org short line counts, a JSON array of open PO detail (org, mill, due date, qty) from castle's PO system, and one avail_<org> column per non-sphere castle org showing net available qty (on_hand minus that org's own committed demand, only when positive) — ported from int_castle__mcmaster_04_other_inventory without the bin-packing/coverage-matrix logic. Unsorted — highest lines_short first is a mart/output concern."
 
-  - name: int_castle__mcmaster_02_open_backlog
-    description: "Castle McMaster-Carr open backlog only (sales_type = Order). Adds per-org running inventory tally, floor, and shortage flag at the line level."
+  - name: int_oracle__mcmaster_exception_to_cancel
+    description: "Exception report. McMaster open order lines with so_shipment > 1. Excluded from int_oracle__mcmaster_02_open_backlog — shipment splits are not valid for McMaster and cause duplicate fulfilment. These need cancelling."
 
-  - name: int_castle__mcmaster_03_cross_ship
-    description: "Cross-ship opportunity matrix. Item × short_org × donor_org grain. Shows total shortfall vs donor floor with full/partial coverage flags. Home runs first."
+  - name: int_castle__mcmaster_metric_backlog_daily
+    description: "Daily backlog trend by org — new orders, shipped orders, and open orders per day, McMaster shipment-1 lines only. Filters to valid sales lines itself (lower(sales_status)='valid' and lower(line_transaction_type) like 'sales%') since that's no longer applied upstream in sales_salesorder. Also includes is_weekday/has_activity flags and 5-day rolling averages (new_orders_5d_avg, shipped_orders_5d_avg, backlog_5d_avg) computed per org over qualifying days only — a day qualifies if it's a weekday or had real activity; a quiet weekend is skipped (not zero-filled) so the window reaches back further, and non-qualifying days show NULL for the averages rather than a carried-forward value."
 
-  - name: int_castle__mcmaster_04_other_inventory
-    description: "Transfer-in signal. Item × short_org × other_org grain. Full comp_inv_req netting for non-sphere orgs. Net available = on_hand minus that org's own committed demand. Same bin-packing and overcommitment logic as _03. Only surfaces when lines_short >= 5."
+  - name: int_oracle__mcmaster_metric_backlog_status
+    description: "Open backlog summary, McMaster lines only (is_mcmaster). status x org grain — line_count and total_usd for each combination of mcm_status and inv_org_code."
 
-  - name: int_castle__mcmaster_05_po_coverage
-    description: "PO coverage for short items. Item × org grain. Shows lines short, total short qty, open PO count, open qty, next due date, vendors, and full PO detail concat. no_po_on_order = TRUE is the critical signal."
-
-  - name: int_castle__mcmaster_06_multi_dj
-    description: "Exception report. Open McMaster orders where more than one DJ is attached to the same SO/line/shipment. One row per DJ, SO columns repeat. dj_count shows the total attached."
-
-  - name: int_castle__mcmaster_07_zombie_dj
-    description: "Exception report. McMaster orders where sales_type != Order but the DJ is still active (not Closed/Complete). No sales_status or line_transaction_type filter — intentionally wide. These DJs need closing."
-
-  - name: int_castle__mcmaster_08_multi_shipment
-    description: "Exception report. Open McMaster orders with so_shipment > 1. These lines are excluded from all backlog and coverage models (01 and downstream) and should be cancelled — shipment splits are not valid for McMaster and cause duplicate fulfilment."
+  - name: int_castle__mcmaster_exception_dj_review
+    description: "Exception report. One row per SO/line/shipment with an active DJ (Released/On Hold/Failed Close) where either the order is terminal (shipped/invoiced/cancelled) with an active DJ still attached, or more than one DJ on the line is simultaneously active. Includes inv_org_code/branch_name; so_status is a readable label (Open/Invoiced/Cancelled); dj_1/2/3 (+org, +status) pivot the active DJs, blank past however many are actually attached; reason_flagged is a text description of which scenario(s) triggered. Supersedes 06_multi_dj and 07_zombie_dj, which both missed cancelled orders (sales_status=Cancelled was filtered out upstream in sales_salesorder until now)."

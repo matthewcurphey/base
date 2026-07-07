@@ -4,7 +4,11 @@ with base as (
 
     select *
     from {{ ref('int_oracle__mcmaster_01_sales_production') }}
-    where is_mcmaster or comp_inv_req > 0
+    where (is_mcmaster or comp_inv_req > 0)
+      -- McMaster shipment splits (so_shipment > 1) are not valid and cause
+      -- duplicate fulfilment — excluded here, surfaced in
+      -- int_oracle__mcmaster_exception_to_cancel instead.
+      and not (is_mcmaster and so_shipment::int > 1)
 
 ),
 

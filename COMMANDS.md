@@ -81,6 +81,21 @@ No arguments — always reflects the current state of `analytics_marts.mart_mcma
 
 ---
 
+## McMaster — Dump Tabs for Design
+
+```
+python run.py mcmaster-dump-tabs
+```
+
+Dev tool, not part of the daily pipeline. Dumps every new McMaster mart (`cross_ship`,
+`hot_components`, `to_cancel`, `dj_review`, `backlog_daily`, `backlog_status`) into
+its own sheet in `reports/mcmaster/mcmaster_tabs_draft.xlsx` — bold header row, frozen
+pane, autofilter, autofit-ish column widths, nothing else. Separate file from
+`mcmaster_template.xlsx`, so it's safe to design tab formatting/layout against real
+data without touching the live template. Re-run anytime to refresh with current data.
+
+---
+
 ## Outputs
 
 ```

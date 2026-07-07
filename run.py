@@ -37,6 +37,12 @@ def run_mcmaster_output():
     mcmaster_output()
 
 
+def run_mcmaster_dump_tabs():
+    from reports.mcmaster.dump_tabs_for_design import dump_tabs_for_design
+    print("Dumping McMaster mart tabs for template design...")
+    dump_tabs_for_design()
+
+
 if __name__ == "__main__":
     task = sys.argv[1] if len(sys.argv) > 1 else "daily"
 
@@ -66,6 +72,10 @@ if __name__ == "__main__":
     elif task == "mcmaster-output":
         # Usage: python run.py mcmaster-output
         run_mcmaster_output()
+
+    elif task == "mcmaster-dump-tabs":
+        # Usage: python run.py mcmaster-dump-tabs
+        run_mcmaster_dump_tabs()
 
     else:
         print(f"❌ Unknown task: {task}")
