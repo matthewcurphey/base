@@ -37,6 +37,12 @@ def run_mcmaster_output():
     mcmaster_output()
 
 
+def run_mcmaster_email(send_or_show: str = "show"):
+    from reports.mcmaster.mcmaster_email import mcmaster_email
+    print(f"Sending McMaster email ({send_or_show})...")
+    mcmaster_email(send_or_show=send_or_show)
+
+
 if __name__ == "__main__":
     task = sys.argv[1] if len(sys.argv) > 1 else "daily"
 
@@ -66,6 +72,11 @@ if __name__ == "__main__":
     elif task == "mcmaster-output":
         # Usage: python run.py mcmaster-output
         run_mcmaster_output()
+
+    elif task == "mcmaster-email":
+        # Usage: python run.py mcmaster-email [show|send]
+        send_or_show = sys.argv[2] if len(sys.argv) > 2 else "show"
+        run_mcmaster_email(send_or_show)
 
     else:
         print(f"❌ Unknown task: {task}")

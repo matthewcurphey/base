@@ -84,6 +84,24 @@ No arguments — always reflects the current state of the underlying marts.
 
 ---
 
+## McMaster — Email
+
+```
+python run.py mcmaster-email [show|send]
+```
+
+Sends (or previews) the daily McMaster backlog email — SharePoint link at the top,
+then the trend chart and status chart inline (no tables, no commentary). Run
+`mcmaster-output` first so `reports/mcmaster/backlog_trend.png` and `status_chart.png`
+are current. Single recipient for now (`mcurphey@amcastle.com`); more to be added later.
+
+**Arguments:**
+| Arg | Type | Example | Description |
+|-----|------|---------|-------------|
+| show\send | str | `show` | `show` to preview in Outlook, `send` to send (default: `show`) |
+
+---
+
 ## Outputs
 
 ```
