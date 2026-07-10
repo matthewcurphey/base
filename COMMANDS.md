@@ -35,7 +35,7 @@ Generates Excel files for the given month and saves them to:
 
 **Example:**
 ```
-python run.py productivity-output 2026 5
+python run.py productivity-output 2026 6
 ```
 
 ---
@@ -59,8 +59,8 @@ Excel files must already exist — run `productivity-output` first.
 
 **Examples:**
 ```
-python run.py productivity-email 2026 5 May26 show
-python run.py productivity-email 2026 5 May26 send
+python run.py productivity-email 2026 6 Jun26 show
+python run.py productivity-email 2026 6 May26 send
 ```
 
 ---

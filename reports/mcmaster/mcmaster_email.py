@@ -3,8 +3,36 @@ from datetime import date
 
 import win32com.client as win32
 
-# TODO: add more recipients once this is validated — single recipient for now
-RECIPIENTS = "mcurphey@amcastle.com"
+TO_RECIPIENTS = "; ".join([
+    "hgarcia@amcastle.com",
+    "shage@amcastle.com",
+    "KKALINSKI@amcastle.com",
+    "mazundel@amcastle.com",
+    "RROCKWELL@amcastle.com",
+    "ehansen@amcastle.com",
+    "CRoeder@amcastle.com",
+    "dstoettner@amcastle.com",
+    "jheyn@amcastle.com",
+    "rojones@amcastle.com",
+    "jariola@amcastle.com",
+    "DLege@amcastle.com",
+    "trobinson@amcastle.com",
+    "whendry@amcastle.com",
+    "tprybuto@amcastle.com",
+    "agonzalez@amcastle.com",
+    "jgerman@amcastle.com",
+    "jbates@amcastle.com",
+])
+
+CC_RECIPIENTS = "; ".join([
+    "tdyke@amcastle.com",
+    "cfalconburg@amcastle.com",
+    "dcreel@amcastle.com",
+    "zjackson@middleground.com",
+    "rlewis@bannermc.com",
+    "slowry@bannermc.com",
+    "Tfenelon@amcastle.com",
+])
 
 SHAREPOINT_LINK = "https://amcastle.sharepoint.com/:x:/s/Analytics_ETL/IQDTz5ZPOa4sSoDsdsp5vwERAdpTwZQr5kPnU5fafdS2wnA?e=jpRFI0"
 
@@ -26,7 +54,8 @@ def mcmaster_email(send_or_show: str = "show"):
     outlook = win32.Dispatch("outlook.application")
     mail = outlook.CreateItem(0)
 
-    mail.To = RECIPIENTS
+    mail.To = TO_RECIPIENTS
+    mail.CC = CC_RECIPIENTS
     mail.Subject = f"McMaster Backlog Report — {date.today():%d-%b-%Y}"
 
     mail.HTMLBody = f"""<div style="font-family: Calibri; font-size: 11pt;">

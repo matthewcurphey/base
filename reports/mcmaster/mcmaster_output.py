@@ -421,6 +421,12 @@ SORT_KEYS = {
 
 _PURE_INT_RE = re.compile(r"-?\d+")
 
+# Excel stores numbers as IEEE-754 doubles, safely exact only up to 2**53.
+# A digit string longer than that either overflows numpy's int64 cast
+# outright (OverflowError) or silently loses precision once written to a
+# cell — so either way it must stay text, not get coerced to a number.
+_SAFE_INT_MAX = 2**53
+
 
 def _stringify_json_columns(df):
     """
@@ -464,7 +470,13 @@ def _coerce_numeric_text(df):
         candidates = not_na[digit_like]
         if not (candidates.apply(lambda v: str(int(v)) == v)).all():
             continue
-        df.loc[candidates.index, col] = candidates.astype(int)
+        if (candidates.map(lambda v: abs(int(v)) > _SAFE_INT_MAX)).any():
+            continue
+        # astype(int) maps to C's native "long", which is 32-bit on Windows
+        # even under 64-bit Python — explicit int64 avoids that platform-
+        # dependent overflow (values passing the _SAFE_INT_MAX check above
+        # are well within int64's range regardless).
+        df.loc[candidates.index, col] = candidates.astype("int64")
     return df
 
 
