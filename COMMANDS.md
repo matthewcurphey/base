@@ -87,7 +87,7 @@ No arguments — always reflects the current state of the underlying marts.
 ## McMaster — Email
 
 ```
-python run.py mcmaster-email [show|send]
+python run.py mcmaster-email show [show|send]
 ```
 
 Sends (or previews) the daily McMaster backlog email — SharePoint link at the top,
