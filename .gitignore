@@ -1,3 +1,7 @@
+# Python bytecode
+__pycache__/
+*.pyc
+
 # Raw data
 etl/data_raw/
 *.csv
@@ -16,3 +20,8 @@ etl/data_raw/
 
 # Productivity report outputs
 reports/productivity/results/
+
+# McMaster report outputs (generated daily; template is the only versioned file)
+reports/mcmaster/mcmaster_report.xlsx
+reports/mcmaster/mcmaster_report_REVIEWED DURING CALL.xlsx
+reports/mcmaster/archive/
