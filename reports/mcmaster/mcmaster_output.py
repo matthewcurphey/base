@@ -213,7 +213,10 @@ def build_7day_activity_table(backlog_daily_df):
 
     for metric_label, value_col, ma_col in metrics:
         daily_values = [window.loc[window["dt"] == d, value_col].sum() for d in dates]
-        ma_value = window.loc[window["dt"] == end_date, ma_col].sum()
+        # min_count=1 so an all-NaN slice (no org has a qualifying MA yet)
+        # sums to NaN, not 0 — plain .sum() treats all-NaN as 0, which
+        # would render as a real zero next to a nonzero backlog total.
+        ma_value = window.loc[window["dt"] == end_date, ma_col].sum(min_count=1)
         rows.append(("Total", metric_label, daily_values, ma_value))
 
     return dates, rows
@@ -383,9 +386,13 @@ def update_live_summary_sheet(wb, backlog_daily_df, backlog_status_df):
         if metric_label == "backlog":
             ws.cell(row, SEVEN_DAY_COL, org)
         ws.cell(row, SEVEN_DAY_COL + 1, metric_label)
+        # ws.cell(..., value=None) leaves any existing value untouched
+        # instead of clearing it (same openpyxl gotcha as _write_sheet
+        # above) — assign .value directly so a genuine NaN actually blanks
+        # the cell instead of leaving a prior run's stale number in place.
         for i, v in enumerate(daily_values):
-            ws.cell(row, SEVEN_DAY_COL + 2 + i, None if pd.isna(v) else v)
-        ws.cell(row, ma_col, None if pd.isna(ma_value) else ma_value)
+            ws.cell(row, SEVEN_DAY_COL + 2 + i).value = None if pd.isna(v) else v
+        ws.cell(row, ma_col).value = None if pd.isna(ma_value) else ma_value
 
     pivot = build_backlog_status_pivot(backlog_status_df)
     for j, status in enumerate(pivot.columns):

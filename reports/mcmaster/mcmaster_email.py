@@ -22,6 +22,7 @@ TO_RECIPIENTS = "; ".join([
     "agonzalez@amcastle.com",
     "jgerman@amcastle.com",
     "jbates@amcastle.com",
+    "ACaponi@amcastle.com",
 ])
 
 CC_RECIPIENTS = "; ".join([

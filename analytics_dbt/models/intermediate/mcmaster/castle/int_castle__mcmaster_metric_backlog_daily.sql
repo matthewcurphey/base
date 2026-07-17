@@ -115,6 +115,29 @@ ma as (
     from qualified
     where is_weekday or has_activity
 
+),
+
+/* =====================================================
+   CARRY FORWARD OVER NON-QUALIFYING DAYS
+   A non-qualifying day (quiet weekend/holiday) has no row
+   of its own in `ma` above, so a plain equi-join on dt would
+   leave its 5-day averages NULL — same treatment the backlog
+   level itself does NOT get (open_orders is a snapshot that
+   already holds steady over a quiet weekend). The average
+   should behave the same way: unchanged from the last
+   qualifying day, not blank. last_qualifying_dt finds that
+   day per org so the join below can pull the right row.
+===================================================== */
+
+carry as (
+
+    select
+        dt,
+        inv_org_code,
+        max(case when is_weekday or has_activity then dt end)
+            over (partition by inv_org_code order by dt)   as last_qualifying_dt
+    from qualified
+
 )
 
 select
@@ -130,8 +153,11 @@ select
     m.backlog_5d_avg
 
 from qualified d
+left join carry c
+    on  d.dt           = c.dt
+    and d.inv_org_code = c.inv_org_code
 left join ma m
-    on  d.dt           = m.dt
-    and d.inv_org_code = m.inv_org_code
+    on  c.last_qualifying_dt = m.dt
+    and d.inv_org_code       = m.inv_org_code
 
 order by d.dt, d.inv_org_code
