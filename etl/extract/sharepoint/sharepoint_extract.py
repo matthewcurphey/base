@@ -47,6 +47,11 @@ def extract_open_orders() -> pd.DataFrame:
             for i, col in enumerate(df.columns)
         ]
 
+        # Conform to the canonical schema: drop stray columns this sheet has
+        # that aren't in the reference sheet (e.g. blank/extra header cells),
+        # and fill in any columns this sheet is missing.
+        df = df.reindex(columns=reference_cols)
+
         df["source_tab"] = sheet_name
         try:
             df["snapshot_date"] = pd.to_datetime(sheet_name.strip(), format="%m.%d.%y")

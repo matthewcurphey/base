@@ -43,6 +43,7 @@ SEVEN_DAY_FIRST_DATA_ROW = 33
 SEVEN_DAY_COL = 1                     # A
 STATUS_PIVOT_HEADER_ROW = 21
 STATUS_PIVOT_COL = 13                 # M
+STATUS_PIVOT_USD_HEADER_ROW = 31      # a few rows below the counts pivot's Total row (28)
 
 CHART_PATH = os.path.join("reports", "mcmaster", "backlog_trend.png")
 
@@ -222,9 +223,10 @@ def build_7day_activity_table(backlog_daily_df):
     return dates, rows
 
 
-# True fulfillment lifecycle order (from the mcm_status SQL logic), not
-# alphabetical: blocked -> ready -> in production -> done.
-STATUS_ORDER = ["No Material", "Material Available", "Job Started", "Job Complete"]
+# Pipeline stage order, with "No Material" pulled to the end rather than
+# the front — leads with what's actively moving (available -> in production
+# -> done) and puts the blocked/exception bucket last.
+STATUS_ORDER = ["Material Available", "Job Started", "Job Complete", "No Material"]
 
 # Matches the conditional-formatting colors already used for this exact
 # status column on open_backlog_detail (AV) — same status, same color,
@@ -238,51 +240,109 @@ STATUS_COLORS = {
 }
 
 
-def build_backlog_status_pivot(backlog_status_df):
-    """Org rows x status columns, line_count values, totals row/column —
-    columns ordered by pipeline stage, not alphabetically."""
+def build_backlog_status_pivot(backlog_status_df, value_col="line_count"):
+    """Org rows x status columns, totals row/column — columns ordered by
+    pipeline stage, not alphabetically. value_col switches between order
+    counts (line_count) and dollar exposure (total_usd) off the same
+    underlying mart."""
     pivot = backlog_status_df.pivot_table(
-        index="inv_org_code", columns="mcm_status", values="line_count",
+        index="inv_org_code", columns="mcm_status", values=value_col,
         aggfunc="sum", fill_value=0, margins=True, margins_name="Total",
     )
     ordered_cols = [c for c in STATUS_ORDER if c in pivot.columns] + ["Total"]
     return pivot[ordered_cols]
 
 
-def build_status_chart(backlog_status_df, output_path=None, figsize=(9.6, 4.3), dpi=200):
+# Accounting-style format matching the counts pivot's own (see the template's
+# N21:R28), just with a $ prefix and no decimals — the mart holds cents-
+# precision totals, so this rounds for display only, not the stored value.
+USD_NUMBER_FORMAT = '_($* #,##0_);_($* \\(#,##0\\);_($* "-"??_);_(@_)'
+
+
+def _write_status_pivot(ws, pivot, header_row, col, cast):
+    """Write a status pivot's header/org/Total rows starting at header_row,
+    col (the org/status label column) — shared by the counts and $ pivots."""
+    ws.cell(header_row, col, "org")
+    for j, status in enumerate(pivot.columns):
+        ws.cell(header_row, col + 1 + j, status)
+    for i, org in enumerate(pivot.index):
+        row = header_row + 1 + i
+        ws.cell(row, col, org)
+        for j, status in enumerate(pivot.columns):
+            ws.cell(row, col + 1 + j, cast(pivot.loc[org, status]))
+
+
+def _copy_status_pivot_style(ws, pivot, src_header_row, dst_header_row, col, number_format):
     """
-    Company-wide (no org breakdown) horizontal bar, one bar per pipeline
-    stage in true lifecycle order, single-hue light->dark ramp so the
-    sequence reads through position AND color. Direct value labels — only
-    4 categories, no legend needed.
+    Copy the counts pivot's per-cell font/border/fill onto the new $ pivot
+    below it, row-for-row (header -> header, each org row -> the matching
+    org row, Total -> Total) so the two tables look like one hand-formatted
+    design instead of the new one appearing unstyled. number_format is
+    overridden on the value columns only — the label column (org names)
+    keeps its own General format from the source row.
+    """
+    n_cols = len(pivot.columns)
+    n_rows = len(pivot.index)  # includes the Total row (pivot_table margins)
+    for row_offset in range(n_rows + 1):  # +1 for the header row
+        src_row = src_header_row + row_offset
+        dst_row = dst_header_row + row_offset
+        for col_offset in range(n_cols + 1):  # +1 for the label column
+            src_cell = ws.cell(src_row, col + col_offset)
+            dst_cell = ws.cell(dst_row, col + col_offset)
+            dst_cell.font = _font_from_key(_font_key(src_cell.font))
+            dst_cell.border = _border_from_key(_border_key(src_cell.border))
+            dst_cell.fill = _fill_from_key(_fill_key(src_cell.fill))
+            is_label_col = col_offset == 0
+            is_header_row = row_offset == 0
+            dst_cell.number_format = src_cell.number_format if (is_label_col or is_header_row) else number_format
+
+
+def build_status_chart(backlog_status_df, output_path=None, figsize=(9.6, 4.8), dpi=200):
+    """
+    Company-wide (no org breakdown) waterfall: a grey Total Backlog bar,
+    then each pipeline stage below it as a horizontal bar offset by the
+    running total of the stages already drawn — so each segment starts
+    where the previous one ended, and the last segment's right edge lands
+    exactly under the Total bar's right edge. That makes the total visibly
+    the sum of its parts instead of something you'd otherwise have to add
+    up yourself. Stage order matches the summary pivot tables (STATUS_ORDER,
+    "No Material" last, since it's the exception bucket, not the lead stage).
     """
     if output_path is None:
         output_path = os.path.join("reports", "mcmaster", "status_chart.png")
 
     totals = backlog_status_df.groupby("mcm_status")["line_count"].sum()
     totals = totals.reindex([s for s in STATUS_ORDER if s in totals.index])
+    grand_total = totals.sum()
+    cum_starts = totals.cumsum().shift(fill_value=0)
+
+    labels = ["Total Backlog"] + list(totals.index)
+    values = [grand_total] + list(totals.values)
+    lefts = [0] + list(cum_starts.values)
+    colors = [COLOR_BACKLOG] + [STATUS_COLORS[s] for s in totals.index]
 
     fig, ax = plt.subplots(figsize=figsize, dpi=dpi)
     fig.patch.set_facecolor("#fcfcfb")
     ax.set_facecolor("#fcfcfb")
 
-    y_pos = range(len(totals))
-    bars = ax.barh(
-        y_pos, totals.values,
-        color=[STATUS_COLORS[s] for s in totals.index], height=0.6, zorder=2,
-    )
-    ax.set_yticks(list(y_pos))
-    ax.set_yticklabels(totals.index, fontsize=10, color="#0b0b0b")
-    ax.invert_yaxis()  # earliest stage on top, reads top-to-bottom as progression
+    # Extra gap between the Total bar and the stage bars below it visually
+    # separates "the answer" from "the working" — not an even row spacing.
+    GAP = 0.9
+    y_pos = [0] + [1 + GAP + i for i in range(len(totals))]
+    bar_heights = [0.7] + [0.6] * len(totals)
+    bars = ax.barh(y_pos, values, left=lefts, color=colors, height=bar_heights, zorder=2)
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(labels, fontsize=10, color="#0b0b0b")
+    ax.get_yticklabels()[0].set_fontweight("bold")
+    ax.invert_yaxis()  # Total on top, stages read top-to-bottom below it
 
-    max_val = totals.values.max()
-    for bar, value in zip(bars, totals.values):
+    for bar, value in zip(bars, values):
         ax.text(
-            bar.get_width() + max_val * 0.02, bar.get_y() + bar.get_height() / 2,
+            bar.get_x() + bar.get_width() + grand_total * 0.02, bar.get_y() + bar.get_height() / 2,
             f"{int(value):,}", va="center", ha="left", fontsize=10, color="#0b0b0b",
         )
 
-    ax.set_xlim(0, max_val * 1.15)
+    ax.set_xlim(0, grand_total * 1.15)
     ax.set_xticks([])
     for spine in ("top", "right", "bottom", "left"):
         ax.spines[spine].set_visible(False)
@@ -394,14 +454,20 @@ def update_live_summary_sheet(wb, backlog_daily_df, backlog_status_df):
             ws.cell(row, SEVEN_DAY_COL + 2 + i).value = None if pd.isna(v) else v
         ws.cell(row, ma_col).value = None if pd.isna(ma_value) else ma_value
 
-    pivot = build_backlog_status_pivot(backlog_status_df)
-    for j, status in enumerate(pivot.columns):
-        ws.cell(STATUS_PIVOT_HEADER_ROW, STATUS_PIVOT_COL + 1 + j, status)
-    for i, org in enumerate(pivot.index):
-        row = STATUS_PIVOT_HEADER_ROW + 1 + i
-        ws.cell(row, STATUS_PIVOT_COL, org)
-        for j, status in enumerate(pivot.columns):
-            ws.cell(row, STATUS_PIVOT_COL + 1 + j, int(pivot.loc[org, status]))
+    pivot = build_backlog_status_pivot(backlog_status_df, value_col="line_count")
+    _write_status_pivot(ws, pivot, STATUS_PIVOT_HEADER_ROW, STATUS_PIVOT_COL, cast=int)
+
+    # $ exposure version of the same pivot, a few rows below — no
+    # hand-formatting exists at this row range in the template (unlike
+    # every other fixed block on this sheet), so styling is copied down
+    # from the counts pivot immediately above rather than left blank.
+    usd_pivot = build_backlog_status_pivot(backlog_status_df, value_col="total_usd")
+    _write_status_pivot(ws, usd_pivot, STATUS_PIVOT_USD_HEADER_ROW, STATUS_PIVOT_COL, cast=float)
+    _copy_status_pivot_style(
+        ws, usd_pivot, src_header_row=STATUS_PIVOT_HEADER_ROW,
+        dst_header_row=STATUS_PIVOT_USD_HEADER_ROW, col=STATUS_PIVOT_COL,
+        number_format=USD_NUMBER_FORMAT,
+    )
 
     return ws
 
