@@ -12,9 +12,9 @@ import matplotlib.dates as mdates
 import openpyxl
 import pandas as pd
 from openpyxl.drawing.image import Image as XLImage
+from openpyxl.drawing.spreadsheet_drawing import AnchorMarker, TwoCellAnchor
 from openpyxl.styles import Border, Font, NamedStyle, PatternFill, Side
 from openpyxl.styles.colors import Color
-from openpyxl.utils import get_column_letter
 from openpyxl.utils.cell import coordinate_to_tuple
 
 from etl.utils.connect_postgres import get_postgres_connection
@@ -68,12 +68,25 @@ COLOR_TEXT_SECONDARY = "#52514e"
 
 
 def _col_width_px(ws, col_idx):
-    """Excel column width (character units) to pixels — standard Calibri 11
-    approximation (width*7 + 5), which is what openpyxl assumes at 96 DPI."""
-    letter = get_column_letter(col_idx)
-    dim = ws.column_dimensions.get(letter)
+    """Excel column width (character units) to pixels — width*7 at 96 DPI,
+    verified against Excel's own Range.Width for this template's Calibri 11
+    columns (e.g. a defined width of 9.140625 renders at 64px in Excel;
+    9.140625*7 = 64.0).
+
+    A hand-widened column in the template (e.g. "widen N so this text
+    fits") is stored as one grouped <col min="14" max="17".../> element
+    covering N:Q, keyed in ws.column_dimensions only under "N" — a plain
+    ws.column_dimensions.get("O") misses it and silently falls back to the
+    default width, undercounting that column's real pixel width. Scanning
+    for a dimension whose min/max span col_idx catches grouped columns
+    too, not just single-column entries.
+    """
+    dim = next(
+        (d for d in ws.column_dimensions.values() if d.min <= col_idx <= d.max),
+        None,
+    )
     width = dim.width if dim and dim.width else (ws.sheet_format.defaultColWidth or 8.43)
-    return width * 7 + 5
+    return width * 7
 
 
 def _row_height_px(ws, row_idx):
@@ -376,16 +389,21 @@ def _aspect_figsize(w_px, h_px, base=9.0):
 
 def _place_image(ws, path, anchor_cell, min_col, max_col, min_row, max_row):
     """
-    Embed an image sized to exactly fill the given cell range. openpyxl
-    ignores a PNG's DPI metadata when placing it — it uses raw pixel count
-    at an assumed 96 DPI — so the source file's resolution only controls
-    crispness; display size has to be set explicitly here.
+    Embed an image anchored to exactly fill the given cell range, via a
+    two-cell anchor (stretches to the range, resizes with it) rather than
+    a one-cell anchor at a fixed pixel size. SharePoint's Excel Online
+    viewer intermittently fails to redraw one-cell-anchored floating
+    pictures when switching sheet tabs, leaving the previous sheet's chart
+    visible on top of the next one — the two-cell anchor is the same
+    mechanism Excel itself uses for "move and size with cells" pictures.
     """
     target_w, target_h = range_size_px(ws, min_col, max_col, min_row, max_row)
     img = XLImage(path)
-    img.width = target_w
-    img.height = target_h
-    img.anchor = anchor_cell
+    img.anchor = TwoCellAnchor(
+        editAs="twoCell",
+        _from=AnchorMarker(col=min_col - 1, colOff=0, row=min_row - 1, rowOff=0),
+        to=AnchorMarker(col=max_col, colOff=0, row=max_row, rowOff=0),
+    )
     ws.add_image(img)
     return target_w, target_h
 
