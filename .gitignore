@@ -2,6 +2,9 @@
 __pycache__/
 *.pyc
 
+# Secrets
+.env
+
 # Raw data
 etl/data_raw/
 *.csv
