@@ -31,6 +31,16 @@ def run_productivity_email(year: int, month: int, subject_month: str, send_or_sh
     productivity_email(year, month, subject_month, send_or_show=send_or_show)
 
 
+def run_yield_output():
+    # "yield" is a reserved keyword, so this package can't be imported with
+    # a normal `from reports.yield...` statement — importlib works fine
+    # since it resolves the dotted path from a string, not parsed syntax.
+    import importlib
+    yield_output = importlib.import_module("reports.yield.yield_output").yield_output
+    print("Generating yield loss export...")
+    yield_output()
+
+
 def run_mcmaster_output():
     from reports.mcmaster.mcmaster_output import mcmaster_output
     print("Generating McMaster backlog report...")
@@ -68,6 +78,10 @@ if __name__ == "__main__":
         subject_month = sys.argv[4]           # e.g. "Mar26"
         send_or_show  = sys.argv[5] if len(sys.argv) > 5 else "show"
         run_productivity_email(year, month, subject_month, send_or_show)
+
+    elif task == "yield-output":
+        # Usage: python run.py yield-output
+        run_yield_output()
 
     elif task == "mcmaster-output":
         # Usage: python run.py mcmaster-output

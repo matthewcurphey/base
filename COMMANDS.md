@@ -65,6 +65,22 @@ python run.py productivity-email 2026 6 May26 send
 
 ---
 
+## Yield — Output
+
+```
+python run.py yield-output
+```
+
+Exports `mart_yield_siteopdate` as-is (no filtering) to CSV — the file the Yield Loss
+Power BI dataset refreshes from. Saves the result to:
+- `reports/yield/mart_yield_siteopdate.csv` (local)
+- `C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\yield\mart_yield_siteopdate.csv` (SharePoint)
+- `reports/yield/archive/mart_yield_siteopdate_<date>.csv` (dated archive copy)
+
+No arguments — always reflects the current state of the underlying mart.
+
+---
+
 ## McMaster — Output
 
 ```
