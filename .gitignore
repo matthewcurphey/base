@@ -9,6 +9,10 @@ __pycache__/
 etl/data_raw/
 *.csv
 
+# ...except dbt seeds — these are version-controlled reference/config
+# tables (payout targets, org mappings, overrides), not raw data drops.
+!analytics_dbt/seeds/**/*.csv
+
 # DB files
 *.db
 *.sqlite

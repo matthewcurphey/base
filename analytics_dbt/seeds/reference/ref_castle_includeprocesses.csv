@@ -1,0 +1,3214 @@
+org,process,process_name,include
+STO,PBL,Plate Blasting,FALSE
+CHA,PBL,Plate Blasting,FALSE
+CLE,PBL,Plate Blasting,FALSE
+HAI,PBL,Plate Blasting,TRUE
+JVL,PBL,Plate Blasting,FALSE
+DAL,PBL,Plate Blasting,FALSE
+PHI,PBL,Plate Blasting,FALSE
+TOR,PBL,Plate Blasting,FALSE
+WIN,PBL,Plate Blasting,FALSE
+SGP,PBL,Plate Blasting,FALSE
+MXQ,PBL,Plate Blasting,FALSE
+MTY,PBL,Plate Blasting,FALSE
+MXM,PBL,Plate Blasting,FALSE
+MCH,PBL,Plate Blasting,FALSE
+ASC,PBL,Plate Blasting,FALSE
+ADC,PBL,Plate Blasting,FALSE
+ATL,PBL,Plate Blasting,FALSE
+WIE,PBL,Plate Blasting,FALSE
+ENA,PBL,Plate Blasting,FALSE
+ENT,PBL,Plate Blasting,FALSE
+LOS,PBL2,Plate Blasting 2,FALSE
+STO,PBL2,Plate Blasting 2,FALSE
+CHA,PBL2,Plate Blasting 2,FALSE
+CLE,PBL2,Plate Blasting 2,FALSE
+HAI,PBL2,Plate Blasting 2,TRUE
+JVL,PBL2,Plate Blasting 2,FALSE
+DAL,PBL2,Plate Blasting 2,FALSE
+PHI,PBL2,Plate Blasting 2,FALSE
+TOR,PBL2,Plate Blasting 2,FALSE
+WIN,PBL2,Plate Blasting 2,FALSE
+SGP,PBL2,Plate Blasting 2,FALSE
+MXQ,PBL2,Plate Blasting 2,FALSE
+MTY,PBL2,Plate Blasting 2,FALSE
+MXM,PBL2,Plate Blasting 2,FALSE
+MCH,PBL2,Plate Blasting 2,FALSE
+ASC,PBL2,Plate Blasting 2,FALSE
+ADC,PBL2,Plate Blasting 2,FALSE
+ATL,PBL2,Plate Blasting 2,FALSE
+WIE,PBL2,Plate Blasting 2,FALSE
+ENA,PBL2,Plate Blasting 2,FALSE
+ENT,PBL2,Plate Blasting 2,FALSE
+WIN,PKG,Packaging,FALSE
+SGP,PKG,Packaging,FALSE
+MXQ,PKG,Packaging,FALSE
+MTY,PKG,Packaging,FALSE
+MXM,PKG,Packaging,FALSE
+MCH,PKG,Packaging,FALSE
+ASC,PKG,Packaging,FALSE
+ADC,PKG,Packaging,FALSE
+ATL,PKG,Packaging,FALSE
+WIE,PKG,Packaging,FALSE
+ENA,PKG,Packaging,FALSE
+ENT,PKG,Packaging,FALSE
+HAI,PKG,Packaging,TRUE
+LOS,PKPR,Priority Pick Task,FALSE
+STO,PKPR,Priority Pick Task,FALSE
+CHA,PKPR,Priority Pick Task,FALSE
+CLE,PKPR,Priority Pick Task,FALSE
+HAI,PKPR,Priority Pick Task,TRUE
+JVL,PKPR,Priority Pick Task,FALSE
+DAL,PKPR,Priority Pick Task,FALSE
+PHI,PKPR,Priority Pick Task,FALSE
+TOR,PKPR,Priority Pick Task,FALSE
+WIN,PKPR,Priority Pick Task,FALSE
+SGP,PKPR,Priority Pick Task,FALSE
+MXQ,PKPR,Priority Pick Task,FALSE
+MTY,PKPR,Priority Pick Task,FALSE
+MXM,PKPR,Priority Pick Task,FALSE
+MCH,PKPR,Priority Pick Task,FALSE
+ASC,PKPR,Priority Pick Task,FALSE
+ADC,PKPR,Priority Pick Task,FALSE
+ATL,PKPR,Priority Pick Task,FALSE
+WIE,PKPR,Priority Pick Task,FALSE
+ENA,PKPR,Priority Pick Task,FALSE
+ENT,PKPR,Priority Pick Task,FALSE
+LOS,PPC,Plasma Cutting,TRUE
+STO,PPC,Plasma Cutting,TRUE
+CHA,PPC,Plasma Cutting,TRUE
+CLE,PPC,Plasma Cutting,TRUE
+HAI,PPC,Plasma Cutting,TRUE
+JVL,PPC,Plasma Cutting,TRUE
+DAL,PPC,Plasma Cutting,TRUE
+PHI,PPC,Plasma Cutting,TRUE
+TOR,PPC,Plasma Cutting,TRUE
+WIN,PPC,Plasma Cutting,TRUE
+SGP,PPC,Plasma Cutting,TRUE
+MXQ,PPC,Plasma Cutting,TRUE
+MTY,PPC,Plasma Cutting,TRUE
+MXM,PPC,Plasma Cutting,TRUE
+MCH,PPC,Plasma Cutting,TRUE
+LOS,PBL,Plate Blasting,FALSE
+HAI,ROTO,RotoTest,TRUE
+JVL,ROTO,RotoTest,FALSE
+DAL,ROTO,RotoTest,FALSE
+PHI,ROTO,RotoTest,FALSE
+TOR,ROTO,RotoTest,FALSE
+WIN,ROTO,RotoTest,FALSE
+SGP,ROTO,RotoTest,FALSE
+MXQ,ROTO,RotoTest,FALSE
+MTY,ROTO,RotoTest,FALSE
+MXM,ROTO,RotoTest,FALSE
+MCH,ROTO,RotoTest,FALSE
+ASC,ROTO,RotoTest,FALSE
+ADC,ROTO,RotoTest,FALSE
+ATL,ROTO,RotoTest,FALSE
+WIE,ROTO,RotoTest,FALSE
+ENA,ROTO,RotoTest,FALSE
+ENT,ROTO,RotoTest,FALSE
+LOS,SALC,Sales Order Allocation,FALSE
+STO,SALC,Sales Order Allocation,FALSE
+CHA,SALC,Sales Order Allocation,FALSE
+CLE,SALC,Sales Order Allocation,FALSE
+HAI,SALC,Sales Order Allocation,TRUE
+JVL,SALC,Sales Order Allocation,FALSE
+DAL,SALC,Sales Order Allocation,FALSE
+PHI,SALC,Sales Order Allocation,FALSE
+TOR,SALC,Sales Order Allocation,FALSE
+WIN,SALC,Sales Order Allocation,FALSE
+SGP,SALC,Sales Order Allocation,FALSE
+MXQ,SALC,Sales Order Allocation,FALSE
+MTY,SALC,Sales Order Allocation,FALSE
+MXM,SALC,Sales Order Allocation,FALSE
+MCH,SALC,Sales Order Allocation,FALSE
+ASC,SALC,Sales Order Allocation,FALSE
+ADC,SALC,Sales Order Allocation,FALSE
+ATL,SALC,Sales Order Allocation,FALSE
+WIE,SALC,Sales Order Allocation,FALSE
+ENA,SALC,Sales Order Allocation,FALSE
+ENT,SALC,Sales Order Allocation,FALSE
+LOS,SAMP,OSP for Sample piece testing,FALSE
+STO,SAMP,OSP for Sample piece testing,FALSE
+CHA,SAMP,OSP for Sample piece testing,FALSE
+CLE,SAMP,OSP for Sample piece testing,FALSE
+HAI,SAMP,OSP for Sample piece testing,TRUE
+JVL,SAMP,OSP for Sample piece testing,FALSE
+DAL,SAMP,OSP for Sample piece testing,FALSE
+PHI,SAMP,OSP for Sample piece testing,FALSE
+TOR,SAMP,OSP for Sample piece testing,FALSE
+WIN,SAMP,OSP for Sample piece testing,FALSE
+SGP,SAMP,OSP for Sample piece testing,FALSE
+MXQ,SAMP,OSP for Sample piece testing,FALSE
+MTY,SAMP,OSP for Sample piece testing,FALSE
+MXM,SAMP,OSP for Sample piece testing,FALSE
+MCH,SAMP,OSP for Sample piece testing,FALSE
+ASC,SAMP,OSP for Sample piece testing,FALSE
+ADC,SAMP,OSP for Sample piece testing,FALSE
+ATL,SAMP,OSP for Sample piece testing,FALSE
+WIE,SAMP,OSP for Sample piece testing,FALSE
+ENA,SAMP,OSP for Sample piece testing,FALSE
+ENT,SAMP,OSP for Sample piece testing,FALSE
+LOS,SAW,Saw,FALSE
+STO,SAW,Saw,FALSE
+CHA,SAW,Saw,FALSE
+CLE,SAW,Saw,FALSE
+HAI,SAW,Saw,TRUE
+JVL,SAW,Saw,FALSE
+DAL,SAW,Saw,FALSE
+PHI,SAW,Saw,FALSE
+TOR,SAW,Saw,FALSE
+WIN,SAW,Saw,FALSE
+SGP,SAW,Saw,FALSE
+MXQ,SAW,Saw,FALSE
+MTY,SAW,Saw,FALSE
+MXM,SAW,Saw,FALSE
+MCH,SAW,Saw,FALSE
+ASC,SAW,Saw,FALSE
+ADC,SAW,Saw,FALSE
+ATL,SAW,Saw,FALSE
+WIE,SAW,Saw,FALSE
+ENA,SAW,Saw,FALSE
+ENT,SAW,Saw,FALSE
+LOS,SAW2,Cut-Length,FALSE
+STO,SAW2,Cut-Length,FALSE
+CHA,SAW2,Cut-Length,FALSE
+CLE,SAW2,Cut-Length,FALSE
+HAI,SAW2,Cut-Length,TRUE
+JVL,SAW2,Cut-Length,FALSE
+DAL,SAW2,Cut-Length,FALSE
+PHI,SAW2,Cut-Length,FALSE
+TOR,SAW2,Cut-Length,FALSE
+WIN,SAW2,Cut-Length,FALSE
+SGP,SAW2,Cut-Length,FALSE
+MXQ,SAW2,Cut-Length,FALSE
+MTY,SAW2,Cut-Length,FALSE
+MXM,SAW2,Cut-Length,FALSE
+MCH,SAW2,Cut-Length,FALSE
+ASC,SAW2,Cut-Length,FALSE
+ADC,SAW2,Cut-Length,FALSE
+ATL,SAW2,Cut-Length,FALSE
+WIE,SAW2,Cut-Length,FALSE
+ENA,SAW2,Cut-Length,FALSE
+ENT,SAW2,Cut-Length,FALSE
+LOS,SHT,Shear,TRUE
+STO,SHT,Shear,TRUE
+CHA,SHT,Shear,TRUE
+CLE,SHT,Shear,TRUE
+HAI,SHT,Shear,TRUE
+JVL,SHT,Shear,TRUE
+DAL,SHT,Shear,TRUE
+PHI,SHT,Shear,TRUE
+TOR,SHT,Shear,TRUE
+WIN,SHT,Shear,TRUE
+SGP,SHT,Shear,TRUE
+MXQ,SHT,Shear,TRUE
+MTY,SHT,Shear,TRUE
+MXM,SHT,Shear,TRUE
+MCH,SHT,Shear,TRUE
+ASC,SHT,Shear,TRUE
+ADC,SHT,Shear,TRUE
+ATL,SHT,Shear,TRUE
+WIE,SHT,Shear,TRUE
+ENA,SHT,Shear,TRUE
+ENT,SHT,Shear,TRUE
+LOS,SKP,Skip Grinding,FALSE
+STO,SKP,Skip Grinding,FALSE
+CHA,SKP,Skip Grinding,FALSE
+CLE,SKP,Skip Grinding,FALSE
+HAI,SKP,Skip Grinding,TRUE
+JVL,SKP,Skip Grinding,FALSE
+DAL,SKP,Skip Grinding,FALSE
+PHI,SKP,Skip Grinding,FALSE
+TOR,SKP,Skip Grinding,FALSE
+WIN,SKP,Skip Grinding,FALSE
+SGP,SKP,Skip Grinding,FALSE
+MXQ,SKP,Skip Grinding,FALSE
+MTY,SKP,Skip Grinding,FALSE
+MXM,SKP,Skip Grinding,FALSE
+MCH,SKP,Skip Grinding,FALSE
+ASC,SKP,Skip Grinding,FALSE
+ADC,SKP,Skip Grinding,FALSE
+ATL,SKP,Skip Grinding,FALSE
+WIE,SKP,Skip Grinding,FALSE
+ENA,SKP,Skip Grinding,FALSE
+ENT,SKP,Skip Grinding,FALSE
+LOS,STM,Stock To Make,FALSE
+STO,STM,Stock To Make,FALSE
+CHA,STM,Stock To Make,FALSE
+CLE,STM,Stock To Make,FALSE
+HAI,STM,Stock To Make,TRUE
+JVL,STM,Stock To Make,FALSE
+DAL,STM,Stock To Make,FALSE
+PHI,STM,Stock To Make,FALSE
+TOR,STM,Stock To Make,FALSE
+WIN,STM,Stock To Make,FALSE
+SGP,STM,Stock To Make,FALSE
+MXQ,STM,Stock To Make,FALSE
+MTY,STM,Stock To Make,FALSE
+MXM,STM,Stock To Make,FALSE
+MCH,STM,Stock To Make,FALSE
+ASC,STM,Stock To Make,FALSE
+ADC,STM,Stock To Make,FALSE
+ATL,STM,Stock To Make,FALSE
+WIE,STM,Stock To Make,FALSE
+ENA,STM,Stock To Make,FALSE
+ENT,STM,Stock To Make,FALSE
+LOS,STS,Stress Relieve,FALSE
+STO,STS,Stress Relieve,FALSE
+CHA,STS,Stress Relieve,FALSE
+CLE,STS,Stress Relieve,FALSE
+HAI,STS,Stress Relieve,TRUE
+JVL,STS,Stress Relieve,FALSE
+DAL,STS,Stress Relieve,FALSE
+PHI,STS,Stress Relieve,FALSE
+TOR,STS,Stress Relieve,FALSE
+WIN,STS,Stress Relieve,FALSE
+SGP,STS,Stress Relieve,FALSE
+MXQ,STS,Stress Relieve,FALSE
+MTY,STS,Stress Relieve,FALSE
+MXM,STS,Stress Relieve,FALSE
+MCH,STS,Stress Relieve,FALSE
+ASC,STS,Stress Relieve,FALSE
+ADC,STS,Stress Relieve,FALSE
+ATL,STS,Stress Relieve,FALSE
+WIE,STS,Stress Relieve,FALSE
+ENA,STS,Stress Relieve,FALSE
+ENT,STS,Stress Relieve,FALSE
+LOS,SVFC,Second View Flame Cutting,FALSE
+STO,SVFC,Second View Flame Cutting,FALSE
+CHA,SVFC,Second View Flame Cutting,FALSE
+CLE,SVFC,Second View Flame Cutting,FALSE
+HAI,SVFC,Second View Flame Cutting,TRUE
+JVL,SVFC,Second View Flame Cutting,FALSE
+DAL,SVFC,Second View Flame Cutting,FALSE
+PHI,SVFC,Second View Flame Cutting,FALSE
+TOR,SVFC,Second View Flame Cutting,FALSE
+WIN,SVFC,Second View Flame Cutting,FALSE
+SGP,SVFC,Second View Flame Cutting,FALSE
+MXQ,SVFC,Second View Flame Cutting,FALSE
+MTY,SVFC,Second View Flame Cutting,FALSE
+MXM,SVFC,Second View Flame Cutting,FALSE
+MCH,SVFC,Second View Flame Cutting,FALSE
+ASC,SVFC,Second View Flame Cutting,FALSE
+ADC,SVFC,Second View Flame Cutting,FALSE
+ATL,SVFC,Second View Flame Cutting,FALSE
+WIE,SVFC,Second View Flame Cutting,FALSE
+ENA,SVFC,Second View Flame Cutting,FALSE
+ENT,SVFC,Second View Flame Cutting,FALSE
+LOS,SVSC,Second View Saw Cutting,FALSE
+STO,SVSC,Second View Saw Cutting,FALSE
+CHA,SVSC,Second View Saw Cutting,FALSE
+CLE,SVSC,Second View Saw Cutting,FALSE
+HAI,SVSC,Second View Saw Cutting,TRUE
+JVL,SVSC,Second View Saw Cutting,FALSE
+DAL,SVSC,Second View Saw Cutting,FALSE
+PHI,SVSC,Second View Saw Cutting,FALSE
+TOR,SVSC,Second View Saw Cutting,FALSE
+WIN,SVSC,Second View Saw Cutting,FALSE
+SGP,SVSC,Second View Saw Cutting,FALSE
+MXQ,SVSC,Second View Saw Cutting,FALSE
+MTY,SVSC,Second View Saw Cutting,FALSE
+MXM,SVSC,Second View Saw Cutting,FALSE
+MCH,SVSC,Second View Saw Cutting,FALSE
+ASC,SVSC,Second View Saw Cutting,FALSE
+ADC,SVSC,Second View Saw Cutting,FALSE
+ATL,SVSC,Second View Saw Cutting,FALSE
+WIE,SVSC,Second View Saw Cutting,FALSE
+ENA,SVSC,Second View Saw Cutting,FALSE
+ENT,SVSC,Second View Saw Cutting,FALSE
+LOS,TP1,T&P,FALSE
+STO,TP1,T&P,FALSE
+CHA,TP1,T&P,FALSE
+CLE,TP1,T&P,FALSE
+HAI,TP1,T&P,TRUE
+JVL,TP1,T&P,FALSE
+DAL,TP1,T&P,FALSE
+PHI,TP1,T&P,FALSE
+TOR,TP1,T&P,FALSE
+WIN,TP1,T&P,FALSE
+SGP,TP1,T&P,FALSE
+MXQ,TP1,T&P,FALSE
+MTY,TP1,T&P,FALSE
+MXM,TP1,T&P,FALSE
+MCH,TP1,T&P,FALSE
+ASC,TP1,T&P,FALSE
+ADC,TP1,T&P,FALSE
+ATL,TP1,T&P,FALSE
+WIE,TP1,T&P,FALSE
+ENA,TP1,T&P,FALSE
+ENT,TP1,T&P,FALSE
+LOS,TP2,T&P,FALSE
+STO,TP2,T&P,FALSE
+CHA,TP2,T&P,FALSE
+CLE,TP2,T&P,FALSE
+HAI,TP2,T&P,TRUE
+JVL,TP2,T&P,FALSE
+DAL,TP2,T&P,FALSE
+PHI,TP2,T&P,FALSE
+TOR,TP2,T&P,FALSE
+WIN,TP2,T&P,FALSE
+SGP,TP2,T&P,FALSE
+MXQ,TP2,T&P,FALSE
+MTY,TP2,T&P,FALSE
+MXM,TP2,T&P,FALSE
+MCH,TP2,T&P,FALSE
+ASC,TP2,T&P,FALSE
+ADC,TP2,T&P,FALSE
+ATL,TP2,T&P,FALSE
+WIE,TP2,T&P,FALSE
+ENA,TP2,T&P,FALSE
+ENT,TP2,T&P,FALSE
+LOS,TP3,T&P,FALSE
+STO,TP3,T&P,FALSE
+CHA,TP3,T&P,FALSE
+CLE,TP3,T&P,FALSE
+HAI,TP3,T&P,TRUE
+JVL,TP3,T&P,FALSE
+DAL,TP3,T&P,FALSE
+PHI,TP3,T&P,FALSE
+TOR,TP3,T&P,FALSE
+WIN,TP3,T&P,FALSE
+SGP,TP3,T&P,FALSE
+MXQ,TP3,T&P,FALSE
+MTY,TP3,T&P,FALSE
+MXM,TP3,T&P,FALSE
+MCH,TP3,T&P,FALSE
+ASC,TP3,T&P,FALSE
+ADC,TP3,T&P,FALSE
+ATL,TP3,T&P,FALSE
+WIE,TP3,T&P,FALSE
+ENA,TP3,T&P,FALSE
+ENT,TP3,T&P,FALSE
+LOS,TP9,T&P,FALSE
+STO,TP9,T&P,FALSE
+CHA,TP9,T&P,FALSE
+CLE,TP9,T&P,FALSE
+HAI,TP9,T&P,TRUE
+JVL,TP9,T&P,FALSE
+DAL,TP9,T&P,FALSE
+PHI,TP9,T&P,FALSE
+TOR,TP9,T&P,FALSE
+WIN,TP9,T&P,FALSE
+SGP,TP9,T&P,FALSE
+MXQ,TP9,T&P,FALSE
+MTY,TP9,T&P,FALSE
+MXM,TP9,T&P,FALSE
+MCH,TP9,T&P,FALSE
+ASC,TP9,T&P,FALSE
+ADC,TP9,T&P,FALSE
+ATL,TP9,T&P,FALSE
+WIE,TP9,T&P,FALSE
+ENA,TP9,T&P,FALSE
+ENT,TP9,T&P,FALSE
+LOS,TRP,Trepanning,FALSE
+STO,TRP,Trepanning,FALSE
+CHA,TRP,Trepanning,FALSE
+CLE,TRP,Trepanning,FALSE
+HAI,TRP,Trepanning,TRUE
+JVL,TRP,Trepanning,FALSE
+DAL,TRP,Trepanning,FALSE
+PHI,TRP,Trepanning,FALSE
+TOR,TRP,Trepanning,TRUE
+WIN,TRP,Trepanning,FALSE
+SGP,TRP,Trepanning,FALSE
+MXQ,TRP,Trepanning,FALSE
+MTY,TRP,Trepanning,FALSE
+MXM,TRP,Trepanning,FALSE
+MCH,TRP,Trepanning,FALSE
+ASC,TRP,Trepanning,FALSE
+ADC,TRP,Trepanning,FALSE
+ATL,TRP,Trepanning,FALSE
+WIE,TRP,Trepanning,FALSE
+ENA,TRP,Trepanning,FALSE
+ENT,TRP,Trepanning,FALSE
+LOS,TRP2,Small Lablond,FALSE
+STO,TRP2,Small Lablond,FALSE
+CHA,TRP2,Small Lablond,FALSE
+CLE,TRP2,Small Lablond,FALSE
+HAI,TRP2,Small Lablond,TRUE
+JVL,TRP2,Small Lablond,FALSE
+DAL,TRP2,Small Lablond,FALSE
+PHI,TRP2,Small Lablond,FALSE
+TOR,TRP2,Small Lablond,FALSE
+WIN,TRP2,Small Lablond,FALSE
+SGP,TRP2,Small Lablond,FALSE
+MXQ,TRP2,Small Lablond,FALSE
+MTY,TRP2,Small Lablond,FALSE
+MXM,TRP2,Small Lablond,FALSE
+MCH,TRP2,Small Lablond,FALSE
+ASC,TRP2,Small Lablond,FALSE
+ADC,TRP2,Small Lablond,FALSE
+ATL,TRP2,Small Lablond,FALSE
+WIE,TRP2,Small Lablond,FALSE
+ENA,TRP2,Small Lablond,FALSE
+ENT,TRP2,Small Lablond,FALSE
+LOS,TRP3,Large Lablond,FALSE
+STO,TRP3,Large Lablond,FALSE
+CHA,TRP3,Large Lablond,FALSE
+CLE,TRP3,Large Lablond,FALSE
+HAI,TRP3,Large Lablond,TRUE
+JVL,TRP3,Large Lablond,FALSE
+DAL,TRP3,Large Lablond,FALSE
+PHI,TRP3,Large Lablond,FALSE
+TOR,TRP3,Large Lablond,FALSE
+WIN,TRP3,Large Lablond,FALSE
+SGP,TRP3,Large Lablond,FALSE
+MXQ,TRP3,Large Lablond,FALSE
+MTY,TRP3,Large Lablond,FALSE
+MXM,TRP3,Large Lablond,FALSE
+MCH,TRP3,Large Lablond,FALSE
+ASC,TRP3,Large Lablond,FALSE
+ADC,TRP3,Large Lablond,FALSE
+ATL,TRP3,Large Lablond,FALSE
+WIE,TRP3,Large Lablond,FALSE
+ENA,TRP3,Large Lablond,FALSE
+ENT,TRP3,Large Lablond,FALSE
+LOS,USP,U.S. Processing,FALSE
+STO,USP,U.S. Processing,FALSE
+CHA,USP,U.S. Processing,FALSE
+CLE,USP,U.S. Processing,FALSE
+HAI,USP,U.S. Processing,TRUE
+JVL,USP,U.S. Processing,FALSE
+DAL,USP,U.S. Processing,FALSE
+PHI,USP,U.S. Processing,FALSE
+TOR,USP,U.S. Processing,FALSE
+WIN,USP,U.S. Processing,FALSE
+SGP,USP,U.S. Processing,FALSE
+MXQ,USP,U.S. Processing,FALSE
+MTY,USP,U.S. Processing,FALSE
+MXM,USP,U.S. Processing,FALSE
+MCH,USP,U.S. Processing,FALSE
+ASC,USP,U.S. Processing,FALSE
+ADC,USP,U.S. Processing,FALSE
+ATL,USP,U.S. Processing,FALSE
+WIE,USP,U.S. Processing,FALSE
+ENA,USP,U.S. Processing,FALSE
+ENT,USP,U.S. Processing,FALSE
+LOS,UST,Ultra Sonic Testing,FALSE
+STO,UST,Ultra Sonic Testing,FALSE
+CHA,UST,Ultra Sonic Testing,FALSE
+CLE,UST,Ultra Sonic Testing,FALSE
+HAI,UST,Ultra Sonic Testing,FALSE
+JVL,UST,Ultra Sonic Testing,FALSE
+DAL,UST,Ultra Sonic Testing,FALSE
+PHI,UST,Ultra Sonic Testing,FALSE
+TOR,UST,Ultra Sonic Testing,FALSE
+WIN,UST,Ultra Sonic Testing,FALSE
+SGP,UST,Ultra Sonic Testing,FALSE
+MXQ,UST,Ultra Sonic Testing,FALSE
+MTY,UST,Ultra Sonic Testing,FALSE
+MXM,UST,Ultra Sonic Testing,FALSE
+MCH,UST,Ultra Sonic Testing,FALSE
+ASC,UST,Ultra Sonic Testing,FALSE
+ADC,UST,Ultra Sonic Testing,FALSE
+ATL,UST,Ultra Sonic Testing,FALSE
+WIE,UST,Ultra Sonic Testing,FALSE
+ENA,UST,Ultra Sonic Testing,FALSE
+ENT,UST,Ultra Sonic Testing,FALSE
+LOS,VF05,VF05 CNC Milling,FALSE
+STO,VF05,VF05 CNC Milling,FALSE
+CHA,VF05,VF05 CNC Milling,FALSE
+CLE,VF05,VF05 CNC Milling,FALSE
+HAI,VF05,VF05 CNC Milling,TRUE
+JVL,VF05,VF05 CNC Milling,FALSE
+DAL,VF05,VF05 CNC Milling,FALSE
+PHI,VF05,VF05 CNC Milling,FALSE
+TOR,VF05,VF05 CNC Milling,FALSE
+WIN,VF05,VF05 CNC Milling,FALSE
+SGP,VF05,VF05 CNC Milling,FALSE
+MXQ,VF05,VF05 CNC Milling,FALSE
+MTY,VF05,VF05 CNC Milling,FALSE
+MXM,VF05,VF05 CNC Milling,FALSE
+MCH,VF05,VF05 CNC Milling,FALSE
+ASC,VF05,VF05 CNC Milling,FALSE
+ADC,VF05,VF05 CNC Milling,FALSE
+ATL,VF05,VF05 CNC Milling,FALSE
+WIE,VF05,VF05 CNC Milling,FALSE
+ENA,VF05,VF05 CNC Milling,FALSE
+ENT,VF05,VF05 CNC Milling,FALSE
+LOS,VF11,VF11 CNC Milling,FALSE
+STO,VF11,VF11 CNC Milling,FALSE
+CHA,VF11,VF11 CNC Milling,FALSE
+CLE,VF11,VF11 CNC Milling,FALSE
+HAI,VF11,VF11 CNC Milling,TRUE
+JVL,VF11,VF11 CNC Milling,FALSE
+DAL,VF11,VF11 CNC Milling,FALSE
+PHI,VF11,VF11 CNC Milling,FALSE
+TOR,VF11,VF11 CNC Milling,FALSE
+WIN,VF11,VF11 CNC Milling,FALSE
+SGP,VF11,VF11 CNC Milling,FALSE
+MXQ,VF11,VF11 CNC Milling,FALSE
+MTY,VF11,VF11 CNC Milling,FALSE
+MXM,VF11,VF11 CNC Milling,FALSE
+MCH,VF11,VF11 CNC Milling,FALSE
+ASC,VF11,VF11 CNC Milling,FALSE
+ADC,VF11,VF11 CNC Milling,FALSE
+ATL,VF11,VF11 CNC Milling,FALSE
+WIE,VF11,VF11 CNC Milling,FALSE
+ENA,VF11,VF11 CNC Milling,FALSE
+ENT,VF11,VF11 CNC Milling,FALSE
+LOS,VPR,Vendor Processing,FALSE
+STO,VPR,Vendor Processing,FALSE
+CHA,VPR,Vendor Processing,FALSE
+CLE,VPR,Vendor Processing,FALSE
+HAI,VPR,Vendor Processing,TRUE
+JVL,VPR,Vendor Processing,FALSE
+DAL,VPR,Vendor Processing,FALSE
+PHI,VPR,Vendor Processing,FALSE
+TOR,VPR,Vendor Processing,FALSE
+WIN,VPR,Vendor Processing,FALSE
+SGP,VPR,Vendor Processing,FALSE
+MXQ,VPR,Vendor Processing,FALSE
+MTY,VPR,Vendor Processing,FALSE
+MXM,VPR,Vendor Processing,FALSE
+MCH,VPR,Vendor Processing,FALSE
+ASC,VPR,Vendor Processing,FALSE
+ADC,VPR,Vendor Processing,FALSE
+ATL,VPR,Vendor Processing,FALSE
+WIE,VPR,Vendor Processing,FALSE
+ENA,VPR,Vendor Processing,FALSE
+ENT,VPR,Vendor Processing,FALSE
+LOS,WCAL,Will Call Pick Task,FALSE
+STO,WCAL,Will Call Pick Task,FALSE
+CHA,WCAL,Will Call Pick Task,FALSE
+CLE,WCAL,Will Call Pick Task,FALSE
+HAI,WCAL,Will Call Pick Task,TRUE
+JVL,WCAL,Will Call Pick Task,FALSE
+DAL,WCAL,Will Call Pick Task,FALSE
+PHI,WCAL,Will Call Pick Task,FALSE
+TOR,WCAL,Will Call Pick Task,FALSE
+WIN,WCAL,Will Call Pick Task,FALSE
+SGP,WCAL,Will Call Pick Task,FALSE
+MXQ,WCAL,Will Call Pick Task,FALSE
+MTY,WCAL,Will Call Pick Task,FALSE
+MXM,WCAL,Will Call Pick Task,FALSE
+MCH,WCAL,Will Call Pick Task,FALSE
+ASC,WCAL,Will Call Pick Task,FALSE
+ADC,WCAL,Will Call Pick Task,FALSE
+ATL,WCAL,Will Call Pick Task,FALSE
+WIE,WCAL,Will Call Pick Task,FALSE
+ENA,WCAL,Will Call Pick Task,FALSE
+ENT,WCAL,Will Call Pick Task,FALSE
+LOS,WJC,Water Jet Cutting,TRUE
+STO,WJC,Water Jet Cutting,TRUE
+CHA,WJC,Water Jet Cutting,TRUE
+CLE,WJC,Water Jet Cutting,TRUE
+HAI,WJC,Water Jet Cutting,TRUE
+JVL,WJC,Water Jet Cutting,TRUE
+DAL,WJC,Water Jet Cutting,TRUE
+PHI,WJC,Water Jet Cutting,TRUE
+TOR,WJC,Water Jet Cutting,TRUE
+WIN,WJC,Water Jet Cutting,TRUE
+SGP,WJC,Water Jet Cutting,TRUE
+MXQ,WJC,Water Jet Cutting,TRUE
+MTY,WJC,Water Jet Cutting,TRUE
+MXM,WJC,Water Jet Cutting,TRUE
+MCH,WJC,Water Jet Cutting,TRUE
+ASC,WJC,Water Jet Cutting,TRUE
+ADC,WJC,Water Jet Cutting,TRUE
+ATL,WJC,Water Jet Cutting,TRUE
+WIE,WJC,Water Jet Cutting,TRUE
+ENA,WJC,Water Jet Cutting,TRUE
+ENT,WJC,Water Jet Cutting,TRUE
+LOS,XFER,Internal Order Task,FALSE
+STO,XFER,Internal Order Task,FALSE
+CHA,XFER,Internal Order Task,FALSE
+CLE,XFER,Internal Order Task,FALSE
+HAI,XFER,Internal Order Task,TRUE
+JVL,XFER,Internal Order Task,FALSE
+DAL,XFER,Internal Order Task,FALSE
+PHI,XFER,Internal Order Task,FALSE
+TOR,XFER,Internal Order Task,FALSE
+WIN,XFER,Internal Order Task,FALSE
+SGP,XFER,Internal Order Task,FALSE
+MXQ,XFER,Internal Order Task,FALSE
+MTY,XFER,Internal Order Task,FALSE
+MXM,XFER,Internal Order Task,FALSE
+MCH,XFER,Internal Order Task,FALSE
+ASC,XFER,Internal Order Task,FALSE
+ADC,XFER,Internal Order Task,FALSE
+ATL,XFER,Internal Order Task,FALSE
+WIE,XFER,Internal Order Task,FALSE
+ENA,XFER,Internal Order Task,FALSE
+ENT,XFER,Internal Order Task,FALSE
+LOS,ANN,Annealing,FALSE
+STO,ANN,Annealing,FALSE
+CHA,ANN,Annealing,FALSE
+CLE,ANN,Annealing,FALSE
+HAI,ANN,Annealing,TRUE
+JVL,ANN,Annealing,FALSE
+DAL,ANN,Annealing,FALSE
+PHI,ANN,Annealing,FALSE
+TOR,ANN,Annealing,FALSE
+WIN,ANN,Annealing,FALSE
+SGP,ANN,Annealing,FALSE
+MXQ,ANN,Annealing,FALSE
+MTY,ANN,Annealing,FALSE
+MXM,ANN,Annealing,FALSE
+MCH,ANN,Annealing,FALSE
+ASC,ANN,Annealing,FALSE
+ADC,ANN,Annealing,FALSE
+ATL,ANN,Annealing,FALSE
+WIE,ANN,Annealing,FALSE
+ENA,ANN,Annealing,FALSE
+ENT,ANN,Annealing,FALSE
+LOS,ANN1,Annealing,FALSE
+STO,ANN1,Annealing,FALSE
+CHA,ANN1,Annealing,FALSE
+CLE,ANN1,Annealing,FALSE
+HAI,ANN1,Annealing,TRUE
+JVL,ANN1,Annealing,FALSE
+DAL,ANN1,Annealing,FALSE
+PHI,ANN1,Annealing,FALSE
+TOR,ANN1,Annealing,FALSE
+WIN,ANN1,Annealing,FALSE
+SGP,ANN1,Annealing,FALSE
+MXQ,ANN1,Annealing,FALSE
+MTY,ANN1,Annealing,FALSE
+MXM,ANN1,Annealing,FALSE
+MCH,ANN1,Annealing,FALSE
+ASC,ANN1,Annealing,FALSE
+ADC,ANN1,Annealing,FALSE
+ATL,ANN1,Annealing,FALSE
+WIE,ANN1,Annealing,FALSE
+ENA,ANN1,Annealing,FALSE
+ENT,ANN1,Annealing,FALSE
+LOS,ANN2,Annealing,FALSE
+STO,ANN2,Annealing,FALSE
+CHA,ANN2,Annealing,FALSE
+CLE,ANN2,Annealing,FALSE
+HAI,ANN2,Annealing,TRUE
+JVL,ANN2,Annealing,FALSE
+DAL,ANN2,Annealing,FALSE
+PHI,ANN2,Annealing,FALSE
+TOR,ANN2,Annealing,FALSE
+WIN,ANN2,Annealing,FALSE
+SGP,ANN2,Annealing,FALSE
+MXQ,ANN2,Annealing,FALSE
+MTY,ANN2,Annealing,FALSE
+MXM,ANN2,Annealing,FALSE
+MCH,ANN2,Annealing,FALSE
+ASC,ANN2,Annealing,FALSE
+ADC,ANN2,Annealing,FALSE
+ATL,ANN2,Annealing,FALSE
+WIE,ANN2,Annealing,FALSE
+ENA,ANN2,Annealing,FALSE
+ENT,ANN2,Annealing,FALSE
+LOS,APPR,Lab Approval,FALSE
+STO,APPR,Lab Approval,FALSE
+CHA,APPR,Lab Approval,FALSE
+CLE,APPR,Lab Approval,FALSE
+HAI,APPR,Lab Approval,TRUE
+JVL,APPR,Lab Approval,FALSE
+DAL,APPR,Lab Approval,FALSE
+PHI,APPR,Lab Approval,FALSE
+TOR,APPR,Lab Approval,FALSE
+WIN,APPR,Lab Approval,FALSE
+SGP,APPR,Lab Approval,FALSE
+MXQ,APPR,Lab Approval,FALSE
+MTY,APPR,Lab Approval,FALSE
+MXM,APPR,Lab Approval,FALSE
+MCH,APPR,Lab Approval,FALSE
+ASC,APPR,Lab Approval,FALSE
+ADC,APPR,Lab Approval,FALSE
+ATL,APPR,Lab Approval,FALSE
+WIE,APPR,Lab Approval,FALSE
+ENA,APPR,Lab Approval,FALSE
+ENT,APPR,Lab Approval,FALSE
+LOS,APS,Aluminum Plate Saw,TRUE
+STO,APS,Aluminum Plate Saw,TRUE
+CHA,APS,Aluminum Plate Saw,TRUE
+CLE,APS,Aluminum Plate Saw,TRUE
+HAI,APS,Aluminum Plate Saw,TRUE
+JVL,APS,Aluminum Plate Saw,TRUE
+DAL,APS,Aluminum Plate Saw,TRUE
+PHI,APS,Aluminum Plate Saw,TRUE
+TOR,APS,Aluminum Plate Saw,TRUE
+WIN,APS,Aluminum Plate Saw,TRUE
+SGP,APS,Aluminum Plate Saw,TRUE
+MXQ,APS,Aluminum Plate Saw,TRUE
+MTY,APS,Aluminum Plate Saw,TRUE
+MXM,APS,Aluminum Plate Saw,TRUE
+MCH,APS,Aluminum Plate Saw,TRUE
+ASC,APS,Aluminum Plate Saw,TRUE
+ADC,APS,Aluminum Plate Saw,TRUE
+ATL,APS,Aluminum Plate Saw,TRUE
+WIE,APS,Aluminum Plate Saw,TRUE
+ENA,APS,Aluminum Plate Saw,TRUE
+ENT,APS,Aluminum Plate Saw,TRUE
+LOS,BAR,Band Saw Cutting,TRUE
+STO,BAR,Band Saw Cutting,TRUE
+CHA,BAR,Band Saw Cutting,TRUE
+CLE,BAR,Band Saw Cutting,TRUE
+HAI,BAR,Band Saw Cutting,TRUE
+JVL,BAR,Band Saw Cutting,TRUE
+DAL,BAR,Band Saw Cutting,TRUE
+PHI,BAR,Band Saw Cutting,TRUE
+TOR,BAR,Band Saw Cutting,TRUE
+WIN,BAR,Band Saw Cutting,TRUE
+SGP,BAR,Band Saw Cutting,TRUE
+MXQ,BAR,Band Saw Cutting,TRUE
+MTY,BAR,Band Saw Cutting,TRUE
+MXM,BAR,Band Saw Cutting,TRUE
+MCH,BAR,Band Saw Cutting,TRUE
+ASC,BAR,Band Saw Cutting,TRUE
+ADC,BAR,Band Saw Cutting,TRUE
+ATL,BAR,Band Saw Cutting,TRUE
+WIE,BAR,Band Saw Cutting,TRUE
+ENA,BAR,Band Saw Cutting,TRUE
+ENT,BAR,Band Saw Cutting,TRUE
+LOS,BAR2,Band Saw Cutting,FALSE
+STO,BAR2,Band Saw Cutting,FALSE
+CHA,BAR2,Band Saw Cutting,FALSE
+CLE,BAR2,Band Saw Cutting,FALSE
+HAI,BAR2,Band Saw Cutting,TRUE
+JVL,BAR2,Band Saw Cutting,FALSE
+DAL,BAR2,Band Saw Cutting,FALSE
+PHI,BAR2,Band Saw Cutting,FALSE
+TOR,BAR2,Band Saw Cutting,FALSE
+WIN,BAR2,Band Saw Cutting,FALSE
+SGP,BAR2,Band Saw Cutting,FALSE
+MXQ,BAR2,Band Saw Cutting,FALSE
+MTY,BAR2,Band Saw Cutting,FALSE
+MXM,BAR2,Band Saw Cutting,FALSE
+MCH,BAR2,Band Saw Cutting,FALSE
+ASC,BAR2,Band Saw Cutting,FALSE
+ADC,BAR2,Band Saw Cutting,FALSE
+ATL,BAR2,Band Saw Cutting,FALSE
+WIE,BAR2,Band Saw Cutting,FALSE
+ENA,BAR2,Band Saw Cutting,FALSE
+ENT,BAR2,Band Saw Cutting,FALSE
+LOS,BCS,Bar Cold Saw (Tsune),TRUE
+STO,BCS,Bar Cold Saw (Tsune),TRUE
+CHA,BCS,Bar Cold Saw (Tsune),TRUE
+CLE,BCS,Bar Cold Saw (Tsune),TRUE
+HAI,BCS,Bar Cold Saw (Tsune),TRUE
+JVL,BCS,Bar Cold Saw (Tsune),TRUE
+DAL,BCS,Bar Cold Saw (Tsune),TRUE
+PHI,BCS,Bar Cold Saw (Tsune),TRUE
+TOR,BCS,Bar Cold Saw (Tsune),TRUE
+WIN,BCS,Bar Cold Saw (Tsune),TRUE
+SGP,BCS,Bar Cold Saw (Tsune),TRUE
+MXQ,BCS,Bar Cold Saw (Tsune),TRUE
+MTY,BCS,Bar Cold Saw (Tsune),TRUE
+MXM,BCS,Bar Cold Saw (Tsune),TRUE
+MCH,BCS,Bar Cold Saw (Tsune),TRUE
+ASC,BCS,Bar Cold Saw (Tsune),TRUE
+ADC,BCS,Bar Cold Saw (Tsune),TRUE
+ATL,BCS,Bar Cold Saw (Tsune),TRUE
+WIE,BCS,Bar Cold Saw (Tsune),TRUE
+ENA,BCS,Bar Cold Saw (Tsune),TRUE
+ENT,BCS,Bar Cold Saw (Tsune),TRUE
+LOS,BCSX,Bar Cold Saw (Tsune),FALSE
+STO,BCSX,Bar Cold Saw (Tsune),FALSE
+CHA,BCSX,Bar Cold Saw (Tsune),FALSE
+CLE,BCSX,Bar Cold Saw (Tsune),FALSE
+HAI,BCSX,Bar Cold Saw (Tsune),TRUE
+JVL,BCSX,Bar Cold Saw (Tsune),FALSE
+DAL,BCSX,Bar Cold Saw (Tsune),FALSE
+PHI,BCSX,Bar Cold Saw (Tsune),FALSE
+TOR,BCSX,Bar Cold Saw (Tsune),FALSE
+WIN,BCSX,Bar Cold Saw (Tsune),FALSE
+SGP,BCSX,Bar Cold Saw (Tsune),FALSE
+MXQ,BCSX,Bar Cold Saw (Tsune),FALSE
+MTY,BCSX,Bar Cold Saw (Tsune),FALSE
+MXM,BCSX,Bar Cold Saw (Tsune),FALSE
+MCH,BCSX,Bar Cold Saw (Tsune),FALSE
+ASC,BCSX,Bar Cold Saw (Tsune),FALSE
+ADC,BCSX,Bar Cold Saw (Tsune),FALSE
+ATL,BCSX,Bar Cold Saw (Tsune),FALSE
+WIE,BCSX,Bar Cold Saw (Tsune),FALSE
+ENA,BCSX,Bar Cold Saw (Tsune),FALSE
+ENT,BCSX,Bar Cold Saw (Tsune),FALSE
+LOS,BG,Blanchard Grinding,FALSE
+STO,BG,Blanchard Grinding,FALSE
+CHA,BG,Blanchard Grinding,FALSE
+CLE,BG,Blanchard Grinding,FALSE
+HAI,BG,Blanchard Grinding,TRUE
+JVL,BG,Blanchard Grinding,FALSE
+DAL,BG,Blanchard Grinding,FALSE
+PHI,BG,Blanchard Grinding,FALSE
+TOR,BG,Blanchard Grinding,FALSE
+WIN,BG,Blanchard Grinding,FALSE
+SGP,BG,Blanchard Grinding,FALSE
+MXQ,BG,Blanchard Grinding,FALSE
+MTY,BG,Blanchard Grinding,FALSE
+MXM,BG,Blanchard Grinding,FALSE
+MCH,BG,Blanchard Grinding,FALSE
+ASC,BG,Blanchard Grinding,FALSE
+ADC,BG,Blanchard Grinding,FALSE
+ATL,BG,Blanchard Grinding,FALSE
+WIE,BG,Blanchard Grinding,FALSE
+ENA,BG,Blanchard Grinding,FALSE
+ENT,BG,Blanchard Grinding,FALSE
+LOS,BGR,Blanchard Grinding,FALSE
+STO,BGR,Blanchard Grinding,FALSE
+CHA,BGR,Blanchard Grinding,FALSE
+CLE,BGR,Blanchard Grinding,FALSE
+HAI,BGR,Blanchard Grinding,TRUE
+JVL,BGR,Blanchard Grinding,FALSE
+DAL,BGR,Blanchard Grinding,FALSE
+PHI,BGR,Blanchard Grinding,FALSE
+TOR,BGR,Blanchard Grinding,FALSE
+WIN,BGR,Blanchard Grinding,FALSE
+SGP,BGR,Blanchard Grinding,FALSE
+MXQ,BGR,Blanchard Grinding,FALSE
+MTY,BGR,Blanchard Grinding,FALSE
+MXM,BGR,Blanchard Grinding,FALSE
+MCH,BGR,Blanchard Grinding,FALSE
+ASC,BGR,Blanchard Grinding,FALSE
+ADC,BGR,Blanchard Grinding,FALSE
+ATL,BGR,Blanchard Grinding,FALSE
+WIE,BGR,Blanchard Grinding,FALSE
+ENA,BGR,Blanchard Grinding,FALSE
+ENT,BGR,Blanchard Grinding,FALSE
+LOS,CH2,Cut in Half,TRUE
+STO,CH2,Cut in Half,TRUE
+CHA,CH2,Cut in Half,TRUE
+CLE,CH2,Cut in Half,TRUE
+HAI,CH2,Cut in Half,TRUE
+JVL,CH2,Cut in Half,TRUE
+DAL,CH2,Cut in Half,TRUE
+PHI,CH2,Cut in Half,TRUE
+TOR,CH2,Cut in Half,TRUE
+WIN,CH2,Cut in Half,TRUE
+SGP,CH2,Cut in Half,TRUE
+MXQ,CH2,Cut in Half,TRUE
+MTY,CH2,Cut in Half,TRUE
+MXM,CH2,Cut in Half,TRUE
+MCH,CH2,Cut in Half,TRUE
+ASC,CH2,Cut in Half,TRUE
+ADC,CH2,Cut in Half,TRUE
+ATL,CH2,Cut in Half,TRUE
+WIE,CH2,Cut in Half,TRUE
+ENA,CH2,Cut in Half,TRUE
+ENT,CH2,Cut in Half,TRUE
+LOS,CH2X,Cut in Half,FALSE
+STO,CH2X,Cut in Half,FALSE
+CHA,CH2X,Cut in Half,FALSE
+CLE,CH2X,Cut in Half,FALSE
+HAI,CH2X,Cut in Half,TRUE
+JVL,CH2X,Cut in Half,FALSE
+DAL,CH2X,Cut in Half,FALSE
+PHI,CH2X,Cut in Half,FALSE
+TOR,CH2X,Cut in Half,FALSE
+WIN,CH2X,Cut in Half,FALSE
+SGP,CH2X,Cut in Half,FALSE
+MXQ,CH2X,Cut in Half,FALSE
+MTY,CH2X,Cut in Half,FALSE
+MXM,CH2X,Cut in Half,FALSE
+MCH,CH2X,Cut in Half,FALSE
+ASC,CH2X,Cut in Half,FALSE
+ADC,CH2X,Cut in Half,FALSE
+ATL,CH2X,Cut in Half,FALSE
+WIE,CH2X,Cut in Half,FALSE
+ENA,CH2X,Cut in Half,FALSE
+ENT,CH2X,Cut in Half,FALSE
+LOS,CH3,Cut in 3rd's,TRUE
+STO,CH3,Cut in 3rd's,TRUE
+CHA,CH3,Cut in 3rd's,TRUE
+CLE,CH3,Cut in 3rd's,TRUE
+HAI,CH3,Cut in 3rd's,TRUE
+JVL,CH3,Cut in 3rd's,TRUE
+DAL,CH3,Cut in 3rd's,TRUE
+PHI,CH3,Cut in 3rd's,TRUE
+TOR,CH3,Cut in 3rd's,TRUE
+WIN,CH3,Cut in 3rd's,TRUE
+SGP,CH3,Cut in 3rd's,TRUE
+MXQ,CH3,Cut in 3rd's,TRUE
+MTY,CH3,Cut in 3rd's,TRUE
+MXM,CH3,Cut in 3rd's,TRUE
+MCH,CH3,Cut in 3rd's,TRUE
+ASC,CH3,Cut in 3rd's,TRUE
+ADC,CH3,Cut in 3rd's,TRUE
+ATL,CH3,Cut in 3rd's,TRUE
+WIE,CH3,Cut in 3rd's,TRUE
+ENA,CH3,Cut in 3rd's,TRUE
+ENT,CH3,Cut in 3rd's,TRUE
+LOS,CH3X,Cut in 3rd's,FALSE
+STO,CH3X,Cut in 3rd's,FALSE
+CHA,CH3X,Cut in 3rd's,FALSE
+CLE,CH3X,Cut in 3rd's,FALSE
+HAI,CH3X,Cut in 3rd's,TRUE
+JVL,CH3X,Cut in 3rd's,FALSE
+DAL,CH3X,Cut in 3rd's,FALSE
+PHI,CH3X,Cut in 3rd's,FALSE
+TOR,CH3X,Cut in 3rd's,FALSE
+WIN,CH3X,Cut in 3rd's,FALSE
+SGP,CH3X,Cut in 3rd's,FALSE
+MXQ,CH3X,Cut in 3rd's,FALSE
+MTY,CH3X,Cut in 3rd's,FALSE
+MXM,CH3X,Cut in 3rd's,FALSE
+MCH,CH3X,Cut in 3rd's,FALSE
+ASC,CH3X,Cut in 3rd's,FALSE
+ADC,CH3X,Cut in 3rd's,FALSE
+ATL,CH3X,Cut in 3rd's,FALSE
+WIE,CH3X,Cut in 3rd's,FALSE
+ENA,CH3X,Cut in 3rd's,FALSE
+ENT,CH3X,Cut in 3rd's,FALSE
+LOS,CH4,Cust in 4th's,TRUE
+STO,CH4,Cust in 4th's,TRUE
+CHA,CH4,Cust in 4th's,TRUE
+CLE,CH4,Cust in 4th's,TRUE
+HAI,CH4,Cust in 4th's,TRUE
+JVL,CH4,Cust in 4th's,TRUE
+DAL,CH4,Cust in 4th's,TRUE
+PHI,CH4,Cust in 4th's,TRUE
+TOR,CH4,Cust in 4th's,TRUE
+WIN,CH4,Cust in 4th's,TRUE
+SGP,CH4,Cust in 4th's,TRUE
+MXQ,CH4,Cust in 4th's,TRUE
+MTY,CH4,Cust in 4th's,TRUE
+MXM,CH4,Cust in 4th's,TRUE
+MCH,CH4,Cust in 4th's,TRUE
+ASC,CH4,Cust in 4th's,TRUE
+ADC,CH4,Cust in 4th's,TRUE
+ATL,CH4,Cust in 4th's,TRUE
+WIE,CH4,Cust in 4th's,TRUE
+ENA,CH4,Cust in 4th's,TRUE
+ENT,CH4,Cust in 4th's,TRUE
+LOS,CH4X,Cust in 4th's,FALSE
+STO,CH4X,Cust in 4th's,FALSE
+CHA,CH4X,Cust in 4th's,FALSE
+CLE,CH4X,Cust in 4th's,FALSE
+HAI,CH4X,Cust in 4th's,TRUE
+JVL,CH4X,Cust in 4th's,FALSE
+DAL,CH4X,Cust in 4th's,FALSE
+PHI,CH4X,Cust in 4th's,FALSE
+TOR,CH4X,Cust in 4th's,FALSE
+WIN,CH4X,Cust in 4th's,FALSE
+SGP,CH4X,Cust in 4th's,FALSE
+MXQ,CH4X,Cust in 4th's,FALSE
+MTY,CH4X,Cust in 4th's,FALSE
+MXM,CH4X,Cust in 4th's,FALSE
+MCH,CH4X,Cust in 4th's,FALSE
+ASC,CH4X,Cust in 4th's,FALSE
+ADC,CH4X,Cust in 4th's,FALSE
+ATL,CH4X,Cust in 4th's,FALSE
+WIE,CH4X,Cust in 4th's,FALSE
+ENA,CH4X,Cust in 4th's,FALSE
+ENT,CH4X,Cust in 4th's,FALSE
+LOS,CHF,Chamfering,FALSE
+STO,CHF,Chamfering,FALSE
+CHA,CHF,Chamfering,TRUE
+CLE,CHF,Chamfering,FALSE
+HAI,CHF,Chamfering,TRUE
+JVL,CHF,Chamfering,FALSE
+DAL,CHF,Chamfering,FALSE
+PHI,CHF,Chamfering,FALSE
+TOR,CHF,Chamfering,FALSE
+WIN,CHF,Chamfering,FALSE
+SGP,CHF,Chamfering,FALSE
+MXQ,CHF,Chamfering,FALSE
+MTY,CHF,Chamfering,FALSE
+MXM,CHF,Chamfering,FALSE
+MCH,CHF,Chamfering,FALSE
+ASC,CHF,Chamfering,FALSE
+ADC,CHF,Chamfering,FALSE
+ATL,CHF,Chamfering,FALSE
+WIE,CHF,Chamfering,FALSE
+ENA,CHF,Chamfering,FALSE
+ENT,CHF,Chamfering,FALSE
+LOS,CITY,City Pick Task,FALSE
+STO,CITY,City Pick Task,FALSE
+CHA,CITY,City Pick Task,FALSE
+CLE,CITY,City Pick Task,FALSE
+HAI,CITY,City Pick Task,TRUE
+JVL,CITY,City Pick Task,FALSE
+DAL,CITY,City Pick Task,FALSE
+PHI,CITY,City Pick Task,FALSE
+TOR,CITY,City Pick Task,FALSE
+WIN,CITY,City Pick Task,FALSE
+SGP,CITY,City Pick Task,FALSE
+MXQ,CITY,City Pick Task,FALSE
+MTY,CITY,City Pick Task,FALSE
+MXM,CITY,City Pick Task,FALSE
+MCH,CITY,City Pick Task,FALSE
+ASC,CITY,City Pick Task,FALSE
+ADC,CITY,City Pick Task,FALSE
+ATL,CITY,City Pick Task,FALSE
+WIE,CITY,City Pick Task,FALSE
+ENA,CITY,City Pick Task,FALSE
+ENT,CITY,City Pick Task,FALSE
+LOS,CTRY,Country Pick Task,FALSE
+STO,CTRY,Country Pick Task,FALSE
+CHA,CTRY,Country Pick Task,FALSE
+CLE,CTRY,Country Pick Task,FALSE
+HAI,CTRY,Country Pick Task,TRUE
+JVL,CTRY,Country Pick Task,FALSE
+DAL,CTRY,Country Pick Task,FALSE
+PHI,CTRY,Country Pick Task,FALSE
+TOR,CTRY,Country Pick Task,FALSE
+WIN,CTRY,Country Pick Task,FALSE
+SGP,CTRY,Country Pick Task,FALSE
+MXQ,CTRY,Country Pick Task,FALSE
+MTY,CTRY,Country Pick Task,FALSE
+MXM,CTRY,Country Pick Task,FALSE
+MCH,CTRY,Country Pick Task,FALSE
+ASC,CTRY,Country Pick Task,FALSE
+ADC,CTRY,Country Pick Task,FALSE
+ATL,CTRY,Country Pick Task,FALSE
+WIE,CTRY,Country Pick Task,FALSE
+ENA,CTRY,Country Pick Task,FALSE
+ENT,CTRY,Country Pick Task,FALSE
+LOS,CTS,Contour Saw Cutting,FALSE
+STO,CTS,Contour Saw Cutting,FALSE
+CHA,CTS,Contour Saw Cutting,FALSE
+CLE,CTS,Contour Saw Cutting,FALSE
+HAI,CTS,Contour Saw Cutting,TRUE
+JVL,CTS,Contour Saw Cutting,FALSE
+DAL,CTS,Contour Saw Cutting,FALSE
+PHI,CTS,Contour Saw Cutting,FALSE
+TOR,CTS,Contour Saw Cutting,FALSE
+WIN,CTS,Contour Saw Cutting,FALSE
+SGP,CTS,Contour Saw Cutting,FALSE
+MXQ,CTS,Contour Saw Cutting,FALSE
+MTY,CTS,Contour Saw Cutting,FALSE
+MXM,CTS,Contour Saw Cutting,FALSE
+MCH,CTS,Contour Saw Cutting,FALSE
+ASC,CTS,Contour Saw Cutting,FALSE
+ADC,CTS,Contour Saw Cutting,FALSE
+ATL,CTS,Contour Saw Cutting,FALSE
+WIE,CTS,Contour Saw Cutting,FALSE
+ENA,CTS,Contour Saw Cutting,FALSE
+ENT,CTS,Contour Saw Cutting,FALSE
+LOS,DDR,Deep Drilling,FALSE
+STO,DDR,Deep Drilling,FALSE
+CHA,DDR,Deep Drilling,FALSE
+CLE,DDR,Deep Drilling,FALSE
+HAI,DDR,Deep Drilling,TRUE
+JVL,DDR,Deep Drilling,FALSE
+DAL,DDR,Deep Drilling,FALSE
+PHI,DDR,Deep Drilling,FALSE
+TOR,DDR,Deep Drilling,FALSE
+WIN,DDR,Deep Drilling,FALSE
+SGP,DDR,Deep Drilling,FALSE
+MXQ,DDR,Deep Drilling,FALSE
+MTY,DDR,Deep Drilling,FALSE
+MXM,DDR,Deep Drilling,FALSE
+MCH,DDR,Deep Drilling,FALSE
+ASC,DDR,Deep Drilling,FALSE
+ADC,DDR,Deep Drilling,FALSE
+ATL,DDR,Deep Drilling,FALSE
+WIE,DDR,Deep Drilling,FALSE
+ENA,DDR,Deep Drilling,FALSE
+ENT,DDR,Deep Drilling,FALSE
+LOS,DEB,Deburring,FALSE
+STO,DEB,Deburring,FALSE
+CHA,DEB,Deburring,FALSE
+CLE,DEB,Deburring,FALSE
+HAI,DEB,Deburring,TRUE
+JVL,DEB,Deburring,FALSE
+DAL,DEB,Deburring,FALSE
+PHI,DEB,Deburring,FALSE
+TOR,DEB,Deburring,FALSE
+WIN,DEB,Deburring,FALSE
+SGP,DEB,Deburring,FALSE
+MXQ,DEB,Deburring,FALSE
+MTY,DEB,Deburring,FALSE
+MXM,DEB,Deburring,FALSE
+MCH,DEB,Deburring,FALSE
+ASC,DEB,Deburring,FALSE
+ADC,DEB,Deburring,FALSE
+ATL,DEB,Deburring,FALSE
+WIE,DEB,Deburring,FALSE
+ENA,DEB,Deburring,FALSE
+ENT,DEB,Deburring,FALSE
+LOS,DIE,Die Stamp,FALSE
+STO,DIE,Die Stamp,FALSE
+CHA,DIE,Die Stamp,FALSE
+CLE,DIE,Die Stamp,FALSE
+HAI,DIE,Die Stamp,TRUE
+JVL,DIE,Die Stamp,FALSE
+DAL,DIE,Die Stamp,FALSE
+PHI,DIE,Die Stamp,FALSE
+TOR,DIE,Die Stamp,FALSE
+WIN,DIE,Die Stamp,FALSE
+SGP,DIE,Die Stamp,FALSE
+MXQ,DIE,Die Stamp,FALSE
+MTY,DIE,Die Stamp,FALSE
+MXM,DIE,Die Stamp,FALSE
+MCH,DIE,Die Stamp,FALSE
+ASC,DIE,Die Stamp,FALSE
+ADC,DIE,Die Stamp,FALSE
+ATL,DIE,Die Stamp,FALSE
+WIE,DIE,Die Stamp,FALSE
+ENA,DIE,Die Stamp,FALSE
+ENT,DIE,Die Stamp,FALSE
+LOS,DMG,Demagnetizing,FALSE
+STO,DMG,Demagnetizing,FALSE
+CHA,DMG,Demagnetizing,FALSE
+CLE,DMG,Demagnetizing,FALSE
+HAI,DMG,Demagnetizing,TRUE
+JVL,DMG,Demagnetizing,FALSE
+DAL,DMG,Demagnetizing,FALSE
+PHI,DMG,Demagnetizing,FALSE
+TOR,DMG,Demagnetizing,FALSE
+WIN,DMG,Demagnetizing,FALSE
+SGP,DMG,Demagnetizing,FALSE
+MXQ,DMG,Demagnetizing,FALSE
+MTY,DMG,Demagnetizing,FALSE
+MXM,DMG,Demagnetizing,FALSE
+MCH,DMG,Demagnetizing,FALSE
+ASC,DMG,Demagnetizing,FALSE
+ADC,DMG,Demagnetizing,FALSE
+ATL,DMG,Demagnetizing,FALSE
+WIE,DMG,Demagnetizing,FALSE
+ENA,DMG,Demagnetizing,FALSE
+ENT,DMG,Demagnetizing,FALSE
+LOS,DRI,Drilling,FALSE
+STO,DRI,Drilling,FALSE
+CHA,DRI,Drilling,FALSE
+CLE,DRI,Drilling,FALSE
+HAI,DRI,Drilling,TRUE
+JVL,DRI,Drilling,FALSE
+DAL,DRI,Drilling,FALSE
+PHI,DRI,Drilling,FALSE
+TOR,DRI,Drilling,FALSE
+WIN,DRI,Drilling,FALSE
+SGP,DRI,Drilling,FALSE
+MXQ,DRI,Drilling,FALSE
+MTY,DRI,Drilling,FALSE
+MXM,DRI,Drilling,FALSE
+MCH,DRI,Drilling,FALSE
+ASC,DRI,Drilling,FALSE
+ADC,DRI,Drilling,FALSE
+ATL,DRI,Drilling,FALSE
+WIE,DRI,Drilling,FALSE
+ENA,DRI,Drilling,FALSE
+ENT,DRI,Drilling,FALSE
+LOS,EXB,Export Boxing,FALSE
+STO,EXB,Export Boxing,FALSE
+CHA,EXB,Export Boxing,FALSE
+CLE,EXB,Export Boxing,FALSE
+HAI,EXB,Export Boxing,TRUE
+JVL,EXB,Export Boxing,FALSE
+DAL,EXB,Export Boxing,FALSE
+PHI,EXB,Export Boxing,FALSE
+TOR,EXB,Export Boxing,FALSE
+WIN,EXB,Export Boxing,FALSE
+SGP,EXB,Export Boxing,FALSE
+MXQ,EXB,Export Boxing,FALSE
+MTY,EXB,Export Boxing,FALSE
+MXM,EXB,Export Boxing,FALSE
+MCH,EXB,Export Boxing,FALSE
+ASC,EXB,Export Boxing,FALSE
+ADC,EXB,Export Boxing,FALSE
+ATL,EXB,Export Boxing,FALSE
+WIE,EXB,Export Boxing,FALSE
+ENA,EXB,Export Boxing,FALSE
+ENT,EXB,Export Boxing,FALSE
+LOS,EXP,Express Band Saw Cutting,FALSE
+STO,EXP,Express Band Saw Cutting,FALSE
+CHA,EXP,Express Band Saw Cutting,FALSE
+CLE,EXP,Express Band Saw Cutting,FALSE
+HAI,EXP,Express Band Saw Cutting,TRUE
+JVL,EXP,Express Band Saw Cutting,FALSE
+DAL,EXP,Express Band Saw Cutting,FALSE
+PHI,EXP,Express Band Saw Cutting,FALSE
+TOR,EXP,Express Band Saw Cutting,FALSE
+WIN,EXP,Express Band Saw Cutting,FALSE
+SGP,EXP,Express Band Saw Cutting,FALSE
+MXQ,EXP,Express Band Saw Cutting,FALSE
+MTY,EXP,Express Band Saw Cutting,FALSE
+MXM,EXP,Express Band Saw Cutting,FALSE
+MCH,EXP,Express Band Saw Cutting,FALSE
+ASC,EXP,Express Band Saw Cutting,FALSE
+ADC,EXP,Express Band Saw Cutting,FALSE
+ATL,EXP,Express Band Saw Cutting,FALSE
+WIE,EXP,Express Band Saw Cutting,FALSE
+ENA,EXP,Express Band Saw Cutting,FALSE
+ENT,EXP,Express Band Saw Cutting,FALSE
+LOS,EXPX,Express Band Saw Cutting,FALSE
+STO,EXPX,Express Band Saw Cutting,FALSE
+CHA,EXPX,Express Band Saw Cutting,FALSE
+CLE,EXPX,Express Band Saw Cutting,FALSE
+HAI,EXPX,Express Band Saw Cutting,TRUE
+JVL,EXPX,Express Band Saw Cutting,FALSE
+DAL,EXPX,Express Band Saw Cutting,FALSE
+PHI,EXPX,Express Band Saw Cutting,FALSE
+TOR,EXPX,Express Band Saw Cutting,FALSE
+WIN,EXPX,Express Band Saw Cutting,FALSE
+SGP,EXPX,Express Band Saw Cutting,FALSE
+MXQ,EXPX,Express Band Saw Cutting,FALSE
+MTY,EXPX,Express Band Saw Cutting,FALSE
+MXM,EXPX,Express Band Saw Cutting,FALSE
+MCH,EXPX,Express Band Saw Cutting,FALSE
+ASC,EXPX,Express Band Saw Cutting,FALSE
+ADC,EXPX,Express Band Saw Cutting,FALSE
+ATL,EXPX,Express Band Saw Cutting,FALSE
+WIE,EXPX,Express Band Saw Cutting,FALSE
+ENA,EXPX,Express Band Saw Cutting,FALSE
+ENT,EXPX,Express Band Saw Cutting,FALSE
+LOS,EXT,Extrusion Saw,TRUE
+STO,EXT,Extrusion Saw,TRUE
+CHA,EXT,Extrusion Saw,TRUE
+CLE,EXT,Extrusion Saw,TRUE
+HAI,EXT,Extrusion Saw,TRUE
+JVL,EXT,Extrusion Saw,TRUE
+DAL,EXT,Extrusion Saw,TRUE
+PHI,EXT,Extrusion Saw,TRUE
+TOR,EXT,Extrusion Saw,TRUE
+WIN,EXT,Extrusion Saw,TRUE
+SGP,EXT,Extrusion Saw,TRUE
+MXQ,EXT,Extrusion Saw,TRUE
+MTY,EXT,Extrusion Saw,TRUE
+MXM,EXT,Extrusion Saw,TRUE
+MCH,EXT,Extrusion Saw,TRUE
+ASC,EXT,Extrusion Saw,TRUE
+ADC,EXT,Extrusion Saw,TRUE
+ATL,EXT,Extrusion Saw,TRUE
+WIE,EXT,Extrusion Saw,TRUE
+ENA,EXT,Extrusion Saw,TRUE
+ENT,EXT,Extrusion Saw,TRUE
+LOS,FAC,Face & Center,FALSE
+STO,FAC,Face & Center,FALSE
+CHA,FAC,Face & Center,FALSE
+CLE,FAC,Face & Center,FALSE
+HAI,FAC,Face & Center,TRUE
+JVL,FAC,Face & Center,FALSE
+DAL,FAC,Face & Center,FALSE
+PHI,FAC,Face & Center,FALSE
+TOR,FAC,Face & Center,FALSE
+WIN,FAC,Face & Center,FALSE
+SGP,FAC,Face & Center,FALSE
+MXQ,FAC,Face & Center,FALSE
+MTY,FAC,Face & Center,FALSE
+MXM,FAC,Face & Center,FALSE
+MCH,FAC,Face & Center,FALSE
+ASC,FAC,Face & Center,FALSE
+ADC,FAC,Face & Center,FALSE
+ATL,FAC,Face & Center,FALSE
+WIE,FAC,Face & Center,FALSE
+ENA,FAC,Face & Center,FALSE
+ENT,FAC,Face & Center,FALSE
+LOS,FACH,Face and Chamfer,FALSE
+STO,FACH,Face and Chamfer,FALSE
+CHA,FACH,Face and Chamfer,FALSE
+CLE,FACH,Face and Chamfer,FALSE
+HAI,FACH,Face and Chamfer,TRUE
+JVL,FACH,Face and Chamfer,FALSE
+DAL,FACH,Face and Chamfer,FALSE
+PHI,FACH,Face and Chamfer,FALSE
+TOR,FACH,Face and Chamfer,FALSE
+WIN,FACH,Face and Chamfer,FALSE
+SGP,FACH,Face and Chamfer,FALSE
+MXQ,FACH,Face and Chamfer,FALSE
+MTY,FACH,Face and Chamfer,FALSE
+MXM,FACH,Face and Chamfer,FALSE
+MCH,FACH,Face and Chamfer,FALSE
+ASC,FACH,Face and Chamfer,FALSE
+ADC,FACH,Face and Chamfer,FALSE
+ATL,FACH,Face and Chamfer,FALSE
+WIE,FACH,Face and Chamfer,FALSE
+ENA,FACH,Face and Chamfer,FALSE
+ENT,FACH,Face and Chamfer,FALSE
+LOS,FANN,Full Anneal,FALSE
+STO,FANN,Full Anneal,FALSE
+CHA,FANN,Full Anneal,FALSE
+CLE,FANN,Full Anneal,FALSE
+HAI,FANN,Full Anneal,TRUE
+JVL,FANN,Full Anneal,FALSE
+DAL,FANN,Full Anneal,FALSE
+PHI,FANN,Full Anneal,FALSE
+TOR,FANN,Full Anneal,FALSE
+WIN,FANN,Full Anneal,FALSE
+SGP,FANN,Full Anneal,FALSE
+MXQ,FANN,Full Anneal,FALSE
+MTY,FANN,Full Anneal,FALSE
+MXM,FANN,Full Anneal,FALSE
+MCH,FANN,Full Anneal,FALSE
+ASC,FANN,Full Anneal,FALSE
+ADC,FANN,Full Anneal,FALSE
+ATL,FANN,Full Anneal,FALSE
+WIE,FANN,Full Anneal,FALSE
+ENA,FANN,Full Anneal,FALSE
+ENT,FANN,Full Anneal,FALSE
+LOS,FLAT,Flat Task,FALSE
+STO,FLAT,Flat Task,FALSE
+CHA,FLAT,Flat Task,FALSE
+CLE,FLAT,Flat Task,FALSE
+HAI,FLAT,Flat Task,TRUE
+JVL,FLAT,Flat Task,FALSE
+DAL,FLAT,Flat Task,FALSE
+PHI,FLAT,Flat Task,FALSE
+TOR,FLAT,Flat Task,FALSE
+WIN,FLAT,Flat Task,FALSE
+SGP,FLAT,Flat Task,FALSE
+MXQ,FLAT,Flat Task,FALSE
+MTY,FLAT,Flat Task,FALSE
+MXM,FLAT,Flat Task,FALSE
+MCH,FLAT,Flat Task,FALSE
+ASC,FLAT,Flat Task,FALSE
+ADC,FLAT,Flat Task,FALSE
+ATL,FLAT,Flat Task,FALSE
+WIE,FLAT,Flat Task,FALSE
+ENA,FLAT,Flat Task,FALSE
+ENT,FLAT,Flat Task,FALSE
+LOS,FMG,Forming,FALSE
+STO,FMG,Forming,FALSE
+CHA,FMG,Forming,FALSE
+CLE,FMG,Forming,FALSE
+HAI,FMG,Forming,TRUE
+JVL,FMG,Forming,FALSE
+DAL,FMG,Forming,FALSE
+PHI,FMG,Forming,FALSE
+TOR,FMG,Forming,FALSE
+WIN,FMG,Forming,FALSE
+SGP,FMG,Forming,FALSE
+MXQ,FMG,Forming,FALSE
+MTY,FMG,Forming,FALSE
+MXM,FMG,Forming,FALSE
+MCH,FMG,Forming,FALSE
+ASC,FMG,Forming,FALSE
+ADC,FMG,Forming,FALSE
+ATL,FMG,Forming,FALSE
+WIE,FMG,Forming,FALSE
+ENA,FMG,Forming,FALSE
+ENT,FMG,Forming,FALSE
+LOS,GR1,Grind,FALSE
+STO,GR1,Grind,FALSE
+CHA,GR1,Grind,FALSE
+CLE,GR1,Grind,FALSE
+HAI,GR1,Grind,TRUE
+JVL,GR1,Grind,FALSE
+DAL,GR1,Grind,FALSE
+PHI,GR1,Grind,FALSE
+TOR,GR1,Grind,FALSE
+WIN,GR1,Grind,FALSE
+SGP,GR1,Grind,FALSE
+MXQ,GR1,Grind,FALSE
+MTY,GR1,Grind,FALSE
+MXM,GR1,Grind,FALSE
+MCH,GR1,Grind,FALSE
+ASC,GR1,Grind,FALSE
+ADC,GR1,Grind,FALSE
+ATL,GR1,Grind,FALSE
+WIE,GR1,Grind,FALSE
+ENA,GR1,Grind,FALSE
+ENT,GR1,Grind,FALSE
+LOS,GR2,Grind,FALSE
+STO,GR2,Grind,FALSE
+CHA,GR2,Grind,FALSE
+CLE,GR2,Grind,FALSE
+HAI,GR2,Grind,TRUE
+JVL,GR2,Grind,FALSE
+DAL,GR2,Grind,FALSE
+PHI,GR2,Grind,FALSE
+TOR,GR2,Grind,FALSE
+WIN,GR2,Grind,FALSE
+SGP,GR2,Grind,FALSE
+MXQ,GR2,Grind,FALSE
+MTY,GR2,Grind,FALSE
+MXM,GR2,Grind,FALSE
+MCH,GR2,Grind,FALSE
+ASC,GR2,Grind,FALSE
+ADC,GR2,Grind,FALSE
+ATL,GR2,Grind,FALSE
+WIE,GR2,Grind,FALSE
+ENA,GR2,Grind,FALSE
+ENT,GR2,Grind,FALSE
+LOS,GR3E,Grind,FALSE
+STO,GR3E,Grind,FALSE
+CHA,GR3E,Grind,FALSE
+CLE,GR3E,Grind,FALSE
+HAI,GR3E,Grind,TRUE
+JVL,GR3E,Grind,FALSE
+DAL,GR3E,Grind,FALSE
+PHI,GR3E,Grind,FALSE
+TOR,GR3E,Grind,FALSE
+WIN,GR3E,Grind,FALSE
+SGP,GR3E,Grind,FALSE
+MXQ,GR3E,Grind,FALSE
+MTY,GR3E,Grind,FALSE
+MXM,GR3E,Grind,FALSE
+MCH,GR3E,Grind,FALSE
+ASC,GR3E,Grind,FALSE
+ADC,GR3E,Grind,FALSE
+ATL,GR3E,Grind,FALSE
+WIE,GR3E,Grind,FALSE
+ENA,GR3E,Grind,FALSE
+ENT,GR3E,Grind,FALSE
+LOS,GR3S,Grind,FALSE
+STO,GR3S,Grind,FALSE
+CHA,GR3S,Grind,FALSE
+CLE,GR3S,Grind,FALSE
+HAI,GR3S,Grind,TRUE
+JVL,GR3S,Grind,FALSE
+DAL,GR3S,Grind,FALSE
+PHI,GR3S,Grind,FALSE
+TOR,GR3S,Grind,FALSE
+WIN,GR3S,Grind,FALSE
+SGP,GR3S,Grind,FALSE
+MXQ,GR3S,Grind,FALSE
+MTY,GR3S,Grind,FALSE
+MXM,GR3S,Grind,FALSE
+MCH,GR3S,Grind,FALSE
+ASC,GR3S,Grind,FALSE
+ADC,GR3S,Grind,FALSE
+ATL,GR3S,Grind,FALSE
+WIE,GR3S,Grind,FALSE
+ENA,GR3S,Grind,FALSE
+ENT,GR3S,Grind,FALSE
+LOS,GR4,Grind,FALSE
+STO,GR4,Grind,FALSE
+CHA,GR4,Grind,FALSE
+CLE,GR4,Grind,FALSE
+HAI,GR4,Grind,TRUE
+JVL,GR4,Grind,FALSE
+DAL,GR4,Grind,FALSE
+PHI,GR4,Grind,FALSE
+TOR,GR4,Grind,FALSE
+WIN,GR4,Grind,FALSE
+SGP,GR4,Grind,FALSE
+MXQ,GR4,Grind,FALSE
+MTY,GR4,Grind,FALSE
+MXM,GR4,Grind,FALSE
+MCH,GR4,Grind,FALSE
+ASC,GR4,Grind,FALSE
+ADC,GR4,Grind,FALSE
+ATL,GR4,Grind,FALSE
+WIE,GR4,Grind,FALSE
+ENA,GR4,Grind,FALSE
+ENT,GR4,Grind,FALSE
+LOS,GREX,Grind,FALSE
+STO,GREX,Grind,FALSE
+CHA,GREX,Grind,FALSE
+CLE,GREX,Grind,FALSE
+HAI,GREX,Grind,TRUE
+JVL,GREX,Grind,FALSE
+DAL,GREX,Grind,FALSE
+PHI,GREX,Grind,FALSE
+TOR,GREX,Grind,FALSE
+WIN,GREX,Grind,FALSE
+SGP,GREX,Grind,FALSE
+MXQ,GREX,Grind,FALSE
+MTY,GREX,Grind,FALSE
+MXM,GREX,Grind,FALSE
+MCH,GREX,Grind,FALSE
+ASC,GREX,Grind,FALSE
+ADC,GREX,Grind,FALSE
+ATL,GREX,Grind,FALSE
+WIE,GREX,Grind,FALSE
+ENA,GREX,Grind,FALSE
+ENT,GREX,Grind,FALSE
+LOS,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+STO,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+CHA,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+CLE,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+HAI,H32I,Hurco DCX32i Vertical Machining Center,TRUE
+JVL,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+DAL,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+PHI,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+TOR,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+WIN,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+SGP,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+MXQ,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+MTY,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+MXM,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+MCH,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+ASC,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+ADC,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+ATL,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+WIE,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+ENA,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+ENT,H32I,Hurco DCX32i Vertical Machining Center,FALSE
+LOS,HBV,Hand Beveling,FALSE
+STO,HBV,Hand Beveling,FALSE
+CHA,HBV,Hand Beveling,FALSE
+CLE,HBV,Hand Beveling,FALSE
+HAI,HBV,Hand Beveling,TRUE
+JVL,HBV,Hand Beveling,FALSE
+DAL,HBV,Hand Beveling,FALSE
+PHI,HBV,Hand Beveling,FALSE
+TOR,HBV,Hand Beveling,FALSE
+WIN,HBV,Hand Beveling,FALSE
+SGP,HBV,Hand Beveling,FALSE
+MXQ,HBV,Hand Beveling,FALSE
+MTY,HBV,Hand Beveling,FALSE
+MXM,HBV,Hand Beveling,FALSE
+MCH,HBV,Hand Beveling,FALSE
+ASC,HBV,Hand Beveling,FALSE
+ADC,HBV,Hand Beveling,FALSE
+ATL,HBV,Hand Beveling,FALSE
+WIE,HBV,Hand Beveling,FALSE
+ENA,HBV,Hand Beveling,FALSE
+ENT,HBV,Hand Beveling,FALSE
+LOS,HWK,Goodrich Rohr Process,FALSE
+STO,HWK,Goodrich Rohr Process,FALSE
+CHA,HWK,Goodrich Rohr Process,FALSE
+CLE,HWK,Goodrich Rohr Process,FALSE
+HAI,HWK,Goodrich Rohr Process,FALSE
+JVL,HWK,Goodrich Rohr Process,FALSE
+DAL,HWK,Goodrich Rohr Process,FALSE
+PHI,HWK,Goodrich Rohr Process,FALSE
+TOR,HWK,Goodrich Rohr Process,FALSE
+WIN,HWK,Goodrich Rohr Process,FALSE
+SGP,HWK,Goodrich Rohr Process,FALSE
+MXQ,HWK,Goodrich Rohr Process,FALSE
+MTY,HWK,Goodrich Rohr Process,FALSE
+MXM,HWK,Goodrich Rohr Process,TRUE
+MCH,HWK,Goodrich Rohr Process,FALSE
+ASC,HWK,Goodrich Rohr Process,FALSE
+ADC,HWK,Goodrich Rohr Process,FALSE
+ATL,HWK,Goodrich Rohr Process,FALSE
+WIE,HWK,Goodrich Rohr Process,FALSE
+ENA,HWK,Goodrich Rohr Process,FALSE
+ENT,HWK,Goodrich Rohr Process,FALSE
+LOS,IN01,Inspection 1,FALSE
+STO,IN01,Inspection 1,FALSE
+CHA,IN01,Inspection 1,FALSE
+CLE,IN01,Inspection 1,FALSE
+HAI,IN01,Inspection 1,TRUE
+JVL,IN01,Inspection 1,FALSE
+DAL,IN01,Inspection 1,FALSE
+PHI,IN01,Inspection 1,FALSE
+TOR,IN01,Inspection 1,FALSE
+WIN,IN01,Inspection 1,FALSE
+SGP,IN01,Inspection 1,FALSE
+MXQ,IN01,Inspection 1,FALSE
+MTY,IN01,Inspection 1,FALSE
+MXM,IN01,Inspection 1,FALSE
+MCH,IN01,Inspection 1,FALSE
+ASC,IN01,Inspection 1,FALSE
+ADC,IN01,Inspection 1,FALSE
+ATL,IN01,Inspection 1,FALSE
+WIE,IN01,Inspection 1,FALSE
+ENA,IN01,Inspection 1,FALSE
+ENT,IN01,Inspection 1,FALSE
+LOS,IN02,Inspection 2,FALSE
+STO,IN02,Inspection 2,FALSE
+CHA,IN02,Inspection 2,FALSE
+CLE,IN02,Inspection 2,FALSE
+HAI,IN02,Inspection 2,TRUE
+JVL,IN02,Inspection 2,FALSE
+DAL,IN02,Inspection 2,FALSE
+PHI,IN02,Inspection 2,FALSE
+TOR,IN02,Inspection 2,FALSE
+WIN,IN02,Inspection 2,FALSE
+SGP,IN02,Inspection 2,FALSE
+MXQ,IN02,Inspection 2,FALSE
+MTY,IN02,Inspection 2,FALSE
+MXM,IN02,Inspection 2,FALSE
+MCH,IN02,Inspection 2,FALSE
+ASC,IN02,Inspection 2,FALSE
+ADC,IN02,Inspection 2,FALSE
+ATL,IN02,Inspection 2,FALSE
+WIE,IN02,Inspection 2,FALSE
+ENA,IN02,Inspection 2,FALSE
+ENT,IN02,Inspection 2,FALSE
+LOS,IN03,Inspection 3,FALSE
+STO,IN03,Inspection 3,FALSE
+CHA,IN03,Inspection 3,FALSE
+CLE,IN03,Inspection 3,FALSE
+HAI,IN03,Inspection 3,TRUE
+JVL,IN03,Inspection 3,FALSE
+DAL,IN03,Inspection 3,FALSE
+PHI,IN03,Inspection 3,FALSE
+TOR,IN03,Inspection 3,FALSE
+WIN,IN03,Inspection 3,FALSE
+SGP,IN03,Inspection 3,FALSE
+MXQ,IN03,Inspection 3,FALSE
+MTY,IN03,Inspection 3,FALSE
+MXM,IN03,Inspection 3,FALSE
+MCH,IN03,Inspection 3,FALSE
+ASC,IN03,Inspection 3,FALSE
+ADC,IN03,Inspection 3,FALSE
+ATL,IN03,Inspection 3,FALSE
+WIE,IN03,Inspection 3,FALSE
+ENA,IN03,Inspection 3,FALSE
+ENT,IN03,Inspection 3,FALSE
+LOS,IN04,Inspection 4,FALSE
+STO,IN04,Inspection 4,FALSE
+CHA,IN04,Inspection 4,FALSE
+CLE,IN04,Inspection 4,FALSE
+HAI,IN04,Inspection 4,TRUE
+JVL,IN04,Inspection 4,FALSE
+DAL,IN04,Inspection 4,FALSE
+PHI,IN04,Inspection 4,FALSE
+TOR,IN04,Inspection 4,FALSE
+WIN,IN04,Inspection 4,FALSE
+SGP,IN04,Inspection 4,FALSE
+MXQ,IN04,Inspection 4,FALSE
+MTY,IN04,Inspection 4,FALSE
+MXM,IN04,Inspection 4,FALSE
+MCH,IN04,Inspection 4,FALSE
+ASC,IN04,Inspection 4,FALSE
+ADC,IN04,Inspection 4,FALSE
+ATL,IN04,Inspection 4,FALSE
+WIE,IN04,Inspection 4,FALSE
+ENA,IN04,Inspection 4,FALSE
+ENT,IN04,Inspection 4,FALSE
+LOS,IN05,Inspection 5,FALSE
+STO,IN05,Inspection 5,FALSE
+CHA,IN05,Inspection 5,FALSE
+CLE,IN05,Inspection 5,FALSE
+HAI,IN05,Inspection 5,TRUE
+JVL,IN05,Inspection 5,FALSE
+DAL,IN05,Inspection 5,FALSE
+PHI,IN05,Inspection 5,FALSE
+TOR,IN05,Inspection 5,FALSE
+WIN,IN05,Inspection 5,FALSE
+SGP,IN05,Inspection 5,FALSE
+MXQ,IN05,Inspection 5,FALSE
+MTY,IN05,Inspection 5,FALSE
+MXM,IN05,Inspection 5,FALSE
+MCH,IN05,Inspection 5,FALSE
+ASC,IN05,Inspection 5,FALSE
+ADC,IN05,Inspection 5,FALSE
+ATL,IN05,Inspection 5,FALSE
+WIE,IN05,Inspection 5,FALSE
+ENA,IN05,Inspection 5,FALSE
+ENT,IN05,Inspection 5,FALSE
+LOS,IN06,Inspection 6,FALSE
+STO,IN06,Inspection 6,FALSE
+CHA,IN06,Inspection 6,FALSE
+CLE,IN06,Inspection 6,FALSE
+HAI,IN06,Inspection 6,TRUE
+JVL,IN06,Inspection 6,FALSE
+DAL,IN06,Inspection 6,FALSE
+PHI,IN06,Inspection 6,FALSE
+TOR,IN06,Inspection 6,FALSE
+WIN,IN06,Inspection 6,FALSE
+SGP,IN06,Inspection 6,FALSE
+MXQ,IN06,Inspection 6,FALSE
+MTY,IN06,Inspection 6,FALSE
+MXM,IN06,Inspection 6,FALSE
+MCH,IN06,Inspection 6,FALSE
+ASC,IN06,Inspection 6,FALSE
+ADC,IN06,Inspection 6,FALSE
+ATL,IN06,Inspection 6,FALSE
+WIE,IN06,Inspection 6,FALSE
+ENA,IN06,Inspection 6,FALSE
+ENT,IN06,Inspection 6,FALSE
+LOS,IN07,Inspection 7,FALSE
+STO,IN07,Inspection 7,FALSE
+CHA,IN07,Inspection 7,FALSE
+CLE,IN07,Inspection 7,FALSE
+HAI,IN07,Inspection 7,TRUE
+JVL,IN07,Inspection 7,FALSE
+DAL,IN07,Inspection 7,FALSE
+PHI,IN07,Inspection 7,FALSE
+TOR,IN07,Inspection 7,FALSE
+WIN,IN07,Inspection 7,FALSE
+SGP,IN07,Inspection 7,FALSE
+MXQ,IN07,Inspection 7,FALSE
+MTY,IN07,Inspection 7,FALSE
+MXM,IN07,Inspection 7,FALSE
+MCH,IN07,Inspection 7,FALSE
+ASC,IN07,Inspection 7,FALSE
+ADC,IN07,Inspection 7,FALSE
+ATL,IN07,Inspection 7,FALSE
+WIE,IN07,Inspection 7,FALSE
+ENA,IN07,Inspection 7,FALSE
+ENT,IN07,Inspection 7,FALSE
+LOS,IN08,Inspection 8,FALSE
+STO,IN08,Inspection 8,FALSE
+CHA,IN08,Inspection 8,FALSE
+CLE,IN08,Inspection 8,FALSE
+HAI,IN08,Inspection 8,TRUE
+JVL,IN08,Inspection 8,FALSE
+DAL,IN08,Inspection 8,FALSE
+PHI,IN08,Inspection 8,FALSE
+TOR,IN08,Inspection 8,FALSE
+WIN,IN08,Inspection 8,FALSE
+SGP,IN08,Inspection 8,FALSE
+MXQ,IN08,Inspection 8,FALSE
+MTY,IN08,Inspection 8,FALSE
+MXM,IN08,Inspection 8,FALSE
+MCH,IN08,Inspection 8,FALSE
+ASC,IN08,Inspection 8,FALSE
+ADC,IN08,Inspection 8,FALSE
+ATL,IN08,Inspection 8,FALSE
+WIE,IN08,Inspection 8,FALSE
+ENA,IN08,Inspection 8,FALSE
+ENT,IN08,Inspection 8,FALSE
+LOS,IN09,Inspection 9,FALSE
+STO,IN09,Inspection 9,FALSE
+CHA,IN09,Inspection 9,FALSE
+CLE,IN09,Inspection 9,FALSE
+HAI,IN09,Inspection 9,TRUE
+JVL,IN09,Inspection 9,FALSE
+DAL,IN09,Inspection 9,FALSE
+PHI,IN09,Inspection 9,FALSE
+TOR,IN09,Inspection 9,FALSE
+WIN,IN09,Inspection 9,FALSE
+SGP,IN09,Inspection 9,FALSE
+MXQ,IN09,Inspection 9,FALSE
+MTY,IN09,Inspection 9,FALSE
+MXM,IN09,Inspection 9,FALSE
+MCH,IN09,Inspection 9,FALSE
+ASC,IN09,Inspection 9,FALSE
+ADC,IN09,Inspection 9,FALSE
+ATL,IN09,Inspection 9,FALSE
+WIE,IN09,Inspection 9,FALSE
+ENA,IN09,Inspection 9,FALSE
+ENT,IN09,Inspection 9,FALSE
+LOS,IN10,Inspection 10,FALSE
+STO,IN10,Inspection 10,FALSE
+CHA,IN10,Inspection 10,FALSE
+CLE,IN10,Inspection 10,FALSE
+HAI,IN10,Inspection 10,TRUE
+JVL,IN10,Inspection 10,FALSE
+DAL,IN10,Inspection 10,FALSE
+PHI,IN10,Inspection 10,FALSE
+TOR,IN10,Inspection 10,FALSE
+WIN,IN10,Inspection 10,FALSE
+SGP,IN10,Inspection 10,FALSE
+MXQ,IN10,Inspection 10,FALSE
+MTY,IN10,Inspection 10,FALSE
+MXM,IN10,Inspection 10,FALSE
+MCH,IN10,Inspection 10,FALSE
+ASC,IN10,Inspection 10,FALSE
+ADC,IN10,Inspection 10,FALSE
+ATL,IN10,Inspection 10,FALSE
+WIE,IN10,Inspection 10,FALSE
+ENA,IN10,Inspection 10,FALSE
+ENT,IN10,Inspection 10,FALSE
+LOS,IN11,Inspection 11,FALSE
+STO,IN11,Inspection 11,FALSE
+CHA,IN11,Inspection 11,FALSE
+CLE,IN11,Inspection 11,FALSE
+HAI,IN11,Inspection 11,TRUE
+JVL,IN11,Inspection 11,FALSE
+DAL,IN11,Inspection 11,FALSE
+PHI,IN11,Inspection 11,FALSE
+TOR,IN11,Inspection 11,FALSE
+WIN,IN11,Inspection 11,FALSE
+SGP,IN11,Inspection 11,FALSE
+MXQ,IN11,Inspection 11,FALSE
+MTY,IN11,Inspection 11,FALSE
+MXM,IN11,Inspection 11,FALSE
+MCH,IN11,Inspection 11,FALSE
+ASC,IN11,Inspection 11,FALSE
+ADC,IN11,Inspection 11,FALSE
+ATL,IN11,Inspection 11,FALSE
+WIE,IN11,Inspection 11,FALSE
+ENA,IN11,Inspection 11,FALSE
+ENT,IN11,Inspection 11,FALSE
+LOS,IN12,Inspection 12,FALSE
+STO,IN12,Inspection 12,FALSE
+CHA,IN12,Inspection 12,FALSE
+CLE,IN12,Inspection 12,FALSE
+HAI,IN12,Inspection 12,TRUE
+JVL,IN12,Inspection 12,FALSE
+DAL,IN12,Inspection 12,FALSE
+PHI,IN12,Inspection 12,FALSE
+TOR,IN12,Inspection 12,FALSE
+WIN,IN12,Inspection 12,FALSE
+SGP,IN12,Inspection 12,FALSE
+MXQ,IN12,Inspection 12,FALSE
+MTY,IN12,Inspection 12,FALSE
+MXM,IN12,Inspection 12,FALSE
+MCH,IN12,Inspection 12,FALSE
+ASC,IN12,Inspection 12,FALSE
+ADC,IN12,Inspection 12,FALSE
+ATL,IN12,Inspection 12,FALSE
+WIE,IN12,Inspection 12,FALSE
+ENA,IN12,Inspection 12,FALSE
+ENT,IN12,Inspection 12,FALSE
+LOS,IN13,Inspection 13,FALSE
+STO,IN13,Inspection 13,FALSE
+CHA,IN13,Inspection 13,FALSE
+CLE,IN13,Inspection 13,FALSE
+HAI,IN13,Inspection 13,TRUE
+JVL,IN13,Inspection 13,FALSE
+DAL,IN13,Inspection 13,FALSE
+PHI,IN13,Inspection 13,FALSE
+TOR,IN13,Inspection 13,FALSE
+WIN,IN13,Inspection 13,FALSE
+SGP,IN13,Inspection 13,FALSE
+MXQ,IN13,Inspection 13,FALSE
+MTY,IN13,Inspection 13,FALSE
+MXM,IN13,Inspection 13,FALSE
+MCH,IN13,Inspection 13,FALSE
+ASC,IN13,Inspection 13,FALSE
+ADC,IN13,Inspection 13,FALSE
+ATL,IN13,Inspection 13,FALSE
+WIE,IN13,Inspection 13,FALSE
+ENA,IN13,Inspection 13,FALSE
+ENT,IN13,Inspection 13,FALSE
+LOS,IN14,Inspection 14,FALSE
+STO,IN14,Inspection 14,FALSE
+CHA,IN14,Inspection 14,FALSE
+CLE,IN14,Inspection 14,FALSE
+HAI,IN14,Inspection 14,TRUE
+JVL,IN14,Inspection 14,FALSE
+DAL,IN14,Inspection 14,FALSE
+PHI,IN14,Inspection 14,FALSE
+TOR,IN14,Inspection 14,FALSE
+WIN,IN14,Inspection 14,FALSE
+SGP,IN14,Inspection 14,FALSE
+MXQ,IN14,Inspection 14,FALSE
+MTY,IN14,Inspection 14,FALSE
+MXM,IN14,Inspection 14,FALSE
+MCH,IN14,Inspection 14,FALSE
+ASC,IN14,Inspection 14,FALSE
+ADC,IN14,Inspection 14,FALSE
+ATL,IN14,Inspection 14,FALSE
+WIE,IN14,Inspection 14,FALSE
+ENA,IN14,Inspection 14,FALSE
+ENT,IN14,Inspection 14,FALSE
+LOS,IN15,Inspection 15,FALSE
+STO,IN15,Inspection 15,FALSE
+CHA,IN15,Inspection 15,FALSE
+CLE,IN15,Inspection 15,FALSE
+HAI,IN15,Inspection 15,TRUE
+JVL,IN15,Inspection 15,FALSE
+DAL,IN15,Inspection 15,FALSE
+PHI,IN15,Inspection 15,FALSE
+TOR,IN15,Inspection 15,FALSE
+WIN,IN15,Inspection 15,FALSE
+SGP,IN15,Inspection 15,FALSE
+MXQ,IN15,Inspection 15,FALSE
+MTY,IN15,Inspection 15,FALSE
+MXM,IN15,Inspection 15,FALSE
+MCH,IN15,Inspection 15,FALSE
+ASC,IN15,Inspection 15,FALSE
+ADC,IN15,Inspection 15,FALSE
+ATL,IN15,Inspection 15,FALSE
+WIE,IN15,Inspection 15,FALSE
+ENA,IN15,Inspection 15,FALSE
+ENT,IN15,Inspection 15,FALSE
+LOS,IN16,Inspection 16,FALSE
+STO,IN16,Inspection 16,FALSE
+CHA,IN16,Inspection 16,FALSE
+CLE,IN16,Inspection 16,FALSE
+HAI,IN16,Inspection 16,TRUE
+JVL,IN16,Inspection 16,FALSE
+DAL,IN16,Inspection 16,FALSE
+PHI,IN16,Inspection 16,FALSE
+TOR,IN16,Inspection 16,FALSE
+WIN,IN16,Inspection 16,FALSE
+SGP,IN16,Inspection 16,FALSE
+MXQ,IN16,Inspection 16,FALSE
+MTY,IN16,Inspection 16,FALSE
+MXM,IN16,Inspection 16,FALSE
+MCH,IN16,Inspection 16,FALSE
+ASC,IN16,Inspection 16,FALSE
+ADC,IN16,Inspection 16,FALSE
+ATL,IN16,Inspection 16,FALSE
+WIE,IN16,Inspection 16,FALSE
+ENA,IN16,Inspection 16,FALSE
+ENT,IN16,Inspection 16,FALSE
+LOS,IN17,Inspection 17,FALSE
+STO,IN17,Inspection 17,FALSE
+CHA,IN17,Inspection 17,FALSE
+CLE,IN17,Inspection 17,FALSE
+HAI,IN17,Inspection 17,TRUE
+JVL,IN17,Inspection 17,FALSE
+DAL,IN17,Inspection 17,FALSE
+PHI,IN17,Inspection 17,FALSE
+TOR,IN17,Inspection 17,FALSE
+WIN,IN17,Inspection 17,FALSE
+SGP,IN17,Inspection 17,FALSE
+MXQ,IN17,Inspection 17,FALSE
+MTY,IN17,Inspection 17,FALSE
+MXM,IN17,Inspection 17,FALSE
+MCH,IN17,Inspection 17,FALSE
+ASC,IN17,Inspection 17,FALSE
+ADC,IN17,Inspection 17,FALSE
+ATL,IN17,Inspection 17,FALSE
+WIE,IN17,Inspection 17,FALSE
+ENA,IN17,Inspection 17,FALSE
+ENT,IN17,Inspection 17,FALSE
+LOS,IN18,Inspection 18,FALSE
+STO,IN18,Inspection 18,FALSE
+CHA,IN18,Inspection 18,FALSE
+CLE,IN18,Inspection 18,FALSE
+HAI,IN18,Inspection 18,TRUE
+JVL,IN18,Inspection 18,FALSE
+DAL,IN18,Inspection 18,FALSE
+PHI,IN18,Inspection 18,FALSE
+TOR,IN18,Inspection 18,FALSE
+WIN,IN18,Inspection 18,FALSE
+SGP,IN18,Inspection 18,FALSE
+MXQ,IN18,Inspection 18,FALSE
+MTY,IN18,Inspection 18,FALSE
+MXM,IN18,Inspection 18,FALSE
+MCH,IN18,Inspection 18,FALSE
+ASC,IN18,Inspection 18,FALSE
+ADC,IN18,Inspection 18,FALSE
+ATL,IN18,Inspection 18,FALSE
+WIE,IN18,Inspection 18,FALSE
+ENA,IN18,Inspection 18,FALSE
+ENT,IN18,Inspection 18,FALSE
+LOS,IN19,Inspection 19,FALSE
+STO,IN19,Inspection 19,FALSE
+CHA,IN19,Inspection 19,FALSE
+CLE,IN19,Inspection 19,FALSE
+HAI,IN19,Inspection 19,TRUE
+JVL,IN19,Inspection 19,FALSE
+DAL,IN19,Inspection 19,FALSE
+PHI,IN19,Inspection 19,FALSE
+TOR,IN19,Inspection 19,FALSE
+WIN,IN19,Inspection 19,FALSE
+SGP,IN19,Inspection 19,FALSE
+MXQ,IN19,Inspection 19,FALSE
+MTY,IN19,Inspection 19,FALSE
+MXM,IN19,Inspection 19,FALSE
+MCH,IN19,Inspection 19,FALSE
+ASC,IN19,Inspection 19,FALSE
+ADC,IN19,Inspection 19,FALSE
+ATL,IN19,Inspection 19,FALSE
+WIE,IN19,Inspection 19,FALSE
+ENA,IN19,Inspection 19,FALSE
+ENT,IN19,Inspection 19,FALSE
+LOS,IN20,Inspection 20,FALSE
+STO,IN20,Inspection 20,FALSE
+CHA,IN20,Inspection 20,FALSE
+CLE,IN20,Inspection 20,FALSE
+HAI,IN20,Inspection 20,TRUE
+JVL,IN20,Inspection 20,FALSE
+DAL,IN20,Inspection 20,FALSE
+PHI,IN20,Inspection 20,FALSE
+TOR,IN20,Inspection 20,FALSE
+WIN,IN20,Inspection 20,FALSE
+SGP,IN20,Inspection 20,FALSE
+MXQ,IN20,Inspection 20,FALSE
+MTY,IN20,Inspection 20,FALSE
+MXM,IN20,Inspection 20,FALSE
+MCH,IN20,Inspection 20,FALSE
+ASC,IN20,Inspection 20,FALSE
+ADC,IN20,Inspection 20,FALSE
+ATL,IN20,Inspection 20,FALSE
+WIE,IN20,Inspection 20,FALSE
+ENA,IN20,Inspection 20,FALSE
+ENT,IN20,Inspection 20,FALSE
+LOS,IN21,Inspection 21,FALSE
+STO,IN21,Inspection 21,FALSE
+CHA,IN21,Inspection 21,FALSE
+CLE,IN21,Inspection 21,FALSE
+HAI,IN21,Inspection 21,TRUE
+JVL,IN21,Inspection 21,FALSE
+DAL,IN21,Inspection 21,FALSE
+PHI,IN21,Inspection 21,FALSE
+TOR,IN21,Inspection 21,FALSE
+WIN,IN21,Inspection 21,FALSE
+SGP,IN21,Inspection 21,FALSE
+MXQ,IN21,Inspection 21,FALSE
+MTY,IN21,Inspection 21,FALSE
+MXM,IN21,Inspection 21,FALSE
+MCH,IN21,Inspection 21,FALSE
+ASC,IN21,Inspection 21,FALSE
+ADC,IN21,Inspection 21,FALSE
+ATL,IN21,Inspection 21,FALSE
+WIE,IN21,Inspection 21,FALSE
+ENA,IN21,Inspection 21,FALSE
+ENT,IN21,Inspection 21,FALSE
+LOS,INS,Inspection,FALSE
+STO,INS,Inspection,FALSE
+CHA,INS,Inspection,FALSE
+CLE,INS,Inspection,FALSE
+HAI,INS,Inspection,TRUE
+JVL,INS,Inspection,FALSE
+DAL,INS,Inspection,FALSE
+PHI,INS,Inspection,FALSE
+TOR,INS,Inspection,FALSE
+WIN,INS,Inspection,FALSE
+SGP,INS,Inspection,FALSE
+MXQ,INS,Inspection,FALSE
+MTY,INS,Inspection,FALSE
+MXM,INS,Inspection,FALSE
+MCH,INS,Inspection,FALSE
+ASC,INS,Inspection,FALSE
+ADC,INS,Inspection,FALSE
+ATL,INS,Inspection,FALSE
+WIE,INS,Inspection,FALSE
+ENA,INS,Inspection,FALSE
+ENT,INS,Inspection,FALSE
+LOS,INV,Invoice,FALSE
+STO,INV,Invoice,FALSE
+CHA,INV,Invoice,FALSE
+CLE,INV,Invoice,FALSE
+HAI,INV,Invoice,FALSE
+JVL,INV,Invoice,FALSE
+DAL,INV,Invoice,FALSE
+PHI,INV,Invoice,FALSE
+TOR,INV,Invoice,FALSE
+WIN,INV,Invoice,FALSE
+SGP,INV,Invoice,FALSE
+MXQ,INV,Invoice,FALSE
+MTY,INV,Invoice,FALSE
+MXM,INV,Invoice,FALSE
+MCH,INV,Invoice,FALSE
+ASC,INV,Invoice,FALSE
+ADC,INV,Invoice,FALSE
+ATL,INV,Invoice,FALSE
+WIE,INV,Invoice,FALSE
+ENA,INV,Invoice,FALSE
+ENT,INV,Invoice,FALSE
+LOS,LAB,Lab,FALSE
+STO,LAB,Lab,FALSE
+CHA,LAB,Lab,FALSE
+CLE,LAB,Lab,FALSE
+HAI,LAB,Lab,TRUE
+JVL,LAB,Lab,FALSE
+DAL,LAB,Lab,FALSE
+PHI,LAB,Lab,FALSE
+TOR,LAB,Lab,FALSE
+WIN,LAB,Lab,FALSE
+SGP,LAB,Lab,FALSE
+MXQ,LAB,Lab,FALSE
+MTY,LAB,Lab,FALSE
+MXM,LAB,Lab,FALSE
+MCH,LAB,Lab,FALSE
+ASC,LAB,Lab,FALSE
+ADC,LAB,Lab,FALSE
+ATL,LAB,Lab,FALSE
+WIE,LAB,Lab,FALSE
+ENA,LAB,Lab,FALSE
+ENT,LAB,Lab,FALSE
+LOS,LAZ,Laser Cutting,FALSE
+STO,LAZ,Laser Cutting,FALSE
+CHA,LAZ,Laser Cutting,FALSE
+CLE,LAZ,Laser Cutting,FALSE
+HAI,LAZ,Laser Cutting,TRUE
+JVL,LAZ,Laser Cutting,FALSE
+DAL,LAZ,Laser Cutting,FALSE
+PHI,LAZ,Laser Cutting,FALSE
+TOR,LAZ,Laser Cutting,FALSE
+WIN,LAZ,Laser Cutting,FALSE
+SGP,LAZ,Laser Cutting,FALSE
+MXQ,LAZ,Laser Cutting,FALSE
+MTY,LAZ,Laser Cutting,FALSE
+MXM,LAZ,Laser Cutting,FALSE
+MCH,LAZ,Laser Cutting,FALSE
+ASC,LAZ,Laser Cutting,FALSE
+ADC,LAZ,Laser Cutting,FALSE
+ATL,LAZ,Laser Cutting,FALSE
+WIE,LAZ,Laser Cutting,FALSE
+ENA,LAZ,Laser Cutting,FALSE
+ENT,LAZ,Laser Cutting,FALSE
+LOS,LEV,Leveling,TRUE
+STO,LEV,Leveling,TRUE
+CHA,LEV,Leveling,TRUE
+CLE,LEV,Leveling,TRUE
+HAI,LEV,Leveling,TRUE
+JVL,LEV,Leveling,TRUE
+DAL,LEV,Leveling,TRUE
+PHI,LEV,Leveling,TRUE
+TOR,LEV,Leveling,TRUE
+WIN,LEV,Leveling,TRUE
+SGP,LEV,Leveling,TRUE
+MXQ,LEV,Leveling,TRUE
+MTY,LEV,Leveling,TRUE
+MXM,LEV,Leveling,TRUE
+MCH,LEV,Leveling,TRUE
+ASC,LEV,Leveling,TRUE
+ADC,LEV,Leveling,TRUE
+ATL,LEV,Leveling,TRUE
+WIE,LEV,Leveling,TRUE
+ENA,LEV,Leveling,TRUE
+ENT,LEV,Leveling,TRUE
+LOS,LIN,Line Marking,FALSE
+STO,LIN,Line Marking,FALSE
+CHA,LIN,Line Marking,FALSE
+CLE,LIN,Line Marking,FALSE
+HAI,LIN,Line Marking,TRUE
+JVL,LIN,Line Marking,FALSE
+DAL,LIN,Line Marking,FALSE
+PHI,LIN,Line Marking,FALSE
+TOR,LIN,Line Marking,FALSE
+WIN,LIN,Line Marking,FALSE
+SGP,LIN,Line Marking,FALSE
+MXQ,LIN,Line Marking,FALSE
+MTY,LIN,Line Marking,FALSE
+MXM,LIN,Line Marking,FALSE
+MCH,LIN,Line Marking,FALSE
+ASC,LIN,Line Marking,FALSE
+ADC,LIN,Line Marking,FALSE
+ATL,LIN,Line Marking,FALSE
+WIE,LIN,Line Marking,FALSE
+ENA,LIN,Line Marking,FALSE
+ENT,LIN,Line Marking,FALSE
+LOS,LTH,Lathe Cutting,FALSE
+STO,LTH,Lathe Cutting,FALSE
+CHA,LTH,Lathe Cutting,FALSE
+CLE,LTH,Lathe Cutting,FALSE
+HAI,LTH,Lathe Cutting,TRUE
+JVL,LTH,Lathe Cutting,FALSE
+DAL,LTH,Lathe Cutting,FALSE
+PHI,LTH,Lathe Cutting,FALSE
+TOR,LTH,Lathe Cutting,FALSE
+WIN,LTH,Lathe Cutting,FALSE
+SGP,LTH,Lathe Cutting,FALSE
+MXQ,LTH,Lathe Cutting,FALSE
+MTY,LTH,Lathe Cutting,FALSE
+MXM,LTH,Lathe Cutting,FALSE
+MCH,LTH,Lathe Cutting,FALSE
+ASC,LTH,Lathe Cutting,FALSE
+ADC,LTH,Lathe Cutting,FALSE
+ATL,LTH,Lathe Cutting,FALSE
+WIE,LTH,Lathe Cutting,FALSE
+ENA,LTH,Lathe Cutting,FALSE
+ENT,LTH,Lathe Cutting,FALSE
+LOS,M250,Mazak 250MS CNC Lathe,FALSE
+STO,M250,Mazak 250MS CNC Lathe,FALSE
+CHA,M250,Mazak 250MS CNC Lathe,FALSE
+CLE,M250,Mazak 250MS CNC Lathe,FALSE
+HAI,M250,Mazak 250MS CNC Lathe,TRUE
+JVL,M250,Mazak 250MS CNC Lathe,FALSE
+DAL,M250,Mazak 250MS CNC Lathe,FALSE
+PHI,M250,Mazak 250MS CNC Lathe,FALSE
+TOR,M250,Mazak 250MS CNC Lathe,FALSE
+WIN,M250,Mazak 250MS CNC Lathe,FALSE
+SGP,M250,Mazak 250MS CNC Lathe,FALSE
+MXQ,M250,Mazak 250MS CNC Lathe,FALSE
+MTY,M250,Mazak 250MS CNC Lathe,FALSE
+MXM,M250,Mazak 250MS CNC Lathe,FALSE
+MCH,M250,Mazak 250MS CNC Lathe,FALSE
+ASC,M250,Mazak 250MS CNC Lathe,FALSE
+ADC,M250,Mazak 250MS CNC Lathe,FALSE
+ATL,M250,Mazak 250MS CNC Lathe,FALSE
+WIE,M250,Mazak 250MS CNC Lathe,FALSE
+ENA,M250,Mazak 250MS CNC Lathe,FALSE
+ENT,M250,Mazak 250MS CNC Lathe,FALSE
+LOS,MS0,Straighten,FALSE
+STO,MS0,Straighten,FALSE
+CHA,MS0,Straighten,FALSE
+CLE,MS0,Straighten,FALSE
+HAI,MS0,Straighten,TRUE
+JVL,MS0,Straighten,FALSE
+DAL,MS0,Straighten,FALSE
+PHI,MS0,Straighten,FALSE
+TOR,MS0,Straighten,FALSE
+WIN,MS0,Straighten,FALSE
+SGP,MS0,Straighten,FALSE
+MXQ,MS0,Straighten,FALSE
+MTY,MS0,Straighten,FALSE
+MXM,MS0,Straighten,FALSE
+MCH,MS0,Straighten,FALSE
+ASC,MS0,Straighten,FALSE
+ADC,MS0,Straighten,FALSE
+ATL,MS0,Straighten,FALSE
+WIE,MS0,Straighten,FALSE
+ENA,MS0,Straighten,FALSE
+ENT,MS0,Straighten,FALSE
+LOS,MS10,Straighten,FALSE
+STO,MS10,Straighten,FALSE
+CHA,MS10,Straighten,FALSE
+CLE,MS10,Straighten,FALSE
+HAI,MS10,Straighten,TRUE
+JVL,MS10,Straighten,FALSE
+DAL,MS10,Straighten,FALSE
+PHI,MS10,Straighten,FALSE
+TOR,MS10,Straighten,FALSE
+WIN,MS10,Straighten,FALSE
+SGP,MS10,Straighten,FALSE
+MXQ,MS10,Straighten,FALSE
+MTY,MS10,Straighten,FALSE
+MXM,MS10,Straighten,FALSE
+MCH,MS10,Straighten,FALSE
+ASC,MS10,Straighten,FALSE
+ADC,MS10,Straighten,FALSE
+ATL,MS10,Straighten,FALSE
+WIE,MS10,Straighten,FALSE
+ENA,MS10,Straighten,FALSE
+ENT,MS10,Straighten,FALSE
+LOS,MS2,Straighten,FALSE
+STO,MS2,Straighten,FALSE
+CHA,MS2,Straighten,FALSE
+CLE,MS2,Straighten,FALSE
+HAI,MS2,Straighten,TRUE
+JVL,MS2,Straighten,FALSE
+DAL,MS2,Straighten,FALSE
+PHI,MS2,Straighten,FALSE
+TOR,MS2,Straighten,FALSE
+WIN,MS2,Straighten,FALSE
+SGP,MS2,Straighten,FALSE
+MXQ,MS2,Straighten,FALSE
+MTY,MS2,Straighten,FALSE
+MXM,MS2,Straighten,FALSE
+MCH,MS2,Straighten,FALSE
+ASC,MS2,Straighten,FALSE
+ADC,MS2,Straighten,FALSE
+ATL,MS2,Straighten,FALSE
+WIE,MS2,Straighten,FALSE
+ENA,MS2,Straighten,FALSE
+ENT,MS2,Straighten,FALSE
+LOS,MS3,Straighten,FALSE
+STO,MS3,Straighten,FALSE
+CHA,MS3,Straighten,FALSE
+CLE,MS3,Straighten,FALSE
+HAI,MS3,Straighten,TRUE
+JVL,MS3,Straighten,FALSE
+DAL,MS3,Straighten,FALSE
+PHI,MS3,Straighten,FALSE
+TOR,MS3,Straighten,FALSE
+WIN,MS3,Straighten,FALSE
+SGP,MS3,Straighten,FALSE
+MXQ,MS3,Straighten,FALSE
+MTY,MS3,Straighten,FALSE
+MXM,MS3,Straighten,FALSE
+MCH,MS3,Straighten,FALSE
+ASC,MS3,Straighten,FALSE
+ADC,MS3,Straighten,FALSE
+ATL,MS3,Straighten,FALSE
+WIE,MS3,Straighten,FALSE
+ENA,MS3,Straighten,FALSE
+ENT,MS3,Straighten,FALSE
+LOS,MS5,Straighten,FALSE
+STO,MS5,Straighten,FALSE
+CHA,MS5,Straighten,FALSE
+CLE,MS5,Straighten,FALSE
+HAI,MS5,Straighten,TRUE
+JVL,MS5,Straighten,FALSE
+DAL,MS5,Straighten,FALSE
+PHI,MS5,Straighten,FALSE
+TOR,MS5,Straighten,FALSE
+WIN,MS5,Straighten,FALSE
+SGP,MS5,Straighten,FALSE
+MXQ,MS5,Straighten,FALSE
+MTY,MS5,Straighten,FALSE
+MXM,MS5,Straighten,FALSE
+MCH,MS5,Straighten,FALSE
+ASC,MS5,Straighten,FALSE
+ADC,MS5,Straighten,FALSE
+ATL,MS5,Straighten,FALSE
+WIE,MS5,Straighten,FALSE
+ENA,MS5,Straighten,FALSE
+ENT,MS5,Straighten,FALSE
+LOS,MS9,Straighten,FALSE
+STO,MS9,Straighten,FALSE
+CHA,MS9,Straighten,FALSE
+CLE,MS9,Straighten,FALSE
+HAI,MS9,Straighten,TRUE
+JVL,MS9,Straighten,FALSE
+DAL,MS9,Straighten,FALSE
+PHI,MS9,Straighten,FALSE
+TOR,MS9,Straighten,FALSE
+WIN,MS9,Straighten,FALSE
+SGP,MS9,Straighten,FALSE
+MXQ,MS9,Straighten,FALSE
+MTY,MS9,Straighten,FALSE
+MXM,MS9,Straighten,FALSE
+MCH,MS9,Straighten,FALSE
+ASC,MS9,Straighten,FALSE
+ADC,MS9,Straighten,FALSE
+ATL,MS9,Straighten,FALSE
+WIE,MS9,Straighten,FALSE
+ENA,MS9,Straighten,FALSE
+ENT,MS9,Straighten,FALSE
+LOS,NOPK,No Pick Task,FALSE
+STO,NOPK,No Pick Task,FALSE
+CHA,NOPK,No Pick Task,FALSE
+CLE,NOPK,No Pick Task,FALSE
+HAI,NOPK,No Pick Task,TRUE
+JVL,NOPK,No Pick Task,FALSE
+DAL,NOPK,No Pick Task,FALSE
+PHI,NOPK,No Pick Task,FALSE
+TOR,NOPK,No Pick Task,FALSE
+WIN,NOPK,No Pick Task,FALSE
+SGP,NOPK,No Pick Task,FALSE
+MXQ,NOPK,No Pick Task,FALSE
+MTY,NOPK,No Pick Task,FALSE
+MXM,NOPK,No Pick Task,FALSE
+MCH,NOPK,No Pick Task,FALSE
+ASC,NOPK,No Pick Task,FALSE
+ADC,NOPK,No Pick Task,FALSE
+ATL,NOPK,No Pick Task,FALSE
+WIE,NOPK,No Pick Task,FALSE
+ENA,NOPK,No Pick Task,FALSE
+ENT,NOPK,No Pick Task,FALSE
+LOS,NOR,Normalize,FALSE
+STO,NOR,Normalize,FALSE
+CHA,NOR,Normalize,FALSE
+CLE,NOR,Normalize,FALSE
+HAI,NOR,Normalize,TRUE
+JVL,NOR,Normalize,FALSE
+DAL,NOR,Normalize,FALSE
+PHI,NOR,Normalize,FALSE
+TOR,NOR,Normalize,FALSE
+WIN,NOR,Normalize,FALSE
+SGP,NOR,Normalize,FALSE
+MXQ,NOR,Normalize,FALSE
+MTY,NOR,Normalize,FALSE
+MXM,NOR,Normalize,FALSE
+MCH,NOR,Normalize,FALSE
+ASC,NOR,Normalize,FALSE
+ADC,NOR,Normalize,FALSE
+ATL,NOR,Normalize,FALSE
+WIE,NOR,Normalize,FALSE
+ENA,NOR,Normalize,FALSE
+ENT,NOR,Normalize,FALSE
+LOS,NTWK,Network Pick Task,FALSE
+STO,NTWK,Network Pick Task,FALSE
+CHA,NTWK,Network Pick Task,FALSE
+CLE,NTWK,Network Pick Task,FALSE
+HAI,NTWK,Network Pick Task,TRUE
+JVL,NTWK,Network Pick Task,FALSE
+DAL,NTWK,Network Pick Task,FALSE
+PHI,NTWK,Network Pick Task,FALSE
+TOR,NTWK,Network Pick Task,FALSE
+WIN,NTWK,Network Pick Task,FALSE
+SGP,NTWK,Network Pick Task,FALSE
+MXQ,NTWK,Network Pick Task,FALSE
+MTY,NTWK,Network Pick Task,FALSE
+MXM,NTWK,Network Pick Task,FALSE
+MCH,NTWK,Network Pick Task,FALSE
+ASC,NTWK,Network Pick Task,FALSE
+ADC,NTWK,Network Pick Task,FALSE
+ATL,NTWK,Network Pick Task,FALSE
+WIE,NTWK,Network Pick Task,FALSE
+ENA,NTWK,Network Pick Task,FALSE
+ENT,NTWK,Network Pick Task,FALSE
+LOS,OS10,Outside Processing 10,FALSE
+STO,OS10,Outside Processing 10,FALSE
+CHA,OS10,Outside Processing 10,FALSE
+CLE,OS10,Outside Processing 10,FALSE
+HAI,OS10,Outside Processing 10,TRUE
+JVL,OS10,Outside Processing 10,FALSE
+DAL,OS10,Outside Processing 10,FALSE
+PHI,OS10,Outside Processing 10,FALSE
+TOR,OS10,Outside Processing 10,FALSE
+WIN,OS10,Outside Processing 10,FALSE
+SGP,OS10,Outside Processing 10,FALSE
+MXQ,OS10,Outside Processing 10,FALSE
+MTY,OS10,Outside Processing 10,FALSE
+MXM,OS10,Outside Processing 10,FALSE
+MCH,OS10,Outside Processing 10,FALSE
+ASC,OS10,Outside Processing 10,FALSE
+ADC,OS10,Outside Processing 10,FALSE
+ATL,OS10,Outside Processing 10,FALSE
+WIE,OS10,Outside Processing 10,FALSE
+ENA,OS10,Outside Processing 10,FALSE
+ENT,OS10,Outside Processing 10,FALSE
+LOS,OS11,Outside Processing 11,FALSE
+STO,OS11,Outside Processing 11,FALSE
+CHA,OS11,Outside Processing 11,FALSE
+CLE,OS11,Outside Processing 11,FALSE
+HAI,OS11,Outside Processing 11,TRUE
+JVL,OS11,Outside Processing 11,FALSE
+DAL,OS11,Outside Processing 11,FALSE
+PHI,OS11,Outside Processing 11,FALSE
+TOR,OS11,Outside Processing 11,FALSE
+WIN,OS11,Outside Processing 11,FALSE
+SGP,OS11,Outside Processing 11,FALSE
+MXQ,OS11,Outside Processing 11,FALSE
+MTY,OS11,Outside Processing 11,FALSE
+MXM,OS11,Outside Processing 11,FALSE
+MCH,OS11,Outside Processing 11,FALSE
+ASC,OS11,Outside Processing 11,FALSE
+ADC,OS11,Outside Processing 11,FALSE
+ATL,OS11,Outside Processing 11,FALSE
+WIE,OS11,Outside Processing 11,FALSE
+ENA,OS11,Outside Processing 11,FALSE
+ENT,OS11,Outside Processing 11,FALSE
+LOS,OS12,Outside Processing 12,FALSE
+STO,OS12,Outside Processing 12,FALSE
+CHA,OS12,Outside Processing 12,FALSE
+CLE,OS12,Outside Processing 12,FALSE
+HAI,OS12,Outside Processing 12,TRUE
+JVL,OS12,Outside Processing 12,FALSE
+DAL,OS12,Outside Processing 12,FALSE
+PHI,OS12,Outside Processing 12,FALSE
+TOR,OS12,Outside Processing 12,FALSE
+WIN,OS12,Outside Processing 12,FALSE
+SGP,OS12,Outside Processing 12,FALSE
+MXQ,OS12,Outside Processing 12,FALSE
+MTY,OS12,Outside Processing 12,FALSE
+MXM,OS12,Outside Processing 12,FALSE
+MCH,OS12,Outside Processing 12,FALSE
+ASC,OS12,Outside Processing 12,FALSE
+ADC,OS12,Outside Processing 12,FALSE
+ATL,OS12,Outside Processing 12,FALSE
+WIE,OS12,Outside Processing 12,FALSE
+ENA,OS12,Outside Processing 12,FALSE
+ENT,OS12,Outside Processing 12,FALSE
+LOS,OS13,Outside Processing 13,FALSE
+STO,OS13,Outside Processing 13,FALSE
+CHA,OS13,Outside Processing 13,FALSE
+CLE,OS13,Outside Processing 13,FALSE
+HAI,OS13,Outside Processing 13,TRUE
+JVL,OS13,Outside Processing 13,FALSE
+DAL,OS13,Outside Processing 13,FALSE
+PHI,OS13,Outside Processing 13,FALSE
+TOR,OS13,Outside Processing 13,FALSE
+WIN,OS13,Outside Processing 13,FALSE
+SGP,OS13,Outside Processing 13,FALSE
+MXQ,OS13,Outside Processing 13,FALSE
+MTY,OS13,Outside Processing 13,FALSE
+MXM,OS13,Outside Processing 13,FALSE
+MCH,OS13,Outside Processing 13,FALSE
+ASC,OS13,Outside Processing 13,FALSE
+ADC,OS13,Outside Processing 13,FALSE
+ATL,OS13,Outside Processing 13,FALSE
+WIE,OS13,Outside Processing 13,FALSE
+ENA,OS13,Outside Processing 13,FALSE
+ENT,OS13,Outside Processing 13,FALSE
+LOS,OS14,Outside Processing 14,FALSE
+STO,OS14,Outside Processing 14,FALSE
+CHA,OS14,Outside Processing 14,FALSE
+CLE,OS14,Outside Processing 14,FALSE
+HAI,OS14,Outside Processing 14,TRUE
+JVL,OS14,Outside Processing 14,FALSE
+DAL,OS14,Outside Processing 14,FALSE
+PHI,OS14,Outside Processing 14,FALSE
+TOR,OS14,Outside Processing 14,FALSE
+WIN,OS14,Outside Processing 14,FALSE
+SGP,OS14,Outside Processing 14,FALSE
+MXQ,OS14,Outside Processing 14,FALSE
+MTY,OS14,Outside Processing 14,FALSE
+MXM,OS14,Outside Processing 14,FALSE
+MCH,OS14,Outside Processing 14,FALSE
+ASC,OS14,Outside Processing 14,FALSE
+ADC,OS14,Outside Processing 14,FALSE
+ATL,OS14,Outside Processing 14,FALSE
+WIE,OS14,Outside Processing 14,FALSE
+ENA,OS14,Outside Processing 14,FALSE
+ENT,OS14,Outside Processing 14,FALSE
+LOS,OS15,Outside Processing 15,FALSE
+STO,OS15,Outside Processing 15,FALSE
+CHA,OS15,Outside Processing 15,FALSE
+CLE,OS15,Outside Processing 15,FALSE
+HAI,OS15,Outside Processing 15,TRUE
+JVL,OS15,Outside Processing 15,FALSE
+DAL,OS15,Outside Processing 15,FALSE
+PHI,OS15,Outside Processing 15,FALSE
+TOR,OS15,Outside Processing 15,FALSE
+WIN,OS15,Outside Processing 15,FALSE
+SGP,OS15,Outside Processing 15,FALSE
+MXQ,OS15,Outside Processing 15,FALSE
+MTY,OS15,Outside Processing 15,FALSE
+MXM,OS15,Outside Processing 15,FALSE
+MCH,OS15,Outside Processing 15,FALSE
+ASC,OS15,Outside Processing 15,FALSE
+ADC,OS15,Outside Processing 15,FALSE
+ATL,OS15,Outside Processing 15,FALSE
+WIE,OS15,Outside Processing 15,FALSE
+ENA,OS15,Outside Processing 15,FALSE
+ENT,OS15,Outside Processing 15,FALSE
+LOS,OS16,Outside Processing 16,FALSE
+STO,OS16,Outside Processing 16,FALSE
+CHA,OS16,Outside Processing 16,FALSE
+CLE,OS16,Outside Processing 16,FALSE
+HAI,OS16,Outside Processing 16,TRUE
+JVL,OS16,Outside Processing 16,FALSE
+DAL,OS16,Outside Processing 16,FALSE
+PHI,OS16,Outside Processing 16,FALSE
+TOR,OS16,Outside Processing 16,FALSE
+WIN,OS16,Outside Processing 16,FALSE
+SGP,OS16,Outside Processing 16,FALSE
+MXQ,OS16,Outside Processing 16,FALSE
+MTY,OS16,Outside Processing 16,FALSE
+MXM,OS16,Outside Processing 16,FALSE
+MCH,OS16,Outside Processing 16,FALSE
+ASC,OS16,Outside Processing 16,FALSE
+ADC,OS16,Outside Processing 16,FALSE
+ATL,OS16,Outside Processing 16,FALSE
+WIE,OS16,Outside Processing 16,FALSE
+ENA,OS16,Outside Processing 16,FALSE
+ENT,OS16,Outside Processing 16,FALSE
+LOS,OS17,Outside Processing 17,FALSE
+STO,OS17,Outside Processing 17,FALSE
+CHA,OS17,Outside Processing 17,FALSE
+CLE,OS17,Outside Processing 17,FALSE
+HAI,OS17,Outside Processing 17,TRUE
+JVL,OS17,Outside Processing 17,FALSE
+DAL,OS17,Outside Processing 17,FALSE
+PHI,OS17,Outside Processing 17,FALSE
+TOR,OS17,Outside Processing 17,FALSE
+WIN,OS17,Outside Processing 17,FALSE
+SGP,OS17,Outside Processing 17,FALSE
+MXQ,OS17,Outside Processing 17,FALSE
+MTY,OS17,Outside Processing 17,FALSE
+MXM,OS17,Outside Processing 17,FALSE
+MCH,OS17,Outside Processing 17,FALSE
+ASC,OS17,Outside Processing 17,FALSE
+ADC,OS17,Outside Processing 17,FALSE
+ATL,OS17,Outside Processing 17,FALSE
+WIE,OS17,Outside Processing 17,FALSE
+ENA,OS17,Outside Processing 17,FALSE
+ENT,OS17,Outside Processing 17,FALSE
+LOS,OS18,Outside Processing 18,FALSE
+STO,OS18,Outside Processing 18,FALSE
+CHA,OS18,Outside Processing 18,FALSE
+CLE,OS18,Outside Processing 18,FALSE
+HAI,OS18,Outside Processing 18,TRUE
+JVL,OS18,Outside Processing 18,FALSE
+DAL,OS18,Outside Processing 18,FALSE
+PHI,OS18,Outside Processing 18,FALSE
+TOR,OS18,Outside Processing 18,FALSE
+WIN,OS18,Outside Processing 18,FALSE
+SGP,OS18,Outside Processing 18,FALSE
+MXQ,OS18,Outside Processing 18,FALSE
+MTY,OS18,Outside Processing 18,FALSE
+MXM,OS18,Outside Processing 18,FALSE
+MCH,OS18,Outside Processing 18,FALSE
+ASC,OS18,Outside Processing 18,FALSE
+ADC,OS18,Outside Processing 18,FALSE
+ATL,OS18,Outside Processing 18,FALSE
+WIE,OS18,Outside Processing 18,FALSE
+ENA,OS18,Outside Processing 18,FALSE
+ENT,OS18,Outside Processing 18,FALSE
+LOS,OS19,Outside Processing 19,FALSE
+STO,OS19,Outside Processing 19,FALSE
+CHA,OS19,Outside Processing 19,FALSE
+CLE,OS19,Outside Processing 19,FALSE
+HAI,OS19,Outside Processing 19,TRUE
+JVL,OS19,Outside Processing 19,FALSE
+DAL,OS19,Outside Processing 19,FALSE
+PHI,OS19,Outside Processing 19,FALSE
+TOR,OS19,Outside Processing 19,FALSE
+WIN,OS19,Outside Processing 19,FALSE
+SGP,OS19,Outside Processing 19,FALSE
+MXQ,OS19,Outside Processing 19,FALSE
+MTY,OS19,Outside Processing 19,FALSE
+MXM,OS19,Outside Processing 19,FALSE
+MCH,OS19,Outside Processing 19,FALSE
+ASC,OS19,Outside Processing 19,FALSE
+ADC,OS19,Outside Processing 19,FALSE
+ATL,OS19,Outside Processing 19,FALSE
+WIE,OS19,Outside Processing 19,FALSE
+ENA,OS19,Outside Processing 19,FALSE
+ENT,OS19,Outside Processing 19,FALSE
+LOS,OS20,Outside Processing 20,FALSE
+STO,OS20,Outside Processing 20,FALSE
+CHA,OS20,Outside Processing 20,FALSE
+CLE,OS20,Outside Processing 20,FALSE
+HAI,OS20,Outside Processing 20,TRUE
+JVL,OS20,Outside Processing 20,FALSE
+DAL,OS20,Outside Processing 20,FALSE
+PHI,OS20,Outside Processing 20,FALSE
+TOR,OS20,Outside Processing 20,FALSE
+WIN,OS20,Outside Processing 20,FALSE
+SGP,OS20,Outside Processing 20,FALSE
+MXQ,OS20,Outside Processing 20,FALSE
+MTY,OS20,Outside Processing 20,FALSE
+MXM,OS20,Outside Processing 20,FALSE
+MCH,OS20,Outside Processing 20,FALSE
+ASC,OS20,Outside Processing 20,FALSE
+ADC,OS20,Outside Processing 20,FALSE
+ATL,OS20,Outside Processing 20,FALSE
+WIE,OS20,Outside Processing 20,FALSE
+ENA,OS20,Outside Processing 20,FALSE
+ENT,OS20,Outside Processing 20,FALSE
+LOS,OS21,Outside Processing 21,FALSE
+STO,OS21,Outside Processing 21,FALSE
+CHA,OS21,Outside Processing 21,FALSE
+CLE,OS21,Outside Processing 21,FALSE
+HAI,OS21,Outside Processing 21,TRUE
+JVL,OS21,Outside Processing 21,FALSE
+DAL,OS21,Outside Processing 21,FALSE
+PHI,OS21,Outside Processing 21,FALSE
+TOR,OS21,Outside Processing 21,FALSE
+WIN,OS21,Outside Processing 21,FALSE
+SGP,OS21,Outside Processing 21,FALSE
+MXQ,OS21,Outside Processing 21,FALSE
+MTY,OS21,Outside Processing 21,FALSE
+MXM,OS21,Outside Processing 21,FALSE
+MCH,OS21,Outside Processing 21,FALSE
+ASC,OS21,Outside Processing 21,FALSE
+ADC,OS21,Outside Processing 21,FALSE
+ATL,OS21,Outside Processing 21,FALSE
+WIE,OS21,Outside Processing 21,FALSE
+ENA,OS21,Outside Processing 21,FALSE
+ENT,OS21,Outside Processing 21,FALSE
+LOS,OSM,Outisde Machining,FALSE
+STO,OSM,Outisde Machining,FALSE
+CHA,OSM,Outisde Machining,FALSE
+CLE,OSM,Outisde Machining,FALSE
+HAI,OSM,Outisde Machining,TRUE
+JVL,OSM,Outisde Machining,FALSE
+DAL,OSM,Outisde Machining,FALSE
+PHI,OSM,Outisde Machining,FALSE
+TOR,OSM,Outisde Machining,FALSE
+WIN,OSM,Outisde Machining,FALSE
+SGP,OSM,Outisde Machining,FALSE
+MXQ,OSM,Outisde Machining,FALSE
+MTY,OSM,Outisde Machining,FALSE
+MXM,OSM,Outisde Machining,FALSE
+MCH,OSM,Outisde Machining,FALSE
+ASC,OSM,Outisde Machining,FALSE
+ADC,OSM,Outisde Machining,FALSE
+ATL,OSM,Outisde Machining,FALSE
+WIE,OSM,Outisde Machining,FALSE
+ENA,OSM,Outisde Machining,FALSE
+ENT,OSM,Outisde Machining,FALSE
+LOS,OSP1,Outisde Processing 1,FALSE
+STO,OSP1,Outisde Processing 1,FALSE
+CHA,OSP1,Outisde Processing 1,FALSE
+CLE,OSP1,Outisde Processing 1,FALSE
+HAI,OSP1,Outisde Processing 1,TRUE
+JVL,OSP1,Outisde Processing 1,FALSE
+DAL,OSP1,Outisde Processing 1,FALSE
+PHI,OSP1,Outisde Processing 1,FALSE
+TOR,OSP1,Outisde Processing 1,FALSE
+WIN,OSP1,Outisde Processing 1,FALSE
+SGP,OSP1,Outisde Processing 1,FALSE
+MXQ,OSP1,Outisde Processing 1,FALSE
+MTY,OSP1,Outisde Processing 1,FALSE
+MXM,OSP1,Outisde Processing 1,FALSE
+MCH,OSP1,Outisde Processing 1,FALSE
+ASC,OSP1,Outisde Processing 1,FALSE
+ADC,OSP1,Outisde Processing 1,FALSE
+ATL,OSP1,Outisde Processing 1,FALSE
+WIE,OSP1,Outisde Processing 1,FALSE
+ENA,OSP1,Outisde Processing 1,FALSE
+ENT,OSP1,Outisde Processing 1,FALSE
+LOS,OSP2,Outisde Processing 2,FALSE
+STO,OSP2,Outisde Processing 2,FALSE
+CHA,OSP2,Outisde Processing 2,FALSE
+CLE,OSP2,Outisde Processing 2,FALSE
+HAI,OSP2,Outisde Processing 2,TRUE
+JVL,OSP2,Outisde Processing 2,FALSE
+DAL,OSP2,Outisde Processing 2,FALSE
+PHI,OSP2,Outisde Processing 2,FALSE
+TOR,OSP2,Outisde Processing 2,FALSE
+WIN,OSP2,Outisde Processing 2,FALSE
+SGP,OSP2,Outisde Processing 2,FALSE
+MXQ,OSP2,Outisde Processing 2,FALSE
+MTY,OSP2,Outisde Processing 2,FALSE
+MXM,OSP2,Outisde Processing 2,FALSE
+MCH,OSP2,Outisde Processing 2,FALSE
+ASC,OSP2,Outisde Processing 2,FALSE
+ADC,OSP2,Outisde Processing 2,FALSE
+ATL,OSP2,Outisde Processing 2,FALSE
+WIE,OSP2,Outisde Processing 2,FALSE
+ENA,OSP2,Outisde Processing 2,FALSE
+ENT,OSP2,Outisde Processing 2,FALSE
+LOS,OSP3,Outisde Processing 3,FALSE
+STO,OSP3,Outisde Processing 3,FALSE
+CHA,OSP3,Outisde Processing 3,FALSE
+CLE,OSP3,Outisde Processing 3,FALSE
+HAI,OSP3,Outisde Processing 3,TRUE
+JVL,OSP3,Outisde Processing 3,FALSE
+DAL,OSP3,Outisde Processing 3,FALSE
+PHI,OSP3,Outisde Processing 3,FALSE
+TOR,OSP3,Outisde Processing 3,FALSE
+WIN,OSP3,Outisde Processing 3,FALSE
+SGP,OSP3,Outisde Processing 3,FALSE
+MXQ,OSP3,Outisde Processing 3,FALSE
+MTY,OSP3,Outisde Processing 3,FALSE
+MXM,OSP3,Outisde Processing 3,FALSE
+MCH,OSP3,Outisde Processing 3,FALSE
+ASC,OSP3,Outisde Processing 3,FALSE
+ADC,OSP3,Outisde Processing 3,FALSE
+ATL,OSP3,Outisde Processing 3,FALSE
+WIE,OSP3,Outisde Processing 3,FALSE
+ENA,OSP3,Outisde Processing 3,FALSE
+ENT,OSP3,Outisde Processing 3,FALSE
+LOS,OSP4,Outisde Processing 4,FALSE
+STO,OSP4,Outisde Processing 4,FALSE
+CHA,OSP4,Outisde Processing 4,FALSE
+CLE,OSP4,Outisde Processing 4,FALSE
+HAI,OSP4,Outisde Processing 4,TRUE
+JVL,OSP4,Outisde Processing 4,FALSE
+DAL,OSP4,Outisde Processing 4,FALSE
+PHI,OSP4,Outisde Processing 4,FALSE
+TOR,OSP4,Outisde Processing 4,FALSE
+WIN,OSP4,Outisde Processing 4,FALSE
+SGP,OSP4,Outisde Processing 4,FALSE
+MXQ,OSP4,Outisde Processing 4,FALSE
+MTY,OSP4,Outisde Processing 4,FALSE
+MXM,OSP4,Outisde Processing 4,FALSE
+MCH,OSP4,Outisde Processing 4,FALSE
+ASC,OSP4,Outisde Processing 4,FALSE
+ADC,OSP4,Outisde Processing 4,FALSE
+ATL,OSP4,Outisde Processing 4,FALSE
+WIE,OSP4,Outisde Processing 4,FALSE
+ENA,OSP4,Outisde Processing 4,FALSE
+ENT,OSP4,Outisde Processing 4,FALSE
+LOS,OSP5,Outisde Processing 5,FALSE
+STO,OSP5,Outisde Processing 5,FALSE
+CHA,OSP5,Outisde Processing 5,FALSE
+CLE,OSP5,Outisde Processing 5,FALSE
+HAI,OSP5,Outisde Processing 5,TRUE
+JVL,OSP5,Outisde Processing 5,FALSE
+DAL,OSP5,Outisde Processing 5,FALSE
+PHI,OSP5,Outisde Processing 5,FALSE
+TOR,OSP5,Outisde Processing 5,FALSE
+WIN,OSP5,Outisde Processing 5,FALSE
+SGP,OSP5,Outisde Processing 5,FALSE
+MXQ,OSP5,Outisde Processing 5,FALSE
+MTY,OSP5,Outisde Processing 5,FALSE
+MXM,OSP5,Outisde Processing 5,FALSE
+MCH,OSP5,Outisde Processing 5,FALSE
+ASC,OSP5,Outisde Processing 5,FALSE
+ADC,OSP5,Outisde Processing 5,FALSE
+ATL,OSP5,Outisde Processing 5,FALSE
+WIE,OSP5,Outisde Processing 5,FALSE
+ENA,OSP5,Outisde Processing 5,FALSE
+ENT,OSP5,Outisde Processing 5,FALSE
+LOS,OSP6,Outisde Processing 6,FALSE
+STO,OSP6,Outisde Processing 6,FALSE
+CHA,OSP6,Outisde Processing 6,FALSE
+CLE,OSP6,Outisde Processing 6,FALSE
+HAI,OSP6,Outisde Processing 6,TRUE
+JVL,OSP6,Outisde Processing 6,FALSE
+DAL,OSP6,Outisde Processing 6,FALSE
+PHI,OSP6,Outisde Processing 6,FALSE
+TOR,OSP6,Outisde Processing 6,FALSE
+WIN,OSP6,Outisde Processing 6,FALSE
+SGP,OSP6,Outisde Processing 6,FALSE
+MXQ,OSP6,Outisde Processing 6,FALSE
+MTY,OSP6,Outisde Processing 6,FALSE
+MXM,OSP6,Outisde Processing 6,FALSE
+MCH,OSP6,Outisde Processing 6,FALSE
+ASC,OSP6,Outisde Processing 6,FALSE
+ADC,OSP6,Outisde Processing 6,FALSE
+ATL,OSP6,Outisde Processing 6,FALSE
+WIE,OSP6,Outisde Processing 6,FALSE
+ENA,OSP6,Outisde Processing 6,FALSE
+ENT,OSP6,Outisde Processing 6,FALSE
+LOS,OSP7,Outisde Processing 7,FALSE
+STO,OSP7,Outisde Processing 7,FALSE
+CHA,OSP7,Outisde Processing 7,FALSE
+CLE,OSP7,Outisde Processing 7,FALSE
+HAI,OSP7,Outisde Processing 7,TRUE
+JVL,OSP7,Outisde Processing 7,FALSE
+DAL,OSP7,Outisde Processing 7,FALSE
+PHI,OSP7,Outisde Processing 7,FALSE
+TOR,OSP7,Outisde Processing 7,FALSE
+WIN,OSP7,Outisde Processing 7,FALSE
+SGP,OSP7,Outisde Processing 7,FALSE
+MXQ,OSP7,Outisde Processing 7,FALSE
+MTY,OSP7,Outisde Processing 7,FALSE
+MXM,OSP7,Outisde Processing 7,FALSE
+MCH,OSP7,Outisde Processing 7,FALSE
+ASC,OSP7,Outisde Processing 7,FALSE
+ADC,OSP7,Outisde Processing 7,FALSE
+ATL,OSP7,Outisde Processing 7,FALSE
+WIE,OSP7,Outisde Processing 7,FALSE
+ENA,OSP7,Outisde Processing 7,FALSE
+ENT,OSP7,Outisde Processing 7,FALSE
+LOS,OSP8,Outisde Processing 8,FALSE
+STO,OSP8,Outisde Processing 8,FALSE
+CHA,OSP8,Outisde Processing 8,FALSE
+CLE,OSP8,Outisde Processing 8,FALSE
+HAI,OSP8,Outisde Processing 8,TRUE
+JVL,OSP8,Outisde Processing 8,FALSE
+DAL,OSP8,Outisde Processing 8,FALSE
+PHI,OSP8,Outisde Processing 8,FALSE
+TOR,OSP8,Outisde Processing 8,FALSE
+WIN,OSP8,Outisde Processing 8,FALSE
+SGP,OSP8,Outisde Processing 8,FALSE
+MXQ,OSP8,Outisde Processing 8,FALSE
+MTY,OSP8,Outisde Processing 8,FALSE
+MXM,OSP8,Outisde Processing 8,FALSE
+MCH,OSP8,Outisde Processing 8,FALSE
+ASC,OSP8,Outisde Processing 8,FALSE
+ADC,OSP8,Outisde Processing 8,FALSE
+ATL,OSP8,Outisde Processing 8,FALSE
+WIE,OSP8,Outisde Processing 8,FALSE
+ENA,OSP8,Outisde Processing 8,FALSE
+ENT,OSP8,Outisde Processing 8,FALSE
+LOS,OSP9,Outisde Processing 9,FALSE
+STO,OSP9,Outisde Processing 9,FALSE
+CHA,OSP9,Outisde Processing 9,FALSE
+CLE,OSP9,Outisde Processing 9,FALSE
+HAI,OSP9,Outisde Processing 9,TRUE
+JVL,OSP9,Outisde Processing 9,FALSE
+DAL,OSP9,Outisde Processing 9,FALSE
+PHI,OSP9,Outisde Processing 9,FALSE
+TOR,OSP9,Outisde Processing 9,FALSE
+WIN,OSP9,Outisde Processing 9,FALSE
+SGP,OSP9,Outisde Processing 9,FALSE
+MXQ,OSP9,Outisde Processing 9,FALSE
+MTY,OSP9,Outisde Processing 9,FALSE
+MXM,OSP9,Outisde Processing 9,FALSE
+MCH,OSP9,Outisde Processing 9,FALSE
+ASC,OSP9,Outisde Processing 9,FALSE
+ADC,OSP9,Outisde Processing 9,FALSE
+ATL,OSP9,Outisde Processing 9,FALSE
+WIE,OSP9,Outisde Processing 9,FALSE
+ENA,OSP9,Outisde Processing 9,FALSE
+ENT,OSP9,Outisde Processing 9,FALSE
+LOS,OUTB,Outbound Pick Task,FALSE
+STO,OUTB,Outbound Pick Task,FALSE
+CHA,OUTB,Outbound Pick Task,FALSE
+CLE,OUTB,Outbound Pick Task,FALSE
+HAI,OUTB,Outbound Pick Task,TRUE
+JVL,OUTB,Outbound Pick Task,FALSE
+DAL,OUTB,Outbound Pick Task,FALSE
+PHI,OUTB,Outbound Pick Task,FALSE
+TOR,OUTB,Outbound Pick Task,FALSE
+WIN,OUTB,Outbound Pick Task,FALSE
+SGP,OUTB,Outbound Pick Task,FALSE
+MXQ,OUTB,Outbound Pick Task,FALSE
+MTY,OUTB,Outbound Pick Task,FALSE
+MXM,OUTB,Outbound Pick Task,FALSE
+MCH,OUTB,Outbound Pick Task,FALSE
+ASC,OUTB,Outbound Pick Task,FALSE
+ADC,OUTB,Outbound Pick Task,FALSE
+ATL,OUTB,Outbound Pick Task,FALSE
+WIE,OUTB,Outbound Pick Task,FALSE
+ENA,OUTB,Outbound Pick Task,FALSE
+ENT,OUTB,Outbound Pick Task,FALSE
+LOS,PARC,Parcel Pick Task,FALSE
+STO,PARC,Parcel Pick Task,FALSE
+CHA,PARC,Parcel Pick Task,FALSE
+CLE,PARC,Parcel Pick Task,FALSE
+HAI,PARC,Parcel Pick Task,TRUE
+JVL,PARC,Parcel Pick Task,FALSE
+DAL,PARC,Parcel Pick Task,FALSE
+PHI,PARC,Parcel Pick Task,FALSE
+TOR,PARC,Parcel Pick Task,FALSE
+WIN,PARC,Parcel Pick Task,FALSE
+SGP,PARC,Parcel Pick Task,FALSE
+MXQ,PARC,Parcel Pick Task,FALSE
+MTY,PARC,Parcel Pick Task,FALSE
+MXM,PARC,Parcel Pick Task,FALSE
+MCH,PARC,Parcel Pick Task,FALSE
+ASC,PARC,Parcel Pick Task,FALSE
+ADC,PARC,Parcel Pick Task,FALSE
+ATL,PARC,Parcel Pick Task,FALSE
+WIE,PARC,Parcel Pick Task,FALSE
+ENA,PARC,Parcel Pick Task,FALSE
+ENT,PARC,Parcel Pick Task,FALSE
+LOS,SHP,Shipping,TRUE
+STO,SHP,Shipping,TRUE
+CHA,SHP,Shipping,TRUE
+CLE,SHP,Shipping,TRUE
+HAI,SHP,Shipping,TRUE
+JVL,SHP,Shipping,TRUE
+DAL,SHP,Shipping,TRUE
+PHI,SHP,Shipping,TRUE
+TOR,SHP,Shipping,TRUE
+WIN,SHP,Shipping,TRUE
+SGP,SHP,Shipping,TRUE
+MXQ,SHP,Shipping,TRUE
+MTY,SHP,Shipping,TRUE
+MXM,SHP,Shipping,TRUE
+MCH,SHP,Shipping,TRUE
+ASC,SHP,Shipping,TRUE
+ADC,SHP,Shipping,TRUE
+ATL,SHP,Shipping,TRUE
+WIE,SHP,Shipping,TRUE
+ENA,SHP,Shipping,TRUE
+ENT,SHP,Shipping,TRUE
+LOS,RCV,Receiving,TRUE
+STO,RCV,Receiving,TRUE
+CHA,RCV,Receiving,TRUE
+CLE,RCV,Receiving,TRUE
+HAI,RCV,Receiving,TRUE
+JVL,RCV,Receiving,TRUE
+DAL,RCV,Receiving,TRUE
+PHI,RCV,Receiving,TRUE
+TOR,RCV,Receiving,TRUE
+WIN,RCV,Receiving,TRUE
+SGP,RCV,Receiving,TRUE
+MXQ,RCV,Receiving,TRUE
+MTY,RCV,Receiving,TRUE
+MXM,RCV,Receiving,TRUE
+MCH,RCV,Receiving,TRUE
+ASC,RCV,Receiving,TRUE
+ADC,RCV,Receiving,TRUE
+ATL,RCV,Receiving,TRUE
+WIE,RCV,Receiving,TRUE
+ENA,RCV,Receiving,TRUE
+ENT,RCV,Receiving,TRUE
+LOS,PPS,Pick Pack Ship,TRUE
+STO,PPS,Pick Pack Ship,TRUE
+CHA,PPS,Pick Pack Ship,TRUE
+CLE,PPS,Pick Pack Ship,TRUE
+HAI,PPS,Pick Pack Ship,TRUE
+JVL,PPS,Pick Pack Ship,TRUE
+DAL,PPS,Pick Pack Ship,TRUE
+PHI,PPS,Pick Pack Ship,TRUE
+TOR,PPS,Pick Pack Ship,TRUE
+WIN,PPS,Pick Pack Ship,TRUE
+SGP,PPS,Pick Pack Ship,TRUE
+MXQ,PPS,Pick Pack Ship,TRUE
+MTY,PPS,Pick Pack Ship,TRUE
+MXM,PPS,Pick Pack Ship,TRUE
+MCH,PPS,Pick Pack Ship,TRUE
+ASC,PPS,Pick Pack Ship,TRUE
+ADC,PPS,Pick Pack Ship,TRUE
+ATL,PPS,Pick Pack Ship,TRUE
+WIE,PPS,Pick Pack Ship,TRUE
+ENA,PPS,Pick Pack Ship,TRUE
+ENT,PPS,Pick Pack Ship,TRUE
+LOS,PBS,Plate Band Saw,TRUE
+STO,PBS,Plate Band Saw,TRUE
+CHA,PBS,Plate Band Saw,TRUE
+CLE,PBS,Plate Band Saw,TRUE
+HAI,PBS,Plate Band Saw,TRUE
+JVL,PBS,Plate Band Saw,TRUE
+DAL,PBS,Plate Band Saw,TRUE
+PHI,PBS,Plate Band Saw,TRUE
+TOR,PBS,Plate Band Saw,TRUE
+WIN,PBS,Plate Band Saw,TRUE
+SGP,PBS,Plate Band Saw,TRUE
+MXQ,PBS,Plate Band Saw,TRUE
+MTY,PBS,Plate Band Saw,TRUE
+MXM,PBS,Plate Band Saw,TRUE
+MCH,PBS,Plate Band Saw,TRUE
+ASC,PBS,Plate Band Saw,TRUE
+ADC,PBS,Plate Band Saw,TRUE
+ATL,PBS,Plate Band Saw,TRUE
+WIE,PBS,Plate Band Saw,TRUE
+ENA,PBS,Plate Band Saw,TRUE
+ENT,PBS,Plate Band Saw,TRUE
+LOS,PCS,Plate Cold Saw,FALSE
+STO,PCS,Plate Cold Saw,FALSE
+CHA,PCS,Plate Cold Saw,FALSE
+CLE,PCS,Plate Cold Saw,FALSE
+HAI,PCS,Plate Cold Saw,TRUE
+JVL,PCS,Plate Cold Saw,FALSE
+DAL,PCS,Plate Cold Saw,FALSE
+PHI,PCS,Plate Cold Saw,FALSE
+TOR,PCS,Plate Cold Saw,FALSE
+WIN,PCS,Plate Cold Saw,FALSE
+SGP,PCS,Plate Cold Saw,FALSE
+MXQ,PCS,Plate Cold Saw,FALSE
+MTY,PCS,Plate Cold Saw,FALSE
+MXM,PCS,Plate Cold Saw,FALSE
+MCH,PCS,Plate Cold Saw,FALSE
+ASC,PCS,Plate Cold Saw,FALSE
+ADC,PCS,Plate Cold Saw,FALSE
+ATL,PCS,Plate Cold Saw,FALSE
+WIE,PCS,Plate Cold Saw,FALSE
+ENA,PCS,Plate Cold Saw,FALSE
+ENT,PCS,Plate Cold Saw,FALSE
+LOS,PFC,Flame Cutting,TRUE
+STO,PFC,Flame Cutting,TRUE
+CHA,PFC,Flame Cutting,TRUE
+CLE,PFC,Flame Cutting,TRUE
+HAI,PFC,Flame Cutting,TRUE
+JVL,PFC,Flame Cutting,TRUE
+DAL,PFC,Flame Cutting,TRUE
+PHI,PFC,Flame Cutting,TRUE
+TOR,PFC,Flame Cutting,TRUE
+WIN,PFC,Flame Cutting,TRUE
+SGP,PFC,Flame Cutting,TRUE
+MXQ,PFC,Flame Cutting,TRUE
+MTY,PFC,Flame Cutting,TRUE
+MXM,PFC,Flame Cutting,TRUE
+MCH,PFC,Flame Cutting,TRUE
+ASC,PFC,Flame Cutting,TRUE
+ADC,PFC,Flame Cutting,TRUE
+ATL,PFC,Flame Cutting,TRUE
+WIE,PFC,Flame Cutting,TRUE
+ENA,PFC,Flame Cutting,TRUE
+ENT,PFC,Flame Cutting,TRUE
+LOS,PFL,Plate Flattening,FALSE
+STO,PFL,Plate Flattening,FALSE
+CHA,PFL,Plate Flattening,FALSE
+CLE,PFL,Plate Flattening,FALSE
+HAI,PFL,Plate Flattening,TRUE
+JVL,PFL,Plate Flattening,FALSE
+DAL,PFL,Plate Flattening,FALSE
+PHI,PFL,Plate Flattening,FALSE
+TOR,PFL,Plate Flattening,FALSE
+WIN,PFL,Plate Flattening,FALSE
+SGP,PFL,Plate Flattening,FALSE
+MXQ,PFL,Plate Flattening,FALSE
+MTY,PFL,Plate Flattening,FALSE
+MXM,PFL,Plate Flattening,FALSE
+MCH,PFL,Plate Flattening,FALSE
+ASC,PFL,Plate Flattening,FALSE
+ADC,PFL,Plate Flattening,FALSE
+ATL,PFL,Plate Flattening,FALSE
+WIE,PFL,Plate Flattening,FALSE
+ENA,PFL,Plate Flattening,FALSE
+ENT,PFL,Plate Flattening,FALSE
+LOS,PKG,Packaging,FALSE
+STO,PKG,Packaging,FALSE
+CHA,PKG,Packaging,FALSE
+CLE,PKG,Packaging,FALSE
+JVL,PKG,Packaging,FALSE
+DAL,PKG,Packaging,FALSE
+PHI,PKG,Packaging,FALSE
+TOR,PKG,Packaging,FALSE
+ASC,PPC,Plasma Cutting,TRUE
+ADC,PPC,Plasma Cutting,TRUE
+ATL,PPC,Plasma Cutting,TRUE
+WIE,PPC,Plasma Cutting,TRUE
+ENA,PPC,Plasma Cutting,TRUE
+ENT,PPC,Plasma Cutting,TRUE
+LOS,PRAT,Prat Bar Processing Cell,TRUE
+STO,PRAT,Prat Bar Processing Cell,TRUE
+CHA,PRAT,Prat Bar Processing Cell,TRUE
+CLE,PRAT,Prat Bar Processing Cell,TRUE
+HAI,PRAT,Prat Bar Processing Cell,TRUE
+JVL,PRAT,Prat Bar Processing Cell,TRUE
+DAL,PRAT,Prat Bar Processing Cell,TRUE
+PHI,PRAT,Prat Bar Processing Cell,TRUE
+TOR,PRAT,Prat Bar Processing Cell,TRUE
+WIN,PRAT,Prat Bar Processing Cell,TRUE
+SGP,PRAT,Prat Bar Processing Cell,TRUE
+MXQ,PRAT,Prat Bar Processing Cell,TRUE
+MTY,PRAT,Prat Bar Processing Cell,TRUE
+MXM,PRAT,Prat Bar Processing Cell,TRUE
+MCH,PRAT,Prat Bar Processing Cell,TRUE
+ASC,PRAT,Prat Bar Processing Cell,TRUE
+ADC,PRAT,Prat Bar Processing Cell,TRUE
+ATL,PRAT,Prat Bar Processing Cell,TRUE
+WIE,PRAT,Prat Bar Processing Cell,TRUE
+ENA,PRAT,Prat Bar Processing Cell,TRUE
+ENT,PRAT,Prat Bar Processing Cell,TRUE
+LOS,PRE,Pre-heat,FALSE
+STO,PRE,Pre-heat,FALSE
+CHA,PRE,Pre-heat,FALSE
+CLE,PRE,Pre-heat,FALSE
+HAI,PRE,Pre-heat,TRUE
+JVL,PRE,Pre-heat,FALSE
+DAL,PRE,Pre-heat,FALSE
+PHI,PRE,Pre-heat,FALSE
+TOR,PRE,Pre-heat,FALSE
+WIN,PRE,Pre-heat,FALSE
+SGP,PRE,Pre-heat,FALSE
+MXQ,PRE,Pre-heat,FALSE
+MTY,PRE,Pre-heat,FALSE
+MXM,PRE,Pre-heat,FALSE
+MCH,PRE,Pre-heat,FALSE
+ASC,PRE,Pre-heat,FALSE
+ADC,PRE,Pre-heat,FALSE
+ATL,PRE,Pre-heat,FALSE
+WIE,PRE,Pre-heat,FALSE
+ENA,PRE,Pre-heat,FALSE
+ENT,PRE,Pre-heat,FALSE
+LOS,PRG,Programming,FALSE
+STO,PRG,Programming,FALSE
+CHA,PRG,Programming,FALSE
+CLE,PRG,Programming,FALSE
+HAI,PRG,Programming,TRUE
+JVL,PRG,Programming,FALSE
+DAL,PRG,Programming,FALSE
+PHI,PRG,Programming,FALSE
+TOR,PRG,Programming,FALSE
+WIN,PRG,Programming,FALSE
+SGP,PRG,Programming,FALSE
+MXQ,PRG,Programming,FALSE
+MTY,PRG,Programming,FALSE
+MXM,PRG,Programming,FALSE
+MCH,PRG,Programming,FALSE
+ASC,PRG,Programming,FALSE
+ADC,PRG,Programming,FALSE
+ATL,PRG,Programming,FALSE
+WIE,PRG,Programming,FALSE
+ENA,PRG,Programming,FALSE
+ENT,PRG,Programming,FALSE
+LOS,PVC,Protective Vinyl Coating,FALSE
+STO,PVC,Protective Vinyl Coating,FALSE
+CHA,PVC,Protective Vinyl Coating,FALSE
+CLE,PVC,Protective Vinyl Coating,FALSE
+HAI,PVC,Protective Vinyl Coating,TRUE
+JVL,PVC,Protective Vinyl Coating,FALSE
+DAL,PVC,Protective Vinyl Coating,FALSE
+PHI,PVC,Protective Vinyl Coating,FALSE
+TOR,PVC,Protective Vinyl Coating,FALSE
+WIN,PVC,Protective Vinyl Coating,FALSE
+SGP,PVC,Protective Vinyl Coating,FALSE
+MXQ,PVC,Protective Vinyl Coating,FALSE
+MTY,PVC,Protective Vinyl Coating,FALSE
+MXM,PVC,Protective Vinyl Coating,FALSE
+MCH,PVC,Protective Vinyl Coating,FALSE
+ASC,PVC,Protective Vinyl Coating,FALSE
+ADC,PVC,Protective Vinyl Coating,FALSE
+ATL,PVC,Protective Vinyl Coating,FALSE
+WIE,PVC,Protective Vinyl Coating,FALSE
+ENA,PVC,Protective Vinyl Coating,FALSE
+ENT,PVC,Protective Vinyl Coating,FALSE
+LOS,PVC2,Protective Vinyl Coating,FALSE
+STO,PVC2,Protective Vinyl Coating,FALSE
+CHA,PVC2,Protective Vinyl Coating,FALSE
+CLE,PVC2,Protective Vinyl Coating,FALSE
+HAI,PVC2,Protective Vinyl Coating,TRUE
+JVL,PVC2,Protective Vinyl Coating,FALSE
+DAL,PVC2,Protective Vinyl Coating,FALSE
+PHI,PVC2,Protective Vinyl Coating,FALSE
+TOR,PVC2,Protective Vinyl Coating,FALSE
+WIN,PVC2,Protective Vinyl Coating,FALSE
+SGP,PVC2,Protective Vinyl Coating,FALSE
+MXQ,PVC2,Protective Vinyl Coating,FALSE
+MTY,PVC2,Protective Vinyl Coating,FALSE
+MXM,PVC2,Protective Vinyl Coating,FALSE
+MCH,PVC2,Protective Vinyl Coating,FALSE
+ASC,PVC2,Protective Vinyl Coating,FALSE
+ADC,PVC2,Protective Vinyl Coating,FALSE
+ATL,PVC2,Protective Vinyl Coating,FALSE
+WIE,PVC2,Protective Vinyl Coating,FALSE
+ENA,PVC2,Protective Vinyl Coating,FALSE
+ENT,PVC2,Protective Vinyl Coating,FALSE
+LOS,Q&T,Quench & Temper,FALSE
+STO,Q&T,Quench & Temper,FALSE
+CHA,Q&T,Quench & Temper,FALSE
+CLE,Q&T,Quench & Temper,FALSE
+HAI,Q&T,Quench & Temper,TRUE
+JVL,Q&T,Quench & Temper,FALSE
+DAL,Q&T,Quench & Temper,FALSE
+PHI,Q&T,Quench & Temper,FALSE
+TOR,Q&T,Quench & Temper,FALSE
+WIN,Q&T,Quench & Temper,FALSE
+SGP,Q&T,Quench & Temper,FALSE
+MXQ,Q&T,Quench & Temper,FALSE
+MTY,Q&T,Quench & Temper,FALSE
+MXM,Q&T,Quench & Temper,FALSE
+MCH,Q&T,Quench & Temper,FALSE
+ASC,Q&T,Quench & Temper,FALSE
+ADC,Q&T,Quench & Temper,FALSE
+ATL,Q&T,Quench & Temper,FALSE
+WIE,Q&T,Quench & Temper,FALSE
+ENA,Q&T,Quench & Temper,FALSE
+ENT,Q&T,Quench & Temper,FALSE
+LOS,QDT,Quench & Double Temper,FALSE
+STO,QDT,Quench & Double Temper,FALSE
+CHA,QDT,Quench & Double Temper,FALSE
+CLE,QDT,Quench & Double Temper,FALSE
+HAI,QDT,Quench & Double Temper,TRUE
+JVL,QDT,Quench & Double Temper,FALSE
+DAL,QDT,Quench & Double Temper,FALSE
+PHI,QDT,Quench & Double Temper,FALSE
+TOR,QDT,Quench & Double Temper,FALSE
+WIN,QDT,Quench & Double Temper,FALSE
+SGP,QDT,Quench & Double Temper,FALSE
+MXQ,QDT,Quench & Double Temper,FALSE
+MTY,QDT,Quench & Double Temper,FALSE
+MXM,QDT,Quench & Double Temper,FALSE
+MCH,QDT,Quench & Double Temper,FALSE
+ASC,QDT,Quench & Double Temper,FALSE
+ADC,QDT,Quench & Double Temper,FALSE
+ATL,QDT,Quench & Double Temper,FALSE
+WIE,QDT,Quench & Double Temper,FALSE
+ENA,QDT,Quench & Double Temper,FALSE
+ENT,QDT,Quench & Double Temper,FALSE
+LOS,QT1,Quench & Temper,FALSE
+STO,QT1,Quench & Temper,FALSE
+CHA,QT1,Quench & Temper,FALSE
+CLE,QT1,Quench & Temper,FALSE
+HAI,QT1,Quench & Temper,TRUE
+JVL,QT1,Quench & Temper,FALSE
+DAL,QT1,Quench & Temper,FALSE
+PHI,QT1,Quench & Temper,FALSE
+TOR,QT1,Quench & Temper,FALSE
+WIN,QT1,Quench & Temper,FALSE
+SGP,QT1,Quench & Temper,FALSE
+MXQ,QT1,Quench & Temper,FALSE
+MTY,QT1,Quench & Temper,FALSE
+MXM,QT1,Quench & Temper,FALSE
+MCH,QT1,Quench & Temper,FALSE
+ASC,QT1,Quench & Temper,FALSE
+ADC,QT1,Quench & Temper,FALSE
+ATL,QT1,Quench & Temper,FALSE
+WIE,QT1,Quench & Temper,FALSE
+ENA,QT1,Quench & Temper,FALSE
+ENT,QT1,Quench & Temper,FALSE
+LOS,QT2,Quench & Temper,FALSE
+STO,QT2,Quench & Temper,FALSE
+CHA,QT2,Quench & Temper,FALSE
+CLE,QT2,Quench & Temper,FALSE
+HAI,QT2,Quench & Temper,TRUE
+JVL,QT2,Quench & Temper,FALSE
+DAL,QT2,Quench & Temper,FALSE
+PHI,QT2,Quench & Temper,FALSE
+TOR,QT2,Quench & Temper,FALSE
+WIN,QT2,Quench & Temper,FALSE
+SGP,QT2,Quench & Temper,FALSE
+MXQ,QT2,Quench & Temper,FALSE
+MTY,QT2,Quench & Temper,FALSE
+MXM,QT2,Quench & Temper,FALSE
+MCH,QT2,Quench & Temper,FALSE
+ASC,QT2,Quench & Temper,FALSE
+ADC,QT2,Quench & Temper,FALSE
+ATL,QT2,Quench & Temper,FALSE
+WIE,QT2,Quench & Temper,FALSE
+ENA,QT2,Quench & Temper,FALSE
+ENT,QT2,Quench & Temper,FALSE
+LOS,ROTO,RotoTest,FALSE
+STO,ROTO,RotoTest,FALSE
+CHA,ROTO,RotoTest,FALSE
+CLE,ROTO,RotoTest,FALSE

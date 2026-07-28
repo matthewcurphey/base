@@ -1,0 +1,220 @@
+﻿op_code,op_name
+Bar Chamfering SU-S6,Chamfering
+Bar Cutting SU-S6,Bar Saw
+Bar Straightening SU-S6,Straightening
+Chamfer CH-C9,Chamfering
+Chamfer CS-C2,Chamfering
+Chamfer CS-M3,Chamfering
+Chamfer SV-C7,Chamfering
+Chamfer Win-C0,Chamfering
+Chamfer Win-M0,Chamfering
+Chamfer Win-S0,Chamfering
+Chamfer WW-M5,Chamfering
+Chemical Milling SU-S6,Chem Mill
+Cleaning WW-M5,Chem Mill
+Coil Slitting SU-S6,Slitting
+Cut Abrasive Cut CS,Bar Saw
+Cut Abrasive Cut Win-M0,Bar Saw
+Cut Abrasive Cut WW,Bar Saw
+Cut Band Saw Win-M0,Bar Saw
+Cut Band Saw Win-S0,Bar Saw
+Cut Cold Saw Win-M0,Bar Saw
+Cut Cold Saw Win-S0,Bar Saw
+Cut Cold Saw WW,Bar Saw
+Cut Saw Cut C2,Bar Saw
+Cut Saw Cut CH-C9,Bar Saw
+Cut Saw Cut CS,Bar Saw
+Cut Saw Cut LB-P8,Bar Saw
+Cut Saw Cut SV-C7,Bar Saw
+De-Burr CS-C2,De-burr
+De-Burr Win-M0,De-burr
+De-Burr Win-S0,De-burr
+De-Burr WW-M5,De-burr
+Grind Bar Pull CS-C2,Grinding
+Grind Bar Pull CS-M3,Grinding
+Grind Bar Pull SU-S6,Grinding
+Grind Bar Pull Win-C0,Grinding
+Grind Bar Pull Win-M0,Grinding
+Grind Bar Pull Win-S0,Grinding
+Grind Bar Pull WW-M5,Grinding
+Grind Big Diameter CS-M3,Grinding
+Grind CH-C9,Grinding
+Grind LB-P8,Grinding
+Grind Long Bar CS-C2,Grinding
+Grind Roller Work C2,Grinding
+Grind Roller Work CS,Grinding
+Grind Roller Work SU-S6,Grinding
+Grind Roller Work Win-C0,Grinding
+Grind Roller Work Win-M0,Grinding
+Grind Roller Work Win-S0,Grinding
+Grind Roller Work WW,Grinding
+Grind Small Dia. C2,Grinding
+Grind Small Dia. CS,Grinding
+Grind SV-C7,Grinding
+Grind TGP CH-C9,Grinding
+Grind TGP SV-C7,Grinding
+Grind Twin Grip C2,Grinding
+Heat Stamp SV-C7,Heat Stamp
+Insp Dimensional CH,Inspection
+Insp Dimensional CS,Inspection
+Insp Dimensional SV,Inspection
+Insp Dimensional Win-C0,Inspection
+Insp Dimensional Win-M0,Inspection
+Insp Dimensional Win-S0,Inspection
+Insp Dimensional WW,Inspection
+Insp Visual CS-C2,Inspection
+Insp Visual CS-M3,Inspection
+Insp Visual SV-C7,Inspection
+Insp Visual Win-M0,Inspection
+Insp Visual Win-S0,Inspection
+Insp Visual WW-M5,Inspection
+Insp XRF CS-C2,Inspection
+Insp XRF CS-M3,Inspection
+Insp XRF WW-M5,Inspection
+Inspection SU-S6,Inspection
+Marking Dot Peen WW,Marking
+Marking Line CS-M3,Marking
+Marking Line WW-M5,Marking
+Metal Shear Std SU-S6,Shearing
+Metal Shear Thin SU-S6,Shearing
+Packaging CH-C9,Packaging
+Packaging CS-C2,Packaging
+Packaging CS-M3,Packaging
+Packaging LB-P8,Packaging
+Packaging SU-S6,Packaging
+Packaging SV-C7,Packaging
+Packaging Win-C0,Packaging
+Packaging Win-M0,Packaging
+Packaging Win-S0,Packaging
+Packaging WW-M5,Packaging
+Plate Saw SU-S6,Plate Saw
+Polish SV-C7,Polish
+Shipping CH-C9,Shipping
+Shipping CS-C2,Shipping
+Shipping CS-M3,Shipping
+Shipping LB-P8,Shipping
+Shipping SV-C7,Shipping
+Shipping Win-C0,Shipping
+Shipping Win-M0,Shipping
+Shipping Win-S0,Shipping
+Shipping WW-M5,Shipping
+Straighten CH-C9,Straightening
+Straighten CS-C2,Straightening
+Straighten CS-M3,Straightening
+Straighten LB-P8,Straightening
+Straighten Press SV,Straightening
+Straighten SV-C7,Straightening
+Straighten Win-C0,Straightening
+Straighten Win-M0,Straightening
+Straighten Win-S0,Straightening
+Straighten WW-M5,Straightening
+Straightening SU-S6,Straightening
+Swiss Lathe WW-M5,Swiss Lathe
+Turning CH-C9,Turning
+Turning LB-P8,Turning
+Turning SV-C7,Turning
+UT-1 Testing WW-M5,UT Testing
+UT-2 Testing WW-M5,UT Testing
+WJ-1 Head WJ Cutting,Waterjet
+WJ-1 Head WJ SU-S6,Waterjet
+WJ-2 Head WJ Cutting,Waterjet
+WJ-2 Head WJ Cutting-Win-C0,Waterjet
+WJ-2 Head WJ Cutting-Win-M0,Waterjet
+WJ-2 Head WJ Cutting-Win-S0,Waterjet
+ANN,Annealing
+ANN1,Annealing
+ANN2,Annealing
+APPR,Lab Approval
+APS,Plate Saw
+BAR,Bar Saw
+BAR2,Bar Saw
+BCS,Bar Saw
+BG,Blanchard Grinding
+CH2,Bar Saw
+CH3,Bar Saw
+CH4,Bar Saw
+CHF,Chamfering
+CTS,Contour Saw
+DEB,Deburring
+DIE,Die Stamp
+DMG,Demagnetizing
+EXB,Export Boxing
+EXP,Bar Saw
+EXT,Extrusion Saw
+FANN,Annealing
+FMG,Forming
+GR1,Grinding
+GR2,Grinding
+GR3E,Grinding
+GR3S,Grinding
+HBV,Hand Beveling
+HWK,Goodrich Rohr
+IN01,Inspection
+IN02,Inspection
+IN03,Inspection
+IN18,Inspection
+IN20,Inspection
+IN21,Inspection
+INS,Inspection
+INV,Invoicing
+LAB,Lab
+LAZ,Laser Cutting
+LEV,Leveling
+LIN,Line Marking
+MS0,Straightening
+MS10,Straightening
+MS2,Straightening
+MS3,Straightening
+MS9,Straightening
+OS10,Outside Processing
+OS11,Outside Processing
+OS12,Outside Processing
+OS13,Outside Processing
+OS14,Outside Processing
+OS15,Outside Processing
+OS16,Outside Processing
+OS17,Outside Processing
+OS18,Outside Processing
+OS19,Outside Processing
+OS20,Outside Processing
+OSP1,Outside Processing
+OSP2,Outside Processing
+OSP3,Outside Processing
+OSP4,Outside Processing
+OSP5,Outside Processing
+OSP6,Outside Processing
+OSP7,Outside Processing
+OSP8,Outside Processing
+OSP9,Outside Processing
+PBL,Plate Blasting
+PBL2,Plate Blasting
+PBS,Plate Saw
+PFC,Flame Cutting
+PFL,Plate Flattening
+PKG,Packaging
+PPC,Plasma Cutting
+PRAT,Bar Saw
+PRE,Pre-heat
+PRG,Programming
+PVC,Protective Vinyl Coating
+PVC2,Protective Vinyl Coating
+Q&T,Quench & Temper
+QDT,Quench & Temper
+QT1,Quench & Temper
+QT2,Quench & Temper
+ROTO,RotoTest
+SAW,Bar Saw
+SAW2,Bar Saw
+SHT,Shearing
+SKP,Skip Grinding
+STS,Stress Relieve
+SVFC,Flame Cutting
+SVSC,Bar Saw
+TP1,Turning
+TP2,Turning
+TP3,Turning
+TRP,Trepanning
+USP,U.S. Processing
+UST,UT Testing
+VPR,Vendor Processing
+WJC,Waterjet

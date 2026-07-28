@@ -1,0 +1,52 @@
+﻿op_name,yield_rank_ban,yield_rank_cas
+Annealing,,24
+Bar Saw,3,1
+Blanchard Grinding,,25
+Chamfering,9,9
+Chem Mill,10,
+Contour Saw,,16
+De-burr,13,
+Deburring,,26
+Demagnetizing,,27
+Die Stamp,,23
+Export Boxing,,34
+Extrusion Saw,,7
+Flame Cutting,,3
+Forming,,28
+Goodrich Rohr,,6
+Grinding,1,17
+Hand Beveling,,15
+Heat Stamp,14,
+Inspection,12,35
+Invoicing,,36
+Lab,,37
+Lab Approval,,38
+Laser Cutting,,12
+Leveling,,11
+Line Marking,,39
+Marking,17,
+Outside Processing,,40
+Packaging,18,41
+Plasma Cutting,,10
+Plate Blasting,,18
+Plate Flattening,,19
+Plate Saw,4,2
+Polish,15,
+Pre-heat,,29
+Programming,,42
+Protective Vinyl Coating,,30
+Quench & Temper,,14
+RotoTest,,43
+Shearing,6,5
+Shipping,19,
+Skip Grinding,,13
+Slitting,8,
+Straightening,7,20
+Stress Relieve,,31
+Swiss Lathe,11,
+Trepanning,,21
+Turning,5,8
+U.S. Processing,,32
+UT Testing,16,22
+Vendor Processing,,33
+Waterjet,2,4
