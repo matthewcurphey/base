@@ -72,92 +72,85 @@ daily as (
 ),
 
 /* =====================================================
-   MA QUALIFICATION
-   A day counts toward the 5-day averages if it's a
-   weekday, or if there was real activity (new order or
-   shipment) that day — a quiet weekend doesn't tell us
-   anything about performance, so it's skipped rather than
-   averaged in as a zero. Same qualification drives the
-   backlog average too: a no-activity day means backlog is
-   unchanged from the day before, so it adds no signal either.
+   BUSINESS-DAY FLAG
+   is_business_day = a real weekday that isn't a designated holiday
+   (ref_holidays) — the only thing that determines whether a day gets
+   its own verdict downstream (mart_mcmaster__daily_target_performance)
+   and whether it counts toward the week-average's divisor below. A
+   holiday landing on a weekday is NOT a business day even though
+   is_weekday is still true for it — a real holiday and a lazy Tuesday
+   with zero orders need to read differently, which bare is_weekday
+   can't distinguish.
 ===================================================== */
 
 qualified as (
 
     select
-        *,
-        extract(dow from dt) not in (0, 6)          as is_weekday,
-        (new_orders > 0 or shipped_orders > 0)      as has_activity
-    from daily
+        d.*,
+        extract(dow from d.dt) not in (0, 6)                        as is_weekday,
+        h.holiday_date is not null                                  as is_holiday,
+        extract(dow from d.dt) not in (0, 6) and h.holiday_date is null
+                                                                     as is_business_day
+    from daily d
+    left join {{ ref('ref_holidays') }} h
+        on h.holiday_date = d.dt
 
 ),
 
 /* =====================================================
-   5-DAY AVERAGES OVER QUALIFYING DAYS ONLY
-   Filtering to qualifying rows before windowing means a
-   plain "4 preceding" window only ever sees the compressed
-   qualifying sequence per org — non-qualifying days are
-   skipped, not counted as zero, so the window reaches back
-   further when weekends were quiet.
+   WEEK AVERAGE
+   Trailing 7 CALENDAR days, always — not "the last 5 business days,
+   however far back that reaches." Every day's value (weekday, weekend,
+   holiday, doesn't matter) goes into the numerator sum untouched; only
+   is_business_day days count toward the divisor. This means a lumpy
+   week (e.g. most shipments landing on the one day a week the truck
+   actually leaves) still averages out sensibly — nothing is dropped
+   from the sum, the divisor just narrows on a short week (a holiday in
+   the window drops it to, say, 4 instead of 5).
+
+   Backlog is a level, not a flow — going into a weekend with 2,000
+   open orders is just true, no day-type qualification needed — so its
+   average is a plain mean over the same 7 calendar days, not divided
+   by business-day count.
 ===================================================== */
 
-ma as (
+windowed as (
 
     select
         dt,
         inv_org_code,
-        round(avg(new_orders)
-            over (partition by inv_org_code order by dt rows between 4 preceding and current row), 1)  as new_orders_5d_avg,
-        round(avg(shipped_orders)
-            over (partition by inv_org_code order by dt rows between 4 preceding and current row), 1)  as shipped_orders_5d_avg,
-        round(avg(open_orders)
-            over (partition by inv_org_code order by dt rows between 4 preceding and current row), 1)  as backlog_5d_avg
+        round(
+            sum(new_orders) over w_7d ::numeric
+            / nullif(sum(case when is_business_day then 1 else 0 end) over w_7d, 0)
+        , 1)                                                        as new_orders_week_avg,
+        round(
+            sum(shipped_orders) over w_7d ::numeric
+            / nullif(sum(case when is_business_day then 1 else 0 end) over w_7d, 0)
+        , 1)                                                        as shipped_orders_week_avg,
+        round(
+            avg(open_orders) over w_7d
+        , 1)                                                        as backlog_week_avg
     from qualified
-    where is_weekday or has_activity
-
-),
-
-/* =====================================================
-   CARRY FORWARD OVER NON-QUALIFYING DAYS
-   A non-qualifying day (quiet weekend/holiday) has no row
-   of its own in `ma` above, so a plain equi-join on dt would
-   leave its 5-day averages NULL — same treatment the backlog
-   level itself does NOT get (open_orders is a snapshot that
-   already holds steady over a quiet weekend). The average
-   should behave the same way: unchanged from the last
-   qualifying day, not blank. last_qualifying_dt finds that
-   day per org so the join below can pull the right row.
-===================================================== */
-
-carry as (
-
-    select
-        dt,
-        inv_org_code,
-        max(case when is_weekday or has_activity then dt end)
-            over (partition by inv_org_code order by dt)   as last_qualifying_dt
-    from qualified
+    window w_7d as (partition by inv_org_code order by dt rows between 6 preceding and current row)
 
 )
 
 select
-    d.dt,
-    d.inv_org_code,
-    d.new_orders,
-    d.shipped_orders,
-    d.open_orders,
-    d.is_weekday,
-    d.has_activity,
-    m.new_orders_5d_avg,
-    m.shipped_orders_5d_avg,
-    m.backlog_5d_avg
+    q.dt,
+    q.inv_org_code,
+    q.new_orders,
+    q.shipped_orders,
+    q.open_orders,
+    q.is_weekday,
+    q.is_holiday,
+    q.is_business_day,
+    w.new_orders_week_avg,
+    w.shipped_orders_week_avg,
+    w.backlog_week_avg
 
-from qualified d
-left join carry c
-    on  d.dt           = c.dt
-    and d.inv_org_code = c.inv_org_code
-left join ma m
-    on  c.last_qualifying_dt = m.dt
-    and d.inv_org_code       = m.inv_org_code
+from qualified q
+left join windowed w
+    on  w.dt           = q.dt
+    and w.inv_org_code = q.inv_org_code
 
-order by d.dt, d.inv_org_code
+order by q.dt, q.inv_org_code

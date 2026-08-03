@@ -36,7 +36,7 @@ LIVE_VIEW_CELL = "M1"
 TREND_ANCHOR = "A3"
 TREND_RANGE = (1, 10, 3, 29)          # min_col, max_col, min_row, max_row
 STATUS_CHART_ANCHOR = "M3"
-STATUS_CHART_RANGE = (13, 22, 3, 19)
+STATUS_CHART_RANGE = (13, 18, 3, 19)
 SEVEN_DAY_DOW_ROW = 31
 SEVEN_DAY_HEADER_ROW = 32
 SEVEN_DAY_FIRST_DATA_ROW = 33
@@ -197,9 +197,9 @@ def build_7day_activity_table(backlog_daily_df):
     One 3-row block per sphere org (backlog/new/shipped) plus a Total block,
     each showing the 7 raw daily values (fixed calendar window, weekends
     included as-is — no smoothing, "what actually happened") and the
-    current 5-day MA pulled straight from the mart's own _5d_avg columns,
-    not recalculated. Total's MA is the sum of the 6 orgs' MAs — the mart
-    has no company-wide MA row of its own to pull from.
+    current week average pulled straight from the mart's own _week_avg
+    columns, not recalculated. Total's average is the sum of the 6 orgs'
+    averages — the mart has no company-wide row of its own to pull from.
 
     Returns (dates, rows) where rows is a list of
     (org_label, metric_label, [7 daily values], ma_value).
@@ -212,9 +212,9 @@ def build_7day_activity_table(backlog_daily_df):
     ]
 
     metrics = [
-        ("backlog", "open_orders", "backlog_5d_avg"),
-        ("new", "new_orders", "new_orders_5d_avg"),
-        ("shipped", "shipped_orders", "shipped_orders_5d_avg"),
+        ("backlog", "open_orders", "backlog_week_avg"),
+        ("new", "new_orders", "new_orders_week_avg"),
+        ("shipped", "shipped_orders", "shipped_orders_week_avg"),
     ]
 
     rows = []

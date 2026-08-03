@@ -112,6 +112,15 @@ seeds:
           month: integer
           output: float
           worked_total_hrs: float
+      ref_mcmaster_daily_targets:
+        +column_types:
+          inv_org_code: text
+          target_lines_per_day: integer
+          effective_from: date
+      ref_holidays:
+        +column_types:
+          holiday_date: date
+          holiday_name: text
 
 
 

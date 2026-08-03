@@ -8,9 +8,10 @@ select
     shipped_orders,
     open_orders,
     is_weekday,
-    has_activity,
-    new_orders_5d_avg,
-    shipped_orders_5d_avg,
-    backlog_5d_avg
+    is_holiday,
+    is_business_day,
+    new_orders_week_avg,
+    shipped_orders_week_avg,
+    backlog_week_avg
 
 from {{ ref('int_castle__mcmaster_metric_backlog_daily') }}

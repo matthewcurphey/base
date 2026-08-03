@@ -21,6 +21,7 @@ etl/data_raw/
 *.log
 *.tmp
 *.bak
+~$*.xlsx
 
 # Power BI
 *.pbix

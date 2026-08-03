@@ -33,3 +33,9 @@ seeds:
 
   - name: banner_productivity_results
     description: "Taking Rocky's Banner productivity results for now, until we can build out the pipeline."
+
+  - name: ref_mcmaster_daily_targets
+    description: "Daily shipped-lines target per org for the McMaster target-performance tab (Chris Roeder, EVP Supply Chain & Ops, 2026-07-28). effective_from supports a target changing later without touching history — for a given org/date, the applicable target is the row with the latest effective_from <= that date. An org with no row (e.g. DAL, pending) simply has no target yet, not a target of zero."
+
+  - name: ref_holidays
+    description: "Dates treated as non-business days for target/verdict and week-average purposes across McMaster reporting, distinct from a plain zero-activity weekday (a holiday isn't 'no one tried,' a quiet Tuesday is). Currently just Christmas Day and New Year's Day as placeholders (2026-07-28) — the full observed-holiday list per branch is still pending from the business; extend this seed once that's available."

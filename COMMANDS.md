@@ -98,6 +98,11 @@ Saves the result to:
 
 No arguments — always reflects the current state of the underlying marts.
 
+Two further marts, `mart_mcmaster__material_availability_daily` (append-only daily
+snapshot log, order age vs. lead time) and `mart_mcmaster__daily_target_performance`
+(target vs. actual, variance/pct-to-target) exist for Chris Roeder's daily-target ask
+but aren't pasted into a tab here yet — no Excel tab built for them.
+
 ---
 
 ## McMaster — Email
