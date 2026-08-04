@@ -36,9 +36,17 @@ def run_yield_output():
     # a normal `from reports.yield...` statement — importlib works fine
     # since it resolves the dotted path from a string, not parsed syntax.
     import importlib
-    yield_output = importlib.import_module("reports.yield.yield_output").yield_output
+    yield_module = importlib.import_module("reports.yield.yield_output")
     print("Generating yield loss export...")
-    yield_output()
+    yield_module.yield_output()
+    print("Generating yield mart output export...")
+    yield_module.yield_mart_output()
+
+
+def run_earnedhrs_by_week_output():
+    from reports.productivity.earnedhrs_by_week_output import earnedhrs_by_week_output
+    print("Generating earned hours by week export...")
+    earnedhrs_by_week_output()
 
 
 def run_mcmaster_output():
@@ -82,6 +90,10 @@ if __name__ == "__main__":
     elif task == "yield-output":
         # Usage: python run.py yield-output
         run_yield_output()
+
+    elif task == "earnedhrs-by-week-output":
+        # Usage: python run.py earnedhrs-by-week-output
+        run_earnedhrs_by_week_output()
 
     elif task == "mcmaster-output":
         # Usage: python run.py mcmaster-output

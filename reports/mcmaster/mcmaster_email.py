@@ -3,6 +3,8 @@ from datetime import date
 
 import win32com.client as win32
 
+from reports.mcmaster.mcmaster_output import ARCHIVE_DIR
+
 TO_RECIPIENTS = "; ".join([
     "hgarcia@amcastle.com",
     "shage@amcastle.com",
@@ -23,6 +25,8 @@ TO_RECIPIENTS = "; ".join([
     "jgerman@amcastle.com",
     "jbates@amcastle.com",
     "ACaponi@amcastle.com",
+    "brosser@amcastle.com",
+    "whawthor@amcastle.com",
 ])
 
 CC_RECIPIENTS = "; ".join([
@@ -39,6 +43,15 @@ SHAREPOINT_LINK = "https://amcastle.sharepoint.com/:x:/s/Analytics_ETL/IQDTz5ZPO
 
 TREND_CHART_PATH = os.path.join("reports", "mcmaster", "backlog_trend.png")
 STATUS_CHART_PATH = os.path.join("reports", "mcmaster", "status_chart.png")
+
+
+def _todays_archive_path():
+    """
+    Same dated filename mcmaster_output() writes to ARCHIVE_DIR for this
+    run — attaching that copy (not the plain mcmaster_report.xlsx) means the
+    file attached to the email always carries the date it was sent.
+    """
+    return os.path.join(ARCHIVE_DIR, f"mcmaster_report_{date.today():%Y_%m_%d}.xlsx")
 
 # MAPI property tag used to give an attachment a Content-ID so it can be
 # referenced inline via cid: in the HTML body instead of showing as a
@@ -68,6 +81,12 @@ def mcmaster_email(send_or_show: str = "show"):
     for path, cid in [(TREND_CHART_PATH, "mcmaster_trend_chart"), (STATUS_CHART_PATH, "mcmaster_status_chart")]:
         attachment = mail.Attachments.Add(Source=os.path.abspath(path))
         attachment.PropertyAccessor.SetProperty(PR_ATTACH_CONTENT_ID, cid)
+
+    archive_path = _todays_archive_path()
+    if os.path.exists(archive_path):
+        mail.Attachments.Add(Source=os.path.abspath(archive_path))
+    else:
+        print(f"Warning: today's archive copy not found ({archive_path}) — run mcmaster-output first. Email will go out without the Excel attachment.")
 
     if send_or_show == "send":
         mail.Send()

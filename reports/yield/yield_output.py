@@ -6,35 +6,49 @@ import pandas as pd
 
 from etl.utils.connect_postgres import get_postgres_connection
 
-MART = "mart_yield_siteopdate"
-
-OUTPUT_PATH = os.path.join("reports", "yield", f"{MART}.csv")
 ARCHIVE_DIR = os.path.join("reports", "yield", "archive")
-SHAREPOINT_DIR = r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\yield"
+
+
+def _export_mart(mart: str, sharepoint_dir: str):
+    """
+    Export a yield mart as-is (no filtering) to CSV, copy it to SharePoint,
+    and archive a dated copy. Shared save-local / copy-to-SharePoint /
+    dated-archive pattern already used for the McMaster report.
+    """
+    engine = get_postgres_connection()
+    df = pd.read_sql(f"SELECT * FROM analytics_marts.{mart}", engine)
+    engine.dispose()
+
+    output_path = os.path.join("reports", "yield", f"{mart}.csv")
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    # utf-8-sig adds a BOM so Excel recognizes the file as UTF-8 instead of
+    # defaulting to Windows-1252, which mangles the op_ids/op_names arrows
+    # (' → ') into 'â†’'.
+    df.to_csv(output_path, index=False, encoding="utf-8-sig")
+    print(f"Report written: {output_path} ({len(df)} rows)")
+
+    os.makedirs(sharepoint_dir, exist_ok=True)
+    shutil.copy2(output_path, os.path.join(sharepoint_dir, f"{mart}.csv"))
+    print(f"Copied to SharePoint: {sharepoint_dir}")
+
+    os.makedirs(ARCHIVE_DIR, exist_ok=True)
+    dated_name = f"{mart}_{date.today():%Y_%m_%d}.csv"
+    archive_path = os.path.join(ARCHIVE_DIR, dated_name)
+    shutil.copy2(output_path, archive_path)
+    print(f"Archived: {archive_path}")
 
 
 def yield_output():
-    """
-    Export mart_yield_siteopdate as-is (no filtering) to CSV — the source
-    file the Yield Loss Power BI dataset refreshes from. Replaces the
-    manual "export from Postgres, drop it in SharePoint" step with the
-    same save-local / copy-to-SharePoint / dated-archive pattern already
-    used for the McMaster report.
-    """
-    engine = get_postgres_connection()
-    df = pd.read_sql(f"SELECT * FROM analytics_marts.{MART}", engine)
-    engine.dispose()
+    """Export mart_yield_siteopdate — the source file the Yield Loss Power BI dataset refreshes from."""
+    _export_mart(
+        "mart_yield_siteopdate",
+        r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\etl_dumps",
+    )
 
-    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
-    df.to_csv(OUTPUT_PATH, index=False)
-    print(f"Report written: {OUTPUT_PATH} ({len(df)} rows)")
 
-    os.makedirs(SHAREPOINT_DIR, exist_ok=True)
-    shutil.copy2(OUTPUT_PATH, os.path.join(SHAREPOINT_DIR, f"{MART}.csv"))
-    print(f"Copied to SharePoint: {SHAREPOINT_DIR}")
-
-    os.makedirs(ARCHIVE_DIR, exist_ok=True)
-    dated_name = f"{MART}_{date.today():%Y_%m_%d}.csv"
-    archive_path = os.path.join(ARCHIVE_DIR, dated_name)
-    shutil.copy2(OUTPUT_PATH, archive_path)
-    print(f"Archived: {archive_path}")
+def yield_mart_output():
+    """Export mart_yield_output — the trimmed job-level mart, dropped in yield's old SharePoint slot."""
+    _export_mart(
+        "mart_yield_output",
+        r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\yield",
+    )

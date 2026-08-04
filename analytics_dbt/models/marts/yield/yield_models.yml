@@ -5,3 +5,5 @@ models:
     description: "union all castle and banner yield at job levels - feeds other yield marts"
   - name: mart_yield_siteopdate
     description: "aggregate the yield job mart into site x op x date grain"
+  - name: mart_yield_output
+    description: "temp/simplified pass-through of mart_yield_job with a trimmed column set - does not aggregate, so values match mart_yield_job exactly"
