@@ -12,8 +12,18 @@ matplotlib==3.9.0
 python-dotenv==1.1.1
 requests==2.32.3
 
-# Windows-only: Outlook email automation (reports/*/*_email.py) —
-# this project only runs on Windows today.
+# Browser automation for OBIEE report downloads (etl/extract/castle/obiee_download.py)
+playwright==1.55.0
+
+# Windows UI Automation for the Banner/Fabric Lakehouse sign-in popup
+# (etl/utils/lakehouse_auth.py) — pyodbc's ActiveDirectoryInteractive auth
+# spawns a native popup that Playwright can't attach to.
+pywinauto==0.6.9
+comtypes==1.4.16
+
+# Windows-only: Outlook automation — sending (reports/*/*_email.py) and
+# reading (etl/extract/oracle/oracle_download.py, via win32com) — this
+# project only runs on Windows today.
 pywin32==306
 
 # dbt — invoked as a CLI (`dbt run`/`dbt seed`), not imported in Python,

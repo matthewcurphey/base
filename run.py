@@ -1,4 +1,15 @@
-from pipelines.run_all_ingest import run_all_ingestions
+from pipelines.run_all_ingest import (
+    run_all_ingestions,
+    run_castle_obiee_download,
+    run_all_castle_ingestions,
+    run_all_banner_ingestions,
+    run_sharepoint_download,
+    run_all_sharepoint_ingestions,
+    run_oracle_download,
+    run_all_oracle_ingestions,
+)
+from pipelines.run_dbt import run_dbt
+from pipelines.run_daily import run_daily_core, run_daily_mcmaster
 # from etl.output.overship_daily_dashboard import overship_daily_dashboard
 import sys
 
@@ -62,10 +73,56 @@ def run_mcmaster_email(send_or_show: str = "show"):
 
 
 if __name__ == "__main__":
-    task = sys.argv[1] if len(sys.argv) > 1 else "daily"
+    if len(sys.argv) < 2:
+        print("Usage: python run.py <task> [args...]  (see COMMANDS.md)")
+        sys.exit(1)
+    task = sys.argv[1]
 
     if task == "ingest":
         run_all_ingestions()
+
+    elif task == "castle-obiee-download":
+        # Usage: python run.py castle-obiee-download
+        run_castle_obiee_download()
+
+    elif task == "castle-ingest":
+        # Usage: python run.py castle-ingest
+        run_all_castle_ingestions()
+
+    elif task == "banner-ingest":
+        # Usage: python run.py banner-ingest
+        run_all_banner_ingestions()
+
+    elif task == "sharepoint-download":
+        # Usage: python run.py sharepoint-download
+        run_sharepoint_download()
+
+    elif task == "sharepoint-ingest":
+        # Usage: python run.py sharepoint-ingest
+        run_all_sharepoint_ingestions()
+
+    elif task == "oracle-download":
+        # Usage: python run.py oracle-download
+        run_oracle_download()
+
+    elif task == "oracle-ingest":
+        # Usage: python run.py oracle-ingest
+        run_all_oracle_ingestions()
+
+    elif task == "dbt-run":
+        # Usage: python run.py dbt-run
+        run_dbt()
+
+    elif task == "daily-core":
+        # Usage: python run.py daily-core
+        # Always run daily: Banner ingest + Castle (OBIEE download + ingest).
+        run_daily_core()
+
+    elif task == "daily-mcmaster":
+        # Usage: python run.py daily-mcmaster
+        # Currently daily, tied to the McMaster report: SharePoint, Oracle,
+        # dbt, then the report + email (show).
+        run_daily_mcmaster()
 
     elif task == "outputs":
         run_outputs()
@@ -106,8 +163,4 @@ if __name__ == "__main__":
 
     else:
         print(f"❌ Unknown task: {task}")
-
-
-
-
 

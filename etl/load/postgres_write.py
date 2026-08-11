@@ -79,6 +79,22 @@ def write_postgres_table(df, table, schema, if_exists="replace", dtype=None):
         try:
             with engine.begin() as conn:
                 conn.execute(sqlalchemy.text(f'TRUNCATE TABLE {full_table};'))
+
+                # Source columns can change between runs (e.g. a new field
+                # in an upstream spreadsheet). TRUNCATE keeps the existing
+                # schema as-is, so add any columns the table is missing
+                # before inserting, or the insert fails on the new column.
+                existing_cols = {
+                    row[0] for row in conn.execute(sqlalchemy.text(
+                        "SELECT column_name FROM information_schema.columns "
+                        "WHERE table_schema = :schema AND table_name = :table"
+                    ), {"schema": schema, "table": table})
+                }
+                for col in df.columns:
+                    if col not in existing_cols:
+                        conn.execute(sqlalchemy.text(
+                            f'ALTER TABLE {full_table} ADD COLUMN "{col}" TEXT;'
+                        ))
             if_exists = "append"
         except sqlalchemy.exc.ProgrammingError:
             # Table doesn't exist yet — let to_sql create it

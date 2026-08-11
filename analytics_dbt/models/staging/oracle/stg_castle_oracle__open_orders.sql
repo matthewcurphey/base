@@ -88,7 +88,15 @@ staged as (
         nullif(cogs, '')::numeric(18,4)                                as cogs,
         nullif(sales_usd, '')::numeric(18,4)                           as sales_usd,
         nullif(gross_margin, '')::numeric(18,4)                        as gross_margin,
-        nullif(margin_pct, '')::numeric(10,4)                          as margin_pct,
+
+        -- margin_pct = gross_margin / sales_usd * 100 upstream in Oracle.
+        -- When sales_usd rounds to ~0, that ratio blows up into a meaningless
+        -- multi-million-percent value (and overflows numeric(10,4)), so null
+        -- it out rather than storing a nonsensical spike.
+        case
+            when abs(nullif(sales_usd, '')::numeric) < 0.01 then null
+            else nullif(margin_pct, '')::numeric(10,4)
+        end                                                             as margin_pct,
 
         /* =======================
            OTHER

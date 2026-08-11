@@ -23,6 +23,13 @@ etl/data_raw/
 *.bak
 ~$*.xlsx
 
+# Persistent browser profile for SharePoint download automation — holds
+# session cookies, not something to version control.
+etl/extract/sharepoint/.browser_profile/
+
+# Failure screenshots from browser-automation download scripts (OBIEE, SharePoint)
+etl/extract/**/*_debug/
+
 # Power BI
 *.pbix
 

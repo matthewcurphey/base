@@ -6,6 +6,7 @@ import pandas as pd
 from etl.utils.connect_postgres import get_postgres_connection
 
 SHAREPOINT_DIR = r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\productivity"
+ONEDRIVE_DIR = r"C:\Users\mcurphey\OneDrive - A. M. Castle & Co\Operations - Documents\Reporting\Productivity\Earned Hours by Week"
 
 
 def earnedhrs_by_week_output():
@@ -13,7 +14,8 @@ def earnedhrs_by_week_output():
     engine = get_postgres_connection()
     df = pd.read_sql(
         "SELECT * FROM analytics_intermediate.int_castle__productivity_01_earnedhrs_by_week "
-        "ORDER BY week_commencing_date, org, operation_code",
+        "WHERE week_commencing_date >= '2024-01-01' "
+        "ORDER BY week_commencing_date DESC, org, operation_code",
         engine,
     )
     engine.dispose()
@@ -38,3 +40,7 @@ def earnedhrs_by_week_output():
     os.makedirs(SHAREPOINT_DIR, exist_ok=True)
     shutil.copy2(output_path, os.path.join(SHAREPOINT_DIR, "earnedhrs_by_week.xlsx"))
     print(f"Copied to SharePoint: {SHAREPOINT_DIR}")
+
+    os.makedirs(ONEDRIVE_DIR, exist_ok=True)
+    shutil.copy2(output_path, os.path.join(ONEDRIVE_DIR, "earnedhrs_by_week.xlsx"))
+    print(f"Copied to OneDrive: {ONEDRIVE_DIR}")

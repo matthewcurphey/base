@@ -1,4 +1,5 @@
 import os
+import shutil
 import pandas as pd
 from etl.utils.connect_postgres import get_postgres_connection
 from reports.productivity.branch_config import BRANCHES
@@ -6,6 +7,8 @@ from reports.productivity.branch_config import BRANCHES
 
 DEFAULT_ORGS = ('ASC','ATL','CLE','DAL','ENA','ENT','HAI','JVL','LOS','MCH','MTY','MXM','MXQ','SGP','STO','TOR','WIE')
 #DEFAULT_ORGS = ('ASC','ATL','CLE','DAL','ENA','ENT','HAI','JVL','LOS','MCH','MTY','MXM','MXQ','SGP','STO','TOR','WIE')
+
+ONEDRIVE_DIR = r"C:\Users\mcurphey\OneDrive - A. M. Castle & Co\Operations - Documents\Reporting\Productivity\Productivity Incentive Payouts"
 
 
 def productivity_output(output_year: int, output_month: int, orgs: tuple = DEFAULT_ORGS):
@@ -67,6 +70,9 @@ def productivity_output(output_year: int, output_month: int, orgs: tuple = DEFAU
     save_dir = os.path.join("reports", "productivity", "results", str(output_year), f"{output_month:02d}")
     os.makedirs(save_dir, exist_ok=True)
 
+    onedrive_dir = os.path.join(ONEDRIVE_DIR, str(output_year), f"{output_month:02d}")
+    os.makedirs(onedrive_dir, exist_ok=True)
+
     master_path = os.path.join(save_dir, f"productivity_incentive_{output_year}_{output_month:02d}.xlsx")
 
     with pd.ExcelWriter(master_path, engine="xlsxwriter") as writer:
@@ -90,6 +96,8 @@ def productivity_output(output_year: int, output_month: int, orgs: tuple = DEFAU
         apply_col_formats(month_employee_df.sort_values(["country", "org"]).drop(columns=["uom"], errors="ignore"), "employee_payouts")
 
     print(f"Master file written: {master_path}")
+
+    shutil.copy2(master_path, os.path.join(onedrive_dir, os.path.basename(master_path)))
 
     # ------------------------------------------------------------------
     # 5. Per-branch files
@@ -183,6 +191,9 @@ def productivity_output(output_year: int, output_month: int, orgs: tuple = DEFAU
             ws.set_column(13, 13, 12, fmt_number2) # comp_complete_lbs
             ws.set_column(14, 14, 12, fmt_number2) # earned_hrs
 
+        shutil.copy2(file_path, os.path.join(onedrive_dir, os.path.basename(file_path)))
+
         print(f"  {org} written: {file_path}")
 
     print(f"\nAll files written to {save_dir}")
+    print(f"Copied to OneDrive: {onedrive_dir}")

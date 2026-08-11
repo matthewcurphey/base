@@ -54,6 +54,14 @@ def run_all_banner_ingestions():
 
     print("All Banner ingestion jobs completed successfully!")
 
+from etl.extract.castle.obiee_download import download_all_obiee_reports
+
+def run_castle_obiee_download():
+    print("Starting Castle OBIEE download...")
+    result = download_all_obiee_reports()
+    print("Castle OBIEE download completed successfully!")
+    return result
+
 from etl.jobs.castle.castle_sales_ingest import ingest_castle_sales
 from etl.jobs.castle.castle_dj_ingest import ingest_castle_dj
 from etl.jobs.castle.castle_ppsrcvshp_ingest import ingest_castle_ppsrcvshp
@@ -111,6 +119,14 @@ def run_all_other_ingestions():
     ingest_fxrates()
     print("FX Rates done.")
 
+from etl.extract.oracle.oracle_download import download_oracle_reports
+
+def run_oracle_download():
+    print("Starting Oracle report download...")
+    result = download_oracle_reports()
+    print("Oracle report download completed successfully!")
+    return result
+
 from etl.jobs.oracle.oracle_inventory_ingest import ingest_castle_oracle_inventory
 from etl.jobs.oracle.oracle_open_orders_ingest import ingest_castle_oracle_open_orders
 
@@ -139,6 +155,14 @@ def run_all_oracle_di_ingestions():
 
     print("Oracle DI ingestion completed successfully!")
 
+from etl.extract.sharepoint.sharepoint_download import download_open_orders
+
+def run_sharepoint_download():
+    print("Starting SharePoint download...")
+    result = download_open_orders()
+    print("SharePoint download completed successfully!")
+    return result
+
 from etl.jobs.sharepoint.sharepoint_cx_ingest import ingest_cx_orders
 def run_all_sharepoint_ingestions():
     print("Starting SharePoint ingestion pipeline...")
@@ -161,7 +185,7 @@ def run_all_hr_ingestions():
 
 def run_all_ingestions():
     #run_all_banner_ingestions()
-    run_all_castle_ingestions()
+    #run_all_castle_ingestions()
     #run_all_vorne_ingestions()
     #run_all_other_ingestions()
     #run_all_hr_ingestions()

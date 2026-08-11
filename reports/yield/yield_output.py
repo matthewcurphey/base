@@ -9,14 +9,18 @@ from etl.utils.connect_postgres import get_postgres_connection
 ARCHIVE_DIR = os.path.join("reports", "yield", "archive")
 
 
-def _export_mart(mart: str, sharepoint_dir: str):
+def _export_mart(mart: str, sharepoint_dir: str, where: str = None):
     """
-    Export a yield mart as-is (no filtering) to CSV, copy it to SharePoint,
-    and archive a dated copy. Shared save-local / copy-to-SharePoint /
-    dated-archive pattern already used for the McMaster report.
+    Export a yield mart to CSV, copy it to SharePoint, and archive a dated
+    copy. Shared save-local / copy-to-SharePoint / dated-archive pattern
+    already used for the McMaster report. Pass `where` to filter rows
+    (e.g. limit to a single day); omit it to export the mart as-is.
     """
     engine = get_postgres_connection()
-    df = pd.read_sql(f"SELECT * FROM analytics_marts.{mart}", engine)
+    query = f"SELECT * FROM analytics_marts.{mart}"
+    if where:
+        query += f" WHERE {where}"
+    df = pd.read_sql(query, engine)
     engine.dispose()
 
     output_path = os.path.join("reports", "yield", f"{mart}.csv")
@@ -47,8 +51,12 @@ def yield_output():
 
 
 def yield_mart_output():
-    """Export mart_yield_output — the trimmed job-level mart, dropped in yield's old SharePoint slot."""
+    """Export mart_yield_output — the trimmed job-level mart, dropped in yield's old SharePoint slot.
+
+    Limited to yesterday's completed jobs (complete_date = current_date - 1).
+    """
     _export_mart(
         "mart_yield_output",
         r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\yield",
+        where="complete_date = current_date - 1",
     )

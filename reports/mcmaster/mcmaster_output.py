@@ -23,6 +23,8 @@ TEMPLATE_PATH = os.path.join("reports", "mcmaster", "mcmaster_template.xlsx")
 OUTPUT_PATH = os.path.join("reports", "mcmaster", "mcmaster_report.xlsx")
 ARCHIVE_DIR = os.path.join("reports", "mcmaster", "archive")
 SHAREPOINT_DIR = r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\mcmaster"
+ONEDRIVE_DIR = r"C:\Users\mcurphey\OneDrive - A. M. Castle & Co\Operations - Documents\Reporting\McMaster"
+ONEDRIVE_ARCHIVE_DIR = os.path.join(ONEDRIVE_DIR, "archive")
 
 # ----------------------------------------------------------------------
 # Summary sheet — fixed layout of the live template's summary tab
@@ -46,6 +48,7 @@ STATUS_PIVOT_COL = 13                 # M
 STATUS_PIVOT_USD_HEADER_ROW = 31      # a few rows below the counts pivot's Total row (28)
 
 CHART_PATH = os.path.join("reports", "mcmaster", "backlog_trend.png")
+STATUS_CHART_PATH = os.path.join("reports", "mcmaster", "status_chart.png")
 
 # McMaster's 6-org sphere — consistent with every other mcmaster model/mart.
 # CHA/PHI/STO have had zero McMaster activity for 7+ months (not dormant this
@@ -310,7 +313,7 @@ def _copy_status_pivot_style(ws, pivot, src_header_row, dst_header_row, col, num
             dst_cell.number_format = src_cell.number_format if (is_label_col or is_header_row) else number_format
 
 
-def build_status_chart(backlog_status_df, output_path=None, figsize=(9.6, 4.8), dpi=200):
+def build_status_chart(backlog_status_df, output_path=STATUS_CHART_PATH, figsize=(9.6, 4.8), dpi=200):
     """
     Company-wide (no org breakdown) waterfall: a grey Total Backlog bar,
     then each pipeline stage below it as a horizontal bar offset by the
@@ -321,9 +324,6 @@ def build_status_chart(backlog_status_df, output_path=None, figsize=(9.6, 4.8), 
     up yourself. Stage order matches the summary pivot tables (STATUS_ORDER,
     "No Material" last, since it's the exception bucket, not the lead stage).
     """
-    if output_path is None:
-        output_path = os.path.join("reports", "mcmaster", "status_chart.png")
-
     totals = backlog_status_df.groupby("mcm_status")["line_count"].sum()
     totals = totals.reindex([s for s in STATUS_ORDER if s in totals.index])
     grand_total = totals.sum()
@@ -790,3 +790,13 @@ def mcmaster_output():
     archive_path = os.path.join(ARCHIVE_DIR, dated_name)
     shutil.copy2(OUTPUT_PATH, archive_path)
     print(f"Archived: {archive_path}")
+
+    os.makedirs(ONEDRIVE_DIR, exist_ok=True)
+    shutil.copy2(OUTPUT_PATH, os.path.join(ONEDRIVE_DIR, "mcmaster_report.xlsx"))
+    shutil.copy2(CHART_PATH, os.path.join(ONEDRIVE_DIR, "backlog_trend.png"))
+    shutil.copy2(STATUS_CHART_PATH, os.path.join(ONEDRIVE_DIR, "status_chart.png"))
+    print(f"Copied to OneDrive: {ONEDRIVE_DIR}")
+
+    os.makedirs(ONEDRIVE_ARCHIVE_DIR, exist_ok=True)
+    shutil.copy2(OUTPUT_PATH, os.path.join(ONEDRIVE_ARCHIVE_DIR, dated_name))
+    print(f"Archived to OneDrive: {os.path.join(ONEDRIVE_ARCHIVE_DIR, dated_name)}")
