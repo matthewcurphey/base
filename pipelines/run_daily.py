@@ -63,17 +63,19 @@ def run_daily_mcmaster():
     _confirm("SharePoint ingest ran")
 
     oracle_result = run_oracle_download()
+    target_hour = oracle_result["target_hour"]
     orgs = oracle_result["orgs"]
     open_orders = oracle_result["open_orders"]
+    print(f"[Oracle target hour: {target_hour}]")
     for org, info in sorted(orgs.items()):
-        _confirm(f"Oracle {org} inventory", f"report received {info['received']}")
+        _confirm(f"Oracle {org} inventory", f"received {info['received']}")
     missing = {"CLE", "DAL", "LOS", "JVL", "WIE", "ATL"} - set(orgs)
     if missing:
-        print(f"[MISSING] Oracle inventory not found for: {sorted(missing)}")
+        print(f"[MISSING] Oracle inventory not found for {sorted(missing)} within target hour {target_hour}")
     if open_orders:
-        _confirm("Oracle open orders", f"report received {open_orders['received']}")
+        _confirm("Oracle open orders", f"received {open_orders['received']}")
     else:
-        print("[MISSING] Oracle open orders report not found")
+        print(f"[MISSING] Oracle open orders not found within target hour {target_hour}")
 
     run_all_oracle_ingestions()
     _confirm("Oracle ingest ran")
@@ -92,6 +94,17 @@ def run_daily_mcmaster():
     print("=== Daily McMaster: completed ===")
 
 
+def run_daily_all():
+    """
+    Both sequences back to back, in one call — for manually running the
+    whole current daily workstream before this is on Task Scheduler.
+    Same two functions Task Scheduler will end up calling separately; this
+    is purely a manual-run convenience, not a third scheduled task.
+    """
+    run_daily_core()
+    run_daily_mcmaster()
+
+
 if __name__ == "__main__":
     import sys
     task = sys.argv[1] if len(sys.argv) > 1 else None
@@ -99,5 +112,7 @@ if __name__ == "__main__":
         run_daily_core()
     elif task == "mcmaster":
         run_daily_mcmaster()
+    elif task == "all":
+        run_daily_all()
     else:
         print("Usage: python -m pipelines.run_daily [core|mcmaster]")

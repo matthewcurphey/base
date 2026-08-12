@@ -9,7 +9,7 @@ from pipelines.run_all_ingest import (
     run_all_oracle_ingestions,
 )
 from pipelines.run_dbt import run_dbt
-from pipelines.run_daily import run_daily_core, run_daily_mcmaster
+from pipelines.run_daily import run_daily_core, run_daily_mcmaster, run_daily_all
 # from etl.output.overship_daily_dashboard import overship_daily_dashboard
 import sys
 
@@ -123,6 +123,13 @@ if __name__ == "__main__":
         # Currently daily, tied to the McMaster report: SharePoint, Oracle,
         # dbt, then the report + email (show).
         run_daily_mcmaster()
+
+    elif task == "daily-all":
+        # Usage: python run.py daily-all
+        # Manual convenience — daily-core then daily-mcmaster back to back,
+        # for running the whole current workstream by hand before this is
+        # on Task Scheduler (which calls the two separately).
+        run_daily_all()
 
     elif task == "outputs":
         run_outputs()

@@ -23,6 +23,10 @@ McMaster's future is genuinely undecided ("could go away, could stay, it's its
 own thing"), so it should be independently disable/reschedule-able without
 touching core ingest.
 
+| Run | Does |
+|-----|------|
+| `python run.py daily-all` | Manual convenience only — `daily-core` then `daily-mcmaster` back to back, for running the whole current workstream by hand. Not a third scheduled task. |
+
 ### Daily — individual pieces (for manual re-runs / debugging)
 
 Everything below is also called automatically by the two commands above — these
@@ -108,6 +112,20 @@ change if McMaster's setup changes — see `pipelines/run_daily.py`'s docstring)
 SharePoint download + ingest, Oracle download + ingest, `dbt run`, then McMaster
 output and email (`show`, not `send` — you still review before sending). Defined
 as `run_daily_mcmaster()`. No arguments.
+
+---
+
+## Daily — All
+
+```
+python run.py daily-all
+```
+
+Manual convenience only: `daily-core` then `daily-mcmaster` back to back, for
+running the whole current daily workstream by hand before/without Task
+Scheduler. Defined as `run_daily_all()` in `pipelines/run_daily.py` — Task
+Scheduler calls the two sequences separately (see above), not this. No
+arguments.
 
 ---
 
@@ -229,13 +247,20 @@ Each link is one-time-use though (a second fetch of the same URL fails), so a
 report is only ever fetched once per run.
 
 Org is detected by reading column 9 of the inventory file (a city name, consistent
-across every row) and mapping it via `CITY_TO_ORG` in `config/oracle.py`. "Latest
-complete set" means each org's own most recent report, independent of which hourly
-batch it arrived in — a delayed org from an earlier hour is fine to mix with a
-newer hour's other orgs.
+across every row) and mapping it via `CITY_TO_ORG` in `config/oracle.py`.
+
+**Strictly same-hour batch, no cross-hour fallback**: the target hour is whichever
+hour the single most recent report email falls in — every report (all 6 orgs +
+open orders) must come from that same hour or it's reported `[MISSING]`, never
+silently substituted with an older hour's report. If a link within the target hour
+turns out already-consumed (already fetched by an earlier run, or manually clicked
+in Outlook), that specific report is reported missing rather than falling back —
+deliberate, so a stale-but-present file is never mistaken for this hour's real data.
 
 Saves to `etl/data_raw/oracle/`: `Inventory_<ORG>.txt` ×6 and
-`AMC_Open_Orders_Report.xls` (all overwrite). No arguments.
+`AMC_Open_Orders_Report.xls` (only the ones actually found this hour — a missing
+report's existing file from a previous run is left untouched, not overwritten with
+garbage). No arguments.
 
 ---
 

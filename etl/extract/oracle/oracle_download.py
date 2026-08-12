@@ -13,14 +13,16 @@ Review" endpoint) needs no login and is fetched with a plain HTTP request,
 no Playwright involved. Each link is one-time-use though: a second fetch
 of the same URL fails, so a report is only ever fetched once per run.
 
-"Latest complete set" means: for the open orders report, the single most
-recent one; for inventory, each org's own most recent report, independent
-of which hourly batch it happened to arrive in (a delayed/retried org
-report from an earlier hour is fine to mix with a newer hour's other
-orgs — this deliberately doesn't require all 6 to share the same batch).
+Strictly same-hour batch, no cross-hour fallback: the target hour is
+whichever hour the single most recent report email falls in, and every
+report (all 6 orgs + open orders) must come from that same hour or it's
+reported missing — never silently substituted with an older hour's report.
+This is intentional even though it means a report that hasn't arrived yet,
+or whose link got consumed some other way, shows up as missing rather than
+getting backfilled.
 """
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import requests
 import win32com.client
@@ -30,10 +32,10 @@ from config.paths import ORACLE_RAW_DIR
 
 MANIFEST_PATH = os.path.join(ORACLE_RAW_DIR, "_download_manifest.txt")
 
-# Safety cap on how many inventory-report links we're willing to fetch (and
-# thereby consume) in one run — normally only ~6-8 are ever needed even
-# accounting for retries/duplicates in a given hour.
-MAX_INVENTORY_FETCHES = 20
+# Safety cap on how many links we're willing to fetch (and thereby consume)
+# in one run — the target-hour window is the primary bound, this just
+# guards against an unexpected flood of duplicate/retry emails within it.
+MAX_FETCHES_PER_TYPE = 20
 
 
 def _find_folder(ns, name):
@@ -73,24 +75,50 @@ def _detect_org(content):
     return None
 
 
+def _find_target_hour(items):
+    for item in items:
+        try:
+            subject = item.Subject or ""
+            received = item.ReceivedTime
+        except Exception:
+            continue
+        if INVENTORY_SUBJECT in subject or OPEN_ORDERS_SUBJECT in subject:
+            return received.replace(minute=0, second=0, microsecond=0)
+    return None
+
+
 def download_oracle_reports():
     os.makedirs(ORACLE_RAW_DIR, exist_ok=True)
     items = _get_reports_items()
 
+    target_hour = _find_target_hour(items)
+    if target_hour is None:
+        raise RuntimeError(f"No Oracle report emails found in the '{REPORTS_FOLDER_NAME}' Outlook folder")
+    hour_end = target_hour + timedelta(hours=1)
+
     open_orders = None  # {"received": ..., "subject": ...} once saved
     orgs = {}  # org -> {"received": ..., "subject": ...}
     inventory_fetches = 0
+    open_orders_fetches = 0
     all_orgs = set(CITY_TO_ORG.values())
-    manifest_lines = [f"Download run at {datetime.now():%Y-%m-%d %H:%M:%S}"]
+    manifest_lines = [
+        f"Download run at {datetime.now():%Y-%m-%d %H:%M:%S}",
+        f"Target hour: {target_hour}",
+    ]
 
     for item in items:
-        if open_orders is not None and set(orgs) >= all_orgs:
-            break
         try:
             subject = item.Subject or ""
             body = item.Body or ""
             received = item.ReceivedTime
         except Exception:
+            continue
+
+        if received < target_hour:
+            # Sorted newest-first — once we're older than the target hour,
+            # everything remaining is too. No cross-hour fallback.
+            break
+        if received >= hour_end:
             continue
 
         match = REPORT_URL_RE.search(body)
@@ -99,8 +127,21 @@ def download_oracle_reports():
         url = match.group(0)
 
         if open_orders is None and OPEN_ORDERS_SUBJECT in subject:
+            if open_orders_fetches >= MAX_FETCHES_PER_TYPE:
+                continue
+            open_orders_fetches += 1
             resp = requests.get(url, timeout=60)
             resp.raise_for_status()
+            # A one-time-use link that's already been consumed (by this
+            # script or by manually clicking it in Outlook) still returns
+            # HTTP 200 with a short "Authentication failed." body instead of
+            # the real report — validate before writing, or a re-run right
+            # after an earlier successful one would silently clobber a good
+            # file with 23 bytes of garbage.
+            if not resp.content.lstrip()[:15].lower().startswith(b"<html"):
+                print(f"Open orders link within target hour already consumed (subject={subject!r}, received={received}) — not falling back to an earlier hour")
+                manifest_lines.append(f"SKIPPED (consumed) open orders <- {subject!r} received {received}")
+                continue
             target = os.path.join(ORACLE_RAW_DIR, "AMC_Open_Orders_Report.xls")
             with open(target, "wb") as f:
                 f.write(resp.content)
@@ -110,18 +151,19 @@ def download_oracle_reports():
             continue
 
         if set(orgs) < all_orgs and INVENTORY_SUBJECT in subject:
-            if inventory_fetches >= MAX_INVENTORY_FETCHES:
+            if inventory_fetches >= MAX_FETCHES_PER_TYPE:
                 continue
             inventory_fetches += 1
             resp = requests.get(url, timeout=60)
             resp.raise_for_status()
             org = _detect_org(resp.text)
             if org is None:
-                print(f"Could not detect org for inventory report (subject={subject!r}, received={received}) — skipping")
+                print(f"Could not detect org for inventory report within target hour (subject={subject!r}, received={received}) — skipping")
                 continue
             if org in orgs:
-                # This link is now consumed either way — a newer report for
-                # this org was already saved, nothing more to do with it.
+                # Already have this org from a newer email within the same
+                # hour (a retry/duplicate) — this link is consumed either
+                # way, nothing more to do with it.
                 continue
             target = os.path.join(ORACLE_RAW_DIR, f"Inventory_{org}.txt")
             with open(target, "wb") as f:
@@ -132,16 +174,16 @@ def download_oracle_reports():
 
     missing_orgs = all_orgs - set(orgs)
     if missing_orgs:
-        print(f"WARNING: no inventory report found for: {sorted(missing_orgs)}")
-        manifest_lines.append(f"WARNING: no inventory report found for: {sorted(missing_orgs)}")
+        print(f"WARNING: no inventory report found for {sorted(missing_orgs)} within target hour {target_hour}")
+        manifest_lines.append(f"WARNING: no inventory report found for {sorted(missing_orgs)} within target hour {target_hour}")
     if open_orders is None:
-        print("WARNING: no open orders report found")
-        manifest_lines.append("WARNING: no open orders report found")
+        print(f"WARNING: no open orders report found within target hour {target_hour}")
+        manifest_lines.append(f"WARNING: no open orders report found within target hour {target_hour}")
 
     with open(MANIFEST_PATH, "w", encoding="utf-8") as f:
         f.write("\n".join(manifest_lines) + "\n")
 
-    return {"orgs": orgs, "open_orders": open_orders}
+    return {"target_hour": target_hour, "orgs": orgs, "open_orders": open_orders}
 
 
 if __name__ == "__main__":
