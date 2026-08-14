@@ -6,6 +6,9 @@ with mcm_sales as (
     -- a backlog trend shouldn't count cancelled orders. This filter used
     -- to live in the foundation model; it's applied here explicitly now
     -- since other consumers of that model need to see cancelled rows.
+    -- Also drops orders loaded with a bad 12/18/2026 promise date — excluded
+    -- from the report entirely, not just flagged. IS DISTINCT FROM (not <>)
+    -- so a null promise_date isn't also filtered out.
     select distinct
         inv_org_code,
         so_nbr,
@@ -18,6 +21,7 @@ with mcm_sales as (
       and shipment_nbr::int <= 1
       and lower(sales_status) = 'valid'
       and lower(line_transaction_type) like 'sales%'
+      and promise_date is distinct from '2026-12-18'
 
 ),
 

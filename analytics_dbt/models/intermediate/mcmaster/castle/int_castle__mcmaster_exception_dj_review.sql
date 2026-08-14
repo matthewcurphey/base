@@ -6,6 +6,10 @@ with base as (
     where (ship_to_customer_nbr = '4872' or sold_to_customer_nbr = '4872')
       and dj_nbr is not null
       and job_status in ('Released', 'On Hold', 'Failed Close')
+      -- Orders loaded with a bad 12/18/2026 promise date — excluded from
+      -- the report entirely, not just flagged. IS DISTINCT FROM (not <>)
+      -- so a null promise_date isn't also filtered out.
+      and promise_date is distinct from '2026-12-18'
 
 ),
 

@@ -7,15 +7,22 @@ import pandas as pd
 from etl.utils.connect_postgres import get_postgres_connection
 
 ARCHIVE_DIR = os.path.join("reports", "yield", "archive")
+OPERATIONS_YIELD_DIR = (
+    r"C:\Users\mcurphey\OneDrive - A. M. Castle & Co\Operations - Documents\Reporting\Yield"
+)
 
 
-def _export_mart(mart: str, sharepoint_dir: str, where: str = None):
+def _export_mart(mart: str, sharepoint_dirs, where: str = None):
     """
-    Export a yield mart to CSV, copy it to SharePoint, and archive a dated
-    copy. Shared save-local / copy-to-SharePoint / dated-archive pattern
-    already used for the McMaster report. Pass `where` to filter rows
-    (e.g. limit to a single day); omit it to export the mart as-is.
+    Export a yield mart to CSV, copy it to one or more SharePoint/OneDrive
+    dirs, and archive a dated copy. Shared save-local / copy-to-SharePoint /
+    dated-archive pattern already used for the McMaster report. Pass `where`
+    to filter rows (e.g. limit to a single day); omit it to export the mart
+    as-is.
     """
+    if isinstance(sharepoint_dirs, str):
+        sharepoint_dirs = [sharepoint_dirs]
+
     engine = get_postgres_connection()
     query = f"SELECT * FROM analytics_marts.{mart}"
     if where:
@@ -31,9 +38,10 @@ def _export_mart(mart: str, sharepoint_dir: str, where: str = None):
     df.to_csv(output_path, index=False, encoding="utf-8-sig")
     print(f"Report written: {output_path} ({len(df)} rows)")
 
-    os.makedirs(sharepoint_dir, exist_ok=True)
-    shutil.copy2(output_path, os.path.join(sharepoint_dir, f"{mart}.csv"))
-    print(f"Copied to SharePoint: {sharepoint_dir}")
+    for sharepoint_dir in sharepoint_dirs:
+        os.makedirs(sharepoint_dir, exist_ok=True)
+        shutil.copy2(output_path, os.path.join(sharepoint_dir, f"{mart}.csv"))
+        print(f"Copied to: {sharepoint_dir}")
 
     os.makedirs(ARCHIVE_DIR, exist_ok=True)
     dated_name = f"{mart}_{date.today():%Y_%m_%d}.csv"
@@ -46,7 +54,10 @@ def yield_output():
     """Export mart_yield_siteopdate — the source file the Yield Loss Power BI dataset refreshes from."""
     _export_mart(
         "mart_yield_siteopdate",
-        r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\etl_dumps",
+        [
+            r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\etl_dumps",
+            OPERATIONS_YIELD_DIR,
+        ],
     )
 
 
@@ -57,6 +68,9 @@ def yield_mart_output():
     """
     _export_mart(
         "mart_yield_output",
-        r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\yield",
+        [
+            r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\yield",
+            OPERATIONS_YIELD_DIR,
+        ],
         where="complete_date = current_date - 1",
     )
