@@ -9,6 +9,10 @@ with base as (
       -- duplicate fulfilment — excluded here, surfaced in
       -- int_oracle__mcmaster_exception_to_cancel instead.
       and not (is_mcmaster and so_shipment::int > 1)
+      -- Orders loaded with a bad 12/18/2026 promise date — excluded from
+      -- the report entirely, not just flagged. IS DISTINCT FROM (not <>)
+      -- so a null promise_date isn't also filtered out.
+      and promise_date is distinct from '2026-12-18'
 
 ),
 

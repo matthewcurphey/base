@@ -16,7 +16,7 @@ BRANCHES = {
     "JVL": {"to": "rojones@amcastle.com",                                            "cc": CC_US_CAN,  "greeting": "Hi Rob/Kevin,",           "active": True},
     "LOS": {"to": "shage@amcastle.com",                                              "cc": CC_US_CAN,  "greeting": "Hi Salim,",               "active": True},
     "MCH": {"to": "agarcia@amcastle.com; asantiago@amcastle.com",                    "cc": CC_INTL_MX, "greeting": "Hi,",                     "active": True},
-    "MTY": {"to": "agarcia@amcastle.com",                                            "cc": CC_INTL_MX, "greeting": "Hi,",                     "active": True},
+    "MTY": {"to": "agarcia@amcastle.com; mcorona@amcastle.com",                      "cc": CC_INTL_MX, "greeting": "Hi,",                     "active": True},
     "MXM": {"to": "agarcia@amcastle.com; magonzalez@amcastle.com",                   "cc": CC_INTL_MX, "greeting": "Hi,",                     "active": True},
     "MXQ": {"to": "agarcia@amcastle.com; rcruz@amcastle.com",                        "cc": CC_INTL_MX, "greeting": "Hi,",                     "active": True},
     "PHI": {"to": "ddixon@amcastle.com; skilduff@amcastle.com",                      "cc": CC_US_CAN,  "greeting": "Hi Shane/Dan,",           "active": False},

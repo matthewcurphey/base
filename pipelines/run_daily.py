@@ -38,8 +38,8 @@ def _confirm(label, detail=""):
 def run_daily_core():
     print("=== Daily Core: starting ===")
 
-    run_all_banner_ingestions()
-    _confirm("Banner ingest ran")
+    #run_all_banner_ingestions()
+    #_confirm("Banner ingest ran")
 
     obiee_paths = run_castle_obiee_download()
     _confirm("OBIEE download", f"{len(obiee_paths)}/7 reports saved")

@@ -7,14 +7,18 @@ import pandas as pd
 from etl.utils.connect_postgres import get_postgres_connection
 
 ARCHIVE_DIR = os.path.join("reports", "yield", "archive")
+OPERATIONS_YIELD_DIR = (
+    r"C:\Users\mcurphey\OneDrive - A. M. Castle & Co\Operations - Documents\Reporting\Yield"
+)
 
 
-def _export_mart(mart: str, sharepoint_dir: str, where: str = None):
+def _export_mart(mart: str, output_dir: str, where: str = None):
     """
-    Export a yield mart to CSV, copy it to SharePoint, and archive a dated
-    copy. Shared save-local / copy-to-SharePoint / dated-archive pattern
-    already used for the McMaster report. Pass `where` to filter rows
-    (e.g. limit to a single day); omit it to export the mart as-is.
+    Export a yield mart to CSV, copy it to the OneDrive-synced dir, and
+    archive a dated copy. Shared save-local / copy-to-OneDrive /
+    dated-archive pattern already used for the McMaster report. Pass `where`
+    to filter rows (e.g. limit to a single day); omit it to export the mart
+    as-is.
     """
     engine = get_postgres_connection()
     query = f"SELECT * FROM analytics_marts.{mart}"
@@ -31,9 +35,9 @@ def _export_mart(mart: str, sharepoint_dir: str, where: str = None):
     df.to_csv(output_path, index=False, encoding="utf-8-sig")
     print(f"Report written: {output_path} ({len(df)} rows)")
 
-    os.makedirs(sharepoint_dir, exist_ok=True)
-    shutil.copy2(output_path, os.path.join(sharepoint_dir, f"{mart}.csv"))
-    print(f"Copied to SharePoint: {sharepoint_dir}")
+    os.makedirs(output_dir, exist_ok=True)
+    shutil.copy2(output_path, os.path.join(output_dir, f"{mart}.csv"))
+    print(f"Copied to: {output_dir}")
 
     os.makedirs(ARCHIVE_DIR, exist_ok=True)
     dated_name = f"{mart}_{date.today():%Y_%m_%d}.csv"
@@ -44,19 +48,16 @@ def _export_mart(mart: str, sharepoint_dir: str, where: str = None):
 
 def yield_output():
     """Export mart_yield_siteopdate — the source file the Yield Loss Power BI dataset refreshes from."""
-    _export_mart(
-        "mart_yield_siteopdate",
-        r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\etl_dumps",
-    )
+    _export_mart("mart_yield_siteopdate", OPERATIONS_YIELD_DIR)
 
 
 def yield_mart_output():
-    """Export mart_yield_output — the trimmed job-level mart, dropped in yield's old SharePoint slot.
+    """Export mart_yield_output — the trimmed job-level mart.
 
     Limited to yesterday's completed jobs (complete_date = current_date - 1).
     """
     _export_mart(
         "mart_yield_output",
-        r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\yield",
+        OPERATIONS_YIELD_DIR,
         where="complete_date = current_date - 1",
     )

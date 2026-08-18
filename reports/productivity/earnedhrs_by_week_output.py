@@ -5,7 +5,6 @@ import pandas as pd
 
 from etl.utils.connect_postgres import get_postgres_connection
 
-SHAREPOINT_DIR = r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\productivity"
 ONEDRIVE_DIR = r"C:\Users\mcurphey\OneDrive - A. M. Castle & Co\Operations - Documents\Reporting\Productivity\Earned Hours by Week"
 
 
@@ -36,10 +35,6 @@ def earnedhrs_by_week_output():
         ws.write(0, note_col + 1, last_complete_week_str)
 
     print(f"Report written: {output_path} ({len(df)} rows)")
-
-    os.makedirs(SHAREPOINT_DIR, exist_ok=True)
-    shutil.copy2(output_path, os.path.join(SHAREPOINT_DIR, "earnedhrs_by_week.xlsx"))
-    print(f"Copied to SharePoint: {SHAREPOINT_DIR}")
 
     os.makedirs(ONEDRIVE_DIR, exist_ok=True)
     shutil.copy2(output_path, os.path.join(ONEDRIVE_DIR, "earnedhrs_by_week.xlsx"))

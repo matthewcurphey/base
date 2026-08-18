@@ -22,7 +22,6 @@ from etl.utils.connect_postgres import get_postgres_connection
 TEMPLATE_PATH = os.path.join("reports", "mcmaster", "mcmaster_template.xlsx")
 OUTPUT_PATH = os.path.join("reports", "mcmaster", "mcmaster_report.xlsx")
 ARCHIVE_DIR = os.path.join("reports", "mcmaster", "archive")
-SHAREPOINT_DIR = r"C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\mcmaster"
 ONEDRIVE_DIR = r"C:\Users\mcurphey\OneDrive - A. M. Castle & Co\Operations - Documents\Reporting\McMaster"
 ONEDRIVE_ARCHIVE_DIR = os.path.join(ONEDRIVE_DIR, "archive")
 
@@ -774,16 +773,12 @@ def mcmaster_output():
     print("  summary: trend + status charts, 7-day table, status pivot")
 
     # ------------------------------------------------------------------
-    # 3. Save locally, drop a copy in the SharePoint-synced library,
-    #    and keep a dated archive copy.
+    # 3. Save locally, keep a dated archive copy, and drop a copy in the
+    #    OneDrive-synced library (which syncs on to SharePoint).
     # ------------------------------------------------------------------
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     wb.save(OUTPUT_PATH)
     print(f"Report written: {OUTPUT_PATH}")
-
-    os.makedirs(SHAREPOINT_DIR, exist_ok=True)
-    shutil.copy2(OUTPUT_PATH, os.path.join(SHAREPOINT_DIR, "mcmaster_report.xlsx"))
-    print(f"Copied to SharePoint: {SHAREPOINT_DIR}")
 
     os.makedirs(ARCHIVE_DIR, exist_ok=True)
     dated_name = f"mcmaster_report_{date.today():%Y_%m_%d}.xlsx"

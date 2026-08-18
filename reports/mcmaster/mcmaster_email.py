@@ -39,7 +39,7 @@ CC_RECIPIENTS = "; ".join([
     "Tfenelon@amcastle.com",
 ])
 
-SHAREPOINT_LINK = "https://amcastle.sharepoint.com/:x:/s/Analytics_ETL/IQDTz5ZPOa4sSoDsdsp5vwERAdpTwZQr5kPnU5fafdS2wnA?e=jpRFI0"
+REPORT_LINK = "https://amcastle.sharepoint.com/:x:/s/Operations/IQBWC_YAnMTFTL0H6pzWjoXMAapBUiBRVXLuTGwnKTuLW3w?e=xSRlp8"
 
 TREND_CHART_PATH = os.path.join("reports", "mcmaster", "backlog_trend.png")
 STATUS_CHART_PATH = os.path.join("reports", "mcmaster", "status_chart.png")
@@ -73,7 +73,7 @@ def mcmaster_email(send_or_show: str = "show"):
     mail.Subject = f"McMaster Backlog Report — {date.today():%d-%b-%Y}"
 
     mail.HTMLBody = f"""<div style="font-family: Calibri; font-size: 11pt;">
-<p style="font-size: 16pt; font-weight: bold;"><a href="{SHAREPOINT_LINK}">McMaster Report - SharePoint</a></p>
+<p style="font-size: 16pt; font-weight: bold;"><a href="{REPORT_LINK}">McMaster Report - SharePoint</a></p>
 <p><img src="cid:mcmaster_trend_chart" width="450"></p>
 <p><img src="cid:mcmaster_status_chart" width="450"></p>
 </div>"""

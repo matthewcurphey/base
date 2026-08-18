@@ -346,7 +346,6 @@ Exports `int_castle__productivity_01_earnedhrs_by_week` (org / operation / week-
 complete weeks only) to Excel, with the last complete week called out beside the data.
 Saves to:
 - `reports/productivity/earnedhrs_by_week.xlsx` (local)
-- `C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\productivity\earnedhrs_by_week.xlsx` (SharePoint)
 - `C:\Users\mcurphey\OneDrive - A. M. Castle & Co\Operations - Documents\Reporting\Productivity\Earned Hours by Week\earnedhrs_by_week.xlsx` (OneDrive)
 
 No arguments — always reflects the current state of the underlying model.
@@ -363,11 +362,11 @@ Exports both yield marts to CSV:
 
 - `mart_yield_siteopdate` — the file the Yield Loss Power BI dataset refreshes from, exported as-is (no filtering). Saves to:
   - `reports/yield/mart_yield_siteopdate.csv` (local)
-  - `C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\etl_dumps\mart_yield_siteopdate.csv` (SharePoint)
+  - `C:\Users\mcurphey\OneDrive - A. M. Castle & Co\Operations - Documents\Reporting\Yield\mart_yield_siteopdate.csv` (OneDrive)
   - `reports/yield/archive/mart_yield_siteopdate_<date>.csv` (dated archive copy)
 - `mart_yield_output` — trimmed job-level mart, limited to yesterday's completed jobs (`complete_date = current_date - 1`). Saves to:
   - `reports/yield/mart_yield_output.csv` (local)
-  - `C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\yield\mart_yield_output.csv` (SharePoint)
+  - `C:\Users\mcurphey\OneDrive - A. M. Castle & Co\Operations - Documents\Reporting\Yield\mart_yield_output.csv` (OneDrive)
   - `reports/yield/archive/mart_yield_output_<date>.csv` (dated archive copy)
 
 No arguments — always reflects the current state of the underlying marts.
@@ -386,7 +385,6 @@ mart-to-tab pastes), plus `summary` (90-day trend + 7-day activity table + backl
 chart/pivot, built from `mart_mcmaster__backlog_daily`/`mart_mcmaster__backlog_status`).
 Saves the result to:
 - `reports/mcmaster/mcmaster_report.xlsx` (local)
-- `C:\Users\mcurphey\A. M. Castle & Co\Analytics_ETL - Documents\mcmaster\mcmaster_report.xlsx` (SharePoint)
 - `reports/mcmaster/archive/mcmaster_report_<date>.xlsx` (dated archive copy)
 - `C:\Users\mcurphey\OneDrive - A. M. Castle & Co\Operations - Documents\Reporting\McMaster\` — report, `backlog_trend.png`, `status_chart.png`, plus `archive\mcmaster_report_<date>.xlsx` (OneDrive)
 
@@ -434,3 +432,49 @@ python run.py custom
 ```
 
 Runs one-off custom scripts (currently unused/commented out).
+
+---
+
+## Backup — Full Project + Database
+
+```
+powershell -ExecutionPolicy Bypass -File scripts\backup_all.ps1 [-Note "text"] [-KeepLast 5]
+```
+
+On-demand full backup, run by hand (not currently on a Windows Task Scheduler
+job). Does two things, both landing in the OneDrive-synced backups folder
+(which auto-syncs to SharePoint in the background):
+
+1. **Zips the entire `C:\base` project folder** — everything under it,
+   recursively, with **no exclusions** (does not respect `.gitignore`). This is
+   deliberate: it includes `.git\`, `.env`, `__pycache__\`, `logs\`, and
+   whatever's currently in `etl/data_raw/` — a full snapshot, not just the
+   versioned code. Because of this, the backup folder ends up holding
+   plaintext credentials (`.env`) — treat it accordingly.
+2. **Dumps the `analytics` Postgres database** (custom format, compressed) via
+   `pg_dump`. Only this one database — the instance's other (empty, default)
+   `postgres` database isn't included, and there's no roles/globals dump since
+   this instance only has the one `postgres` superuser role.
+
+Both steps are verified (zip entry count, dump object count via
+`pg_restore --list`) and logged as a combined entry to `backup_ledger.jsonl`.
+Old backup sets beyond `-KeepLast` (default 5) are pruned automatically.
+
+**Saves to:**
+`C:\Users\mcurphey\OneDrive - A. M. Castle & Co\Documents\backups\full_backups\`
+- `base_<timestamp>.zip` — the project snapshot
+- `analytics_<timestamp>.dump` — the database dump
+- `dump_log_<timestamp>.txt` — raw `pg_dump` stderr output
+- `backup_ledger.jsonl` — one JSON line per run: status (`OK`/`SUSPECT`/`FAILED`),
+  sizes, durations, object/entry counts for both halves
+
+**Arguments:**
+| Arg | Type | Example | Description |
+|-----|------|---------|--------------|
+| Note | string | `"pre-migration"` | Optional free-text note stored in the ledger entry |
+| KeepLast | int | `10` | How many backup sets to retain before pruning older ones (default: 5) |
+
+**To restore:** see `RESTORE.md` in the `postgres_analytics` backup folder for
+the `createdb` + `pg_restore` steps (that folder predates this combined
+script and only covers the database half — restoring the project itself is
+just unzipping `base_<timestamp>.zip`).
