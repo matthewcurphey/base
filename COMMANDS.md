@@ -63,6 +63,7 @@ through, without re-running the whole sequence.
 
 | Run | Saves to |
 |-----|----------|
+| `python run.py hr-ingest` | Loads worked hours (US/CAN, France, Mexico, Singapore, China, all years in `INGEST_YEARS`) into `raw.hr_workedhours` — run before `productivity-output` so it reflects current worked hours |
 | `python run.py productivity-output 2026 7` | `reports/productivity/results/<year>/<month>/` + OneDrive `Reporting\Productivity\Productivity Incentive Payouts\<year>\<month>\` |
 | `python run.py productivity-email 2026 7 Jul26 show` (or `send`) | Outlook email, per branch |
 
@@ -83,7 +84,7 @@ python run.py ingest
 Legacy catch-all/scratch pipeline — hand-toggle which `run_all_*_ingestions()` calls
 are active in `pipelines/run_all_ingest.py`'s `run_all_ingestions()`. Not part of the
 daily-core / daily-mcmaster flow below; kept around for manually running whatever
-isn't yet a standalone command (Vorne, FX rates, HR, Castle DI item master).
+isn't yet a standalone command (Vorne, FX rates, Castle DI item master).
 
 ---
 
@@ -285,6 +286,20 @@ python run.py dbt-run
 Runs `dbt run` from `analytics_dbt/` via `subprocess` (`pipelines/run_dbt.py`).
 Requires `~/.dbt/profiles.yml` set up separately (see requirements.txt) — not
 checked into this repo. No arguments.
+
+---
+
+## HR — Ingest
+
+```
+python run.py hr-ingest
+```
+
+Runs `run_all_hr_ingestions()` (`pipelines/run_all_ingest.py`), which extracts
+worked hours for every country (US/CAN, France, Mexico, Singapore, China) across
+all years in `INGEST_YEARS` (`etl/jobs/hr/hr_worked_hours_ingest.py`) and
+replaces `raw.hr_workedhours`. Run before `productivity-output` so the report
+reflects current worked hours. No arguments.
 
 ---
 

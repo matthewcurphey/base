@@ -7,6 +7,7 @@ pyodbc==5.3.0              # SQL Server driver (Fabric lakehouse, config/lakehou
 # Reports / Excel output
 openpyxl==3.1.3
 matplotlib==3.9.0
+xlsxwriter==3.2.9   # Excel formatting engine (reports/productivity/*_output.py)
 
 # HTML table parser backend for pandas.read_html (etl/extract/oracle/oracle_open_orders_extract.py,
 # parsing the Oracle open-orders .xls report)

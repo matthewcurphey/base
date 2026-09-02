@@ -13,6 +13,7 @@ passive loading banner, so the only way to know is to click and check.
 """
 import os
 
+from playwright.sync_api import Error as PlaywrightError
 from playwright.sync_api import sync_playwright
 
 from config.paths import SHAREPOINT_RAW_DIR
@@ -22,7 +23,25 @@ TARGET_FILENAME = "All open orders.xlsx"
 DOWNLOAD_TIMEOUT_S = 120
 PLEASE_WAIT_MAX_ATTEMPTS = 8
 PLEASE_WAIT_RETRY_S = 8
+GOTO_MAX_ATTEMPTS = 5
+GOTO_RETRY_S = 10
 DEBUG_DIR = os.path.join("etl", "extract", "sharepoint", "sharepoint_debug")
+
+
+def _goto_with_retry(page, url):
+    # net::ERR_SOCKET_NOT_CONNECTED / ERR_CONNECTION_* / ERR_NAME_NOT_RESOLVED
+    # show up when this runs right after wake-from-sleep, before the VPN/NIC
+    # has come back up — transient, so worth a few spaced-out retries rather
+    # than failing the whole daily run outright.
+    for attempt in range(GOTO_MAX_ATTEMPTS):
+        try:
+            page.goto(url, wait_until="domcontentloaded")
+            return
+        except PlaywrightError as e:
+            if "net::ERR_" not in str(e) or attempt == GOTO_MAX_ATTEMPTS - 1:
+                raise
+            print(f"goto {url} hit {e!r} (attempt {attempt + 1}/{GOTO_MAX_ATTEMPTS}), retrying in {GOTO_RETRY_S}s...")
+            page.wait_for_timeout(GOTO_RETRY_S * 1000)
 
 
 def _wait_for_login(page, timeout_s=300):
@@ -105,7 +124,7 @@ def download_open_orders():
         page.on("download", lambda d: downloads.append(d))
         context.on("page", lambda p2: p2.on("download", lambda d: downloads.append(d)))
 
-        page.goto(OPEN_ORDERS_URL, wait_until="domcontentloaded")
+        _goto_with_retry(page, OPEN_ORDERS_URL)
         page.wait_for_timeout(5000)
         _wait_for_login(page)
         page.wait_for_timeout(3000)

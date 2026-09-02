@@ -7,6 +7,7 @@ from pipelines.run_all_ingest import (
     run_all_sharepoint_ingestions,
     run_oracle_download,
     run_all_oracle_ingestions,
+    run_all_hr_ingestions,
 )
 from pipelines.run_dbt import run_dbt
 from pipelines.run_daily import run_daily_core, run_daily_mcmaster, run_daily_all
@@ -108,6 +109,10 @@ if __name__ == "__main__":
     elif task == "oracle-ingest":
         # Usage: python run.py oracle-ingest
         run_all_oracle_ingestions()
+
+    elif task == "hr-ingest":
+        # Usage: python run.py hr-ingest
+        run_all_hr_ingestions()
 
     elif task == "dbt-run":
         # Usage: python run.py dbt-run
