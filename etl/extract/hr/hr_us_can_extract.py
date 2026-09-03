@@ -42,6 +42,13 @@ def extract_hr_us_can(year: int, branch_info_df: pd.DataFrame) -> pd.DataFrame:
         month = int(month_str)
 
         df = read_csv(filepath, dtype=str, encoding="ISO-8859-1")
+        # The export has renamed this column before (e.g. "Location" ->
+        # "Combined" starting with the Aug-2026 file, same data) - normalize
+        # per-file so a silent header rename upstream can't make rows vanish
+        # (mismatched columns across concat -> NaN site -> dropped by the
+        # org_code merge below with no error).
+        if "Location" not in df.columns and "Combined" in df.columns:
+            df = df.rename(columns={"Combined": "Location"})
         df[["year", "month", "dept_code"]] = [year, month, "110/120"]
         monthly_dfs.append(df)
 
