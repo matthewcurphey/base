@@ -9,7 +9,7 @@ FILE_PATH = os.path.join(SHAREPOINT_RAW_DIR, "All open orders.xlsx")
 
 def _clean_columns(df: pd.DataFrame) -> pd.DataFrame:
     cleaned = (
-        df.columns
+        df.columns.astype(str)
         .str.replace("\xa0", " ", regex=False)
         .str.strip()
         .str.lower()
@@ -33,12 +33,17 @@ def extract_open_orders() -> pd.DataFrame:
 
     xl = pd.ExcelFile(FILE_PATH, engine="openpyxl")
 
-    # Build canonical column list from the first sheet (all headers present there)
-    reference_cols = list(_clean_columns(xl.parse(xl.sheet_names[0])).columns)
+    # Skip blank tabs (e.g. today's tab created before data is pasted in)
+    sheets = {name: xl.parse(name) for name in xl.sheet_names}
+    sheets = {name: df for name, df in sheets.items() if not df.empty}
+    if not sheets:
+        raise ValueError(f"No populated sheets in {FILE_PATH}")
+
+    # Build canonical column list from the first populated sheet (all headers present there)
+    reference_cols = list(_clean_columns(next(iter(sheets.values())).copy()).columns)
 
     dfs = []
-    for sheet_name in xl.sheet_names:
-        df = xl.parse(sheet_name)
+    for sheet_name, df in sheets.items():
         df = _clean_columns(df)
 
         # Any col_N placeholder gets replaced with the reference name at that position

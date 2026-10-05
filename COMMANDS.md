@@ -65,7 +65,7 @@ through, without re-running the whole sequence.
 |-----|----------|
 | `python run.py hr-ingest` | Loads worked hours (US/CAN, France, Mexico, Singapore, China, all years in `INGEST_YEARS`) into `raw.hr_workedhours` — run before `productivity-output` so it reflects current worked hours |
 | `python run.py productivity-output 2026 7` | `reports/productivity/results/<year>/<month>/` + OneDrive `Reporting\Productivity\Productivity Incentive Payouts\<year>\<month>\` |
-| `python run.py productivity-email 2026 7 Jul26 show` (or `send`) | Outlook email, per branch |
+| `python run.py productivity-email 2026 8 Aug26 show` (or `send`) | Outlook email, per branch |
 
 ### AdHoc — Yield
 

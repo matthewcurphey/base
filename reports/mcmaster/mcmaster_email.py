@@ -26,6 +26,7 @@ TO_RECIPIENTS = "; ".join([
     "jbates@amcastle.com",
     "ACaponi@amcastle.com",
     "brosser@amcastle.com",
+    "mgraham1@amcastle.com",
     "whawthor@amcastle.com",
 ])
 
