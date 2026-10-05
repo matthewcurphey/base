@@ -1,14 +1,14 @@
 """
-One-off Dallas (DFW) McMaster batch analysis.
+McMaster DFW report: Dallas (DFW) McMaster batch analysis.
 
-Not part of the daily pipeline — run manually. Source list: reports/mcmaster/DFW
-orders.csv, an OBIEE export of every McMaster order line whose physical ship-to
+Not part of the daily pipeline — run manually (python run.py mcmaster-dfw-report).
+Source list: reports/mcmaster/DFW_ORDERS.csv, an OBIEE export of every McMaster order line whose physical ship-to
 is the Fort Worth, TX (DFW) site. Ship-to location isn't tracked anywhere in our
 own Oracle/Castle feeds, so this file is the only way to identify these lines;
 everything else (dates, job status, material tally) comes from our own data,
 joined on org + so_nbr + so_line (+ shipment_nbr for the Castle join).
 
-Verified before building this:
+Verified before building this (against the 9/17/26 export):
 - 1,466 rows in the file; 4 aren't real order lines (1 Quote that never became
   an order, 3 Credit Only adjustment lines) and are dropped by the join itself.
 - The remaining 1,462 matched 100% against int_foundation_castle__sales_salesorder.
@@ -65,10 +65,10 @@ from reports.mcmaster.mcmaster_output import (
     _write_status_pivot,
 )
 
-DFW_CSV_PATH = os.path.join("reports", "mcmaster", "DFW orders.csv")
-OUTPUT_PATH = os.path.join("reports", "mcmaster", "dallas_oneoff_report.xlsx")
-TREND_CHART_PATH = os.path.join("reports", "mcmaster", "dallas_burndown_trend.png")
-STATUS_CHART_PATH = os.path.join("reports", "mcmaster", "dallas_status_chart.png")
+DFW_CSV_PATH = os.path.join("reports", "mcmaster", "DFW_ORDERS.csv")
+OUTPUT_PATH = os.path.join("reports", "mcmaster", "mcmaster_dfw_report.xlsx")
+TREND_CHART_PATH = os.path.join("reports", "mcmaster", "mcmaster_dfw_burndown_trend.png")
+STATUS_CHART_PATH = os.path.join("reports", "mcmaster", "mcmaster_dfw_status_chart.png")
 
 # min_col, max_col, min_row, max_row — approved layout from the emailed
 # version (resized in Excel from the first draft, which was skewed).

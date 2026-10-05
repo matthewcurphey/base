@@ -430,6 +430,26 @@ are current. Single recipient for now (`mcurphey@amcastle.com`); more to be adde
 
 ---
 
+## McMaster — DFW Report
+
+```
+python run.py mcmaster-dfw-report
+```
+
+Manual only — not part of `daily-mcmaster`. Burndown + current-status analysis of the
+fixed Dallas (DFW) McMaster batch, defined in `reports/mcmaster/mcmaster_dfw_report.py`
+(see its docstring for the matching/status logic). The Dallas line list comes from
+`reports/mcmaster/DFW_ORDERS.csv` (OBIEE export, saved under the name BI gives it — re-export before each run, since orders can move between orgs and stale org codes stop matching);
+everything else comes from Postgres, so run `daily-mcmaster` (or at least `dbt-run`) first.
+Saves to `reports/mcmaster/`:
+- `mcmaster_dfw_report.xlsx`
+- `mcmaster_dfw_burndown_trend.png`
+- `mcmaster_dfw_status_chart.png`
+
+No email. No arguments.
+
+---
+
 ## Outputs
 
 ```

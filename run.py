@@ -73,6 +73,12 @@ def run_mcmaster_email(send_or_show: str = "show"):
     mcmaster_email(send_or_show=send_or_show)
 
 
+def run_mcmaster_dfw_report():
+    from reports.mcmaster.mcmaster_dfw_report import main as mcmaster_dfw_report
+    print("Generating McMaster DFW report...")
+    mcmaster_dfw_report()
+
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python run.py <task> [args...]  (see COMMANDS.md)")
@@ -172,6 +178,11 @@ if __name__ == "__main__":
         # Usage: python run.py mcmaster-email [show|send]
         send_or_show = sys.argv[2] if len(sys.argv) > 2 else "show"
         run_mcmaster_email(send_or_show)
+
+    elif task == "mcmaster-dfw-report":
+        # Usage: python run.py mcmaster-dfw-report
+        # Manual only, not part of daily-mcmaster. Reads reports/mcmaster/DFW_ORDERS.csv.
+        run_mcmaster_dfw_report()
 
     else:
         print(f"❌ Unknown task: {task}")
