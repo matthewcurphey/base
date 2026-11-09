@@ -111,17 +111,50 @@ def extract_hr_us_can(year: int, branch_info_df: pd.DataFrame) -> pd.DataFrame:
     # TEMP HOURS
     # ------------------------------------------------------------------
     temp_file = os.path.join(HR_RAW_DIR, f"us_can_temp_hours_{year}.csv")
-    temp_df = read_csv(temp_file, dtype=str, encoding="ISO-8859-1")
+    temp_df = extract_temp_hours(temp_file, year)
 
-    # Rows 1 and 2 (0-indexed) are regular and overtime; row 0 is a label row
-    temp_df = temp_df.iloc[1:3].copy()
-    temp_df.index = ["regular_hrs", "overtime_hrs"]
+    # ------------------------------------------------------------------
+    # COMBINE
+    # ------------------------------------------------------------------
+    combined = pd.concat([us_can_df, temp_df], ignore_index=True)
+    combined = combined[combined["total_hrs"] != 0].reset_index(drop=True)
 
-    temp_df = temp_df.set_index(temp_df.columns[0]).T.reset_index()
-    temp_df.columns = ["month", "regular_hrs", "overtime_hrs"]
+    return combined[STANDARD_COLS]
 
-    temp_df["regular_hrs"] = pd.to_numeric(temp_df["regular_hrs"], errors="coerce").fillna(0)
-    temp_df["overtime_hrs"] = pd.to_numeric(temp_df["overtime_hrs"], errors="coerce").fillna(0)
+
+def extract_temp_hours(temp_file: str, year: int) -> pd.DataFrame:
+    """
+    Extract the annual temp hours file (weekly columns, one row per measure)
+    into monthly STANDARD_COLS rows under a single TEMP employee at ATL.
+    """
+
+    # The header row holds the week labels ("<title> Temp Labor - 303,1-Jan,2-Jan,...").
+    # From the 2026_NEW layout there's an extra "Week 1..Week 52" row above it.
+    with open(temp_file, encoding="ISO-8859-1") as f:
+        header_row = next(i for i, line in enumerate(f) if "Temp Labor" in line)
+    temp_df = read_csv(temp_file, dtype=str, encoding="ISO-8859-1", skiprows=header_row)
+
+    # Pick hours rows by label, not position. From Oct-2026 there's one block per
+    # dept ("Hours worked Reg 110", "Hours worked Reg 120", ...); older files have a
+    # single combined block. Everything rolls up to 110/120 - history before Oct
+    # was never split, so the depts can't be separated consistently.
+    label_col = temp_df.columns[0]
+    temp_df["pay_type"] = (
+        temp_df[label_col].str.strip()
+        .str.extract(r"^Hours worked (Reg|OT)", expand=False)
+        .map({"Reg": "regular_hrs", "OT": "overtime_hrs"})
+    )
+    temp_df = (
+        temp_df.dropna(subset=["pay_type"])
+        .drop(columns=[label_col])
+        .melt(id_vars="pay_type", var_name="month", value_name="hours")
+    )
+    temp_df["hours"] = pd.to_numeric(temp_df["hours"], errors="coerce").fillna(0)
+
+    temp_df = temp_df.pivot_table(
+        index="month", columns="pay_type", values="hours", aggfunc="sum", fill_value=0,
+    ).reset_index()
+    temp_df.columns.name = None
 
     # Extract week-of-month and month name from combined field e.g. "W1-Jan"
     temp_df[["week_of_month", "month"]] = temp_df["month"].str.split("-", expand=True)
@@ -135,18 +168,10 @@ def extract_hr_us_can(year: int, branch_info_df: pd.DataFrame) -> pd.DataFrame:
     temp_df["dept_code"] = "110/120"
     temp_df["total_hrs"] = temp_df["regular_hrs"] + temp_df["overtime_hrs"]
 
-    temp_df = (
+    return (
         temp_df[STANDARD_COLS]
         .groupby(["country", "org", "year", "month", "employee_id", "employee_name", "dept_code"], as_index=False)[
             ["regular_hrs", "overtime_hrs", "total_hrs"]
         ]
         .sum()
     )
-
-    # ------------------------------------------------------------------
-    # COMBINE
-    # ------------------------------------------------------------------
-    combined = pd.concat([us_can_df, temp_df], ignore_index=True)
-    combined = combined[combined["total_hrs"] != 0].reset_index(drop=True)
-
-    return combined[STANDARD_COLS]
