@@ -40,6 +40,9 @@ select
     days_in_transit_open               as open_transit_days,
     days_requisition_to_received       as req_to_rcvd_days,
     days_received_vs_need_by           as rcvd_vs_need_by_days,
+    case
+        when received_date is null then current_date - need_by_date
+    end                                as days_past_need_by,
 
     /* =======================
        ORACLE REFERENCES

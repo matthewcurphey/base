@@ -1,8 +1,10 @@
 version: 2
 
 models:
-  - name: mart_mex_transfers__transfer_status
-    description: "Los Angeles -> Mexico transfers mart. Transfer line grain, LOS to MXM/MXQ/MTY/MCH, cancelled lines excluded - lane, requisition/need-by/promise/ship/received dates, transit days, Oracle delivery and requisition refs, and status (Open / In transit / Partially received / Received). Received dates are exact (Oracle delivery number join). 'Not tracked' would only appear if a shipped line falls outside the LOS shipping export - a sign the weekly export is stale."
-
-  - name: mart_mex_transfers__in_transit
-    description: "Los Angeles -> Mexico transfers shipped but not yet (fully) received at the receiving branch, with days since ship and days past need-by. Unsorted - oldest first is an output concern."
+  - name: mart_mex_transfers__los_to_mex
+    description: "Los Angeles -> Mexico transfers mart. Transfer line grain, LOS to MXM/MXQ/MTY/MCH, cancelled lines excluded - every status in one table (Open / In transit / Partially received / Received). Lane, requisition/need-by/promise/ship/received dates, transit days, days past need-by for unreceived lines, Oracle delivery and requisition refs. Received dates are exact (Oracle delivery number join). 'Not tracked' would only appear if a shipped line falls outside the LOS shipping export - a sign the weekly export is stale."
+    columns:
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['Open', 'Not tracked', 'In transit', 'Partially received', 'Received']
