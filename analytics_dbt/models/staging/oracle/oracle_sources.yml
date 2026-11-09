@@ -13,5 +13,11 @@ sources:
       - name: castle_oracle_open_orders
         description: "Raw Oracle open orders report (AMC_Open_Orders_Report), one row per SO line."
 
+      - name: castle_oracle_transfer_receipts
+        description: "Raw internal requisition receipts (Int Req Intr Rcpt) from manual Oracle View Material Transactions exports, one file per receiving org (Mexico branches only), one row per material transaction."
+
+      - name: castle_oracle_transfer_shipments
+        description: "Raw internal order transactions (Int Order Intr Ship + Internal Order Pick) from manual Oracle View Material Transactions exports, one file per shipping org (transfer_orders_<ORG>.xls), one row per material transaction."
+
       - name: cx_orders
         description: "CX team's open orders reference file (SharePoint), one row per SO line with reason/vendor/po/comments annotations."

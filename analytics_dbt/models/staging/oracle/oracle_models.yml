@@ -13,6 +13,37 @@ models:
   - name: stg_castle_oracle__di
     description: "Cleaned and typed Oracle DI — item master with UOM, lead times, planning params, and core/ABC classifications across all orgs."
 
+  - name: base_castle_oracle__transfer_receipts
+    description: "Light trim of raw Oracle internal requisition receipts."
+
+  - name: stg_castle_oracle__transfer_receipts
+    description: "Cleaned and typed internal requisition receipts at the receiving branch. Material transaction grain. Mexico receiving orgs only (MXM, MXQ, MTY, MCH)."
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: received_date
+        tests:
+          - not_null
+
+  - name: base_castle_oracle__transfer_shipments
+    description: "Light trim of raw Oracle internal order transactions."
+
+  - name: stg_castle_oracle__transfer_shipments
+    description: "Cleaned and typed internal order shipments (Int Order Intr Ship) at the shipping branch. Material transaction grain. Carries so_nbr (parsed from Source) and shipment_nbr (delivery), the exact link between the TRANSFER report and the receiving branch's receipts."
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: so_nbr
+        tests:
+          - not_null
+      - name: shipment_nbr
+        tests:
+          - not_null
+
   - name: base_castle_oracle__open_orders
     description: "Light trim of raw Oracle open orders report."
 

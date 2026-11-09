@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: int_foundation_castle__transfers_transferline
+    description: >
+      Castle inter-branch transfers at so/line/ship grain, with transfers as the base and
+      actual ship / invoice / promise dates pulled from int_foundation_castle__sales_salesorder.
+      No status filter (cancelled and open transfers included). Sales fields are null where
+      the shipping branch isn't in the sales export (HA Industries, Shanghai - Bonded,
+      Mexicali as shipper). Neither source carries a true arrival date at the receiving branch.
+    columns:
+      - name: so_nbr
+        tests:
+          - not_null
+      - name: ship_from_branch
+        description: "Shipping branch (transfers.Shipping_Inventory_Org_Name)."
+      - name: ship_to_branch
+        description: "Receiving branch (transfers.Inv_Org_Name). Null on ~3k rows."
+      - name: has_sales_match
+        description: "True when a matching so/line/ship row exists in the sales foundation."
+      - name: requisition_date
+        description: "transfers.PO_Date - when the receiving branch raised the request. Equals sales order_date."
+      - name: need_by_date
+        description: "transfers.PO_Due_Date - when the receiving branch needs the material (their target)."
+      - name: promise_date
+        description: >
+          Sales promise_date - when the shipping branch committed to ship (their target).
+          Matches sales request_date ~78% of the time. Null where there's no sales match.
+      - name: ship_date
+        description: >
+          Date the transfer shipped. transfers.Last_Receipt_Date (despite the name, it equals
+          sales actual_ship_date on every matched row), falling back to sales actual_ship_date.
+          Null for open orders and quotes. Not an arrival date.

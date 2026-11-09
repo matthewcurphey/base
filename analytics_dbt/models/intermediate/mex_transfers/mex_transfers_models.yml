@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: int_oracle__mex_transfers_01_deliveries
+    description: >
+      One row per internal order x item x delivery from the Oracle shipping exports
+      (stg_castle_oracle__transfer_shipments), joined exactly to the receiving branch's
+      receipts (stg_castle_oracle__transfer_receipts) on delivery (shipment) number + item +
+      receiving org. A delivery can carry several orders of the same item and the receipt is
+      booked per delivery, so delivery_status (In transit / Partially received / Received)
+      compares received vs shipped at delivery x item level.
+    columns:
+      - name: delivery_line_key
+        description: "so_nbr | item_nbr | delivery_nbr | receiving_org_code - the model's grain."
+        tests:
+          - unique
+          - not_null
+      - name: delivery_nbr
+        description: "Oracle shipment number - shown as Delivery on the order screen."
+        tests:
+          - not_null
+      - name: delivery_status
+        tests:
+          - accepted_values:
+              values: ['In transit', 'Partially received', 'Received']
+
+  - name: int_oracle__mex_transfers_02_transferline
+    description: >
+      Transfer lines into MXM, MXQ, MTY and MCH at so/line/ship grain, with exact receipt
+      status. Joined to 01_deliveries on so_nbr + item_nbr + ship date. ship_to_org_code
+      falls back to the Oracle shipment's receiving org where the TRANSFER report's receiving
+      branch is blank. transfer_status: Cancelled / Open (not shipped) / Not tracked (shipping
+      branch not exported, or shipped before its export starts) / In transit / Partially
+      received / Received. Receipt recency depends on the last manual Oracle export.
+    columns:
+      - name: so_nbr
+        tests:
+          - not_null
+      - name: transfer_status
+        tests:
+          - accepted_values:
+              values: ['Cancelled', 'Open', 'Not tracked', 'In transit', 'Partially received', 'Received']
+      - name: received_date
+        description: "First receipt date at the receiving branch across the line's deliveries."
+      - name: days_in_transit_open
+        description: "For shipped, tracked lines with nothing received yet: days since ship."
+      - name: is_shared_delivery
+        description: "Delivery also carried other orders of the same item - received qty can't be split per order."

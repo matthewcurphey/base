@@ -52,9 +52,10 @@ cleaned as (
         trim(sales_line_nbr)                            as sales_line_nbr,
         trim(order_number)                              as order_number,
         trim(shipping_inv_org_name)                     as shipping_inv_org_name,
-        cast(po_date as date)                           as po_date,
-        cast(po_due_date as date)                       as po_due_date,
-        cast(last_receipt_date as date)                 as last_receipt_date
+        -- OBIEE exports 'Missing' for blank dates (e.g. cancelled quotes)
+        cast(nullif(nullif(trim(po_date), ''), 'Missing') as date)            as po_date,
+        cast(nullif(nullif(trim(po_due_date), ''), 'Missing') as date)        as po_due_date,
+        cast(nullif(nullif(trim(last_receipt_date), ''), 'Missing') as date)  as last_receipt_date
 
     from raw
 

@@ -129,6 +129,8 @@ def run_oracle_download():
 
 from etl.jobs.oracle.oracle_inventory_ingest import ingest_castle_oracle_inventory
 from etl.jobs.oracle.oracle_open_orders_ingest import ingest_castle_oracle_open_orders
+from etl.jobs.oracle.oracle_transfer_receipts_ingest import ingest_castle_oracle_transfer_receipts
+from etl.jobs.oracle.oracle_transfer_shipments_ingest import ingest_castle_oracle_transfer_shipments
 
 def run_all_oracle_ingestions():
     print("Starting Oracle ingestion pipeline...")
@@ -140,6 +142,16 @@ def run_all_oracle_ingestions():
     print("Ingesting Castle Oracle Open Orders...")
     ingest_castle_oracle_open_orders()
     print("Castle Oracle Open Orders done.\n")
+
+    # Manual weekly exports (transfer_receipts_<ORG>.xls, transfer_orders_<ORG>.xls)
+    # - reloads whatever was last saved
+    print("Ingesting Castle Oracle Transfer Receipts...")
+    ingest_castle_oracle_transfer_receipts()
+    print("Castle Oracle Transfer Receipts done.\n")
+
+    print("Ingesting Castle Oracle Transfer Shipments...")
+    ingest_castle_oracle_transfer_shipments()
+    print("Castle Oracle Transfer Shipments done.\n")
 
     print("All Oracle ingestion jobs completed successfully!")
 
