@@ -28,6 +28,9 @@ DEBUG_DIR = os.path.join("etl", "extract", "castle", "obiee_debug")
 # take a couple of minutes.
 DOWNLOAD_TIMEOUT_S = 5 * 60
 PAGE_LOAD_TIMEOUT_MS = 3 * 60 * 1000
+# Large exports occasionally get canceled mid-transfer; a fresh attempt
+# usually goes through.
+MAX_ATTEMPTS = 3
 
 
 def _report_url(path: str) -> str:
@@ -110,7 +113,12 @@ def download_obiee_report(context, page, report_key: str) -> str:
 
     download = downloads[0]
     target_path = os.path.join(CASTLE_RAW_DIR, filename)
-    download.save_as(target_path)
+    try:
+        download.save_as(target_path)
+    except Exception as e:
+        # save_as only says "canceled" — failure() carries the browser's reason
+        # (e.g. network error, server closed the stream mid-export).
+        raise RuntimeError(f"{report_key} download failed: {download.failure() or e}") from e
     return target_path
 
 
@@ -126,16 +134,19 @@ def download_all_obiee_reports(report_keys=None):
 
         for key in keys:
             print(f"Downloading {key}...")
-            try:
-                target_path = download_obiee_report(context, page, key)
-                print(f"  saved: {target_path}")
-                results.append(target_path)
-            except Exception:
-                os.makedirs(DEBUG_DIR, exist_ok=True)
-                shot_path = os.path.join(DEBUG_DIR, f"{key}_failure.png")
-                page.screenshot(path=shot_path)
-                print(f"  FAILED — screenshot saved to {shot_path}")
-                raise
+            for attempt in range(1, MAX_ATTEMPTS + 1):
+                try:
+                    target_path = download_obiee_report(context, page, key)
+                    print(f"  saved: {target_path}")
+                    results.append(target_path)
+                    break
+                except Exception as e:
+                    os.makedirs(DEBUG_DIR, exist_ok=True)
+                    shot_path = os.path.join(DEBUG_DIR, f"{key}_failure.png")
+                    page.screenshot(path=shot_path)
+                    print(f"  attempt {attempt}/{MAX_ATTEMPTS} FAILED ({e}) — screenshot saved to {shot_path}")
+                    if attempt == MAX_ATTEMPTS:
+                        raise
 
         browser.close()
 

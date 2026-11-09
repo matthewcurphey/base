@@ -25,6 +25,9 @@ PLEASE_WAIT_MAX_ATTEMPTS = 8
 PLEASE_WAIT_RETRY_S = 8
 GOTO_MAX_ATTEMPTS = 5
 GOTO_RETRY_S = 10
+# The transfer occasionally gets canceled mid-download on slow connections;
+# a fresh browser session usually goes through.
+MAX_ATTEMPTS = 3
 DEBUG_DIR = os.path.join("etl", "extract", "sharepoint", "sharepoint_debug")
 
 
@@ -109,6 +112,16 @@ def _open_file_menu_if_needed(page, wac):
 
 
 def download_open_orders():
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            return _download_open_orders_once()
+        except Exception as e:
+            print(f"Open orders download attempt {attempt}/{MAX_ATTEMPTS} FAILED ({e})")
+            if attempt == MAX_ATTEMPTS:
+                raise
+
+
+def _download_open_orders_once():
     os.makedirs(SHAREPOINT_RAW_DIR, exist_ok=True)
     os.makedirs(BROWSER_PROFILE_DIR, exist_ok=True)
 
@@ -150,7 +163,11 @@ def download_open_orders():
             raise
 
         target_path = os.path.join(SHAREPOINT_RAW_DIR, TARGET_FILENAME)
-        downloads[0].save_as(target_path)
+        try:
+            downloads[0].save_as(target_path)
+        except Exception as e:
+            # save_as only says "canceled" — failure() carries the browser's reason.
+            raise RuntimeError(f"Open orders download failed: {downloads[0].failure() or e}") from e
         print(f"Saved: {target_path}")
 
         context.close()
